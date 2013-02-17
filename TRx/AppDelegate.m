@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
 //  TRx
-//
-//  Created by Mark Bellott on 2/17/13.
+//  
+//  Created by Mark Bellott on 2/17/13. and me! meeeee!!!!
 //  Copyright (c) 2013 Team Ecuador. All rights reserved.
 //
 
