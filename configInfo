@@ -1,0 +1,21 @@
+
+
+
+Create a soft link to Mischa's Database from MAMP/db/mysql/
+  ln -s /path/to/Database TRxDB
+
+Create a soft link to TRxTalk from MAMP/htdocs
+  ln -s /path/to/TRxTalk TRxTalk
+
+
+my code assumes you connect on localHost:8888. If not, update the config file at:
+  TRxTalk/application/config/config.php
+
+Change your base_url to the location of the link you made in MAMP/htdocs
+
+
+  
+  TRxTalk/application/config/database.php must also be configured to interact with database. Probably just line 54:
+  $db['default']['database'] = 'databaseName'; 	
+
+
