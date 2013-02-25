@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1300E3BD16DA9D1B0033151C /* DBTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 1300E3BC16DA9D1B0033151C /* DBTalk.m */; };
 		A855190416D40585004B1537 /* AnesthesiologistRecord.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518F216D40585004B1537 /* AnesthesiologistRecord.frm */; };
 		A855190516D40585004B1537 /* db.opt in Resources */ = {isa = PBXBuildFile; fileRef = A85518F316D40585004B1537 /* db.opt */; };
 		A855190616D40585004B1537 /* DischargeOrder.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518F416D40585004B1537 /* DischargeOrder.frm */; };
@@ -54,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1300E3BB16DA9D1B0033151C /* DBTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTalk.h; sourceTree = "<group>"; };
+		1300E3BC16DA9D1B0033151C /* DBTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTalk.m; sourceTree = "<group>"; };
 		A85518F216D40585004B1537 /* AnesthesiologistRecord.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = AnesthesiologistRecord.frm; sourceTree = "<group>"; };
 		A85518F316D40585004B1537 /* db.opt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = db.opt; sourceTree = "<group>"; };
 		A85518F416D40585004B1537 /* DischargeOrder.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = DischargeOrder.frm; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 		C44D6F2E16D19AD60036E40B /* TRx */ = {
 			isa = PBXGroup;
 			children = (
+				1300E3BB16DA9D1B0033151C /* DBTalk.h */,
+				1300E3BC16DA9D1B0033151C /* DBTalk.m */,
 				C44D6F3716D19AD60036E40B /* AppDelegate.h */,
 				C44D6F3816D19AD60036E40B /* AppDelegate.m */,
 				C44D6F4016D19AD60036E40B /* MainStoryboard.storyboard */,
@@ -353,6 +358,7 @@
 				C44D6F3516D19AD60036E40B /* main.m in Sources */,
 				C44D6F3916D19AD60036E40B /* AppDelegate.m in Sources */,
 				C44D6F4516D19AD60036E40B /* ViewController.m in Sources */,
+				1300E3BD16DA9D1B0033151C /* DBTalk.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
