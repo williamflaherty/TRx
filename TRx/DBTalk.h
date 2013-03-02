@@ -10,18 +10,30 @@
 
 @interface DBTalk : NSObject
 
--(UIImage *)getImageFromServer: (NSString *)patientID: (NSURL *)url;
--(BOOL)addImageToServer: (NSString *)patientID: (UIImage *)image: (NSString *)name;
+{
+    NSString *Host;
+    
+}
 
- /* if previous record exists, copies all possible info. Else nothing */
--(BOOL)addRecord: (NSString *)patientID;
+//-(UIImage *)getImageFromServer: (NSString *)patientID: (NSURL *)url;
+//-(BOOL)addImageToServer: (NSString *)patientID: (UIImage *)image: (NSString *)name;
+//
+// /* if previous record exists, copies all possible info. Else nothing */
+//-(BOOL)addRecord: (NSString *)patientID;
+//
+//-(BOOL)addPatient: (NSString *)name;
+//-(NSString *)getNewPatientID;
+//
+// /*an array of dictionaries? or a Dicionary with two arrays */
+//-(NSArray *)getPatientList;
+//
 
--(BOOL)addPatient: (NSString *)name;
--(NSString *)getNewPatientID;
++(NSString *)addPatient:(NSString *)firstName: (NSString *)middleName: (NSString *)lastName:
+(NSString *)birthday;
 
- /*an array of dictionaries? or a Dicionary with two arrays */
--(NSArray *)getPatientList;
++(NSString *)addRecord:(NSString *)patientId: (NSString *)surgeryTypeId;
 
 
++(NSString *) urlEncodeData:(NSString *)str;
 
 @end
