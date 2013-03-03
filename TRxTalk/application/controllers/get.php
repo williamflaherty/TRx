@@ -2,13 +2,9 @@
 
 class Get extends CI_Controller {
 
-	public function patientList($page = 'basic')
+	public function patientList()
 	{
-		if (! file_exists('application/views/displayJSON/'.$page.'.php'))
-		{
-			echo "404 message here";
-		 	//show_404();
-		}
+		$page = 'basic';
 		$this->load->database();
 		$query = $this->db->query("SELECT p.ID, r.IsActive, p.FirstName, p.LastName, p.MiddleName 
 									from Patient p, PatientRecord r where p.ID = r.PatientID");
@@ -19,14 +15,21 @@ class Get extends CI_Controller {
 		$this->load->view('displayJSON/'.$page, $ret);
 	}
 
-	public function portraitURL($page = 'basic', $PatientID)
+	public function profileURL($patientId = NULL)
 	{
+		$page = 'basic';
 		$this->load->database();
-		$query = $this->db->query("Select Path from Picture where id = $PatientID");
+		$query = $this->db->query("Select Path from Picture where id = $PatientID and IsProfile = 1");
 		$ret['jsonStr'] = json_encode($query->result_array());
 		$this->load->view('displayJSON/'.$page, $ret);
 	}
 
-
-
+	public function numPictures($patientId = NULL)
+	{
+		$page = 'basic';
+		$this->load->database();
+		$query = $this->db->query("Select count(*) as numPictures from Picture where Id = $patientId");
+		$ret['jsonStr'] = json_encode($query->result_array());
+		$this->load->view('displayJSON/'.$page, $ret);
+	}
 }

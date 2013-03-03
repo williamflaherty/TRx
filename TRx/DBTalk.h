@@ -11,29 +11,36 @@
 @interface DBTalk : NSObject
 
 {
-    NSString *Host;
+    NSString *host;
     
 }
 
-//-(UIImage *)getImageFromServer: (NSString *)patientID: (NSURL *)url;
-//-(BOOL)addImageToServer: (NSString *)patientID: (UIImage *)image: (NSString *)name;
-//
-// /* if previous record exists, copies all possible info. Else nothing */
-//-(BOOL)addRecord: (NSString *)patientID;
-//
-//-(BOOL)addPatient: (NSString *)name;
-//-(NSString *)getNewPatientID;
-//
-// /*an array of dictionaries? or a Dicionary with two arrays */
-//-(NSArray *)getPatientList;
-//
 
-+(NSString *)addPatient:(NSString *)firstName: (NSString *)middleName: (NSString *)lastName:
-(NSString *)birthday;
++(NSArray *)getPatientList;
+
++(UIImage *)getPortraitFromServer:(NSString *)fileName;
++(UIImage *)getThumbFromServer:(NSString *)fileName;
++(UIImage *)getProfilePictureFromServer:(NSString *)patientId;
+
++(NSString *)addPicture:(UIImage *)picture
+              pictureId:(NSString *)pictureId
+              patientId:(NSString *)patientId
+      customPictureName:(NSString *)customPictureName
+              isProfile:(NSString *)isProfile;
+
++(BOOL)sendPictureToServer:(UIImage *)picture
+                  fileName:(NSString *)fileName;
+
++(NSString *)addPatient:(NSString *)firstName
+             middleName:(NSString *)middleName
+               lastName:(NSString *)lastName
+               birthday:(NSString *)birthday;
+
++(BOOL)deletePatient: (NSString *)patientId;
 
 +(NSString *)addRecord:(NSString *)patientId: (NSString *)surgeryTypeId;
 
 
-+(NSString *) urlEncodeData:(NSString *)str;
+
 
 @end

@@ -20,14 +20,13 @@ class Add extends CI_Controller {
 		#$profilePicturePath = "~/GoogleDrive/Team\ Ecuador/Data/images/$PatID.001.jpg"; //file on server. can't do it this procedure
 		$this->load->database();
 		$query_str = "Call PatientInsertUpdate ('$firstName', '$middleName', '$lastName',
-			'$birthday', '$profilePicturePath', '$profilePictureName', @patientId)";
+			'$birthday', '$profilePicturePath', '$profilePictureName', @returnValue)";
 		$query = $this->db->query($query_str);
 		//get return value id. Keys in json as [{"@my_id":"value"}]
-		$query = $this->db->query("Select @patientId");
+		$query = $this->db->query("Select @returnValue");
 		$ret['jsonStr'] = json_encode($query->result_array());
 		$this->load->view('displayJSON/'.$page, $ret);
 	}
-	#$_POST['var1'] = 32;
 
 
 	public function addRecord($patientId = NULL,
@@ -38,13 +37,31 @@ class Add extends CI_Controller {
 	{
 		$page = 'basic';
 		$this->load->database();
-		$query_str = "Call PatientRecordInsert($patientId, $surgeryTypeId, $doctorId, $isActive, $hasTimeout, @recordId)";
+		$query_str = "Call PatientRecordInsert($patientId, $surgeryTypeId, 
+												$doctorId, $isActive, 
+												$hasTimeout, @returnValue)";
 		$query = $this->db->query($query_str);
-		$query = $this->db->query("Select @recordId");
+		$query = $this->db->query("Select @returnValue");
 		$ret['jsonStr'] = json_encode($query->result_array());
 		$this->load->view('displayJSON/'.$page, $ret);
 	}
 
+	public function addPicture($picId = NULL,
+		$patientId = NULL,
+		$picturePath = NULL,
+		$pictureName = NULL,
+		$isProfile = NULL)
+	{
+		$page = 'basic';
+		$this->load->database();
+		$query_str = "Call PictureInsertUpdate($picId, $patientId, 
+												$picturePath, $pictureName, 
+												$isProfile, @returnValue)";
+		$query = $this->db->query($query_str);
+		$query = $this->db->query("Select @returnValue");
+		$ret['jsonStr'] = json_encode($query->result_array());
+		$this->load->view('displayJSON/'.$page, $ret);
+	}
 
 
 }
