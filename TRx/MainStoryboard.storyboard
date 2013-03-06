@@ -4,107 +4,36 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--View Controller - New Patient-->
-        <scene sceneID="55b-5W-HOc">
-            <objects>
-                <viewController id="nRW-yr-IXK" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ui4-Bu-Ium">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTz-YF-Wha">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="New Patient Added!">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="PSU-Ms-ePG" kind="push" id="bFX-LN-em0"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="DTz-YF-Wha" firstAttribute="top" secondItem="ui4-Bu-Ium" secondAttribute="top" constant="458" id="5G0-T1-WRb"/>
-                            <constraint firstItem="DTz-YF-Wha" firstAttribute="centerX" secondItem="ui4-Bu-Ium" secondAttribute="centerX" type="default" id="Lrk-El-R6b"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="New Patient" id="EMF-Cq-u1e"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pjy-y1-xHo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3087" y="-4309"/>
-        </scene>
         <!--View Controller - Item 2-->
         <scene sceneID="k5r-dc-ijP">
             <objects>
                 <viewController id="z6x-Af-ReE" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wv1-Bk-ZoF">
-                        <rect key="frame" x="0.0" y="20" width="768" height="955"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laf-eW-RQ9">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Patient List">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="azQ-T5-HYE" kind="custom" id="2q5-Y2-X3E"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="laf-eW-RQ9" firstAttribute="top" secondItem="wv1-Bk-ZoF" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Xhk-Q1-VFy"/>
-                            <constraint firstItem="laf-eW-RQ9" firstAttribute="leading" secondItem="wv1-Bk-ZoF" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="oWw-dR-2Pc"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="8eK-AI-kUo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQK-Fy-iLm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1093" y="-727"/>
+            <point key="canvasLocation" x="-1758" y="-1375"/>
         </scene>
         <!--View Controller - Item 1-->
         <scene sceneID="0hp-Q1-PYy">
             <objects>
                 <viewController id="XVs-Rn-8gv" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oW9-81-ugR">
-                        <rect key="frame" x="0.0" y="20" width="768" height="955"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6BD-nP-Kyu">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Patient List">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="azQ-T5-HYE" kind="push" id="wvo-V3-aRg"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="6BD-nP-Kyu" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="20" symbolic="YES" type="default" id="VKk-KJ-5DL"/>
-                            <constraint firstItem="6BD-nP-Kyu" firstAttribute="leading" secondItem="oW9-81-ugR" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="pFy-dX-0i0"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="wIy-bz-aBB"/>
+                    <navigationItem key="navigationItem" id="fYU-RP-Ebd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQ1-ce-NTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1078" y="-3443"/>
+            <point key="canvasLocation" x="-1742" y="-2747"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CTA-x1-Arn">
@@ -126,14 +55,14 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ALq-SH-P8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2117" y="-2125"/>
+            <point key="canvasLocation" x="-2905" y="-2117"/>
         </scene>
         <!--Table View Controller - Patients-->
         <scene sceneID="n7n-nt-OUV">
             <objects>
                 <tableViewController id="azQ-T5-HYE" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vWO-V5-2mN">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -196,7 +125,7 @@
                     <navigationItem key="navigationItem" title="Patients" id="msi-Bg-QGb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2CS-7z-azS">
                             <connections>
-                                <segue destination="nRW-yr-IXK" kind="push" id="Zmo-eX-mIf"/>
+                                <segue destination="PSU-Ms-ePG" kind="push" id="dHW-9G-gIz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -208,7 +137,6 @@
         <!--Navigation Controller-->
         <scene sceneID="UAZ-qp-SXW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kxE-NJ-How" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="7jt-WL-d61" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="aoP-5g-Jok"/>
@@ -221,22 +149,17 @@
                         <segue destination="azQ-T5-HYE" kind="relationship" relationship="rootViewController" id="24U-Ag-Tr7"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kxE-NJ-How" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5051" y="-2109"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bFX-LN-em0"/>
-        <segue reference="2q5-Y2-X3E"/>
+        <segue reference="eag-Av-bgc"/>
     </inferredMetricsTieBreakers>
 </document>
