@@ -7,24 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A855190416D40585004B1537 /* AnesthesiologistRecord.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518F216D40585004B1537 /* AnesthesiologistRecord.frm */; };
-		A855190516D40585004B1537 /* db.opt in Resources */ = {isa = PBXBuildFile; fileRef = A85518F316D40585004B1537 /* db.opt */; };
-		A855190616D40585004B1537 /* DischargeOrder.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518F416D40585004B1537 /* DischargeOrder.frm */; };
-		A855190716D40585004B1537 /* DischargeOrderTemplate.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518F516D40585004B1537 /* DischargeOrderTemplate.frm */; };
-		A855190816D40585004B1537 /* Doctor.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518F616D40585004B1537 /* Doctor.frm */; };
-		A855190916D40585004B1537 /* History.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518F716D40585004B1537 /* History.frm */; };
-		A855190A16D40585004B1537 /* LaboratoryData.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518F816D40585004B1537 /* LaboratoryData.frm */; };
-		A855190B16D40585004B1537 /* NurseOrder.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518F916D40585004B1537 /* NurseOrder.frm */; };
-		A855190C16D40585004B1537 /* NurseOrderTemplate.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518FA16D40585004B1537 /* NurseOrderTemplate.frm */; };
-		A855190D16D40585004B1537 /* Patient.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518FB16D40585004B1537 /* Patient.frm */; };
-		A855190E16D40585004B1537 /* PatientRecord.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518FC16D40585004B1537 /* PatientRecord.frm */; };
-		A855190F16D40585004B1537 /* PhysicalExam.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518FD16D40585004B1537 /* PhysicalExam.frm */; };
-		A855191016D40585004B1537 /* Picture.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518FE16D40585004B1537 /* Picture.frm */; };
-		A855191116D40585004B1537 /* Recovery.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518FF16D40585004B1537 /* Recovery.frm */; };
-		A855191216D40585004B1537 /* SurgeonRecord.frm in Resources */ = {isa = PBXBuildFile; fileRef = A855190016D40585004B1537 /* SurgeonRecord.frm */; };
-		A855191316D40585004B1537 /* SurgeryType.frm in Resources */ = {isa = PBXBuildFile; fileRef = A855190116D40585004B1537 /* SurgeryType.frm */; };
-		A855191416D40585004B1537 /* Video.frm in Resources */ = {isa = PBXBuildFile; fileRef = A855190216D40585004B1537 /* Video.frm */; };
-		A855191516D40585004B1537 /* VideoType.frm in Resources */ = {isa = PBXBuildFile; fileRef = A855190316D40585004B1537 /* VideoType.frm */; };
+		1300E3BD16DA9D1B0033151C /* DBTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 1300E3BC16DA9D1B0033151C /* DBTalk.m */; };
 		C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
 		C44D6F2B16D19AD60036E40B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2A16D19AD60036E40B /* Foundation.framework */; };
 		C44D6F2D16D19AD60036E40B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2C16D19AD60036E40B /* CoreGraphics.framework */; };
@@ -34,13 +17,14 @@
 		C44D6F3B16D19AD60036E40B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C44D6F3A16D19AD60036E40B /* Default.png */; };
 		C44D6F3D16D19AD60036E40B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C44D6F3C16D19AD60036E40B /* Default@2x.png */; };
 		C44D6F3F16D19AD60036E40B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C44D6F3E16D19AD60036E40B /* Default-568h@2x.png */; };
-		C44D6F4216D19AD60036E40B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D6F4016D19AD60036E40B /* MainStoryboard.storyboard */; };
 		C44D6F4516D19AD60036E40B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D6F4416D19AD60036E40B /* ViewController.m */; };
 		C44D6F4D16D19AD60036E40B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F4C16D19AD60036E40B /* SenTestingKit.framework */; };
 		C44D6F4E16D19AD60036E40B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
 		C44D6F4F16D19AD60036E40B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2A16D19AD60036E40B /* Foundation.framework */; };
 		C44D6F5716D19AD60036E40B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C44D6F5516D19AD60036E40B /* InfoPlist.strings */; };
 		C44D6F5A16D19AD60036E40B /* TRxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D6F5916D19AD60036E40B /* TRxTests.m */; };
+		C474A24E16E709C1006F2B0B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C474A24D16E709C1006F2B0B /* MainStoryboard.storyboard */; };
+		C474A25216E70A02006F2B0B /* PatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C474A25016E70A02006F2B0B /* PatientListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,24 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A85518F216D40585004B1537 /* AnesthesiologistRecord.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = AnesthesiologistRecord.frm; sourceTree = "<group>"; };
-		A85518F316D40585004B1537 /* db.opt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = db.opt; sourceTree = "<group>"; };
-		A85518F416D40585004B1537 /* DischargeOrder.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = DischargeOrder.frm; sourceTree = "<group>"; };
-		A85518F516D40585004B1537 /* DischargeOrderTemplate.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = DischargeOrderTemplate.frm; sourceTree = "<group>"; };
-		A85518F616D40585004B1537 /* Doctor.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Doctor.frm; sourceTree = "<group>"; };
-		A85518F716D40585004B1537 /* History.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = History.frm; sourceTree = "<group>"; };
-		A85518F816D40585004B1537 /* LaboratoryData.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = LaboratoryData.frm; sourceTree = "<group>"; };
-		A85518F916D40585004B1537 /* NurseOrder.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = NurseOrder.frm; sourceTree = "<group>"; };
-		A85518FA16D40585004B1537 /* NurseOrderTemplate.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = NurseOrderTemplate.frm; sourceTree = "<group>"; };
-		A85518FB16D40585004B1537 /* Patient.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Patient.frm; sourceTree = "<group>"; };
-		A85518FC16D40585004B1537 /* PatientRecord.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = PatientRecord.frm; sourceTree = "<group>"; };
-		A85518FD16D40585004B1537 /* PhysicalExam.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = PhysicalExam.frm; sourceTree = "<group>"; };
-		A85518FE16D40585004B1537 /* Picture.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Picture.frm; sourceTree = "<group>"; };
-		A85518FF16D40585004B1537 /* Recovery.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Recovery.frm; sourceTree = "<group>"; };
-		A855190016D40585004B1537 /* SurgeonRecord.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = SurgeonRecord.frm; sourceTree = "<group>"; };
-		A855190116D40585004B1537 /* SurgeryType.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = SurgeryType.frm; sourceTree = "<group>"; };
-		A855190216D40585004B1537 /* Video.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video.frm; sourceTree = "<group>"; };
-		A855190316D40585004B1537 /* VideoType.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = VideoType.frm; sourceTree = "<group>"; };
+		1300E3BB16DA9D1B0033151C /* DBTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTalk.h; sourceTree = "<group>"; };
+		1300E3BC16DA9D1B0033151C /* DBTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTalk.m; sourceTree = "<group>"; };
 		C44D6F2516D19AD60036E40B /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44D6F2816D19AD60036E40B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C44D6F2A16D19AD60036E40B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -85,7 +53,6 @@
 		C44D6F3A16D19AD60036E40B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C44D6F3C16D19AD60036E40B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C44D6F3E16D19AD60036E40B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		C44D6F4116D19AD60036E40B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		C44D6F4316D19AD60036E40B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		C44D6F4416D19AD60036E40B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C44D6F4B16D19AD60036E40B /* TRxTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TRxTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +61,9 @@
 		C44D6F5616D19AD60036E40B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C44D6F5816D19AD60036E40B /* TRxTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRxTests.h; sourceTree = "<group>"; };
 		C44D6F5916D19AD60036E40B /* TRxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRxTests.m; sourceTree = "<group>"; };
+		C474A24D16E709C1006F2B0B /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		C474A24F16E70A02006F2B0B /* PatientListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientListViewController.h; sourceTree = "<group>"; };
+		C474A25016E70A02006F2B0B /* PatientListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,35 +90,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A85518F116D40585004B1537 /* TRxDB */ = {
-			isa = PBXGroup;
-			children = (
-				A85518F216D40585004B1537 /* AnesthesiologistRecord.frm */,
-				A85518F316D40585004B1537 /* db.opt */,
-				A85518F416D40585004B1537 /* DischargeOrder.frm */,
-				A85518F516D40585004B1537 /* DischargeOrderTemplate.frm */,
-				A85518F616D40585004B1537 /* Doctor.frm */,
-				A85518F716D40585004B1537 /* History.frm */,
-				A85518F816D40585004B1537 /* LaboratoryData.frm */,
-				A85518F916D40585004B1537 /* NurseOrder.frm */,
-				A85518FA16D40585004B1537 /* NurseOrderTemplate.frm */,
-				A85518FB16D40585004B1537 /* Patient.frm */,
-				A85518FC16D40585004B1537 /* PatientRecord.frm */,
-				A85518FD16D40585004B1537 /* PhysicalExam.frm */,
-				A85518FE16D40585004B1537 /* Picture.frm */,
-				A85518FF16D40585004B1537 /* Recovery.frm */,
-				A855190016D40585004B1537 /* SurgeonRecord.frm */,
-				A855190116D40585004B1537 /* SurgeryType.frm */,
-				A855190216D40585004B1537 /* Video.frm */,
-				A855190316D40585004B1537 /* VideoType.frm */,
-			);
-			path = TRxDB;
-			sourceTree = "<group>";
-		};
 		C44D6F1C16D19AD60036E40B = {
 			isa = PBXGroup;
 			children = (
-				A85518F116D40585004B1537 /* TRxDB */,
 				C44D6F2E16D19AD60036E40B /* TRx */,
 				C44D6F5216D19AD60036E40B /* TRxTests */,
 				C44D6F2716D19AD60036E40B /* Frameworks */,
@@ -179,9 +123,13 @@
 		C44D6F2E16D19AD60036E40B /* TRx */ = {
 			isa = PBXGroup;
 			children = (
+				C474A24C16E7093B006F2B0B /* Tabbed View Controller */,
+				C474A24B16E7092A006F2B0B /* Patient List */,
+				1300E3BB16DA9D1B0033151C /* DBTalk.h */,
+				1300E3BC16DA9D1B0033151C /* DBTalk.m */,
 				C44D6F3716D19AD60036E40B /* AppDelegate.h */,
 				C44D6F3816D19AD60036E40B /* AppDelegate.m */,
-				C44D6F4016D19AD60036E40B /* MainStoryboard.storyboard */,
+				C474A24D16E709C1006F2B0B /* MainStoryboard.storyboard */,
 				C44D6F4316D19AD60036E40B /* ViewController.h */,
 				C44D6F4416D19AD60036E40B /* ViewController.m */,
 				C44D6F2F16D19AD60036E40B /* Supporting Files */,
@@ -220,6 +168,22 @@
 				C44D6F5516D19AD60036E40B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C474A24B16E7092A006F2B0B /* Patient List */ = {
+			isa = PBXGroup;
+			children = (
+				C474A24F16E70A02006F2B0B /* PatientListViewController.h */,
+				C474A25016E70A02006F2B0B /* PatientListViewController.m */,
+			);
+			name = "Patient List";
+			sourceTree = "<group>";
+		};
+		C474A24C16E7093B006F2B0B /* Tabbed View Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Tabbed View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,25 +261,7 @@
 				C44D6F3B16D19AD60036E40B /* Default.png in Resources */,
 				C44D6F3D16D19AD60036E40B /* Default@2x.png in Resources */,
 				C44D6F3F16D19AD60036E40B /* Default-568h@2x.png in Resources */,
-				C44D6F4216D19AD60036E40B /* MainStoryboard.storyboard in Resources */,
-				A855190416D40585004B1537 /* AnesthesiologistRecord.frm in Resources */,
-				A855190516D40585004B1537 /* db.opt in Resources */,
-				A855190616D40585004B1537 /* DischargeOrder.frm in Resources */,
-				A855190716D40585004B1537 /* DischargeOrderTemplate.frm in Resources */,
-				A855190816D40585004B1537 /* Doctor.frm in Resources */,
-				A855190916D40585004B1537 /* History.frm in Resources */,
-				A855190A16D40585004B1537 /* LaboratoryData.frm in Resources */,
-				A855190B16D40585004B1537 /* NurseOrder.frm in Resources */,
-				A855190C16D40585004B1537 /* NurseOrderTemplate.frm in Resources */,
-				A855190D16D40585004B1537 /* Patient.frm in Resources */,
-				A855190E16D40585004B1537 /* PatientRecord.frm in Resources */,
-				A855190F16D40585004B1537 /* PhysicalExam.frm in Resources */,
-				A855191016D40585004B1537 /* Picture.frm in Resources */,
-				A855191116D40585004B1537 /* Recovery.frm in Resources */,
-				A855191216D40585004B1537 /* SurgeonRecord.frm in Resources */,
-				A855191316D40585004B1537 /* SurgeryType.frm in Resources */,
-				A855191416D40585004B1537 /* Video.frm in Resources */,
-				A855191516D40585004B1537 /* VideoType.frm in Resources */,
+				C474A24E16E709C1006F2B0B /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +299,8 @@
 				C44D6F3516D19AD60036E40B /* main.m in Sources */,
 				C44D6F3916D19AD60036E40B /* AppDelegate.m in Sources */,
 				C44D6F4516D19AD60036E40B /* ViewController.m in Sources */,
+				1300E3BD16DA9D1B0033151C /* DBTalk.m in Sources */,
+				C474A25216E70A02006F2B0B /* PatientListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,14 +329,6 @@
 				C44D6F3216D19AD60036E40B /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		C44D6F4016D19AD60036E40B /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C44D6F4116D19AD60036E40B /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 		C44D6F5516D19AD60036E40B /* InfoPlist.strings */ = {
@@ -495,6 +435,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TRx/TRx-Prefix.pch";
 				INFOPLIST_FILE = "TRxTests/TRxTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -512,6 +453,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TRx/TRx-Prefix.pch";
 				INFOPLIST_FILE = "TRxTests/TRxTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
