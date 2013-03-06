@@ -1,19 +1,17 @@
 
 
-getPatientList
-addImage
-deletePatient
-deleteRecord
 
-setProfilePicture
+
+
 insertData
 loadPatientData
-updateData
-updateRecord
 
 
 finished:
 addPatient
 addPatientRecord
-
-
+getPatientList
+deletePatient
+addImage
+setProfilePicture
+getProfilePicture
