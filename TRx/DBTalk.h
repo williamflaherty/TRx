@@ -38,8 +38,7 @@
 
 +(BOOL)deletePatient: (NSString *)patientId;
 
-+(NSString *)addRecord:(NSString *)patientId
-         surgeryTypeId:(NSString *)surgeryTypeId;
++(NSString *)addRecord:(NSString *)patientId: (NSString *)surgeryTypeId;
 
 
 
