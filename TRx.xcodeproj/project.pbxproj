@@ -8,28 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1300E3BD16DA9D1B0033151C /* DBTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 1300E3BC16DA9D1B0033151C /* DBTalk.m */; };
-<<<<<<< HEAD
-=======
-		13F348A416E52A9200269372 /* TestFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F348A316E52A9200269372 /* TestFunctions.m */; };
-		A855190416D40585004B1537 /* AnesthesiologistRecord.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518F216D40585004B1537 /* AnesthesiologistRecord.frm */; };
-		A855190516D40585004B1537 /* db.opt in Resources */ = {isa = PBXBuildFile; fileRef = A85518F316D40585004B1537 /* db.opt */; };
-		A855190616D40585004B1537 /* DischargeOrder.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518F416D40585004B1537 /* DischargeOrder.frm */; };
-		A855190716D40585004B1537 /* DischargeOrderTemplate.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518F516D40585004B1537 /* DischargeOrderTemplate.frm */; };
-		A855190816D40585004B1537 /* Doctor.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518F616D40585004B1537 /* Doctor.frm */; };
-		A855190916D40585004B1537 /* History.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518F716D40585004B1537 /* History.frm */; };
-		A855190A16D40585004B1537 /* LaboratoryData.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518F816D40585004B1537 /* LaboratoryData.frm */; };
-		A855190B16D40585004B1537 /* NurseOrder.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518F916D40585004B1537 /* NurseOrder.frm */; };
-		A855190C16D40585004B1537 /* NurseOrderTemplate.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518FA16D40585004B1537 /* NurseOrderTemplate.frm */; };
-		A855190D16D40585004B1537 /* Patient.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518FB16D40585004B1537 /* Patient.frm */; };
-		A855190E16D40585004B1537 /* PatientRecord.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518FC16D40585004B1537 /* PatientRecord.frm */; };
-		A855190F16D40585004B1537 /* PhysicalExam.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518FD16D40585004B1537 /* PhysicalExam.frm */; };
-		A855191016D40585004B1537 /* Picture.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518FE16D40585004B1537 /* Picture.frm */; };
-		A855191116D40585004B1537 /* Recovery.frm in Resources */ = {isa = PBXBuildFile; fileRef = A85518FF16D40585004B1537 /* Recovery.frm */; };
-		A855191216D40585004B1537 /* SurgeonRecord.frm in Resources */ = {isa = PBXBuildFile; fileRef = A855190016D40585004B1537 /* SurgeonRecord.frm */; };
-		A855191316D40585004B1537 /* SurgeryType.frm in Resources */ = {isa = PBXBuildFile; fileRef = A855190116D40585004B1537 /* SurgeryType.frm */; };
-		A855191416D40585004B1537 /* Video.frm in Resources */ = {isa = PBXBuildFile; fileRef = A855190216D40585004B1537 /* Video.frm */; };
-		A855191516D40585004B1537 /* VideoType.frm in Resources */ = {isa = PBXBuildFile; fileRef = A855190316D40585004B1537 /* VideoType.frm */; };
->>>>>>> Cosmetic changes to DBTalk.h. Added class for testing purposes
 		C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
 		C44D6F2B16D19AD60036E40B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2A16D19AD60036E40B /* Foundation.framework */; };
 		C44D6F2D16D19AD60036E40B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2C16D19AD60036E40B /* CoreGraphics.framework */; };
@@ -62,29 +40,6 @@
 /* Begin PBXFileReference section */
 		1300E3BB16DA9D1B0033151C /* DBTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTalk.h; sourceTree = "<group>"; };
 		1300E3BC16DA9D1B0033151C /* DBTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTalk.m; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
-		13F348A216E52A9200269372 /* TestFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFunctions.h; path = ../TRx/TestFunctions.h; sourceTree = "<group>"; };
-		13F348A316E52A9200269372 /* TestFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestFunctions.m; path = ../TRx/TestFunctions.m; sourceTree = "<group>"; };
-		A85518F216D40585004B1537 /* AnesthesiologistRecord.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = AnesthesiologistRecord.frm; sourceTree = "<group>"; };
-		A85518F316D40585004B1537 /* db.opt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = db.opt; sourceTree = "<group>"; };
-		A85518F416D40585004B1537 /* DischargeOrder.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = DischargeOrder.frm; sourceTree = "<group>"; };
-		A85518F516D40585004B1537 /* DischargeOrderTemplate.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = DischargeOrderTemplate.frm; sourceTree = "<group>"; };
-		A85518F616D40585004B1537 /* Doctor.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Doctor.frm; sourceTree = "<group>"; };
-		A85518F716D40585004B1537 /* History.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = History.frm; sourceTree = "<group>"; };
-		A85518F816D40585004B1537 /* LaboratoryData.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = LaboratoryData.frm; sourceTree = "<group>"; };
-		A85518F916D40585004B1537 /* NurseOrder.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = NurseOrder.frm; sourceTree = "<group>"; };
-		A85518FA16D40585004B1537 /* NurseOrderTemplate.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = NurseOrderTemplate.frm; sourceTree = "<group>"; };
-		A85518FB16D40585004B1537 /* Patient.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Patient.frm; sourceTree = "<group>"; };
-		A85518FC16D40585004B1537 /* PatientRecord.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = PatientRecord.frm; sourceTree = "<group>"; };
-		A85518FD16D40585004B1537 /* PhysicalExam.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = PhysicalExam.frm; sourceTree = "<group>"; };
-		A85518FE16D40585004B1537 /* Picture.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Picture.frm; sourceTree = "<group>"; };
-		A85518FF16D40585004B1537 /* Recovery.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Recovery.frm; sourceTree = "<group>"; };
-		A855190016D40585004B1537 /* SurgeonRecord.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = SurgeonRecord.frm; sourceTree = "<group>"; };
-		A855190116D40585004B1537 /* SurgeryType.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = SurgeryType.frm; sourceTree = "<group>"; };
-		A855190216D40585004B1537 /* Video.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video.frm; sourceTree = "<group>"; };
-		A855190316D40585004B1537 /* VideoType.frm */ = {isa = PBXFileReference; lastKnownFileType = file; path = VideoType.frm; sourceTree = "<group>"; };
->>>>>>> Cosmetic changes to DBTalk.h. Added class for testing purposes
 		C44D6F2516D19AD60036E40B /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44D6F2816D19AD60036E40B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C44D6F2A16D19AD60036E40B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -199,8 +154,6 @@
 		C44D6F5216D19AD60036E40B /* TRxTests */ = {
 			isa = PBXGroup;
 			children = (
-				13F348A216E52A9200269372 /* TestFunctions.h */,
-				13F348A316E52A9200269372 /* TestFunctions.m */,
 				C44D6F5816D19AD60036E40B /* TRxTests.h */,
 				C44D6F5916D19AD60036E40B /* TRxTests.m */,
 				C44D6F5316D19AD60036E40B /* Supporting Files */,
@@ -347,11 +300,7 @@
 				C44D6F3916D19AD60036E40B /* AppDelegate.m in Sources */,
 				C44D6F4516D19AD60036E40B /* ViewController.m in Sources */,
 				1300E3BD16DA9D1B0033151C /* DBTalk.m in Sources */,
-<<<<<<< HEAD
 				C474A25216E70A02006F2B0B /* PatientListViewController.m in Sources */,
-=======
-				13F348A416E52A9200269372 /* TestFunctions.m in Sources */,
->>>>>>> Cosmetic changes to DBTalk.h. Added class for testing purposes
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
