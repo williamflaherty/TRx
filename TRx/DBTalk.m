@@ -51,7 +51,8 @@ static NSString *host = nil;
     return NULL;
 }
 
-+(NSString *)addRecord:(NSString *)patientId: (NSString *)surgeryTypeId
++(NSString *)addRecord:(NSString *)patientId
+         surgeryTypeId:(NSString *)surgeryTypeId
 {
     
     NSString *encodedString = [NSString stringWithFormat:@"%@add/addRecord/%@/%@/%@/%@/%@", host,
