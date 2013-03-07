@@ -18,6 +18,7 @@
 
 +(NSArray *)getPatientList;
 +(NSArray *)getSurgeryList;
++(NSArray *)getDoctorList;
 
 +(UIImage *)getPortraitFromServer:(NSString *)fileName;
 +(UIImage *)getThumbFromServer:(NSString *)fileName;

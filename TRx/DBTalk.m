@@ -215,6 +215,26 @@ static NSString *imageDir = nil;
     return NULL;
 }
 
+/*---------------------------------------------------------------------------
+ * description: gets list of surgeries with their Id's
+ * returns NSArray of the LastName of the doctor
+ *---------------------------------------------------------------------------*/
++(NSArray *)getDoctorList
+{
+    NSString *encodedString = [NSString stringWithFormat:@"%@get/doctorList/", host];
+    NSLog(@"encodedString: %@", encodedString);
+    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
+    
+    if (data) {
+        NSError *jsonError;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+        
+        return jsonArray;
+    }
+    NSLog(@"getDoctorList didn't work: error in PHP");
+    return NULL;
+}
+
 
 /*---------------------------------------------------------------------------
  * description: queries database for current profile picture

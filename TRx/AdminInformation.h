@@ -8,9 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AdminInformation : NSObject{
+@interface AdminInformation : NSObject
+
+{
     NSArray *surgeryList;
+    NSMutableArray *surgeryNamesList;
     NSArray *doctorList;
+    NSMutableArray *doctorNamesList;
 }
+
++(NSMutableArray *)getDoctorNames;
++(NSMutableArray *)getSurgeryNames;
 
 @end
