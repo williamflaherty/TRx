@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import "Patient.h"
 
-@interface PreOpViewController : UIViewController
+@interface PreOpViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
+    Patient *newPatient;
+    
+    NSString *pName;
+    complaint pComplaint;
+    UIImage *photoID;
+}
+
+@property BOOL newMedia;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UITextField *nameText;
+
+- (IBAction)useCamera:(id)sender;
+- (IBAction)addPatient:(id)sender;
 
 @end

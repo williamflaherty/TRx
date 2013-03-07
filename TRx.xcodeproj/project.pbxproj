@@ -37,6 +37,7 @@
 		C469AA9316E9087A00E75E7A /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA9216E9087A00E75E7A /* SummaryViewController.m */; };
 		C469AA9616E9089100E75E7A /* PreOpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA9516E9089100E75E7A /* PreOpViewController.m */; };
 		C469AA9A16E90A0100E75E7A /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA9916E90A0100E75E7A /* Patient.m */; };
+		C469AA9D16E9469F00E75E7A /* AdminInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA9C16E9469F00E75E7A /* AdminInformation.m */; };
 		C474A24E16E709C1006F2B0B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C474A24D16E709C1006F2B0B /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,8 @@
 		C469AA9516E9089100E75E7A /* PreOpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreOpViewController.m; sourceTree = "<group>"; };
 		C469AA9816E90A0100E75E7A /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
 		C469AA9916E90A0100E75E7A /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
+		C469AA9B16E9469F00E75E7A /* AdminInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminInformation.h; sourceTree = "<group>"; };
+		C469AA9C16E9469F00E75E7A /* AdminInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminInformation.m; sourceTree = "<group>"; };
 		C474A24D16E709C1006F2B0B /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -306,6 +309,8 @@
 		C469AA9716E909D500E75E7A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C469AA9B16E9469F00E75E7A /* AdminInformation.h */,
+				C469AA9C16E9469F00E75E7A /* AdminInformation.m */,
 				C469AA9816E90A0100E75E7A /* Patient.h */,
 				C469AA9916E90A0100E75E7A /* Patient.m */,
 			);

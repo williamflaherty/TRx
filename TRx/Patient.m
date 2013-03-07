@@ -10,7 +10,7 @@
 
 @implementation Patient
 
-@synthesize name, chiefComplaint, photoID;
+@synthesize firstName, middleName, lastName, chiefComplaint, photoID;
 
 -(id)initWithName:(NSString *)n ChiefComplaint:(NSString *)c PhotoID:(UIImage*)p{
     self.name = n;
