@@ -141,12 +141,12 @@
         <scene sceneID="n7n-nt-OUV">
             <objects>
                 <tableViewController id="azQ-T5-HYE" customClass="PatientListViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="115" sectionHeaderHeight="22" sectionFooterHeight="22" id="vWO-V5-2mN">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="115" sectionHeaderHeight="22" sectionFooterHeight="22" id="vWO-V5-2mN" customClass="PatientListView">
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationLevel="1" indentationWidth="10" reuseIdentifier="patientListCell" id="v6m-F8-g3O">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationLevel="1" indentationWidth="10" reuseIdentifier="patientListCell" id="v6m-F8-g3O" customClass="PatientListViewCell">
                                 <rect key="frame" x="0.0" y="22" width="768" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -164,15 +164,32 @@
                                                 <constraint firstAttribute="height" constant="98" id="pKE-rV-2gt"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uei-Ft-DwS">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="hwv-iD-0PU"/>
+                                                <constraint firstAttribute="width" constant="152" id="k5A-P9-HAX"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="DGf-K6-c1R" firstAttribute="leading" secondItem="v6m-F8-g3O" secondAttribute="leading" constant="8" id="Te2-Yz-3po"/>
-                                    <constraint firstItem="ROA-m7-A9C" firstAttribute="leading" secondItem="v6m-F8-g3O" secondAttribute="leading" constant="135" id="fJh-tD-DM2"/>
-                                    <constraint firstItem="ROA-m7-A9C" firstAttribute="top" secondItem="v6m-F8-g3O" secondAttribute="top" constant="49" id="i8b-A8-fYx"/>
+                                    <constraint firstAttribute="bottom" secondItem="uei-Ft-DwS" secondAttribute="bottom" constant="30" id="KRd-hp-vgY"/>
+                                    <constraint firstItem="ROA-m7-A9C" firstAttribute="top" secondItem="v6m-F8-g3O" secondAttribute="top" constant="46" id="eDb-93-4cB"/>
+                                    <constraint firstItem="ROA-m7-A9C" firstAttribute="leading" secondItem="v6m-F8-g3O" secondAttribute="leading" constant="113" id="el3-HN-JSA"/>
+                                    <constraint firstItem="DGf-K6-c1R" firstAttribute="leading" secondItem="v6m-F8-g3O" secondAttribute="leading" constant="8" id="iLf-2C-kI9"/>
                                     <constraint firstItem="DGf-K6-c1R" firstAttribute="top" secondItem="v6m-F8-g3O" secondAttribute="top" constant="11" id="nic-Fi-Vqt"/>
+                                    <constraint firstItem="uei-Ft-DwS" firstAttribute="leading" secondItem="DGf-K6-c1R" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="sdf-T0-XQd"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="chiefComplaint" destination="uei-Ft-DwS" id="9J7-bk-gfV"/>
+                                    <outlet property="patientName" destination="ROA-m7-A9C" id="Ga4-dN-WwI"/>
+                                    <outlet property="patientPicture" destination="DGf-K6-c1R" id="XB6-ip-OGI"/>
+                                    <segue destination="PSU-Ms-ePG" kind="push" id="Ouh-RO-iNj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -225,6 +242,14 @@
         <class className="ORViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORViewController.h"/>
         </class>
+        <class className="PatientListViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PatientListViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="chiefComplaint" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="patientName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="patientPicture" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
         <class className="PatientListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PatientListViewController.h"/>
         </class>
@@ -246,4 +271,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="8gH-be-wDv"/>
+    </inferredMetricsTieBreakers>
 </document>

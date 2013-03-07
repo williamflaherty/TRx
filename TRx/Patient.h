@@ -8,21 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum{
-    CATARACT,
-    HERNIA
-} complaint;
-
 @interface Patient : NSObject{
     NSString *name;
-    complaint chiefComplaint;
+    NSString *chiefComplaint;
     UIImage *photoID;
 }
 
 @property(nonatomic,retain) NSString *name;
-@property(nonatomic, readwrite) complaint chiefComplaint;
+@property(nonatomic, readwrite) NSString *chiefComplaint;
 @property(nonatomic, retain) UIImage *photoID;
 
--(id)initWithName:(NSString *)n ChiefComplaint:(complaint)c PhotoID:(UIImage*)p;
+-(id)initWithName:(NSString *)n ChiefComplaint:(NSString *)c PhotoID:(UIImage*)p;
 
 @end

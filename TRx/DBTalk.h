@@ -16,7 +16,7 @@
 }
 
 
-+(NSArray *)getPatientList;
++(NSMutableArray *)getPatientList;
 
 +(UIImage *)getPortraitFromServer:(NSString *)fileName;
 +(UIImage *)getThumbFromServer:(NSString *)fileName;

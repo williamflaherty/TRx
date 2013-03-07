@@ -12,7 +12,7 @@
 
 @synthesize name, chiefComplaint, photoID;
 
--(id)initWithName:(NSString *)n ChiefComplaint:(complaint)c PhotoID:(UIImage*)p{
+-(id)initWithName:(NSString *)n ChiefComplaint:(NSString *)c PhotoID:(UIImage*)p{
     self.name = n;
     self.chiefComplaint = c;
     self.photoID = p;

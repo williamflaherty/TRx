@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1300E3BD16DA9D1B0033151C /* DBTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 1300E3BC16DA9D1B0033151C /* DBTalk.m */; };
+		196CCD8B16E90ED600B82048 /* PatientListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196CCD8A16E90ED600B82048 /* PatientListViewCell.m */; };
 		C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
 		C44D6F2B16D19AD60036E40B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2A16D19AD60036E40B /* Foundation.framework */; };
 		C44D6F2D16D19AD60036E40B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2C16D19AD60036E40B /* CoreGraphics.framework */; };
@@ -52,6 +53,8 @@
 /* Begin PBXFileReference section */
 		1300E3BB16DA9D1B0033151C /* DBTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTalk.h; sourceTree = "<group>"; };
 		1300E3BC16DA9D1B0033151C /* DBTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTalk.m; sourceTree = "<group>"; };
+		196CCD8916E90ED600B82048 /* PatientListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientListViewCell.h; sourceTree = "<group>"; };
+		196CCD8A16E90ED600B82048 /* PatientListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListViewCell.m; sourceTree = "<group>"; };
 		C44D6F2516D19AD60036E40B /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44D6F2816D19AD60036E40B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C44D6F2A16D19AD60036E40B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -314,6 +317,8 @@
 			children = (
 				C469AA7116E8FDE500E75E7A /* PatientListViewController.h */,
 				C469AA7216E8FDE500E75E7A /* PatientListViewController.m */,
+				196CCD8916E90ED600B82048 /* PatientListViewCell.h */,
+				196CCD8A16E90ED600B82048 /* PatientListViewCell.m */,
 			);
 			name = "Patient List";
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 				C469AA9316E9087A00E75E7A /* SummaryViewController.m in Sources */,
 				C469AA9616E9089100E75E7A /* PreOpViewController.m in Sources */,
 				C469AA9A16E90A0100E75E7A /* Patient.m in Sources */,
+				196CCD8B16E90ED600B82048 /* PatientListViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

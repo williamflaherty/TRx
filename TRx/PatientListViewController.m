@@ -7,6 +7,9 @@
 //
 
 #import "PatientListViewController.h"
+#import "PatientListViewCell.h"
+#import "DBTalk.h" 
+#import "Patient.h"
 
 @interface PatientListViewController ()
 
@@ -26,7 +29,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    NSString *name, *firstName, *lastName, *patientId, *imageId, *complaint;
+    UIImage *picture;
+    _patientsArray = [DBTalk getPatientList];
+    _patients = [NSMutableArray array];
+    NSArray *complaints = [NSArray arrayWithObjects:@"Cleft Lip",@"Hernia",@"Cataracts", nil];
+    
+    for(NSDictionary *item in _patientsArray){
+        NSLog(@"%@", item);
+        firstName = [item objectForKey:@"FirstName"];
+        lastName = [item objectForKey:@"LastName"];
+        patientId = [item objectForKey:@"Id"];
+        name = [NSString stringWithFormat: @"%@ %@", firstName, lastName];
+        imageId = [NSString stringWithFormat:@"%@n000", patientId];
+        picture = [DBTalk getThumbFromServer:(imageId)];
+        uint32_t rnd = arc4random_uniform([complaints count]);
+        complaint = [complaints objectAtIndex:rnd];
+        Patient *obj = [[Patient alloc] initWithName:(name) ChiefComplaint:(complaint) PhotoID:(picture)];
+        NSLog(@"%@", picture);
+        NSLog(@"%@", imageId);
+        [_patients addObject:obj];
+        NSLog(@"%@", name);
+    }
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -44,24 +69,31 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return (unsigned long)_patientsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"patientListCell";
+    PatientListViewCell *cell = [tableView
+                              dequeueReusableCellWithIdentifier:CellIdentifier
+                              forIndexPath:indexPath];
     
     // Configure the cell...
+    
+    int row = [indexPath row];
+    
+    cell.patientName.text = [[_patients objectAtIndex:row] name];
+    cell.chiefComplaint.text = [[_patients objectAtIndex:row] chiefComplaint]; 
+    cell.patientPicture.image = [[_patients objectAtIndex:row] photoID];
+    //cell.patientPicture.image = [UIImage imageNamed:_carImages[row]];
     
     return cell;
 }
