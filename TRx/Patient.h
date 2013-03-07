@@ -37,6 +37,6 @@ typedef enum{
 
 @property(nonatomic, retain) UIImage *photoID;
 
--(id)initWithName:(NSString*)n ChiefComplaint:(complaint)c PhotoID:(UIImage*)p;
+-(id)initWithFirstName:(NSString *)fn MiddleName:(NSString*) mn LastName:(NSString*)ln ChiefComplaint:(complaint)c PhotoID:(UIImage*)p;
 
 @end
