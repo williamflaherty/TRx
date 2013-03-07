@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AdminInformation : NSObject
+@interface AdminInformation : NSObject{
+    NSArray *surgeryList;
+    NSArray *doctorList;
+}
 
 @end

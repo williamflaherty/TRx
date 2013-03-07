@@ -8,9 +8,6 @@
 
 #import "AdminInformation.h"
 
-@implementation AdminInformation{
-    NSArray *surgeryList;
-    NSArray *doctorList;
-}
+@implementation AdminInformation
 
 @end
