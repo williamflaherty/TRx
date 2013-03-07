@@ -127,13 +127,13 @@
 			isa = PBXGroup;
 			children = (
 				C474A24B16E7092A006F2B0B /* Patient List */,
-				C469AA6A16E8FD3E00E75E7A /* Tab 1 */,
-				C469AA7016E8FD8700E75E7A /* Tab 2 */,
-				C469AA6F16E8FD8100E75E7A /* Tab 3 */,
-				C469AA6E16E8FD7B00E75E7A /* Tab 4 */,
-				C469AA6D16E8FD6900E75E7A /* Tab 5 */,
-				C469AA6C16E8FD6200E75E7A /* Tab 6 */,
-				C469AA6B16E8FD5A00E75E7A /* Tab 7 */,
+				C469AA6A16E8FD3E00E75E7A /* Tab 1 - PreOp */,
+				C469AA7016E8FD8700E75E7A /* Tab 2 - Physical */,
+				C469AA6F16E8FD8100E75E7A /* Tab 3 - Lab Work */,
+				C469AA6E16E8FD7B00E75E7A /* Tab 4 - OR */,
+				C469AA6D16E8FD6900E75E7A /* Tab 5 - Recovery */,
+				C469AA6C16E8FD6200E75E7A /* Tab 6 - Discharge */,
+				C469AA6B16E8FD5A00E75E7A /* Tab 7 - Summary */,
 				1300E3BB16DA9D1B0033151C /* DBTalk.h */,
 				1300E3BC16DA9D1B0033151C /* DBTalk.m */,
 				C44D6F3716D19AD60036E40B /* AppDelegate.h */,
@@ -179,55 +179,55 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C469AA6A16E8FD3E00E75E7A /* Tab 1 */ = {
+		C469AA6A16E8FD3E00E75E7A /* Tab 1 - PreOp */ = {
 			isa = PBXGroup;
 			children = (
 				C469AA7416E8FE3600E75E7A /* InitialInfoViewController.h */,
 				C469AA7516E8FE3600E75E7A /* InitialInfoViewController.m */,
 			);
-			name = "Tab 1";
+			name = "Tab 1 - PreOp";
 			sourceTree = "<group>";
 		};
-		C469AA6B16E8FD5A00E75E7A /* Tab 7 */ = {
+		C469AA6B16E8FD5A00E75E7A /* Tab 7 - Summary */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = "Tab 7";
+			name = "Tab 7 - Summary";
 			sourceTree = "<group>";
 		};
-		C469AA6C16E8FD6200E75E7A /* Tab 6 */ = {
+		C469AA6C16E8FD6200E75E7A /* Tab 6 - Discharge */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = "Tab 6";
+			name = "Tab 6 - Discharge";
 			sourceTree = "<group>";
 		};
-		C469AA6D16E8FD6900E75E7A /* Tab 5 */ = {
+		C469AA6D16E8FD6900E75E7A /* Tab 5 - Recovery */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = "Tab 5";
+			name = "Tab 5 - Recovery";
 			sourceTree = "<group>";
 		};
-		C469AA6E16E8FD7B00E75E7A /* Tab 4 */ = {
+		C469AA6E16E8FD7B00E75E7A /* Tab 4 - OR */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = "Tab 4";
+			name = "Tab 4 - OR";
 			sourceTree = "<group>";
 		};
-		C469AA6F16E8FD8100E75E7A /* Tab 3 */ = {
+		C469AA6F16E8FD8100E75E7A /* Tab 3 - Lab Work */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = "Tab 3";
+			name = "Tab 3 - Lab Work";
 			sourceTree = "<group>";
 		};
-		C469AA7016E8FD8700E75E7A /* Tab 2 */ = {
+		C469AA7016E8FD8700E75E7A /* Tab 2 - Physical */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = "Tab 2";
+			name = "Tab 2 - Physical";
 			sourceTree = "<group>";
 		};
 		C474A24B16E7092A006F2B0B /* Patient List */ = {
