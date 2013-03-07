@@ -21,6 +21,8 @@
 -(void) addPatient:(id)sender{
     
     //newPatient = [newPatient initWithName:pName ChiefComplaint:pComplaint PhotoID:photoID];
+    //photoID;
+    //newPatient.
     
 }
 

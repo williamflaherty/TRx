@@ -196,6 +196,27 @@ static NSString *imageDir = nil;
 
 
 /*---------------------------------------------------------------------------
+ * description: gets list of surgeries with their Id's
+ * returns NSArray of dictionaries with keys: Name and Id
+ *---------------------------------------------------------------------------*/
++(NSArray *)getSurgeryList
+{
+    NSString *encodedString = [NSString stringWithFormat:@"%@get/surgeryList/", host];
+    NSLog(@"encodedString: %@", encodedString);
+    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
+    
+    if (data) {
+        NSError *jsonError;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+        
+        return jsonArray;
+    }
+    NSLog(@"getSurgeryList didn't work: error in PHP");
+    return NULL;
+}
+
+
+/*---------------------------------------------------------------------------
  * description: queries database for current profile picture
  * returns UIImage of profile picture for specified patient
  *---------------------------------------------------------------------------*/
@@ -240,9 +261,11 @@ static NSString *imageDir = nil;
     /*
 	 now create the body of the post
      */
+    NSString *contentDispoStr = [NSString stringWithFormat:@"Content-Disposition: form-data; name=\"userfile\"; filename=\"%@\"rn", fileName];
+    
 	NSMutableData *body = [NSMutableData data];
 	[body appendData:[[NSString stringWithFormat:@"rn--%@rn",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-	[body appendData:[@"Content-Disposition: form-data; name=\"userfile\"; filename=\"ipodfile.jpg\"rn" dataUsingEncoding:NSUTF8StringEncoding]]; //broken here
+	[body appendData:[contentDispoStr dataUsingEncoding:NSUTF8StringEncoding]]; //broken here
 	[body appendData:[@"Content-Type: application/octet-streamrnrn" dataUsingEncoding:NSUTF8StringEncoding]];
 	[body appendData:[NSData dataWithData:imageData]];
 	[body appendData:[[NSString stringWithFormat:@"rn--%@--rn",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -259,6 +282,7 @@ static NSString *imageDir = nil;
 
 /*---------------------------------------------------------------------------
  * You shouldn't need to call this directly; it gets called by addPicture
+ * 
  *---------------------------------------------------------------------------*/
 +(NSString *)addPicturePathToDatabase:(NSString *)pictureId: (NSString *)patientId:(NSString *)picturePath
                                      :(NSString *)pictureName: (NSString *)isProfile
