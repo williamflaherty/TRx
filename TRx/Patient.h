@@ -10,7 +10,10 @@
 
 typedef enum{
     CATARACT,
-    HERNIA
+    HERNIA,
+    CLEFT,
+    OBGYN,
+    UNSPECIFIED
 } complaint;
 
 @interface Patient : NSObject{

@@ -18,6 +18,13 @@
     [super viewDidLoad];
 }
 
+-(void) addPatient:(id)sender{
+    
+    //newPatient = [newPatient initWithName:pName ChiefComplaint:pComplaint PhotoID:photoID];
+    
+}
+
+
 - (void) useCamera:(id)sender
 {
     if ([UIImagePickerController isSourceTypeAvailable:
@@ -47,6 +54,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
     
     UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    //Store the image for the patient 
+    photoID = image;
     
     _imageView.image = image;
     if (_newMedia)

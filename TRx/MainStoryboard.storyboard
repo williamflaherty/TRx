@@ -102,6 +102,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GT0-Iw-zgH"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cot-Bz-PMs">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Add Patient!">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPatient:" destination="XVs-Rn-8gv" eventType="touchUpInside" id="qTY-eL-uVx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -116,12 +129,14 @@
                             <constraint firstItem="Zz7-GZ-Epb" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="20" symbolic="YES" type="default" id="7na-vJ-4eb"/>
                             <constraint firstItem="hw2-JX-UJe" firstAttribute="centerX" secondItem="0ub-4a-2Ic" secondAttribute="centerX" type="default" id="CvN-1A-IqQ"/>
                             <constraint firstAttribute="bottom" secondItem="0ub-4a-2Ic" secondAttribute="bottom" constant="365" id="NWz-Tm-D13"/>
+                            <constraint firstItem="Cot-Bz-PMs" firstAttribute="centerX" secondItem="cRi-0l-x4r" secondAttribute="centerX" type="default" id="aOz-hx-gHF"/>
                             <constraint firstAttribute="bottom" secondItem="GT0-Iw-zgH" secondAttribute="bottom" constant="33" id="bah-1u-8Kf"/>
                             <constraint firstItem="Xzu-ll-ldx" firstAttribute="centerX" secondItem="FDi-eN-sN4" secondAttribute="centerX" type="default" id="eId-Ux-Aey"/>
                             <constraint firstItem="Zz7-GZ-Epb" firstAttribute="bottom" secondItem="FDi-eN-sN4" secondAttribute="bottom" type="default" id="jiw-p6-nzh"/>
                             <constraint firstItem="FDi-eN-sN4" firstAttribute="trailing" secondItem="Zz7-GZ-Epb" secondAttribute="trailing" type="default" id="kXp-PQ-yAQ"/>
                             <constraint firstItem="0ub-4a-2Ic" firstAttribute="top" secondItem="Xzu-ll-ldx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="l82-4h-YVs"/>
                             <constraint firstItem="GT0-Iw-zgH" firstAttribute="top" secondItem="hw2-JX-UJe" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="sRq-qA-Vb2"/>
+                            <constraint firstAttribute="bottom" secondItem="Cot-Bz-PMs" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="u4N-Y2-BfN"/>
                             <constraint firstItem="0ub-4a-2Ic" firstAttribute="leading" secondItem="oW9-81-ugR" secondAttribute="leading" constant="227" id="w6l-kG-Rty"/>
                         </constraints>
                     </view>
@@ -354,6 +369,7 @@
         <class className="PreOpViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PreOpViewController.h"/>
             <relationships>
+                <relationship kind="action" name="addPatient:"/>
                 <relationship kind="action" name="useCamera:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>

@@ -12,12 +12,16 @@
 
 @interface PreOpViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
     Patient *newPatient;
+    
     NSString *pName;
     complaint pComplaint;
+    UIImage *photoID;
 }
 
 @property BOOL newMedia;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
 - (IBAction)useCamera:(id)sender;
+- (IBAction)addPatient:(id)sender;
 
 @end
