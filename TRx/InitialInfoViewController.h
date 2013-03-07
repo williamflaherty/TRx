@@ -1,5 +1,5 @@
 //
-//  PatientListViewController.h
+//  InitialInfoViewController.h
 //  TRx
 //
 //  Created by Mark Bellott on 3/7/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PatientListViewController : UITableViewController
+@interface InitialInfoViewController : UIViewController
 
 @end

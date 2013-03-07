@@ -23,8 +23,9 @@
 		C44D6F4F16D19AD60036E40B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2A16D19AD60036E40B /* Foundation.framework */; };
 		C44D6F5716D19AD60036E40B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C44D6F5516D19AD60036E40B /* InfoPlist.strings */; };
 		C44D6F5A16D19AD60036E40B /* TRxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D6F5916D19AD60036E40B /* TRxTests.m */; };
+		C469AA7316E8FDE500E75E7A /* PatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA7216E8FDE500E75E7A /* PatientListViewController.m */; };
+		C469AA7616E8FE3600E75E7A /* InitialInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA7516E8FE3600E75E7A /* InitialInfoViewController.m */; };
 		C474A24E16E709C1006F2B0B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C474A24D16E709C1006F2B0B /* MainStoryboard.storyboard */; };
-		C474A25216E70A02006F2B0B /* PatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C474A25016E70A02006F2B0B /* PatientListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,9 +62,11 @@
 		C44D6F5616D19AD60036E40B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C44D6F5816D19AD60036E40B /* TRxTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRxTests.h; sourceTree = "<group>"; };
 		C44D6F5916D19AD60036E40B /* TRxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRxTests.m; sourceTree = "<group>"; };
+		C469AA7116E8FDE500E75E7A /* PatientListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientListViewController.h; sourceTree = "<group>"; };
+		C469AA7216E8FDE500E75E7A /* PatientListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListViewController.m; sourceTree = "<group>"; };
+		C469AA7416E8FE3600E75E7A /* InitialInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialInfoViewController.h; sourceTree = "<group>"; };
+		C469AA7516E8FE3600E75E7A /* InitialInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialInfoViewController.m; sourceTree = "<group>"; };
 		C474A24D16E709C1006F2B0B /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		C474A24F16E70A02006F2B0B /* PatientListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientListViewController.h; sourceTree = "<group>"; };
-		C474A25016E70A02006F2B0B /* PatientListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +126,14 @@
 		C44D6F2E16D19AD60036E40B /* TRx */ = {
 			isa = PBXGroup;
 			children = (
-				C474A24C16E7093B006F2B0B /* Tabbed View Controller */,
 				C474A24B16E7092A006F2B0B /* Patient List */,
+				C469AA6A16E8FD3E00E75E7A /* Tab 1 */,
+				C469AA7016E8FD8700E75E7A /* Tab 2 */,
+				C469AA6F16E8FD8100E75E7A /* Tab 3 */,
+				C469AA6E16E8FD7B00E75E7A /* Tab 4 */,
+				C469AA6D16E8FD6900E75E7A /* Tab 5 */,
+				C469AA6C16E8FD6200E75E7A /* Tab 6 */,
+				C469AA6B16E8FD5A00E75E7A /* Tab 7 */,
 				1300E3BB16DA9D1B0033151C /* DBTalk.h */,
 				1300E3BC16DA9D1B0033151C /* DBTalk.m */,
 				C44D6F3716D19AD60036E40B /* AppDelegate.h */,
@@ -170,20 +179,64 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C469AA6A16E8FD3E00E75E7A /* Tab 1 */ = {
+			isa = PBXGroup;
+			children = (
+				C469AA7416E8FE3600E75E7A /* InitialInfoViewController.h */,
+				C469AA7516E8FE3600E75E7A /* InitialInfoViewController.m */,
+			);
+			name = "Tab 1";
+			sourceTree = "<group>";
+		};
+		C469AA6B16E8FD5A00E75E7A /* Tab 7 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Tab 7";
+			sourceTree = "<group>";
+		};
+		C469AA6C16E8FD6200E75E7A /* Tab 6 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Tab 6";
+			sourceTree = "<group>";
+		};
+		C469AA6D16E8FD6900E75E7A /* Tab 5 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Tab 5";
+			sourceTree = "<group>";
+		};
+		C469AA6E16E8FD7B00E75E7A /* Tab 4 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Tab 4";
+			sourceTree = "<group>";
+		};
+		C469AA6F16E8FD8100E75E7A /* Tab 3 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Tab 3";
+			sourceTree = "<group>";
+		};
+		C469AA7016E8FD8700E75E7A /* Tab 2 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Tab 2";
+			sourceTree = "<group>";
+		};
 		C474A24B16E7092A006F2B0B /* Patient List */ = {
 			isa = PBXGroup;
 			children = (
-				C474A24F16E70A02006F2B0B /* PatientListViewController.h */,
-				C474A25016E70A02006F2B0B /* PatientListViewController.m */,
+				C469AA7116E8FDE500E75E7A /* PatientListViewController.h */,
+				C469AA7216E8FDE500E75E7A /* PatientListViewController.m */,
 			);
 			name = "Patient List";
-			sourceTree = "<group>";
-		};
-		C474A24C16E7093B006F2B0B /* Tabbed View Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Tabbed View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,7 +353,8 @@
 				C44D6F3916D19AD60036E40B /* AppDelegate.m in Sources */,
 				C44D6F4516D19AD60036E40B /* ViewController.m in Sources */,
 				1300E3BD16DA9D1B0033151C /* DBTalk.m in Sources */,
-				C474A25216E70A02006F2B0B /* PatientListViewController.m in Sources */,
+				C469AA7316E8FDE500E75E7A /* PatientListViewController.m in Sources */,
+				C469AA7616E8FE3600E75E7A /* InitialInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
