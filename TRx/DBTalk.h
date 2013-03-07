@@ -31,10 +31,11 @@
 +(BOOL)sendPictureToServer:(UIImage *)picture
                   fileName:(NSString *)fileName;
 
-+(NSString *)addPatient:(NSString *)firstName
-             middleName:(NSString *)middleName
-               lastName:(NSString *)lastName
-               birthday:(NSString *)birthday;
++(NSString *)addUpdatePatient:(NSString *)firstName
+                   middleName:(NSString *)middleName
+                     lastName:(NSString *)lastName
+                     birthday:(NSString *)birthday
+                    patientId:(NSString *)patientId;   /* pass NULL if adding. pass Id if updating */
 
 +(BOOL)deletePatient: (NSString *)patientId;
 
