@@ -29,7 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString *name, *firstName, *lastName, *patientId, *imageId, *complaint;
+    //[PatientListViewCell class];
+    NSString *firstName, *lastName, *patientId, *imageId, *complaint, *middleName;
     UIImage *picture;
     _patientsArray = [DBTalk getPatientList];
     _patients = [NSMutableArray array];
@@ -38,18 +39,17 @@
     for(NSDictionary *item in _patientsArray){
         NSLog(@"%@", item);
         firstName = [item objectForKey:@"FirstName"];
+        middleName = [item objectForKey:@"MiddleName"];
         lastName = [item objectForKey:@"LastName"];
         patientId = [item objectForKey:@"Id"];
-        name = [NSString stringWithFormat: @"%@ %@", firstName, lastName];
         imageId = [NSString stringWithFormat:@"%@n000", patientId];
         picture = [DBTalk getThumbFromServer:(imageId)];
         uint32_t rnd = arc4random_uniform([complaints count]);
         complaint = [complaints objectAtIndex:rnd];
-        Patient *obj = [[Patient alloc] initWithName:(name) ChiefComplaint:(complaint) PhotoID:(picture)];
+        Patient *obj = [[Patient alloc] initWithFirstName:(firstName) MiddleName:(middleName) LastName:(lastName) ChiefComplaint:(complaint) PhotoID:(picture)];
         NSLog(@"%@", picture);
         NSLog(@"%@", imageId);
         [_patients addObject:obj];
-        NSLog(@"%@", name);
     }
     
     // Uncomment the following line to preserve selection between presentations.
@@ -89,9 +89,12 @@
     // Configure the cell...
     
     int row = [indexPath row];
-    
-    cell.patientName.text = [[_patients objectAtIndex:row] name];
-    cell.chiefComplaint.text = [[_patients objectAtIndex:row] chiefComplaint]; 
+    NSString *fn = [[_patients objectAtIndex:row] firstName];
+    NSString *mn = [[_patients objectAtIndex:row] middleName];
+    NSString *ln = [[_patients objectAtIndex:row] lastName];
+    NSString *name = [NSString stringWithFormat: @"%@ %@ %@", fn, mn, ln];
+    cell.patientName.text = name;
+    cell.chiefComplaint.text = [[_patients objectAtIndex:row] chiefComplaint];
     cell.patientPicture.image = [[_patients objectAtIndex:row] photoID];
     //cell.patientPicture.image = [UIImage imageNamed:_carImages[row]];
     

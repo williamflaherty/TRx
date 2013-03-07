@@ -14,7 +14,7 @@
     Patient *newPatient;
     
     NSString *pName;
-    complaint pComplaint;
+    NSString *pComplaint;
     UIImage *photoID;
 }
 

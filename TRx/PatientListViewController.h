@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PatientListViewController : UITableViewController
-@property (nonatomic, strong) NSMutableArray *patientsArray;
+@property (nonatomic, strong) NSArray *patientsArray;
 @property (nonatomic, strong) NSMutableArray *patients;
 
 
