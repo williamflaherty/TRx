@@ -10,17 +10,23 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "Patient.h"
 
-@interface PreOpViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
+@interface PreOpViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>{
     Patient *newPatient;
     
-    NSString *pName;
+    NSString *fName, *mName, *lName;
     complaint pComplaint;
     UIImage *photoID;
+    
+    IBOutlet UIPickerView *complaintPicker;
+    NSMutableArray *pickerArray;
 }
 
 @property BOOL newMedia;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet UITextField *nameText;
+@property (nonatomic, retain) IBOutlet UITextField *firstNameText;
+@property (nonatomic, retain) IBOutlet UITextField *middleNameText;
+@property (nonatomic, retain) IBOutlet UITextField *lastNameText;
+@property (nonatomic, retain) IBOutlet UIPickerView *complaintPicker;
 
 - (IBAction)useCamera:(id)sender;
 - (IBAction)addPatient:(id)sender;

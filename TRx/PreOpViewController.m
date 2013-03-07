@@ -17,6 +17,32 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    pickerArray = [[NSMutableArray alloc] init];
+    [pickerArray addObject:@"Cleft Lip"];
+    [pickerArray addObject:@"Cataracts"];
+    [pickerArray addObject:@"Hernia"];
+    [pickerArray addObject:@"Not Specified"];
+    
+
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
+    return 1;
+}
+
+
+- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
+    return [pickerArray count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [pickerArray objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    NSLog(@"Selected Color: %@. Index of selected color: %i", [pickerArray objectAtIndex:row], row);
 }
 
 -(void) addPatient:(id)sender{
@@ -30,7 +56,6 @@
     
     NSLog(@"AddPatient button pressed:\npatientId: %@\nrecordId:%@\n", patientId, recordId);
 }
-
 
 - (void) useCamera:(id)sender
 {
