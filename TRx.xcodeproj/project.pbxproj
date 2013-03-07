@@ -25,6 +25,10 @@
 		C44D6F5A16D19AD60036E40B /* TRxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D6F5916D19AD60036E40B /* TRxTests.m */; };
 		C469AA7316E8FDE500E75E7A /* PatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA7216E8FDE500E75E7A /* PatientListViewController.m */; };
 		C469AA7616E8FE3600E75E7A /* InitialInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA7516E8FE3600E75E7A /* InitialInfoViewController.m */; };
+		C469AA7D16E905D100E75E7A /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = C469AA7916E905D100E75E7A /* Icon-72.png */; };
+		C469AA7E16E905D100E75E7A /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C469AA7A16E905D100E75E7A /* Icon-72@2x.png */; };
+		C469AA7F16E905D100E75E7A /* TRx_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C469AA7B16E905D100E75E7A /* TRx_Icon.png */; };
+		C469AA8016E905D100E75E7A /* TRx_Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C469AA7C16E905D100E75E7A /* TRx_Icon@2x.png */; };
 		C474A24E16E709C1006F2B0B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C474A24D16E709C1006F2B0B /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +70,10 @@
 		C469AA7216E8FDE500E75E7A /* PatientListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListViewController.m; sourceTree = "<group>"; };
 		C469AA7416E8FE3600E75E7A /* InitialInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialInfoViewController.h; sourceTree = "<group>"; };
 		C469AA7516E8FE3600E75E7A /* InitialInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialInfoViewController.m; sourceTree = "<group>"; };
+		C469AA7916E905D100E75E7A /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/TRx_png/Icon-72.png"; sourceTree = SOURCE_ROOT; };
+		C469AA7A16E905D100E75E7A /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "Resources/TRx_png/Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
+		C469AA7B16E905D100E75E7A /* TRx_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TRx_Icon.png; path = Resources/TRx_png/TRx_Icon.png; sourceTree = SOURCE_ROOT; };
+		C469AA7C16E905D100E75E7A /* TRx_Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TRx_Icon@2x.png"; path = "Resources/TRx_png/TRx_Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		C474A24D16E709C1006F2B0B /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +150,7 @@
 				C44D6F4316D19AD60036E40B /* ViewController.h */,
 				C44D6F4416D19AD60036E40B /* ViewController.m */,
 				C44D6F2F16D19AD60036E40B /* Supporting Files */,
+				C469AA7716E905AC00E75E7A /* Images */,
 			);
 			path = TRx;
 			sourceTree = "<group>";
@@ -230,6 +239,33 @@
 			name = "Tab 2 - Physical";
 			sourceTree = "<group>";
 		};
+		C469AA7716E905AC00E75E7A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C469AA7816E905BD00E75E7A /* Defaults */,
+				C469AA8116E9060000E75E7A /* Tab Images */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		C469AA7816E905BD00E75E7A /* Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				C469AA7916E905D100E75E7A /* Icon-72.png */,
+				C469AA7A16E905D100E75E7A /* Icon-72@2x.png */,
+				C469AA7B16E905D100E75E7A /* TRx_Icon.png */,
+				C469AA7C16E905D100E75E7A /* TRx_Icon@2x.png */,
+			);
+			name = Defaults;
+			sourceTree = "<group>";
+		};
+		C469AA8116E9060000E75E7A /* Tab Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Tab Images";
+			sourceTree = "<group>";
+		};
 		C474A24B16E7092A006F2B0B /* Patient List */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +351,10 @@
 				C44D6F3D16D19AD60036E40B /* Default@2x.png in Resources */,
 				C44D6F3F16D19AD60036E40B /* Default-568h@2x.png in Resources */,
 				C474A24E16E709C1006F2B0B /* MainStoryboard.storyboard in Resources */,
+				C469AA7D16E905D100E75E7A /* Icon-72.png in Resources */,
+				C469AA7E16E905D100E75E7A /* Icon-72@2x.png in Resources */,
+				C469AA7F16E905D100E75E7A /* TRx_Icon.png in Resources */,
+				C469AA8016E905D100E75E7A /* TRx_Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
