@@ -63,14 +63,53 @@
                     <view key="view" contentMode="scaleToFill" id="oW9-81-ugR">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zz7-GZ-Epb">
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="GMX-PZ-iFL"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRi-0l-x4r">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Take Picture">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="useCamera:" destination="XVs-Rn-8gv" eventType="touchUpInside" id="frN-KD-6Md"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FDi-eN-sN4">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="lAj-qG-dJe"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cRi-0l-x4r" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="2jK-vn-hNu"/>
+                            <constraint firstItem="FDi-eN-sN4" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="20" symbolic="YES" type="default" id="3Zf-v3-EGh"/>
+                            <constraint firstItem="cRi-0l-x4r" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="20" symbolic="YES" type="default" id="4MC-sV-xAS"/>
+                            <constraint firstItem="Zz7-GZ-Epb" firstAttribute="leading" secondItem="FDi-eN-sN4" secondAttribute="leading" type="default" id="6Za-vk-iGT"/>
+                            <constraint firstItem="Zz7-GZ-Epb" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="20" symbolic="YES" type="default" id="7na-vJ-4eb"/>
+                            <constraint firstItem="Zz7-GZ-Epb" firstAttribute="centerX" secondItem="oW9-81-ugR" secondAttribute="centerX" type="default" id="ML6-Qx-4bx"/>
+                            <constraint firstItem="Zz7-GZ-Epb" firstAttribute="bottom" secondItem="FDi-eN-sN4" secondAttribute="bottom" type="default" id="jiw-p6-nzh"/>
+                            <constraint firstItem="FDi-eN-sN4" firstAttribute="trailing" secondItem="Zz7-GZ-Epb" secondAttribute="trailing" type="default" id="kXp-PQ-yAQ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Pre Op" id="wIy-bz-aBB"/>
                     <navigationItem key="navigationItem" id="fYU-RP-Ebd"/>
+                    <connections>
+                        <outlet property="imageView" destination="FDi-eN-sN4" id="A1Q-QC-biM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQ1-ce-NTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5134" y="-4476"/>
+            <point key="canvasLocation" x="-5118" y="-4552"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CTA-x1-Arn">
@@ -290,6 +329,10 @@
         </class>
         <class className="PreOpViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PreOpViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="useCamera:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
         </class>
         <class className="RecoveryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecoveryViewController.h"/>
