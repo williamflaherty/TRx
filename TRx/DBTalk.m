@@ -14,12 +14,12 @@
 
 
 static NSString *host = nil;
-//static NSString *portraitDir = nil;
+static NSString *imageDir = nil;
 
 +(void)initialize
 {
-    host = @"http://localhost:8888/TRxTalk/index.php/";
-    //portraitDir = @"~/Google\ Drive/Team\ Ecuador/Data/images/portraits";
+    host = @"http://www.teamecuadortrx.com/TRxTalk/index.php/";
+    imageDir = @"http://teamecuadortrx.com/TRxTalk/Data/images/";
 }
 
 
@@ -28,7 +28,7 @@ static NSString *host = nil;
                lastName:(NSString *)lastName
                birthday:(NSString *)birthday
 {
-    NSString *path = @"path";
+    NSString *path = @"testPath";
     NSString *imageName = @"nameOfPicture";
     //NSString *url = [NSString stringWithFormat:@"%@TRxTalk/index.php/", host];
     NSString *encodedString = [NSString stringWithFormat:
@@ -53,10 +53,13 @@ static NSString *host = nil;
 
 +(NSString *)addRecord:(NSString *)patientId
          surgeryTypeId:(NSString *)surgeryTypeId
+              doctorId:(NSString *)doctorId
+              isActive:(NSString *)isActive
+            hasTimeout:(NSString *)hasTimeout
 {
     
-    NSString *encodedString = [NSString stringWithFormat:@"%@add/addRecord/%@/%@/%@/%@/%@", host,
-                               patientId, surgeryTypeId, @"1", @"1", @"0"];
+    NSString *encodedString = [NSString stringWithFormat:@"%@add/record/%@/%@/%@/%@/%@", host,
+                               patientId, surgeryTypeId, @"1", isActive, @"0"];
     NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
@@ -69,7 +72,7 @@ static NSString *host = nil;
     return NULL;
 }
 
-+(NSString *)addPicture:(UIImage *)picture
++(NSString *)addPicture:(UIImage  *)picture
               pictureId:(NSString *)pictureId
               patientId:(NSString *)patientId
       customPictureName:(NSString *)customPictureName
@@ -120,6 +123,10 @@ static NSString *host = nil;
     return false;
 }
 
+/*
+ * Right now, getPatient assumes that any patient will have a record. Only returns patients with records
+ */
+
 +(NSArray *)getPatientList
 {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/patientList/", host];
@@ -138,11 +145,11 @@ static NSString *host = nil;
 }
 
 /*
- *am hosting pictures on web.eecs.utk.edu/~jcotham/ecuador/TRx
+ *am hosting pictures on teamecuadortrx.com/TRxTalk/Data/images
  */
 +(UIImage *)getPortraitFromServer:(NSString *)fileName
 {
-    NSString *str = [NSString stringWithFormat:@"http://web.eecs.utk.edu/~jcotham/ecuador/TRx/Data/images/%@.jpeg", fileName];
+    NSString *str = [NSString stringWithFormat:@"%@portraits/%@.jpeg", imageDir, fileName];
     NSURL *url = [NSURL URLWithString:str];
     UIImage *myImage = [UIImage imageWithData:
                         [NSData dataWithContentsOfURL:url]];
@@ -151,7 +158,7 @@ static NSString *host = nil;
 
 +(UIImage *)getThumbFromServer:(NSString *)fileName
 {
-    NSString *str = [NSString stringWithFormat:@"http://web.eecs.utk.edu/~jcotham/ecuador/TRx/Data/images/thumbs/%@.jpeg", fileName];
+    NSString *str = [NSString stringWithFormat:@"%@thumbs/%@.jpeg", imageDir, fileName];
     NSURL *url = [NSURL URLWithString:str];
     UIImage *myImage = [UIImage imageWithData:
                         [NSData dataWithContentsOfURL:url]];

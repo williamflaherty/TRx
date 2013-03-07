@@ -12,7 +12,7 @@
 
 {
     NSString *host;
-    
+    NSString *portraitDir;
 }
 
 
@@ -39,8 +39,10 @@
 +(BOOL)deletePatient: (NSString *)patientId;
 
 +(NSString *)addRecord:(NSString *)patientId
-         surgeryTypeId:(NSString *)surgeryTypeId;
-
+         surgeryTypeId:(NSString *)surgeryTypeId
+              doctorId:(NSString *)doctorId
+              isActive:(NSString *)isActive
+            hasTimeout:(NSString *)hasTimeout;
 
 
 
