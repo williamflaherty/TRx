@@ -1,5 +1,5 @@
 //
-//  InitialInfoViewController.h
+//  SummaryViewController.h
 //  TRx
 //
 //  Created by Mark Bellott on 3/7/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InitialInfoViewController : UIViewController
+@interface SummaryViewController : UIViewController
 
 @end

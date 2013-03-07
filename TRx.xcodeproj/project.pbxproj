@@ -24,11 +24,17 @@
 		C44D6F5716D19AD60036E40B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C44D6F5516D19AD60036E40B /* InfoPlist.strings */; };
 		C44D6F5A16D19AD60036E40B /* TRxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D6F5916D19AD60036E40B /* TRxTests.m */; };
 		C469AA7316E8FDE500E75E7A /* PatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA7216E8FDE500E75E7A /* PatientListViewController.m */; };
-		C469AA7616E8FE3600E75E7A /* InitialInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA7516E8FE3600E75E7A /* InitialInfoViewController.m */; };
 		C469AA7D16E905D100E75E7A /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = C469AA7916E905D100E75E7A /* Icon-72.png */; };
 		C469AA7E16E905D100E75E7A /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C469AA7A16E905D100E75E7A /* Icon-72@2x.png */; };
 		C469AA7F16E905D100E75E7A /* TRx_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C469AA7B16E905D100E75E7A /* TRx_Icon.png */; };
 		C469AA8016E905D100E75E7A /* TRx_Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C469AA7C16E905D100E75E7A /* TRx_Icon@2x.png */; };
+		C469AA8416E9082D00E75E7A /* PhysicalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA8316E9082D00E75E7A /* PhysicalViewController.m */; };
+		C469AA8716E9083D00E75E7A /* LabWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA8616E9083D00E75E7A /* LabWordViewController.m */; };
+		C469AA8A16E9084C00E75E7A /* ORViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA8916E9084C00E75E7A /* ORViewController.m */; };
+		C469AA8D16E9085C00E75E7A /* RecoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA8C16E9085C00E75E7A /* RecoveryViewController.m */; };
+		C469AA9016E9086C00E75E7A /* DischargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA8F16E9086C00E75E7A /* DischargeViewController.m */; };
+		C469AA9316E9087A00E75E7A /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA9216E9087A00E75E7A /* SummaryViewController.m */; };
+		C469AA9616E9089100E75E7A /* PreOpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA9516E9089100E75E7A /* PreOpViewController.m */; };
 		C474A24E16E709C1006F2B0B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C474A24D16E709C1006F2B0B /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -68,12 +74,24 @@
 		C44D6F5916D19AD60036E40B /* TRxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRxTests.m; sourceTree = "<group>"; };
 		C469AA7116E8FDE500E75E7A /* PatientListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientListViewController.h; sourceTree = "<group>"; };
 		C469AA7216E8FDE500E75E7A /* PatientListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListViewController.m; sourceTree = "<group>"; };
-		C469AA7416E8FE3600E75E7A /* InitialInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialInfoViewController.h; sourceTree = "<group>"; };
-		C469AA7516E8FE3600E75E7A /* InitialInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialInfoViewController.m; sourceTree = "<group>"; };
 		C469AA7916E905D100E75E7A /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/TRx_png/Icon-72.png"; sourceTree = SOURCE_ROOT; };
 		C469AA7A16E905D100E75E7A /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "Resources/TRx_png/Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
 		C469AA7B16E905D100E75E7A /* TRx_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TRx_Icon.png; path = Resources/TRx_png/TRx_Icon.png; sourceTree = SOURCE_ROOT; };
 		C469AA7C16E905D100E75E7A /* TRx_Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TRx_Icon@2x.png"; path = "Resources/TRx_png/TRx_Icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		C469AA8216E9082D00E75E7A /* PhysicalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicalViewController.h; sourceTree = "<group>"; };
+		C469AA8316E9082D00E75E7A /* PhysicalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicalViewController.m; sourceTree = "<group>"; };
+		C469AA8516E9083D00E75E7A /* LabWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabWordViewController.h; sourceTree = "<group>"; };
+		C469AA8616E9083D00E75E7A /* LabWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabWordViewController.m; sourceTree = "<group>"; };
+		C469AA8816E9084C00E75E7A /* ORViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORViewController.h; sourceTree = "<group>"; };
+		C469AA8916E9084C00E75E7A /* ORViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORViewController.m; sourceTree = "<group>"; };
+		C469AA8B16E9085C00E75E7A /* RecoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecoveryViewController.h; sourceTree = "<group>"; };
+		C469AA8C16E9085C00E75E7A /* RecoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecoveryViewController.m; sourceTree = "<group>"; };
+		C469AA8E16E9086C00E75E7A /* DischargeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DischargeViewController.h; sourceTree = "<group>"; };
+		C469AA8F16E9086C00E75E7A /* DischargeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DischargeViewController.m; sourceTree = "<group>"; };
+		C469AA9116E9087A00E75E7A /* SummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryViewController.h; sourceTree = "<group>"; };
+		C469AA9216E9087A00E75E7A /* SummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryViewController.m; sourceTree = "<group>"; };
+		C469AA9416E9089100E75E7A /* PreOpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreOpViewController.h; sourceTree = "<group>"; };
+		C469AA9516E9089100E75E7A /* PreOpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreOpViewController.m; sourceTree = "<group>"; };
 		C474A24D16E709C1006F2B0B /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,8 +209,8 @@
 		C469AA6A16E8FD3E00E75E7A /* Tab 1 - PreOp */ = {
 			isa = PBXGroup;
 			children = (
-				C469AA7416E8FE3600E75E7A /* InitialInfoViewController.h */,
-				C469AA7516E8FE3600E75E7A /* InitialInfoViewController.m */,
+				C469AA9416E9089100E75E7A /* PreOpViewController.h */,
+				C469AA9516E9089100E75E7A /* PreOpViewController.m */,
 			);
 			name = "Tab 1 - PreOp";
 			sourceTree = "<group>";
@@ -200,6 +218,8 @@
 		C469AA6B16E8FD5A00E75E7A /* Tab 7 - Summary */ = {
 			isa = PBXGroup;
 			children = (
+				C469AA9116E9087A00E75E7A /* SummaryViewController.h */,
+				C469AA9216E9087A00E75E7A /* SummaryViewController.m */,
 			);
 			name = "Tab 7 - Summary";
 			sourceTree = "<group>";
@@ -207,6 +227,8 @@
 		C469AA6C16E8FD6200E75E7A /* Tab 6 - Discharge */ = {
 			isa = PBXGroup;
 			children = (
+				C469AA8E16E9086C00E75E7A /* DischargeViewController.h */,
+				C469AA8F16E9086C00E75E7A /* DischargeViewController.m */,
 			);
 			name = "Tab 6 - Discharge";
 			sourceTree = "<group>";
@@ -214,6 +236,8 @@
 		C469AA6D16E8FD6900E75E7A /* Tab 5 - Recovery */ = {
 			isa = PBXGroup;
 			children = (
+				C469AA8B16E9085C00E75E7A /* RecoveryViewController.h */,
+				C469AA8C16E9085C00E75E7A /* RecoveryViewController.m */,
 			);
 			name = "Tab 5 - Recovery";
 			sourceTree = "<group>";
@@ -221,6 +245,8 @@
 		C469AA6E16E8FD7B00E75E7A /* Tab 4 - OR */ = {
 			isa = PBXGroup;
 			children = (
+				C469AA8816E9084C00E75E7A /* ORViewController.h */,
+				C469AA8916E9084C00E75E7A /* ORViewController.m */,
 			);
 			name = "Tab 4 - OR";
 			sourceTree = "<group>";
@@ -228,6 +254,8 @@
 		C469AA6F16E8FD8100E75E7A /* Tab 3 - Lab Work */ = {
 			isa = PBXGroup;
 			children = (
+				C469AA8516E9083D00E75E7A /* LabWordViewController.h */,
+				C469AA8616E9083D00E75E7A /* LabWordViewController.m */,
 			);
 			name = "Tab 3 - Lab Work";
 			sourceTree = "<group>";
@@ -235,6 +263,8 @@
 		C469AA7016E8FD8700E75E7A /* Tab 2 - Physical */ = {
 			isa = PBXGroup;
 			children = (
+				C469AA8216E9082D00E75E7A /* PhysicalViewController.h */,
+				C469AA8316E9082D00E75E7A /* PhysicalViewController.m */,
 			);
 			name = "Tab 2 - Physical";
 			sourceTree = "<group>";
@@ -394,7 +424,13 @@
 				C44D6F4516D19AD60036E40B /* ViewController.m in Sources */,
 				1300E3BD16DA9D1B0033151C /* DBTalk.m in Sources */,
 				C469AA7316E8FDE500E75E7A /* PatientListViewController.m in Sources */,
-				C469AA7616E8FE3600E75E7A /* InitialInfoViewController.m in Sources */,
+				C469AA8416E9082D00E75E7A /* PhysicalViewController.m in Sources */,
+				C469AA8716E9083D00E75E7A /* LabWordViewController.m in Sources */,
+				C469AA8A16E9084C00E75E7A /* ORViewController.m in Sources */,
+				C469AA8D16E9085C00E75E7A /* RecoveryViewController.m in Sources */,
+				C469AA9016E9086C00E75E7A /* DischargeViewController.m in Sources */,
+				C469AA9316E9087A00E75E7A /* SummaryViewController.m in Sources */,
+				C469AA9616E9089100E75E7A /* PreOpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

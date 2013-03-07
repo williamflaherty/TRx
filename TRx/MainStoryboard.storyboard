@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Item 2-->
+        <!--Lab Word View Controller - Item 2-->
         <scene sceneID="k5r-dc-ijP">
             <objects>
-                <viewController id="z6x-Af-ReE" sceneMemberID="viewController">
+                <viewController id="z6x-Af-ReE" customClass="LabWordViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wv1-Bk-ZoF">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -17,12 +17,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQK-Fy-iLm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1758" y="-1375"/>
+            <point key="canvasLocation" x="-3230" y="-2983"/>
         </scene>
-        <!--Initial Info View Controller - Item 1-->
+        <!--Discharge View Controller - Item-->
+        <scene sceneID="MXc-0O-FUL">
+            <objects>
+                <viewController id="rcJ-q2-nGf" customClass="DischargeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="un5-8P-8Ah">
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="zxw-8E-rVh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0nC-lV-2JP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4370" y="-365"/>
+        </scene>
+        <!--Pre Op View Controller - Item 1-->
         <scene sceneID="0hp-Q1-PYy">
             <objects>
-                <viewController id="XVs-Rn-8gv" customClass="InitialInfoViewController" sceneMemberID="viewController">
+                <viewController id="XVs-Rn-8gv" customClass="PreOpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oW9-81-ugR">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -33,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQ1-ce-NTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1742" y="-2747"/>
+            <point key="canvasLocation" x="-5134" y="-4476"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CTA-x1-Arn">
@@ -51,11 +66,76 @@
                     <connections>
                         <segue destination="XVs-Rn-8gv" kind="relationship" relationship="viewControllers" id="Q6l-sA-fnz"/>
                         <segue destination="z6x-Af-ReE" kind="relationship" relationship="viewControllers" id="awr-03-l5d"/>
+                        <segue destination="rcJ-q2-nGf" kind="relationship" relationship="viewControllers" id="9c8-WK-jSp"/>
+                        <segue destination="STs-fd-uEQ" kind="relationship" relationship="viewControllers" id="FZb-86-Zpa"/>
+                        <segue destination="b1G-Jo-Stg" kind="relationship" relationship="viewControllers" id="5eD-oT-zTf"/>
+                        <segue destination="Ty3-r4-j9H" kind="relationship" relationship="viewControllers" id="dH3-2v-cnu"/>
+                        <segue destination="O3e-mW-86H" kind="relationship" relationship="viewControllers" id="Rlb-7T-Sgw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ALq-SH-P8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2905" y="-2117"/>
+            <point key="canvasLocation" x="-6769" y="-709"/>
+        </scene>
+        <!--Summary View Controller - Item-->
+        <scene sceneID="NcX-x7-8Mi">
+            <objects>
+                <viewController id="O3e-mW-86H" customClass="SummaryViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G36-NI-XPl">
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="W4L-cp-J4y"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yza-Dg-MrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5357" y="12"/>
+        </scene>
+        <!--Recovery View Controller - Item-->
+        <scene sceneID="bpP-E3-y3Z">
+            <objects>
+                <viewController id="Ty3-r4-j9H" customClass="RecoveryViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iQz-Kd-oW0">
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="jzv-GV-cJc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lok-Pk-3GQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3357" y="-804"/>
+        </scene>
+        <!--View Controller - Item-->
+        <scene sceneID="SI0-Mc-m4T">
+            <objects>
+                <viewController id="b1G-Jo-Stg" customClass="ORViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4xf-eb-T9p">
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Vg8-Mb-EEg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XdH-8J-zJH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2461" y="-1868"/>
+        </scene>
+        <!--Physical View Controller - Item-->
+        <scene sceneID="gXw-g6-P6L">
+            <objects>
+                <viewController id="STs-fd-uEQ" customClass="PhysicalViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k3b-jA-R2L">
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="w8J-5a-WrS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NW8-xT-8Kv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4133" y="-3716"/>
         </scene>
         <!--Patient List View Controller - Patients-->
         <scene sceneID="n7n-nt-OUV">
@@ -82,38 +162,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="PSU-Ms-ePG" kind="push" id="eag-Av-bgc"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" id="Hzb-yv-ubi">
-                                <rect key="frame" x="0.0" y="66" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="748" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <connections>
-                                    <segue destination="PSU-Ms-ePG" kind="push" id="NLJ-nx-Pys"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="fLZ-5d-Hc9" style="IBUITableViewCellStyleDefault" id="vaY-Z4-a1A">
-                                <rect key="frame" x="0.0" y="110" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="748" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLZ-5d-Hc9">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <connections>
-                                    <segue destination="PSU-Ms-ePG" kind="push" id="Ju1-Ht-VAA"/>
+                                    <segue destination="PSU-Ms-ePG" kind="push" id="E2k-X9-opT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -125,14 +174,14 @@
                     <navigationItem key="navigationItem" title="Patients" id="msi-Bg-QGb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2CS-7z-azS">
                             <connections>
-                                <segue destination="PSU-Ms-ePG" kind="push" id="dHW-9G-gIz"/>
+                                <segue destination="PSU-Ms-ePG" kind="push" id="8gH-be-wDv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zj6-Z0-Gmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4023" y="-2109"/>
+            <point key="canvasLocation" x="-6763" y="-3029"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UAZ-qp-SXW">
@@ -151,15 +200,33 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxE-NJ-How" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5051" y="-2109"/>
+            <point key="canvasLocation" x="-6763" y="-4453"/>
         </scene>
     </scenes>
     <classes>
-        <class className="InitialInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialInfoViewController.h"/>
+        <class className="DischargeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DischargeViewController.h"/>
+        </class>
+        <class className="LabWordViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LabWordViewController.h"/>
+        </class>
+        <class className="ORViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORViewController.h"/>
         </class>
         <class className="PatientListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PatientListViewController.h"/>
+        </class>
+        <class className="PhysicalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhysicalViewController.h"/>
+        </class>
+        <class className="PreOpViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PreOpViewController.h"/>
+        </class>
+        <class className="RecoveryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecoveryViewController.h"/>
+        </class>
+        <class className="SummaryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SummaryViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -168,6 +235,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eag-Av-bgc"/>
+        <segue reference="E2k-X9-opT"/>
     </inferredMetricsTieBreakers>
 </document>

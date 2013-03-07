@@ -1,18 +1,18 @@
 //
-//  InitialInfoViewController.m
+//  DischargeViewController.m
 //  TRx
 //
 //  Created by Mark Bellott on 3/7/13.
 //  Copyright (c) 2013 Team Ecuador. All rights reserved.
 //
 
-#import "InitialInfoViewController.h"
+#import "DischargeViewController.h"
 
-@interface InitialInfoViewController ()
+@interface DischargeViewController ()
 
 @end
 
-@implementation InitialInfoViewController
+@implementation DischargeViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
