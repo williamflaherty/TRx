@@ -23,6 +23,6 @@ typedef enum{
 @property(nonatomic, readwrite) complaint chiefComplaint;
 @property(nonatomic, retain) UIImage *photoID;
 
--(id)initWithName:(NSString *)n ChiefComplaint:(complaint)c PhotoID:(UIImage*)p;
+-(id)initWithName:(NSString*)n ChiefComplaint:(complaint)c PhotoID:(UIImage*)p;
 
 @end
