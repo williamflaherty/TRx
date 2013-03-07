@@ -258,7 +258,7 @@ static NSString *imageDir = nil;
 }
 
 /*---------------------------------------------------------------------------
- * 
+ * You shouldn't need to call this directly; it gets called by addPicture
  *---------------------------------------------------------------------------*/
 +(NSString *)addPicturePathToDatabase:(NSString *)pictureId: (NSString *)patientId:(NSString *)picturePath
                                      :(NSString *)pictureName: (NSString *)isProfile
