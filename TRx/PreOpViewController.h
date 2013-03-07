@@ -20,6 +20,7 @@
 
 @property BOOL newMedia;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UITextField *nameText;
 
 - (IBAction)useCamera:(id)sender;
 - (IBAction)addPatient:(id)sender;

@@ -17,13 +17,24 @@ typedef enum{
 } complaint;
 
 @interface Patient : NSObject{
-    NSString *name;
+   
+    NSString *firstName, *middleName, *lastName;
+    
+    NSInteger birthday;
+    
     complaint chiefComplaint;
+    
     UIImage *photoID;
 }
 
-@property(nonatomic,retain) NSString *name;
+@property(nonatomic,retain) NSString *firstName;
+@property(nonatomic,retain) NSString *middleName;
+@property(nonatomic,retain) NSString *lastName;
+
+@property(nonatomic,readwrite) NSInteger birthday;
+
 @property(nonatomic, readwrite) complaint chiefComplaint;
+
 @property(nonatomic, retain) UIImage *photoID;
 
 -(id)initWithName:(NSString*)n ChiefComplaint:(complaint)c PhotoID:(UIImage*)p;
