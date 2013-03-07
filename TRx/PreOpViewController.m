@@ -7,6 +7,7 @@
 //
 
 #import "PreOpViewController.h"
+#import "DBTalk.h"
 
 @interface PreOpViewController ()
 
@@ -19,11 +20,15 @@
 }
 
 -(void) addPatient:(id)sender{
+    NSString *bday = [NSString stringWithFormat:@"%d", newPatient.birthday];
+    NSString *patientId = [DBTalk addUpdatePatient:newPatient.firstName middleName:newPatient.middleName
+                                          lastName:newPatient.lastName birthday:bday patientId:NULL];
     
-    //newPatient = [newPatient initWithName:pName ChiefComplaint:pComplaint PhotoID:photoID];
-    //photoID;
-    //newPatient.
+    //Alert -- have hard-coded surgeryTypeId and doctorId for now
+    NSString *recordId = [DBTalk addRecord:patientId surgeryTypeId:@"1" doctorId:@"1" isActive:@"1" hasTimeout:@"0"];
+    [DBTalk addPicture:photoID pictureId:NULL patientId:patientId customPictureName:NULL isProfile:@"1"];
     
+    NSLog(@"AddPatient button pressed:\npatientId: %@\nrecordId:%@\n", patientId, recordId);
 }
 
 
