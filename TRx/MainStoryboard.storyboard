@@ -314,6 +314,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Patients" id="msi-Bg-QGb">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="pzW-2e-LNn"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2CS-7z-azS">
                             <connections>
                                 <segue destination="PSU-Ms-ePG" kind="push" id="8gH-be-wDv"/>

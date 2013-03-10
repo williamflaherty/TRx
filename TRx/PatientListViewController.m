@@ -11,6 +11,13 @@
 #import "DBTalk.h" 
 #import "Patient.h"
 
+/*
+    NOTE:
+    I added a Refresh button to the top of the patient list in story board. I think it would be a nice option.
+    Reming me to talk about it...
+*/
+
+
 @interface PatientListViewController ()
 
 @end

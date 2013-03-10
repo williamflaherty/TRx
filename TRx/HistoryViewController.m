@@ -27,6 +27,18 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    UIApplication* application = [UIApplication sharedApplication];
+    
+    if (application.statusBarOrientation != UIInterfaceOrientationLandscapeRight)
+    {
+        application.statusBarOrientation = UIInterfaceOrientationLandscapeRight;
+    }
+}
+
 -(void) addPatient:(id)sender{
     //Idealy, I think we should call a DBTalk function called "addPatient" from here, passing it the newPatient object...
     //[DBTalk addPatient:newPatient];
@@ -69,8 +81,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    //Crop the image
-    CGRect cropRect = CGRectMake(256, 192, 768, 768);
+    //Crop and flip the image
+    CGRect cropRect = CGRectMake(256, 152, 750, 750);
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], cropRect);
     UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
@@ -80,7 +92,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     photoID = finalImage;
     newPatient.photoID = finalImage;
     
-    //Display the cropped image
+    //Display the final image
     _imageView.image = finalImage;
     
     if (_newMedia)
