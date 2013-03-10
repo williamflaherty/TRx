@@ -472,6 +472,10 @@
 				C469AA9D16E9469F00E75E7A /* AdminInformation.m in Sources */,
 				19087ED016E95363007FE40B /* PatientListViewCell.m in Sources */,
 				13CF9B2016EC4BAD006CF20B /* LocalTalk.m in Sources */,
+				C499B56A16EC21E400F40046 /* HistoryViewController.m in Sources */,
+				C499B56D16EC23DE00F40046 /* OrdersViewController.m in Sources */,
+				C499B57016EC245600F40046 /* SurgeryViewController.m in Sources */,
+				C499B57316EC247600F40046 /* PACUViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
