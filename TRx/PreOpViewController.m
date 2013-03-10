@@ -25,7 +25,7 @@
     [pickerArray addObject:@"Not Specified"];
     */
     
-   // _complaintsArray = [DBTalk getSurgeryList];
+    _complaintsArray = [DBTalk getSurgeryList];
 
 }
 

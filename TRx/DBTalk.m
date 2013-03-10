@@ -237,6 +237,29 @@ static NSString *imageDir = nil;
 
 
 /*---------------------------------------------------------------------------
+ * Pass in a patient's recordId. Calls DB to get stored info
+ * returns NSArray of Keys and values for each field
+ *---------------------------------------------------------------------------*/
++(NSArray *)getRecordData:(NSString *)recordId
+{
+    NSString *encodedString = [NSString stringWithFormat:@"%@get/recordData/", host];
+    NSLog(@"encodedString: %@", encodedString);
+    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
+    
+    if (data) {
+        NSError *jsonError;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+        
+        return jsonArray;
+    }
+    NSLog(@"getRecordData didn't work: error in PHP");
+    return NULL;
+    
+}
+
+
+
+/*---------------------------------------------------------------------------
  * description: queries database for current profile picture
  * returns UIImage of profile picture for specified patient
  *---------------------------------------------------------------------------*/

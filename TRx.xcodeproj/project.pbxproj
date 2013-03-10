@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1300E3BD16DA9D1B0033151C /* DBTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 1300E3BC16DA9D1B0033151C /* DBTalk.m */; };
+		13CF9B2016EC4BAD006CF20B /* LocalTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */; };
+		13CF9B2716ECF829006CF20B /* LocalDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 13CF9B2616ECF829006CF20B /* LocalDatabase.sqlite */; };
+		13CF9B2A16ECF8DB006CF20B /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 13CF9B2916ECF8DB006CF20B /* libsqlite3.0.dylib */; };
 		19087ED016E95363007FE40B /* PatientListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196CCD8A16E90ED600B82048 /* PatientListViewCell.m */; };
 		19087ED116E95364007FE40B /* PatientListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196CCD8A16E90ED600B82048 /* PatientListViewCell.m */; };
 		C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
@@ -55,6 +58,10 @@
 /* Begin PBXFileReference section */
 		1300E3BB16DA9D1B0033151C /* DBTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTalk.h; sourceTree = "<group>"; };
 		1300E3BC16DA9D1B0033151C /* DBTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTalk.m; sourceTree = "<group>"; };
+		13CF9B1E16EC4BAD006CF20B /* LocalTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTalk.h; sourceTree = "<group>"; };
+		13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTalk.m; sourceTree = "<group>"; };
+		13CF9B2616ECF829006CF20B /* LocalDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = LocalDatabase.sqlite; sourceTree = "<group>"; };
+		13CF9B2916ECF8DB006CF20B /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		196CCD8916E90ED600B82048 /* PatientListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientListViewCell.h; sourceTree = "<group>"; };
 		196CCD8A16E90ED600B82048 /* PatientListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListViewCell.m; sourceTree = "<group>"; };
 		C44D6F2516D19AD60036E40B /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13CF9B2A16ECF8DB006CF20B /* libsqlite3.0.dylib in Frameworks */,
 				C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */,
 				C44D6F2B16D19AD60036E40B /* Foundation.framework in Frameworks */,
 				C44D6F2D16D19AD60036E40B /* CoreGraphics.framework in Frameworks */,
@@ -132,6 +140,7 @@
 		C44D6F1C16D19AD60036E40B = {
 			isa = PBXGroup;
 			children = (
+				13CF9B2916ECF8DB006CF20B /* libsqlite3.0.dylib */,
 				C44D6F2E16D19AD60036E40B /* TRx */,
 				C44D6F2F16D19AD60036E40B /* Supporting Files */,
 				C469AA7716E905AC00E75E7A /* Images */,
@@ -330,8 +339,11 @@
 		C499B56616EC07E200F40046 /* Data Base */ = {
 			isa = PBXGroup;
 			children = (
+				13CF9B2616ECF829006CF20B /* LocalDatabase.sqlite */,
 				1300E3BB16DA9D1B0033151C /* DBTalk.h */,
 				1300E3BC16DA9D1B0033151C /* DBTalk.m */,
+				13CF9B1E16EC4BAD006CF20B /* LocalTalk.h */,
+				13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */,
 			);
 			name = "Data Base";
 			sourceTree = "<group>";
@@ -427,6 +439,7 @@
 				C469AA7E16E905D100E75E7A /* Icon-72@2x.png in Resources */,
 				C469AA7F16E905D100E75E7A /* TRx_Icon.png in Resources */,
 				C469AA8016E905D100E75E7A /* TRx_Icon@2x.png in Resources */,
+				13CF9B2716ECF829006CF20B /* LocalDatabase.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +489,7 @@
 				C469AA9A16E90A0100E75E7A /* Patient.m in Sources */,
 				C469AA9D16E9469F00E75E7A /* AdminInformation.m in Sources */,
 				19087ED016E95363007FE40B /* PatientListViewCell.m in Sources */,
+				13CF9B2016EC4BAD006CF20B /* LocalTalk.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
