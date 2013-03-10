@@ -17,32 +17,16 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
+    /*
     pickerArray = [[NSMutableArray alloc] init];
     [pickerArray addObject:@"Cleft Lip"];
     [pickerArray addObject:@"Cataracts"];
     [pickerArray addObject:@"Hernia"];
     [pickerArray addObject:@"Not Specified"];
+    */
     
+   // _complaintsArray = [DBTalk getSurgeryList];
 
-}
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
-    return 1;
-}
-
-
-- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
-    return [pickerArray count];
-}
-
-- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [pickerArray objectAtIndex:row];
-}
-
-- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    
-    NSLog(@"Selected Color: %@. Index of selected color: %i", [pickerArray objectAtIndex:row], row);
 }
 
 -(void) addPatient:(id)sender{
@@ -116,6 +100,24 @@ finishedSavingWithError:(NSError *)error
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
+    return 1;
+}
+
+
+- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
+    return [_complaintsArray count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [_complaintsArray objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    NSLog(@"Selected Color: %@. Index of selected color: %i", [_complaintsArray objectAtIndex:row], row);
 }
 
 - (void)didReceiveMemoryWarning{

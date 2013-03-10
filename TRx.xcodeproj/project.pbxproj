@@ -133,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				C44D6F2E16D19AD60036E40B /* TRx */,
+				C44D6F2F16D19AD60036E40B /* Supporting Files */,
+				C469AA7716E905AC00E75E7A /* Images */,
 				C44D6F5216D19AD60036E40B /* TRxTests */,
 				C44D6F2716D19AD60036E40B /* Frameworks */,
 				C44D6F2616D19AD60036E40B /* Products */,
@@ -162,6 +164,8 @@
 		C44D6F2E16D19AD60036E40B /* TRx */ = {
 			isa = PBXGroup;
 			children = (
+				C474A24D16E709C1006F2B0B /* MainStoryboard.storyboard */,
+				C499B56616EC07E200F40046 /* Data Base */,
 				C469AA9716E909D500E75E7A /* Classes */,
 				C474A24B16E7092A006F2B0B /* Patient List */,
 				C469AA6A16E8FD3E00E75E7A /* Tab 1 - PreOp */,
@@ -171,15 +175,7 @@
 				C469AA6D16E8FD6900E75E7A /* Tab 5 - Recovery */,
 				C469AA6C16E8FD6200E75E7A /* Tab 6 - Discharge */,
 				C469AA6B16E8FD5A00E75E7A /* Tab 7 - Summary */,
-				1300E3BB16DA9D1B0033151C /* DBTalk.h */,
-				1300E3BC16DA9D1B0033151C /* DBTalk.m */,
-				C44D6F3716D19AD60036E40B /* AppDelegate.h */,
-				C44D6F3816D19AD60036E40B /* AppDelegate.m */,
-				C474A24D16E709C1006F2B0B /* MainStoryboard.storyboard */,
-				C44D6F4316D19AD60036E40B /* ViewController.h */,
-				C44D6F4416D19AD60036E40B /* ViewController.m */,
-				C44D6F2F16D19AD60036E40B /* Supporting Files */,
-				C469AA7716E905AC00E75E7A /* Images */,
+				C499B56716EC07FF00F40046 /* AppDelegate */,
 			);
 			path = TRx;
 			sourceTree = "<group>";
@@ -191,11 +187,9 @@
 				C44D6F3116D19AD60036E40B /* InfoPlist.strings */,
 				C44D6F3416D19AD60036E40B /* main.m */,
 				C44D6F3616D19AD60036E40B /* TRx-Prefix.pch */,
-				C44D6F3A16D19AD60036E40B /* Default.png */,
-				C44D6F3C16D19AD60036E40B /* Default@2x.png */,
-				C44D6F3E16D19AD60036E40B /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			path = TRx;
 			sourceTree = "<group>";
 		};
 		C44D6F5216D19AD60036E40B /* TRxTests */ = {
@@ -283,10 +277,14 @@
 		C469AA7716E905AC00E75E7A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C44D6F3A16D19AD60036E40B /* Default.png */,
+				C44D6F3C16D19AD60036E40B /* Default@2x.png */,
+				C44D6F3E16D19AD60036E40B /* Default-568h@2x.png */,
 				C469AA7816E905BD00E75E7A /* Defaults */,
 				C469AA8116E9060000E75E7A /* Tab Images */,
 			);
 			name = Images;
+			path = TRx;
 			sourceTree = "<group>";
 		};
 		C469AA7816E905BD00E75E7A /* Defaults */ = {
@@ -327,6 +325,26 @@
 				196CCD8A16E90ED600B82048 /* PatientListViewCell.m */,
 			);
 			name = "Patient List";
+			sourceTree = "<group>";
+		};
+		C499B56616EC07E200F40046 /* Data Base */ = {
+			isa = PBXGroup;
+			children = (
+				1300E3BB16DA9D1B0033151C /* DBTalk.h */,
+				1300E3BC16DA9D1B0033151C /* DBTalk.m */,
+			);
+			name = "Data Base";
+			sourceTree = "<group>";
+		};
+		C499B56716EC07FF00F40046 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C44D6F3716D19AD60036E40B /* AppDelegate.h */,
+				C44D6F3816D19AD60036E40B /* AppDelegate.m */,
+				C44D6F4316D19AD60036E40B /* ViewController.h */,
+				C44D6F4416D19AD60036E40B /* ViewController.m */,
+			);
+			name = AppDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
