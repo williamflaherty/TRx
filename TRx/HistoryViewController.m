@@ -26,6 +26,8 @@
     _complaintsArray = [AdminInformation getSurgeryNames];
     
     _complaintsArray = [DBTalk getSurgeryList];
+    
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {

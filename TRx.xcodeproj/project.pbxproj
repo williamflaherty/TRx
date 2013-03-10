@@ -137,7 +137,6 @@
 		C44D6F1C16D19AD60036E40B = {
 			isa = PBXGroup;
 			children = (
-				13CF9B2916ECF8DB006CF20B /* libsqlite3.0.dylib */,
 				C44D6F2E16D19AD60036E40B /* TRx */,
 				C44D6F2F16D19AD60036E40B /* Supporting Files */,
 				C469AA7716E905AC00E75E7A /* Images */,
@@ -326,6 +325,7 @@
 		C499B56616EC07E200F40046 /* Data Base */ = {
 			isa = PBXGroup;
 			children = (
+				13CF9B2916ECF8DB006CF20B /* libsqlite3.0.dylib */,
 				13CF9B2616ECF829006CF20B /* LocalDatabase.sqlite */,
 				1300E3BB16DA9D1B0033151C /* DBTalk.h */,
 				1300E3BC16DA9D1B0033151C /* DBTalk.m */,
