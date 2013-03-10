@@ -39,11 +39,11 @@
     //[PatientListViewCell class];
     NSString *firstName, *lastName, *patientId, *imageId, *complaint, *middleName;
     UIImage *picture;
-    _patientsArray = [DBTalk getPatientList];
-    _patients = [NSMutableArray array];
+    patientsArray = [DBTalk getPatientList];
+    patients = [NSMutableArray array];
     NSArray *complaints = [NSArray arrayWithObjects:@"Cleft Lip",@"Hernia",@"Cataracts", nil];
     
-    for(NSDictionary *item in _patientsArray){
+    for(NSDictionary *item in patientsArray){
         NSLog(@"%@", item);
         firstName = [item objectForKey:@"FirstName"];
         middleName = [item objectForKey:@"MiddleName"];
@@ -56,7 +56,7 @@
         Patient *obj = [[Patient alloc] initWithFirstName:(firstName) MiddleName:(middleName) LastName:(lastName) ChiefComplaint:(complaint) PhotoID:(picture)];
         NSLog(@"%@", picture);
         NSLog(@"%@", imageId);
-        [_patients addObject:obj];
+        [patients addObject:obj];
     }
     
     // Uncomment the following line to preserve selection between presentations.
@@ -83,7 +83,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return (unsigned long)_patientsArray.count;
+    return (unsigned long) patientsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -96,13 +96,13 @@
     // Configure the cell...
     
     int row = [indexPath row];
-    NSString *fn = [[_patients objectAtIndex:row] firstName];
-    NSString *mn = [[_patients objectAtIndex:row] middleName];
-    NSString *ln = [[_patients objectAtIndex:row] lastName];
+    NSString *fn = [[patients objectAtIndex:row] firstName];
+    NSString *mn = [[patients objectAtIndex:row] middleName];
+    NSString *ln = [[patients objectAtIndex:row] lastName];
     NSString *name = [NSString stringWithFormat: @"%@ %@ %@", fn, mn, ln];
     cell.patientName.text = name;
-    cell.chiefComplaint.text = [[_patients objectAtIndex:row] chiefComplaint];
-    cell.patientPicture.image = [[_patients objectAtIndex:row] photoID];
+    cell.chiefComplaint.text = [[patients objectAtIndex:row] chiefComplaint];
+    cell.patientPicture.image = [[patients objectAtIndex:row] photoID];
     //cell.patientPicture.image = [UIImage imageNamed:_carImages[row]];
     
     return cell;
