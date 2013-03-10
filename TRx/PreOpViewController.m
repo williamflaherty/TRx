@@ -8,12 +8,15 @@
 
 #import "PreOpViewController.h"
 #import "DBTalk.h"
+#import "AdminInformation.h"
 
 @interface PreOpViewController ()
 
 @end
 
 @implementation PreOpViewController
+
+@synthesize complaintPicker = _complaintPicker;
 
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -25,7 +28,7 @@
     [pickerArray addObject:@"Not Specified"];
     */
     
-   // _complaintsArray = [DBTalk getSurgeryList];
+   _complaintsArray = [AdminInformation getSurgeryNames];
 
 }
 

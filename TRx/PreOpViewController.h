@@ -18,11 +18,10 @@
     UIImage *photoID;
     
     IBOutlet UIPickerView *complaintPicker;
-   // NSMutableArray *pickerArray;
 }
 
 @property BOOL newMedia;
-@property (nonatomic, strong) NSArray *complaintsArray;
+@property (nonatomic, strong) NSMutableArray *complaintsArray;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic, retain) IBOutlet UITextField *firstNameText;
 @property (nonatomic, retain) IBOutlet UITextField *middleNameText;
