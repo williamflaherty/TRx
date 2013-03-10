@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "Patient.h"
+#import "PatientListViewController.h"
 
 @interface HistoryViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>{
     
@@ -19,6 +20,7 @@
     UIImage *photoID;
     
     IBOutlet UIPickerView *complaintPicker;
+    PatientListViewController *p;
 }
 
 @property BOOL newMedia;
