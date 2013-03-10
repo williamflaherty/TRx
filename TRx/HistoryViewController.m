@@ -69,15 +69,20 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    
+    //Crop the image
+    CGRect cropRect = CGRectMake(256, 192, 768, 768);
     UIImage *image = info[UIImagePickerControllerOriginalImage];
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], cropRect);
+    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
+    UIImage *finalImage =   [UIImage imageWithCGImage:croppedImage.CGImage scale:1.0 orientation:UIImageOrientationDownMirrored];
     
     //Store the image for the patient
-    photoID = image;
+    photoID = finalImage;
+    newPatient.photoID = finalImage;
     
-    newPatient.photoID = photoID;
+    //Display the cropped image
+    _imageView.image = finalImage;
     
-    _imageView.image = image;
     if (_newMedia)
         UIImageWriteToSavedPhotosAlbum(image,
                                        self,
