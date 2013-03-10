@@ -1,18 +1,18 @@
 //
-//  ORViewController.m
+//  HistoryViewController.m
 //  TRx
 //
-//  Created by Mark Bellott on 3/7/13.
+//  Created by Mark Bellott on 3/9/13.
 //  Copyright (c) 2013 Team Ecuador. All rights reserved.
 //
 
-#import "ORViewController.h"
+#import "HistoryViewController.h"
 
-@interface ORViewController ()
+@interface HistoryViewController ()
 
 @end
 
-@implementation ORViewController
+@implementation HistoryViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
