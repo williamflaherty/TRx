@@ -1,8 +1,8 @@
 //
-//  PreOpViewController.h
+//  HistoryViewController.h
 //  TRx
 //
-//  Created by Mark Bellott on 3/7/13.
+//  Created by Mark Bellott on 3/9/13.
 //  Copyright (c) 2013 Team Ecuador. All rights reserved.
 //
 
@@ -10,19 +10,19 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "Patient.h"
 
-@interface PreOpViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>{
-    Patient *newPatient;
+@interface HistoryViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>{
     
+    Patient *newPatient;
+
     NSString *pName;
     NSString *pComplaint;
     UIImage *photoID;
     
     IBOutlet UIPickerView *complaintPicker;
-   // NSMutableArray *pickerArray;
 }
 
 @property BOOL newMedia;
-@property (nonatomic, strong) NSArray *complaintsArray;
+@property (nonatomic, strong) NSMutableArray *complaintsArray;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic, retain) IBOutlet UITextField *firstNameText;
 @property (nonatomic, retain) IBOutlet UITextField *middleNameText;

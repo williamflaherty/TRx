@@ -1,18 +1,18 @@
 //
-//  DischargeViewController.m
+//  SurgeryViewController.m
 //  TRx
 //
-//  Created by Mark Bellott on 3/7/13.
+//  Created by Mark Bellott on 3/9/13.
 //  Copyright (c) 2013 Team Ecuador. All rights reserved.
 //
 
-#import "DischargeViewController.h"
+#import "SurgeryViewController.h"
 
-@interface DischargeViewController ()
+@interface SurgeryViewController ()
 
 @end
 
-@implementation DischargeViewController
+@implementation SurgeryViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -1,48 +1,63 @@
 //
-//  PreOpViewController.m
+//  HistoryViewController.m
 //  TRx
 //
-//  Created by Mark Bellott on 3/7/13.
+//  Created by Mark Bellott on 3/9/13.
 //  Copyright (c) 2013 Team Ecuador. All rights reserved.
 //
 
-#import "PreOpViewController.h"
+#import "HistoryViewController.h"
 #import "DBTalk.h"
+#import "AdminInformation.h"
 
-@interface PreOpViewController ()
+@interface HistoryViewController ()
 
 @end
 
-@implementation PreOpViewController
+@implementation HistoryViewController
+
+@synthesize complaintPicker = _complaintPicker;
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    /*
-    pickerArray = [[NSMutableArray alloc] init];
-    [pickerArray addObject:@"Cleft Lip"];
-    [pickerArray addObject:@"Cataracts"];
-    [pickerArray addObject:@"Hernia"];
-    [pickerArray addObject:@"Not Specified"];
-    */
+
+    newPatient = [[Patient alloc] initWithFirstName:@"Jeff" MiddleName:@"The" LastName:@"Man" ChiefComplaint:@"" PhotoID:NULL];
+    
+    _complaintsArray = [AdminInformation getSurgeryNames];
     
     _complaintsArray = [DBTalk getSurgeryList];
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    UIApplication* application = [UIApplication sharedApplication];
+    
+    if (application.statusBarOrientation != UIInterfaceOrientationLandscapeRight)
+    {
+        application.statusBarOrientation = UIInterfaceOrientationLandscapeRight;
+    }
 }
 
 -(void) addPatient:(id)sender{
+    //Idealy, I think we should call a DBTalk function called "addPatient" from here, passing it the newPatient object...
+    //[DBTalk addPatient:newPatient];
+    
     NSString *bday = [NSString stringWithFormat:@"%d", newPatient.birthday];
     NSString *patientId = [DBTalk addUpdatePatient:newPatient.firstName middleName:newPatient.middleName
                                           lastName:newPatient.lastName birthday:bday patientId:NULL];
     
     //Alert -- have hard-coded surgeryTypeId and doctorId for now
     NSString *recordId = [DBTalk addRecord:patientId surgeryTypeId:@"1" doctorId:@"1" isActive:@"1" hasTimeout:@"0"];
-    [DBTalk addPicture:photoID pictureId:NULL patientId:patientId customPictureName:NULL isProfile:@"1"];
+    //The below method causes the appilication to crash
+    //[DBTalk addPicture:newPatient.photoID pictureId:NULL patientId:patientId customPictureName:NULL isProfile:@"1"];
     
     NSLog(@"AddPatient button pressed:\npatientId: %@\nrecordId:%@\n", patientId, recordId);
 }
 
-- (void) useCamera:(id)sender
-{
+#pragma mark - Camera Methods
+
+- (void) useCamera:(id)sender{
     if ([UIImagePickerController isSourceTypeAvailable:
          UIImagePickerControllerSourceTypeCamera])
     {
@@ -59,22 +74,27 @@
     }
 }
 
-#pragma mark -
-#pragma mark UIImagePickerControllerDelegate
+#pragma mark - UIImagePickerControllerDelegate
 
 -(void)imagePickerController:(UIImagePickerController *)picker
-didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
+didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    
+    //Crop and flip the image
+    CGRect cropRect = CGRectMake(256, 152, 750, 750);
     UIImage *image = info[UIImagePickerControllerOriginalImage];
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], cropRect);
+    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
+    UIImage *finalImage =   [UIImage imageWithCGImage:croppedImage.CGImage scale:1.0 orientation:UIImageOrientationDownMirrored];
     
-    //Store the image for the patient 
-    photoID = image;
+    //Store the image for the patient
+    photoID = finalImage;
+    newPatient.photoID = finalImage;
     
-    _imageView.image = image;
+    //Display the final image
+    _imageView.image = finalImage;
+    
     if (_newMedia)
         UIImageWriteToSavedPhotosAlbum(image,
                                        self,
@@ -84,8 +104,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
 -(void)image:(UIImage *)image
 finishedSavingWithError:(NSError *)error
- contextInfo:(void *)contextInfo
-{
+ contextInfo:(void *)contextInfo{
     if (error) {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle: @"Save failed"
@@ -97,15 +116,15 @@ finishedSavingWithError:(NSError *)error
     }
 }
 
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - Picker Methods
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
     return 1;
 }
-
 
 - (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
     return [_complaintsArray count];
@@ -117,11 +136,16 @@ finishedSavingWithError:(NSError *)error
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
-    NSLog(@"Selected Color: %@. Index of selected color: %i", [_complaintsArray objectAtIndex:row], row);
+    //Set the newPatient's complaint to the picker 
+    newPatient.chiefComplaint = [NSString stringWithFormat:@"%i",row];
+    
 }
+
+#pragma mark 
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
 
 @end
+

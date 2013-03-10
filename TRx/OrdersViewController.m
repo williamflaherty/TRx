@@ -1,18 +1,18 @@
 //
-//  RecoveryViewController.m
+//  OrdersViewController.m
 //  TRx
 //
-//  Created by Mark Bellott on 3/7/13.
+//  Created by Mark Bellott on 3/9/13.
 //  Copyright (c) 2013 Team Ecuador. All rights reserved.
 //
 
-#import "RecoveryViewController.h"
+#import "OrdersViewController.h"
 
-@interface RecoveryViewController ()
+@interface OrdersViewController ()
 
 @end
 
-@implementation RecoveryViewController
+@implementation OrdersViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
