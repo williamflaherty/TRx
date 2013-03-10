@@ -25,7 +25,7 @@
             <objects>
                 <viewController id="XVs-Rn-8gv" customClass="HistoryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oW9-81-ugR">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="699"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zz7-GZ-Epb">
@@ -186,7 +186,7 @@
             <objects>
                 <viewController id="K38-Rw-qru" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NXX-bP-CM3">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="699"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3L5-3C-64V">
@@ -460,6 +460,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Ouh-RO-iNj"/>
-        <segue reference="z0b-8m-HfY"/>
+        <segue reference="7GL-kE-fHH"/>
     </inferredMetricsTieBreakers>
 </document>
