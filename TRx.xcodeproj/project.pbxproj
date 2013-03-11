@@ -137,7 +137,6 @@
 		C44D6F1C16D19AD60036E40B = {
 			isa = PBXGroup;
 			children = (
-				13CF9B2916ECF8DB006CF20B /* libsqlite3.0.dylib */,
 				C44D6F2E16D19AD60036E40B /* TRx */,
 				C44D6F2F16D19AD60036E40B /* Supporting Files */,
 				C469AA7716E905AC00E75E7A /* Images */,
@@ -159,6 +158,7 @@
 		C44D6F2716D19AD60036E40B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				13CF9B2916ECF8DB006CF20B /* libsqlite3.0.dylib */,
 				C44D6F2816D19AD60036E40B /* UIKit.framework */,
 				C44D6F2A16D19AD60036E40B /* Foundation.framework */,
 				C44D6F2C16D19AD60036E40B /* CoreGraphics.framework */,

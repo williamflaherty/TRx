@@ -33,7 +33,9 @@ static NSString *imageDir = nil;
                birthday:(NSString *)birthday
               patientId:(NSString *)patientId
 {
-
+    if (patientId ==NULL) {
+        patientId = @"NULL";
+    }
     NSString *encodedString = [NSString stringWithFormat:
                                @"%@add/addPatient/%@/%@/%@/%@/%@", host,
                                patientId, firstName, middleName, lastName, birthday];
