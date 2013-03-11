@@ -15,7 +15,7 @@
 }
 
 @property (nonatomic, strong) NSArray *patientsArray;
-@property (nonatomic, strong) NSMutableArray *patients;
+//@property (nonatomic, strong) NSMutableArray *patients;  //this was causing warnings am going to leave it commented for now -John
 
 
 
