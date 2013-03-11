@@ -14,8 +14,6 @@
     NSMutableArray *patients;
 }
 
-@property (nonatomic, strong) NSArray *patientsArray;
-@property (nonatomic, strong) NSMutableArray *patients;
 
 
 

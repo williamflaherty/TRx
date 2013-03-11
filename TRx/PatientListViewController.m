@@ -33,6 +33,8 @@
     return self;
 }
 
+#pragma mark - Adding patient segues to 2nd tab 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
