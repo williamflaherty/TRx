@@ -13,7 +13,7 @@
    
     NSString *firstName, *middleName, *lastName;
     
-    NSInteger birthday;
+    //NSInteger birthday; //was causing warnings. leaving it for now - John
     
     NSString *chiefComplaint;
     

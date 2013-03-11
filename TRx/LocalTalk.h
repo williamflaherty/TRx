@@ -16,13 +16,12 @@
 +(NSString *)getEnglishLabel:(NSString *)questionId;
 +(NSString *)getSpanishLabel:(NSString *)questionId;
 
++(NSString *)getValue:(NSString *)questionId;
+
 //synchPatient	//pushes all columns where synched = 0 to database with patientId
 //isUnsynched	//returns true if any unsynched columns
 //storePatientDataForLater
-//
-//getEnglishLabel
-//getSpanishLabel
-//getValue
+
 //storeValue
 
 @end
