@@ -12,4 +12,9 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic,strong) NSString *databaseName;
+@property (nonatomic,strong) NSString *databasePath;
+
+-(void) createAndCheckDatabase;
+
 @end

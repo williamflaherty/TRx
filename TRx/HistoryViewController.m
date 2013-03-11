@@ -9,6 +9,7 @@
 #import "HistoryViewController.h"
 #import "DBTalk.h"
 #import "AdminInformation.h"
+#import "LocalTalk.h"
 
 @interface HistoryViewController ()
 
@@ -26,6 +27,13 @@
     _complaintsArray = [AdminInformation getSurgeryNames];
     
     _imageView.image = [UIImage imageNamed:@"PatientPhotoBlank.png"];
+
+    NSString *testLabel = [LocalTalk getEnglishLabel:@"preOp_ReasonForVisit"];
+    NSLog(@"testing database get methods: English Label --> %@", testLabel);
+    
+    testLabel = [LocalTalk getSpanishLabel:@"preOp_ReasonForVisit"];
+    NSLog(@"testing database get methods: Spanish Label --> %@", testLabel);
+
     
     //_complaintsArray = [DBTalk getSurgeryList];
 }
