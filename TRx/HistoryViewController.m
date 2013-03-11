@@ -96,11 +96,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     //Display the final image
     _imageView.image = finalImage;
     
-    if (_newMedia)
-        UIImageWriteToSavedPhotosAlbum(image,
-                                       self,
-                                       @selector(image:finishedSavingWithError:contextInfo:),
-                                       nil);
+   /* if (_newMedia)
+        UIImageWriteToSavedPhotosAlbum(image,self,@selector(image:finishedSavingWithError:contextInfo:),nil);
+   */
 }
 
 -(void)image:(UIImage *)image

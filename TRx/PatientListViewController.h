@@ -8,17 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-<<<<<<< HEAD
+
 @interface PatientListViewController : UITableViewController {
     NSArray *patientsArray;
     NSMutableArray *patients;
 }
-=======
-@interface PatientListViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *patientsArray;
 @property (nonatomic, strong) NSMutableArray *patients;
 
->>>>>>> rs
+
 
 @end
