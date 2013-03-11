@@ -17,7 +17,6 @@
     Reming me to talk about it...
 */
 
-
 @interface PatientListViewController ()
 
 @end
@@ -31,6 +30,19 @@
         // Custom initialization
     }
     return self;
+}
+#pragma mark - Segue to tab bar button
+-(IBAction)addPatient:(id)sender{
+    [self performSegueWithIdentifier:@"listTabSegue" sender:(nil)];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"listTabSegue"])
+    {
+        UITabBarController *vc = [segue destinationViewController];
+        vc.selectedIndex = 1; 
+        
+    }
 }
 
 - (void)viewDidLoad
