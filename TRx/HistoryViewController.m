@@ -61,7 +61,7 @@
     //Alert -- have hard-coded surgeryTypeId and doctorId for now
     NSString *recordId = [DBTalk addRecord:patientId surgeryTypeId:@"1" doctorId:@"1" isActive:@"1" hasTimeout:@"0"];
     //The below method causes the appilication to crash
-    [DBTalk addPicture:newPatient.photoID pictureId:NULL patientId:patientId customPictureName:NULL isProfile:@"1"];
+    //[DBTalk addPicture:newPatient.photoID pictureId:NULL patientId:patientId customPictureName:NULL isProfile:@"1"];
     
     NSLog(@"AddPatient button pressed:\npatientId: %@\nrecordId:%@\n", patientId, recordId);
 }
