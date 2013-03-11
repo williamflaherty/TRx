@@ -10,12 +10,13 @@
 		1300E3BD16DA9D1B0033151C /* DBTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 1300E3BC16DA9D1B0033151C /* DBTalk.m */; };
 		13CF9B2016EC4BAD006CF20B /* LocalTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */; };
 		13CF9B2716ECF829006CF20B /* LocalDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 13CF9B2616ECF829006CF20B /* LocalDatabase.sqlite */; };
-		13F3520416ED8A83009321E7 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3520316ED8A83009321E7 /* FMDatabase.m */; };
-		13F3520816ED8B6C009321E7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3520716ED8B6B009321E7 /* FMResultSet.m */; };
-		13F3521116ED9920009321E7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3520716ED8B6B009321E7 /* FMResultSet.m */; };
-		13F3521216ED9920009321E7 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3520316ED8A83009321E7 /* FMDatabase.m */; };
 		13F3521516ED99B1009321E7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F3521416ED99B1009321E7 /* libsqlite3.dylib */; };
-		13F3521D16EE6218009321E7 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3521C16EE6218009321E7 /* Utility.m */; };
+		13F3522916EE636B009321E7 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3522416EE636B009321E7 /* FMDatabase.m */; };
+		13F3522A16EE636B009321E7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3522616EE636B009321E7 /* FMResultSet.m */; };
+		13F3522B16EE636B009321E7 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3522816EE636B009321E7 /* Utility.m */; };
+		13F3522C16EE63BF009321E7 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3522416EE636B009321E7 /* FMDatabase.m */; };
+		13F3522D16EE63BF009321E7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3522616EE636B009321E7 /* FMResultSet.m */; };
+		13F3522E16EE63BF009321E7 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3522816EE636B009321E7 /* Utility.m */; };
 		19087ED016E95363007FE40B /* PatientListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196CCD8A16E90ED600B82048 /* PatientListViewCell.m */; };
 		19087ED116E95364007FE40B /* PatientListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196CCD8A16E90ED600B82048 /* PatientListViewCell.m */; };
 		C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
@@ -70,13 +71,13 @@
 		13CF9B1E16EC4BAD006CF20B /* LocalTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTalk.h; sourceTree = "<group>"; };
 		13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTalk.m; sourceTree = "<group>"; };
 		13CF9B2616ECF829006CF20B /* LocalDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = LocalDatabase.sqlite; sourceTree = "<group>"; };
-		13F3520216ED8A83009321E7 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = "../../Downloads/fmdb-master/src/FMDatabase.h"; sourceTree = "<group>"; };
-		13F3520316ED8A83009321E7 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = "../../Downloads/fmdb-master/src/FMDatabase.m"; sourceTree = "<group>"; };
-		13F3520616ED8B6B009321E7 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = "../../Downloads/fmdb-master/src/FMResultSet.h"; sourceTree = "<group>"; };
-		13F3520716ED8B6B009321E7 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = "../../Downloads/fmdb-master/src/FMResultSet.m"; sourceTree = "<group>"; };
 		13F3521416ED99B1009321E7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		13F3521A16EE620D009321E7 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
-		13F3521C16EE6218009321E7 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		13F3522316EE636B009321E7 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = Utilities/FMDatabase.h; sourceTree = "<group>"; };
+		13F3522416EE636B009321E7 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = Utilities/FMDatabase.m; sourceTree = "<group>"; };
+		13F3522516EE636B009321E7 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = Utilities/FMResultSet.h; sourceTree = "<group>"; };
+		13F3522616EE636B009321E7 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = Utilities/FMResultSet.m; sourceTree = "<group>"; };
+		13F3522716EE636B009321E7 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utility.h; path = Utilities/Utility.h; sourceTree = "<group>"; };
+		13F3522816EE636B009321E7 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utility.m; path = Utilities/Utility.m; sourceTree = "<group>"; };
 		196CCD8916E90ED600B82048 /* PatientListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientListViewCell.h; sourceTree = "<group>"; };
 		196CCD8A16E90ED600B82048 /* PatientListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListViewCell.m; sourceTree = "<group>"; };
 		C44D6F2516D19AD60036E40B /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,12 +162,12 @@
 		13F3520916ED8B85009321E7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				13F3521A16EE620D009321E7 /* Utility.h */,
-				13F3521C16EE6218009321E7 /* Utility.m */,
-				13F3520716ED8B6B009321E7 /* FMResultSet.m */,
-				13F3520316ED8A83009321E7 /* FMDatabase.m */,
-				13F3520216ED8A83009321E7 /* FMDatabase.h */,
-				13F3520616ED8B6B009321E7 /* FMResultSet.h */,
+				13F3522316EE636B009321E7 /* FMDatabase.h */,
+				13F3522416EE636B009321E7 /* FMDatabase.m */,
+				13F3522516EE636B009321E7 /* FMResultSet.h */,
+				13F3522616EE636B009321E7 /* FMResultSet.m */,
+				13F3522716EE636B009321E7 /* Utility.h */,
+				13F3522816EE636B009321E7 /* Utility.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -517,8 +518,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13F3521116ED9920009321E7 /* FMResultSet.m in Sources */,
-				13F3521216ED9920009321E7 /* FMDatabase.m in Sources */,
+				13F3522C16EE63BF009321E7 /* FMDatabase.m in Sources */,
+				13F3522D16EE63BF009321E7 /* FMResultSet.m in Sources */,
+				13F3522E16EE63BF009321E7 /* Utility.m in Sources */,
 				C44D6F3516D19AD60036E40B /* main.m in Sources */,
 				C44D6F3916D19AD60036E40B /* AppDelegate.m in Sources */,
 				C44D6F4516D19AD60036E40B /* ViewController.m in Sources */,
@@ -537,7 +539,6 @@
 				C499B57616ED13CE00F40046 /* PrimaryNavigationController.m in Sources */,
 				C499B58216ED149E00F40046 /* HistoryNavigationController.m in Sources */,
 				C499B58816ED156800F40046 /* PrimaryTabBarController.m in Sources */,
-				13F3521D16EE6218009321E7 /* Utility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,8 +548,9 @@
 			files = (
 				C44D6F5A16D19AD60036E40B /* TRxTests.m in Sources */,
 				19087ED116E95364007FE40B /* PatientListViewCell.m in Sources */,
-				13F3520416ED8A83009321E7 /* FMDatabase.m in Sources */,
-				13F3520816ED8B6C009321E7 /* FMResultSet.m in Sources */,
+				13F3522916EE636B009321E7 /* FMDatabase.m in Sources */,
+				13F3522A16EE636B009321E7 /* FMResultSet.m in Sources */,
+				13F3522B16EE636B009321E7 /* Utility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
