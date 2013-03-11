@@ -103,7 +103,7 @@
     NSString *ln = [[patients objectAtIndex:row] lastName];
     NSString *name = [NSString stringWithFormat: @"%@ %@ %@", fn, mn, ln];
     cell.patientName.text = name;
-    cell.chiefComplaint.text = [[patients objectAtIndex:row] chiefComplaint];
+    cell.chiefComplaint.text = (NSString*)[[patients objectAtIndex:row] chiefComplaint];
     cell.patientPicture.image = [[patients objectAtIndex:row] photoID];
     //cell.patientPicture.image = [UIImage imageNamed:_carImages[row]];
     

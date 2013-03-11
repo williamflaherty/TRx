@@ -41,18 +41,19 @@
                                     <action selector="useCamera:" destination="XVs-Rn-8gv" eventType="touchUpInside" id="frN-KD-6Md"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ub-4a-2Ic">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ub-4a-2Ic">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Le-TB-Ibr">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Le-TB-Ibr">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="306" id="upb-Ye-XON"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sei-8R-3Go">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Middle" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sei-8R-3Go">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -89,21 +90,6 @@
                                     <segue destination="K38-Rw-qru" kind="push" id="BdX-Nc-8f1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="First" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7Z-Rh-KhB">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Last" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mw-cQ-KHW">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Middle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsL-sm-nmz">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcP-k1-bJ1">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="878-BL-XaH"/>
@@ -113,22 +99,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1mw-cQ-KHW" firstAttribute="bottom" secondItem="0ub-4a-2Ic" secondAttribute="bottom" type="default" id="9j6-pw-gAt"/>
                             <constraint firstItem="sei-8R-3Go" firstAttribute="trailing" secondItem="8Le-TB-Ibr" secondAttribute="trailing" type="default" id="Fst-Bm-KVe"/>
                             <constraint firstItem="Xzu-ll-ldx" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="64" id="G2R-DN-sVY"/>
                             <constraint firstItem="0ub-4a-2Ic" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="177" id="GYr-cF-RHj"/>
                             <constraint firstItem="0ub-4a-2Ic" firstAttribute="leading" secondItem="sei-8R-3Go" secondAttribute="leading" type="default" id="MOa-iH-phK"/>
                             <constraint firstItem="Xzu-ll-ldx" firstAttribute="centerX" secondItem="8Le-TB-Ibr" secondAttribute="centerX" type="default" id="OW2-Z3-zKF"/>
                             <constraint firstItem="sei-8R-3Go" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="137" id="PGT-qU-SUl"/>
-                            <constraint firstItem="tsL-sm-nmz" firstAttribute="baseline" secondItem="sei-8R-3Go" secondAttribute="baseline" type="default" id="PuL-zL-DWz"/>
                             <constraint firstItem="hw2-JX-UJe" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="324" id="Q9B-R0-s7h"/>
                             <constraint firstItem="8Le-TB-Ibr" firstAttribute="top" secondItem="Xzu-ll-ldx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="QFE-Lo-IY8"/>
-                            <constraint firstItem="K7Z-Rh-KhB" firstAttribute="trailing" secondItem="1mw-cQ-KHW" secondAttribute="trailing" type="default" id="SCE-95-FPd"/>
                             <constraint firstItem="Cot-Bz-PMs" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="257" id="Z3W-8o-vYG"/>
                             <constraint firstItem="sei-8R-3Go" firstAttribute="trailing" secondItem="0ub-4a-2Ic" secondAttribute="trailing" type="default" id="dC3-vQ-3Hw"/>
                             <constraint firstItem="GT0-Iw-zgH" firstAttribute="leading" secondItem="0ub-4a-2Ic" secondAttribute="leading" type="default" id="g5h-tQ-cPs"/>
-                            <constraint firstItem="K7Z-Rh-KhB" firstAttribute="top" secondItem="8Le-TB-Ibr" secondAttribute="top" type="default" id="gbb-zJ-dib"/>
-                            <constraint firstItem="1mw-cQ-KHW" firstAttribute="centerX" secondItem="tsL-sm-nmz" secondAttribute="centerX" type="default" id="h2L-tv-b4g"/>
                             <constraint firstItem="KcP-k1-bJ1" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="54" id="j4r-VO-Dv7"/>
                             <constraint firstAttribute="trailing" secondItem="Cot-Bz-PMs" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="jFq-Nh-yVT"/>
                             <constraint firstItem="sei-8R-3Go" firstAttribute="leading" secondItem="8Le-TB-Ibr" secondAttribute="leading" type="default" id="jlA-jD-HdH"/>
@@ -137,7 +118,6 @@
                             <constraint firstItem="hw2-JX-UJe" firstAttribute="centerX" secondItem="0ub-4a-2Ic" secondAttribute="centerX" type="default" id="rFj-qd-Tes"/>
                             <constraint firstAttribute="bottom" secondItem="cRi-0l-x4r" secondAttribute="bottom" constant="169" id="s3l-0E-5aV"/>
                             <constraint firstItem="cRi-0l-x4r" firstAttribute="centerX" secondItem="KcP-k1-bJ1" secondAttribute="centerX" type="default" id="sKd-BA-SfW"/>
-                            <constraint firstItem="tsL-sm-nmz" firstAttribute="leading" secondItem="oW9-81-ugR" secondAttribute="leading" constant="465" id="tX7-Su-FQe"/>
                             <constraint firstAttribute="trailing" secondItem="8Le-TB-Ibr" secondAttribute="trailing" constant="172" id="yzD-nB-BLl"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
