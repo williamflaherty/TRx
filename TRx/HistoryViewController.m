@@ -25,6 +25,8 @@
     
     _complaintsArray = [AdminInformation getSurgeryNames];
     
+    _imageView.image = [UIImage imageNamed:@"PatientPhotoBlank.png"];
+    
     //_complaintsArray = [DBTalk getSurgeryList];
 }
 
