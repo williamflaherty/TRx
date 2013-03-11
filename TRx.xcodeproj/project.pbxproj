@@ -71,7 +71,6 @@
 		13CF9B1E16EC4BAD006CF20B /* LocalTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTalk.h; sourceTree = "<group>"; };
 		13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTalk.m; sourceTree = "<group>"; };
 		13CF9B2616ECF829006CF20B /* LocalDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = LocalDatabase.sqlite; sourceTree = "<group>"; };
-		13CF9B2916ECF8DB006CF20B /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/usr/lib/libsqlite3.0.dylib; sourceTree = "<absolute>"; };
 		13F3520216ED8A83009321E7 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = "../../Downloads/fmdb-master/src/FMDatabase.h"; sourceTree = "<group>"; };
 		13F3520316ED8A83009321E7 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = "../../Downloads/fmdb-master/src/FMDatabase.m"; sourceTree = "<group>"; };
 		13F3520616ED8B6B009321E7 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = "../../Downloads/fmdb-master/src/FMResultSet.h"; sourceTree = "<group>"; };
@@ -370,7 +369,6 @@
 			isa = PBXGroup;
 			children = (
 				13F3520916ED8B85009321E7 /* Utilities */,
-				13CF9B2916ECF8DB006CF20B /* libsqlite3.0.dylib */,
 				1300E3BB16DA9D1B0033151C /* DBTalk.h */,
 				1300E3BC16DA9D1B0033151C /* DBTalk.m */,
 				13CF9B1E16EC4BAD006CF20B /* LocalTalk.h */,
