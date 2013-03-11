@@ -42,6 +42,9 @@
 		C499B56D16EC23DE00F40046 /* OrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C499B56C16EC23DE00F40046 /* OrdersViewController.m */; };
 		C499B57016EC245600F40046 /* SurgeryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C499B56F16EC245600F40046 /* SurgeryViewController.m */; };
 		C499B57316EC247600F40046 /* PACUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C499B57216EC247600F40046 /* PACUViewController.m */; };
+		C499B57616ED13CE00F40046 /* PrimaryNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C499B57516ED13CE00F40046 /* PrimaryNavigationController.m */; };
+		C499B58216ED149E00F40046 /* HistoryNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C499B58116ED149E00F40046 /* HistoryNavigationController.m */; };
+		C499B58816ED156800F40046 /* PrimaryTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C499B58716ED156800F40046 /* PrimaryTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +110,12 @@
 		C499B56F16EC245600F40046 /* SurgeryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurgeryViewController.m; sourceTree = "<group>"; };
 		C499B57116EC247600F40046 /* PACUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PACUViewController.h; sourceTree = "<group>"; };
 		C499B57216EC247600F40046 /* PACUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PACUViewController.m; sourceTree = "<group>"; };
+		C499B57416ED13CE00F40046 /* PrimaryNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimaryNavigationController.h; sourceTree = "<group>"; };
+		C499B57516ED13CE00F40046 /* PrimaryNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimaryNavigationController.m; sourceTree = "<group>"; };
+		C499B58016ED149E00F40046 /* HistoryNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryNavigationController.h; sourceTree = "<group>"; };
+		C499B58116ED149E00F40046 /* HistoryNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryNavigationController.m; sourceTree = "<group>"; };
+		C499B58616ED156800F40046 /* PrimaryTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimaryTabBarController.h; sourceTree = "<group>"; };
+		C499B58716ED156800F40046 /* PrimaryTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimaryTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +228,8 @@
 		C469AA6A16E8FD3E00E75E7A /* Tab 2 - History */ = {
 			isa = PBXGroup;
 			children = (
+				C499B58016ED149E00F40046 /* HistoryNavigationController.h */,
+				C499B58116ED149E00F40046 /* HistoryNavigationController.m */,
 				C499B56816EC21E400F40046 /* HistoryViewController.h */,
 				C499B56916EC21E400F40046 /* HistoryViewController.m */,
 			);
@@ -326,6 +337,7 @@
 		C499B56616EC07E200F40046 /* Data Base */ = {
 			isa = PBXGroup;
 			children = (
+				13CF9B2916ECF8DB006CF20B /* libsqlite3.0.dylib */,
 				13CF9B2616ECF829006CF20B /* LocalDatabase.sqlite */,
 				1300E3BB16DA9D1B0033151C /* DBTalk.h */,
 				1300E3BC16DA9D1B0033151C /* DBTalk.m */,
@@ -342,6 +354,10 @@
 				C44D6F3816D19AD60036E40B /* AppDelegate.m */,
 				C44D6F4316D19AD60036E40B /* ViewController.h */,
 				C44D6F4416D19AD60036E40B /* ViewController.m */,
+				C499B57416ED13CE00F40046 /* PrimaryNavigationController.h */,
+				C499B57516ED13CE00F40046 /* PrimaryNavigationController.m */,
+				C499B58616ED156800F40046 /* PrimaryTabBarController.h */,
+				C499B58716ED156800F40046 /* PrimaryTabBarController.m */,
 			);
 			name = AppDelegate;
 			sourceTree = "<group>";
@@ -476,6 +492,9 @@
 				C499B56D16EC23DE00F40046 /* OrdersViewController.m in Sources */,
 				C499B57016EC245600F40046 /* SurgeryViewController.m in Sources */,
 				C499B57316EC247600F40046 /* PACUViewController.m in Sources */,
+				C499B57616ED13CE00F40046 /* PrimaryNavigationController.m in Sources */,
+				C499B58216ED149E00F40046 /* HistoryNavigationController.m in Sources */,
+				C499B58816ED156800F40046 /* PrimaryTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
