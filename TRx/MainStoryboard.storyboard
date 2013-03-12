@@ -11,7 +11,16 @@
                     <view key="view" contentMode="scaleToFill" id="ggv-hz-8d5">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="DefaultBackgroundPortrait@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ltd-Fv-yIX"/>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ltd-Fv-yIX" firstAttribute="trailing" secondItem="ggv-hz-8d5" secondAttribute="trailing" type="default" id="9o9-kC-BxJ"/>
+                            <constraint firstItem="Ltd-Fv-yIX" firstAttribute="top" secondItem="ggv-hz-8d5" secondAttribute="top" type="default" id="KuW-ED-e7m"/>
+                            <constraint firstItem="Ltd-Fv-yIX" firstAttribute="bottom" secondItem="ggv-hz-8d5" secondAttribute="bottom" type="default" id="M1b-RL-v4k"/>
+                            <constraint firstItem="Ltd-Fv-yIX" firstAttribute="leading" secondItem="ggv-hz-8d5" secondAttribute="leading" type="default" id="foV-K2-YqO"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Summary" id="H8t-PY-ncK"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -275,7 +284,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <view key="view" contentMode="scaleToFill" id="O5Y-Bi-YiW">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="DefaultBackgroundPortrait@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="M2R-QH-3UC"/>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="M2R-QH-3UC" firstAttribute="bottom" secondItem="O5Y-Bi-YiW" secondAttribute="bottom" type="default" id="FHh-Us-3W3"/>
+                            <constraint firstItem="M2R-QH-3UC" firstAttribute="top" secondItem="O5Y-Bi-YiW" secondAttribute="top" type="default" id="O8z-GS-LhR"/>
+                            <constraint firstItem="M2R-QH-3UC" firstAttribute="leading" secondItem="O5Y-Bi-YiW" secondAttribute="leading" type="default" id="u5f-P7-jzN"/>
+                            <constraint firstItem="M2R-QH-3UC" firstAttribute="trailing" secondItem="O5Y-Bi-YiW" secondAttribute="trailing" type="default" id="whG-vX-Mrl"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Physical" id="07p-Ju-BsX"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -291,14 +309,23 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <view key="view" contentMode="scaleToFill" id="IXb-Al-1NM">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="DefaultBackgroundPortrait@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nft-as-VgA"/>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nft-as-VgA" firstAttribute="trailing" secondItem="IXb-Al-1NM" secondAttribute="trailing" type="default" id="G8z-EC-msR"/>
+                            <constraint firstItem="Nft-as-VgA" firstAttribute="leading" secondItem="IXb-Al-1NM" secondAttribute="leading" type="default" id="pkk-BS-Ueu"/>
+                            <constraint firstItem="Nft-as-VgA" firstAttribute="bottom" secondItem="IXb-Al-1NM" secondAttribute="bottom" type="default" id="reM-8w-E4a"/>
+                            <constraint firstItem="Nft-as-VgA" firstAttribute="top" secondItem="IXb-Al-1NM" secondAttribute="top" type="default" id="ynf-su-k46"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Orders" id="o5a-hm-elA"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JmT-6b-isF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6738" y="-2660"/>
+            <point key="canvasLocation" x="-6772" y="-2520"/>
         </scene>
         <!--View Controller - Surgery-->
         <scene sceneID="Nds-a1-aOM">
@@ -461,7 +488,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <view key="view" contentMode="scaleToFill" id="v0N-NE-vAT">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="DefaultBackgroundPortrait@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="KsC-sp-0Ui"/>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KsC-sp-0Ui" firstAttribute="trailing" secondItem="v0N-NE-vAT" secondAttribute="trailing" type="default" id="DdL-H5-xPq"/>
+                            <constraint firstItem="KsC-sp-0Ui" firstAttribute="leading" secondItem="v0N-NE-vAT" secondAttribute="leading" type="default" id="IgA-Fn-cnt"/>
+                            <constraint firstItem="KsC-sp-0Ui" firstAttribute="top" secondItem="v0N-NE-vAT" secondAttribute="top" type="default" id="jSQ-ip-vv4"/>
+                            <constraint firstItem="KsC-sp-0Ui" firstAttribute="bottom" secondItem="v0N-NE-vAT" secondAttribute="bottom" type="default" id="x4N-fr-nji"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="PACU" id="eyo-QH-EzR"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -592,6 +628,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </scenes>
     <resources>
         <image name="CameraButtonNormal.png" width="70" height="50"/>
+        <image name="DefaultBackgroundPortrait@2x.png" width="1536" height="2048"/>
         <image name="HistoryBackgroundLandscape.png" width="1024" height="768"/>
     </resources>
     <classes>

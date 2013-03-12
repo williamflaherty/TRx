@@ -68,6 +68,8 @@
 		C499B58D16ED6A9F00F40046 /* PatientPhotoBlank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C499B58B16ED6A9F00F40046 /* PatientPhotoBlank@2x.png */; };
 		C499B59516EEB2A900F40046 /* CameraButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = C499B59316EEB2A900F40046 /* CameraButtonNormal.png */; };
 		C499B59616EEB2A900F40046 /* CameraButtonNormal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C499B59416EEB2A900F40046 /* CameraButtonNormal@2x.png */; };
+		C4C59E6616EFA97700CDBD5C /* DefaultBackgroundPortrait.png in Resources */ = {isa = PBXBuildFile; fileRef = C4C59E6416EFA97700CDBD5C /* DefaultBackgroundPortrait.png */; };
+		C4C59E6716EFA97700CDBD5C /* DefaultBackgroundPortrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4C59E6516EFA97700CDBD5C /* DefaultBackgroundPortrait@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +176,8 @@
 		C499B58B16ED6A9F00F40046 /* PatientPhotoBlank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PatientPhotoBlank@2x.png"; path = "Resources/TRx_png/PatientPhotoBlank@2x.png"; sourceTree = SOURCE_ROOT; };
 		C499B59316EEB2A900F40046 /* CameraButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CameraButtonNormal.png; path = Resources/TRx_png/CameraButtonNormal.png; sourceTree = SOURCE_ROOT; };
 		C499B59416EEB2A900F40046 /* CameraButtonNormal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "CameraButtonNormal@2x.png"; path = "Resources/TRx_png/CameraButtonNormal@2x.png"; sourceTree = SOURCE_ROOT; };
+		C4C59E6416EFA97700CDBD5C /* DefaultBackgroundPortrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DefaultBackgroundPortrait.png; path = Resources/TRx_png/DefaultBackgroundPortrait.png; sourceTree = SOURCE_ROOT; };
+		C4C59E6516EFA97700CDBD5C /* DefaultBackgroundPortrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DefaultBackgroundPortrait@2x.png"; path = "Resources/TRx_png/DefaultBackgroundPortrait@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,6 +409,8 @@
 		C469AA7816E905BD00E75E7A /* Defaults */ = {
 			isa = PBXGroup;
 			children = (
+				C4C59E6416EFA97700CDBD5C /* DefaultBackgroundPortrait.png */,
+				C4C59E6516EFA97700CDBD5C /* DefaultBackgroundPortrait@2x.png */,
 				C44D6F3A16D19AD60036E40B /* Default.png */,
 				C44D6F3C16D19AD60036E40B /* Default@2x.png */,
 				C44D6F3E16D19AD60036E40B /* Default-568h@2x.png */,
@@ -611,6 +617,8 @@
 				C499B59616EEB2A900F40046 /* CameraButtonNormal@2x.png in Resources */,
 				C446619E16EEE2FF008CE130 /* HistoryBackgroundLandscape.png in Resources */,
 				C446619F16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png in Resources */,
+				C4C59E6616EFA97700CDBD5C /* DefaultBackgroundPortrait.png in Resources */,
+				C4C59E6716EFA97700CDBD5C /* DefaultBackgroundPortrait@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
