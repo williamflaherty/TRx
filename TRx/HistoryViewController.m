@@ -19,6 +19,7 @@
 
 @synthesize complaintPicker = _complaintPicker;
 
+
 - (void)viewDidLoad{
     [super viewDidLoad];
     
@@ -154,7 +155,17 @@ finishedSavingWithError:(NSError *)error
     newPatient.chiefComplaint = [NSString stringWithFormat:@"%i",row];
     
 }
-
+#pragma mark - Next button segues to next view controller
+- (void)nextView:(id)sender{
+    [self performSegueWithIdentifier:@"nextViewController" sender:nil];
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"nextViewController"]){
+        //UIViewController *vc = [segue destinationViewController];
+        //this is where the code will go to "push" the data to the database on the
+        //next button click
+    }
+}
 #pragma mark 
 
 - (void)didReceiveMemoryWarning{

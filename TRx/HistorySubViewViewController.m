@@ -1,18 +1,18 @@
 //
-//  HistoryNavigationController.m
+//  HistorySubViewViewController.m
 //  TRx
 //
-//  Created by Mark Bellott on 3/10/13.
+//  Created by Dwayne Flaherty on 3/12/13.
 //  Copyright (c) 2013 Team Ecuador. All rights reserved.
 //
 
-#import "HistoryNavigationController.h"
+#import "HistorySubViewViewController.h"
 
-@interface HistoryNavigationController ()
+@interface HistorySubViewViewController ()
 
 @end
 
-@implementation HistoryNavigationController
+@implementation HistorySubViewViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,5 +35,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - back button clicked 
+- (void)previousView:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end
