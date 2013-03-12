@@ -84,6 +84,7 @@
         imagePicker.delegate = self;
         imagePicker.sourceType =
         UIImagePickerControllerSourceTypeCamera;
+        
         //imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
         imagePicker.allowsEditing = NO;
         [self presentViewController:imagePicker
@@ -99,19 +100,20 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    //Crop and flip the image
-    CGRect cropRect = CGRectMake(256, 152, 750, 750);
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], cropRect);
-    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
-    UIImage *finalImage =   [UIImage imageWithCGImage:croppedImage.CGImage scale:1.0 orientation:UIImageOrientationDownMirrored];
+ 
+    //Crop and flip the image
+    //CGRect cropRect = CGRectMake(256, 152, 750, 750);
+    //CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], cropRect);
+    //UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
+    //UIImage *finalImage =   [UIImage imageWithCGImage:croppedImage.CGImage scale:1.0 orientation:UIImageOrientationDownMirrored];
     
     //Store the image for the patient
-    photoID = finalImage;
-    newPatient.photoID = finalImage;
+    photoID = image;
+    newPatient.photoID = image;
     
     //Display the final image
-    _imageView.image = finalImage;
+    _imageView.image = image;
     
    /* if (_newMedia)
         UIImageWriteToSavedPhotosAlbum(image,self,@selector(image:finishedSavingWithError:contextInfo:),nil);

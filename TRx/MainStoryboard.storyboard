@@ -107,10 +107,10 @@
                                     <action selector="addPatient:" destination="XVs-Rn-8gv" eventType="touchUpInside" id="qTY-eL-uVx"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcP-k1-bJ1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="KcP-k1-bJ1">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="E7Z-Kh-DGr"/>
-                                    <constraint firstAttribute="width" constant="300" id="rTB-wh-XTV"/>
+                                    <constraint firstAttribute="width" constant="300" id="TkZ-V5-KxK"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="next" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHZ-PB-gHn">
@@ -127,6 +127,9 @@
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="MsD-rm-zXI">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="328" id="Cfy-Le-nz9"/>
+                                </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="-504832002.11913401">
                                     <!--1985-01-02 00:53:17 +0000-->
                                 </date>
@@ -166,36 +169,35 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hw2-JX-UJe" firstAttribute="leading" secondItem="oW9-81-ugR" secondAttribute="leading" constant="614" id="1ac-FD-ykZ"/>
+                            <constraint firstItem="KcP-k1-bJ1" firstAttribute="centerX" secondItem="cRi-0l-x4r" secondAttribute="centerX" type="default" id="2MG-yV-0sC"/>
+                            <constraint firstItem="HHZ-PB-gHn" firstAttribute="centerY" secondItem="rKH-81-zfO" secondAttribute="centerY" type="default" id="4K6-wV-s9o"/>
+                            <constraint firstItem="eeG-gI-EHu" firstAttribute="leading" secondItem="oW9-81-ugR" secondAttribute="leading" constant="90" id="4RR-Pu-zvS"/>
                             <constraint firstAttribute="trailing" secondItem="HHZ-PB-gHn" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="A1s-cP-1gC"/>
-                            <constraint firstItem="cRi-0l-x4r" firstAttribute="top" secondItem="KcP-k1-bJ1" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="B9P-b1-3q9"/>
-                            <constraint firstAttribute="bottom" secondItem="sei-8R-3Go" secondAttribute="bottom" constant="87" id="Cc1-Zx-T9s"/>
                             <constraint firstItem="sei-8R-3Go" firstAttribute="trailing" secondItem="8Le-TB-Ibr" secondAttribute="trailing" type="default" id="Fst-Bm-KVe"/>
-                            <constraint firstItem="MsD-rm-zXI" firstAttribute="top" secondItem="KTc-1m-v0X" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="GF7-LL-rja"/>
-                            <constraint firstItem="Xzu-ll-ldx" firstAttribute="centerX" secondItem="cRi-0l-x4r" secondAttribute="centerX" type="default" id="Hcl-IR-zsU"/>
-                            <constraint firstItem="eeG-gI-EHu" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="41" id="I4x-d0-NsT"/>
-                            <constraint firstItem="MsD-rm-zXI" firstAttribute="trailing" secondItem="GT0-Iw-zgH" secondAttribute="trailing" type="default" id="Jht-3K-ZBk"/>
-                            <constraint firstAttribute="bottom" secondItem="0ub-4a-2Ic" secondAttribute="bottom" constant="42" id="K4M-ve-KUh"/>
+                            <constraint firstAttribute="bottom" secondItem="MsD-rm-zXI" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="GXO-bE-yS4"/>
+                            <constraint firstAttribute="bottom" secondItem="GT0-Iw-zgH" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="IvY-we-zEa"/>
+                            <constraint firstItem="MsD-rm-zXI" firstAttribute="centerX" secondItem="0ub-4a-2Ic" secondAttribute="centerX" type="default" id="L8K-OF-7Or"/>
+                            <constraint firstItem="KcP-k1-bJ1" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="20" symbolic="YES" type="default" id="LuG-lf-gjw"/>
+                            <constraint firstItem="cRi-0l-x4r" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="342" id="NC3-iH-wI1"/>
                             <constraint firstItem="rKH-81-zfO" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" type="default" id="NdX-rg-Lct"/>
-                            <constraint firstItem="Cot-Bz-PMs" firstAttribute="bottom" secondItem="oW9-81-ugR" secondAttribute="bottom" type="default" id="Nj9-gz-T8t"/>
-                            <constraint firstItem="KTc-1m-v0X" firstAttribute="leading" secondItem="GT0-Iw-zgH" secondAttribute="leading" type="default" id="PRm-lL-lGF"/>
+                            <constraint firstItem="0ub-4a-2Ic" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="215" id="Pi8-QK-K9M"/>
                             <constraint firstItem="8Le-TB-Ibr" firstAttribute="top" secondItem="Xzu-ll-ldx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="QFE-Lo-IY8"/>
-                            <constraint firstItem="cRi-0l-x4r" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="342" id="Qx8-zq-Ch9"/>
                             <constraint firstItem="0ub-4a-2Ic" firstAttribute="trailing" secondItem="sei-8R-3Go" secondAttribute="trailing" type="default" id="QxH-gf-pM6"/>
-                            <constraint firstItem="HHZ-PB-gHn" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="348" id="UMV-6i-ra9"/>
-                            <constraint firstItem="cRi-0l-x4r" firstAttribute="centerX" secondItem="KcP-k1-bJ1" secondAttribute="centerX" type="default" id="XUT-lf-GXW"/>
-                            <constraint firstItem="GT0-Iw-zgH" firstAttribute="top" secondItem="eeG-gI-EHu" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ayA-tQ-ahl"/>
+                            <constraint firstItem="GT0-Iw-zgH" firstAttribute="centerX" secondItem="cRi-0l-x4r" secondAttribute="centerX" type="default" id="TFk-Lr-ZpT"/>
+                            <constraint firstItem="8Le-TB-Ibr" firstAttribute="leading" secondItem="Xzu-ll-ldx" secondAttribute="leading" type="default" id="VnI-gc-f4Y"/>
+                            <constraint firstAttribute="trailing" secondItem="Cot-Bz-PMs" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="eaA-FW-Xl3"/>
                             <constraint firstItem="rKH-81-zfO" firstAttribute="bottom" secondItem="oW9-81-ugR" secondAttribute="bottom" type="default" id="eeM-ru-9ji"/>
-                            <constraint firstItem="8Le-TB-Ibr" firstAttribute="leading" secondItem="oW9-81-ugR" secondAttribute="leading" constant="101" id="gYy-ag-jGM"/>
+                            <constraint firstItem="eeG-gI-EHu" firstAttribute="baseline" secondItem="KTc-1m-v0X" secondAttribute="baseline" type="default" id="faV-eT-Iaa"/>
+                            <constraint firstItem="sei-8R-3Go" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="170" id="hF3-Hz-uuq"/>
                             <constraint firstItem="rKH-81-zfO" firstAttribute="leading" secondItem="oW9-81-ugR" secondAttribute="leading" type="default" id="j4u-4N-LWy"/>
+                            <constraint firstItem="Cot-Bz-PMs" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="20" symbolic="YES" type="default" id="jdk-hp-P6s"/>
                             <constraint firstItem="sei-8R-3Go" firstAttribute="leading" secondItem="8Le-TB-Ibr" secondAttribute="leading" type="default" id="jlA-jD-HdH"/>
-                            <constraint firstAttribute="bottom" secondItem="8Le-TB-Ibr" secondAttribute="bottom" constant="133" id="kU0-qK-ihE"/>
+                            <constraint firstItem="eeG-gI-EHu" firstAttribute="leading" secondItem="GT0-Iw-zgH" secondAttribute="leading" type="default" id="kpK-oZ-4DS"/>
                             <constraint firstItem="hw2-JX-UJe" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="-33" id="lCL-6j-gl7"/>
-                            <constraint firstAttribute="trailing" secondItem="MsD-rm-zXI" secondAttribute="trailing" constant="106" id="oyY-Y0-kgD"/>
-                            <constraint firstItem="Cot-Bz-PMs" firstAttribute="trailing" secondItem="oW9-81-ugR" secondAttribute="trailing" type="default" id="qbG-gb-wcY"/>
-                            <constraint firstItem="Cot-Bz-PMs" firstAttribute="top" secondItem="MsD-rm-zXI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="rKd-wA-qsQ"/>
-                            <constraint firstItem="8Le-TB-Ibr" firstAttribute="centerX" secondItem="Xzu-ll-ldx" secondAttribute="centerX" type="default" id="t2v-5E-uPo"/>
-                            <constraint firstItem="GT0-Iw-zgH" firstAttribute="leading" secondItem="eeG-gI-EHu" secondAttribute="leading" type="default" id="vCo-XB-HYQ"/>
-                            <constraint firstItem="MsD-rm-zXI" firstAttribute="leading" secondItem="KTc-1m-v0X" secondAttribute="leading" type="default" id="xEH-5U-tCR"/>
+                            <constraint firstItem="GT0-Iw-zgH" firstAttribute="top" secondItem="eeG-gI-EHu" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mWH-Qn-5h0"/>
+                            <constraint firstItem="Xzu-ll-ldx" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="95" id="n9Q-Wh-gqR"/>
+                            <constraint firstAttribute="trailing" secondItem="MsD-rm-zXI" secondAttribute="trailing" constant="106" id="nt7-Fg-Gd8"/>
+                            <constraint firstItem="Xzu-ll-ldx" firstAttribute="centerX" secondItem="KTc-1m-v0X" secondAttribute="centerX" type="default" id="wSc-fh-Cod"/>
                             <constraint firstItem="0ub-4a-2Ic" firstAttribute="leading" secondItem="sei-8R-3Go" secondAttribute="leading" type="default" id="yPq-XQ-hAa"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -215,7 +217,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQ1-ce-NTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5711" y="-4889"/>
+            <point key="canvasLocation" x="-5691" y="-4899"/>
         </scene>
         <!--History Navigation Controller - History-->
         <scene sceneID="tYd-3N-H1f">
@@ -275,7 +277,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wBo-DH-W1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4571" y="-4889"/>
+            <point key="canvasLocation" x="-4567" y="-4889"/>
         </scene>
         <!--Physical View Controller - Physical-->
         <scene sceneID="DJh-Qg-Pvd">
