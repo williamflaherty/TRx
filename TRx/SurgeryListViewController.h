@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SurgeryListViewController : UITableViewController{
-}
+@interface SurgeryListViewController : UITableViewController
 
 @end

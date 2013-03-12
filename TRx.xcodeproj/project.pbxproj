@@ -31,7 +31,8 @@
 		19087ED016E95363007FE40B /* PatientListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196CCD8A16E90ED600B82048 /* PatientListViewCell.m */; };
 		19087ED116E95364007FE40B /* PatientListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196CCD8A16E90ED600B82048 /* PatientListViewCell.m */; };
 		19A7197A16EF5F9600E671CB /* HistorySubViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A7197916EF5F9600E671CB /* HistorySubViewViewController.m */; };
-		19C32A2A16EF6F4F00CC1318 /* SurgeryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C32A2916EF6F4F00CC1318 /* SurgeryListViewController.m */; };
+		19C32A2D16EFB38A00CC1318 /* SurgeryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C32A2C16EFB38A00CC1318 /* SurgeryListViewController.m */; };
+		19C32A3016EFB3B300CC1318 /* SurgeryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C32A2F16EFB3B300CC1318 /* SurgeryViewController.m */; };
 		C446619E16EEE2FF008CE130 /* HistoryBackgroundLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */; };
 		C446619F16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */; };
 		C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
@@ -117,8 +118,10 @@
 		196CCD8A16E90ED600B82048 /* PatientListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListViewCell.m; sourceTree = "<group>"; };
 		19A7197816EF5F9600E671CB /* HistorySubViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistorySubViewViewController.h; sourceTree = "<group>"; };
 		19A7197916EF5F9600E671CB /* HistorySubViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistorySubViewViewController.m; sourceTree = "<group>"; };
-		19C32A2816EF6F4F00CC1318 /* SurgeryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurgeryListViewController.h; sourceTree = "<group>"; };
-		19C32A2916EF6F4F00CC1318 /* SurgeryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurgeryListViewController.m; sourceTree = "<group>"; };
+		19C32A2B16EFB38A00CC1318 /* SurgeryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurgeryListViewController.h; sourceTree = "<group>"; };
+		19C32A2C16EFB38A00CC1318 /* SurgeryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurgeryListViewController.m; sourceTree = "<group>"; };
+		19C32A2E16EFB3B300CC1318 /* SurgeryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurgeryViewController.h; sourceTree = "<group>"; };
+		19C32A2F16EFB3B300CC1318 /* SurgeryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurgeryViewController.m; sourceTree = "<group>"; };
 		C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryBackgroundLandscape.png; path = Resources/TRx_png/HistoryBackgroundLandscape.png; sourceTree = SOURCE_ROOT; };
 		C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryBackgroundLandscape22x.png; path = Resources/TRx_png/HistoryBackgroundLandscape22x.png; sourceTree = SOURCE_ROOT; };
 		C44D6F2516D19AD60036E40B /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -356,8 +359,10 @@
 		C469AA6D16E8FD6900E75E7A /* Tab 5 - Surgery */ = {
 			isa = PBXGroup;
 			children = (
-				19C32A2816EF6F4F00CC1318 /* SurgeryListViewController.h */,
-				19C32A2916EF6F4F00CC1318 /* SurgeryListViewController.m */,
+				19C32A2B16EFB38A00CC1318 /* SurgeryListViewController.h */,
+				19C32A2C16EFB38A00CC1318 /* SurgeryListViewController.m */,
+				19C32A2E16EFB3B300CC1318 /* SurgeryViewController.h */,
+				19C32A2F16EFB3B300CC1318 /* SurgeryViewController.m */,
 			);
 			name = "Tab 5 - Surgery";
 			sourceTree = "<group>";
@@ -662,7 +667,6 @@
 				C499B58216ED149E00F40046 /* HistoryNavigationController.m in Sources */,
 				C499B58816ED156800F40046 /* PrimaryTabBarController.m in Sources */,
 				19A7197A16EF5F9600E671CB /* HistorySubViewViewController.m in Sources */,
-				19C32A2A16EF6F4F00CC1318 /* SurgeryListViewController.m in Sources */,
 				13F3528216EEEF21009321E7 /* AFHTTPClient.m in Sources */,
 				13F3528316EEEF21009321E7 /* AFHTTPRequestOperation.m in Sources */,
 				13F3528416EEEF21009321E7 /* AFImageRequestOperation.m in Sources */,
@@ -672,6 +676,8 @@
 				13F3528816EEEF21009321E7 /* AFURLConnectionOperation.m in Sources */,
 				13F3528916EEEF21009321E7 /* AFXMLRequestOperation.m in Sources */,
 				13F3528A16EEEF21009321E7 /* UIImageView+AFNetworking.m in Sources */,
+				19C32A2D16EFB38A00CC1318 /* SurgeryListViewController.m in Sources */,
+				19C32A3016EFB3B300CC1318 /* SurgeryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
