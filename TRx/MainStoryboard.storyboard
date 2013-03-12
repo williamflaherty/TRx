@@ -327,15 +327,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-6772" y="-2520"/>
         </scene>
-        <!--View Controller - Surgery-->
+        <!--Surgery View Controller - Surgery-->
         <scene sceneID="Nds-a1-aOM">
             <objects>
-                <viewController id="tBt-y5-Yuc" sceneMemberID="viewController">
+                <viewController id="tBt-y5-Yuc" customClass="SurgeryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F6Y-Gc-rXd">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Xnd-Sj-1lN">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Xnd-Sj-1lN" customClass="SurgeryListView">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="500" id="UYM-gI-MNO"/>
@@ -631,67 +631,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="DefaultBackgroundPortrait@2x.png" width="1536" height="2048"/>
         <image name="HistoryBackgroundLandscape.png" width="1024" height="768"/>
     </resources>
-    <classes>
-        <class className="HistoryNavigationController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryNavigationController.h"/>
-        </class>
-        <class className="HistorySubViewViewController" superclassName="HistoryViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistorySubViewViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="previousView:"/>
-                <relationship kind="outlet" name="previous" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="HistoryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addPatient:"/>
-                <relationship kind="action" name="nextView:"/>
-                <relationship kind="action" name="useCamera:"/>
-                <relationship kind="outlet" name="complaintPicker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="firstNameText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="lastNameText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="middleNameText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="next" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="OrdersViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OrdersViewController.h"/>
-        </class>
-        <class className="PACUViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PACUViewController.h"/>
-        </class>
-        <class className="PatientListViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PatientListViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="chiefComplaint" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="patientName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="patientPicture" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="PatientListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PatientListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addPatients:"/>
-            </relationships>
-        </class>
-        <class className="PhysicalViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhysicalViewController.h"/>
-        </class>
-        <class className="PrimaryNavigationController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PrimaryNavigationController.h"/>
-        </class>
-        <class className="PrimaryTabBarController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PrimaryTabBarController.h"/>
-        </class>
-        <class className="SummaryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SummaryViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
