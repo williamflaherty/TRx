@@ -30,8 +30,8 @@
 		13F3528A16EEEF21009321E7 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3528116EEEF21009321E7 /* UIImageView+AFNetworking.m */; };
 		19087ED016E95363007FE40B /* PatientListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196CCD8A16E90ED600B82048 /* PatientListViewCell.m */; };
 		19087ED116E95364007FE40B /* PatientListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196CCD8A16E90ED600B82048 /* PatientListViewCell.m */; };
+		1975163916EFC6C50008AA1F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1975163816EFC6C50008AA1F /* AVFoundation.framework */; };
 		19A7197A16EF5F9600E671CB /* HistorySubViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A7197916EF5F9600E671CB /* HistorySubViewViewController.m */; };
-		19C32A2D16EFB38A00CC1318 /* SurgeryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C32A2C16EFB38A00CC1318 /* SurgeryListViewController.m */; };
 		19C32A3016EFB3B300CC1318 /* SurgeryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C32A2F16EFB3B300CC1318 /* SurgeryViewController.m */; };
 		C446619E16EEE2FF008CE130 /* HistoryBackgroundLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */; };
 		C446619F16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */; };
@@ -118,10 +118,9 @@
 		13F3528116EEEF21009321E7 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		196CCD8916E90ED600B82048 /* PatientListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientListViewCell.h; sourceTree = "<group>"; };
 		196CCD8A16E90ED600B82048 /* PatientListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListViewCell.m; sourceTree = "<group>"; };
+		1975163816EFC6C50008AA1F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		19A7197816EF5F9600E671CB /* HistorySubViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistorySubViewViewController.h; sourceTree = "<group>"; };
 		19A7197916EF5F9600E671CB /* HistorySubViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistorySubViewViewController.m; sourceTree = "<group>"; };
-		19C32A2B16EFB38A00CC1318 /* SurgeryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurgeryListViewController.h; sourceTree = "<group>"; };
-		19C32A2C16EFB38A00CC1318 /* SurgeryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurgeryListViewController.m; sourceTree = "<group>"; };
 		19C32A2E16EFB3B300CC1318 /* SurgeryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurgeryViewController.h; sourceTree = "<group>"; };
 		19C32A2F16EFB3B300CC1318 /* SurgeryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurgeryViewController.m; sourceTree = "<group>"; };
 		C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryBackgroundLandscape.png; path = Resources/TRx_png/HistoryBackgroundLandscape.png; sourceTree = SOURCE_ROOT; };
@@ -185,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1975163916EFC6C50008AA1F /* AVFoundation.framework in Frameworks */,
 				13F3521516ED99B1009321E7 /* libsqlite3.dylib in Frameworks */,
 				C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */,
 				C44D6F2B16D19AD60036E40B /* Foundation.framework in Frameworks */,
@@ -250,6 +250,7 @@
 		C44D6F1C16D19AD60036E40B = {
 			isa = PBXGroup;
 			children = (
+				1975163816EFC6C50008AA1F /* AVFoundation.framework */,
 				C44D6F2E16D19AD60036E40B /* TRx */,
 				C44D6F2F16D19AD60036E40B /* Supporting Files */,
 				C469AA7716E905AC00E75E7A /* Images */,
@@ -363,8 +364,6 @@
 		C469AA6D16E8FD6900E75E7A /* Tab 5 - Surgery */ = {
 			isa = PBXGroup;
 			children = (
-				19C32A2B16EFB38A00CC1318 /* SurgeryListViewController.h */,
-				19C32A2C16EFB38A00CC1318 /* SurgeryListViewController.m */,
 				19C32A2E16EFB3B300CC1318 /* SurgeryViewController.h */,
 				19C32A2F16EFB3B300CC1318 /* SurgeryViewController.m */,
 			);
@@ -684,7 +683,6 @@
 				13F3528816EEEF21009321E7 /* AFURLConnectionOperation.m in Sources */,
 				13F3528916EEEF21009321E7 /* AFXMLRequestOperation.m in Sources */,
 				13F3528A16EEEF21009321E7 /* UIImageView+AFNetworking.m in Sources */,
-				19C32A2D16EFB38A00CC1318 /* SurgeryListViewController.m in Sources */,
 				19C32A3016EFB3B300CC1318 /* SurgeryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
