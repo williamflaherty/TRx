@@ -385,7 +385,12 @@
 			children = (
 				C469AA7816E905BD00E75E7A /* Defaults */,
 				C499B58E16EEA98100F40046 /* Buttons */,
+				C4EB786416EF94CE0026F8E7 /* Summary Images */,
 				C499B58916ED6A8400F40046 /* HistoryImages */,
+				C4EB786516EF95C20026F8E7 /* Physical Images */,
+				C4EB786616EF95DD0026F8E7 /* Orders Images */,
+				C4EB786716EF96180026F8E7 /* Surgery Images */,
+				C4EB786816EF97270026F8E7 /* PACU Images */,
 				C469AA8116E9060000E75E7A /* Tab Images */,
 			);
 			name = Images;
@@ -479,6 +484,41 @@
 				C499B59416EEB2A900F40046 /* CameraButtonNormal@2x.png */,
 			);
 			name = Buttons;
+			sourceTree = "<group>";
+		};
+		C4EB786416EF94CE0026F8E7 /* Summary Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Summary Images";
+			sourceTree = "<group>";
+		};
+		C4EB786516EF95C20026F8E7 /* Physical Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Physical Images";
+			sourceTree = "<group>";
+		};
+		C4EB786616EF95DD0026F8E7 /* Orders Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Orders Images";
+			sourceTree = "<group>";
+		};
+		C4EB786716EF96180026F8E7 /* Surgery Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Surgery Images";
+			sourceTree = "<group>";
+		};
+		C4EB786816EF97270026F8E7 /* PACU Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "PACU Images";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
