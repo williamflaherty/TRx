@@ -21,6 +21,8 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HistoryBackgroundLandscape.png"]];
 
     newPatient = [[Patient alloc] initWithFirstName:@"John" MiddleName:@"The" LastName:@"Man" ChiefComplaint:@"" PhotoID:NULL];
     

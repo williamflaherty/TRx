@@ -21,6 +21,8 @@
 		13F3524716EE67A3009321E7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3523D16EE66C3009321E7 /* FMResultSet.m */; };
 		19087ED016E95363007FE40B /* PatientListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196CCD8A16E90ED600B82048 /* PatientListViewCell.m */; };
 		19087ED116E95364007FE40B /* PatientListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196CCD8A16E90ED600B82048 /* PatientListViewCell.m */; };
+		C446619E16EEE2FF008CE130 /* HistoryBackgroundLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */; };
+		C446619F16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */; };
 		C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
 		C44D6F2B16D19AD60036E40B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2A16D19AD60036E40B /* Foundation.framework */; };
 		C44D6F2D16D19AD60036E40B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2C16D19AD60036E40B /* CoreGraphics.framework */; };
@@ -84,6 +86,8 @@
 		13F3524216EE678B009321E7 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utility.m; path = Utilities/Utility.m; sourceTree = "<group>"; };
 		196CCD8916E90ED600B82048 /* PatientListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientListViewCell.h; sourceTree = "<group>"; };
 		196CCD8A16E90ED600B82048 /* PatientListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListViewCell.m; sourceTree = "<group>"; };
+		C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryBackgroundLandscape.png; path = Resources/TRx_png/HistoryBackgroundLandscape.png; sourceTree = SOURCE_ROOT; };
+		C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryBackgroundLandscape22x.png; path = Resources/TRx_png/HistoryBackgroundLandscape22x.png; sourceTree = SOURCE_ROOT; };
 		C44D6F2516D19AD60036E40B /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44D6F2816D19AD60036E40B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C44D6F2A16D19AD60036E40B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -400,6 +404,8 @@
 		C499B58916ED6A8400F40046 /* HistoryImages */ = {
 			isa = PBXGroup;
 			children = (
+				C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */,
+				C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */,
 				C499B58A16ED6A9F00F40046 /* PatientPhotoBlank.png */,
 				C499B58B16ED6A9F00F40046 /* PatientPhotoBlank@2x.png */,
 			);
@@ -498,6 +504,8 @@
 				C499B58D16ED6A9F00F40046 /* PatientPhotoBlank@2x.png in Resources */,
 				C499B59516EEB2A900F40046 /* CameraButtonNormal.png in Resources */,
 				C499B59616EEB2A900F40046 /* CameraButtonNormal@2x.png in Resources */,
+				C446619E16EEE2FF008CE130 /* HistoryBackgroundLandscape.png in Resources */,
+				C446619F16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
