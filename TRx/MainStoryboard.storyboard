@@ -170,10 +170,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="Cot-Bz-PMs" firstAttribute="bottom" secondItem="oW9-81-ugR" secondAttribute="bottom" type="default" id="Nj9-gz-T8t"/>
                             <constraint firstItem="KTc-1m-v0X" firstAttribute="leading" secondItem="GT0-Iw-zgH" secondAttribute="leading" type="default" id="PRm-lL-lGF"/>
                             <constraint firstItem="8Le-TB-Ibr" firstAttribute="top" secondItem="Xzu-ll-ldx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="QFE-Lo-IY8"/>
+                            <constraint firstItem="cRi-0l-x4r" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="342" id="Qx8-zq-Ch9"/>
                             <constraint firstItem="0ub-4a-2Ic" firstAttribute="trailing" secondItem="sei-8R-3Go" secondAttribute="trailing" type="default" id="QxH-gf-pM6"/>
+                            <constraint firstItem="HHZ-PB-gHn" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="348" id="UMV-6i-ra9"/>
                             <constraint firstItem="cRi-0l-x4r" firstAttribute="centerX" secondItem="KcP-k1-bJ1" secondAttribute="centerX" type="default" id="XUT-lf-GXW"/>
-                            <constraint firstItem="KcP-k1-bJ1" firstAttribute="top" secondItem="oW9-81-ugR" secondAttribute="top" constant="34" id="Zw1-Kx-Xjq"/>
-                            <constraint firstItem="HHZ-PB-gHn" firstAttribute="bottom" secondItem="cRi-0l-x4r" secondAttribute="bottom" type="default" id="aOA-A3-C3m"/>
                             <constraint firstItem="GT0-Iw-zgH" firstAttribute="top" secondItem="eeG-gI-EHu" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ayA-tQ-ahl"/>
                             <constraint firstItem="rKH-81-zfO" firstAttribute="bottom" secondItem="oW9-81-ugR" secondAttribute="bottom" type="default" id="eeM-ru-9ji"/>
                             <constraint firstItem="8Le-TB-Ibr" firstAttribute="leading" secondItem="oW9-81-ugR" secondAttribute="leading" constant="101" id="gYy-ag-jGM"/>
@@ -300,6 +300,140 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-6738" y="-2660"/>
         </scene>
+        <!--Table View Controller - Surgery-->
+        <scene sceneID="aMB-E6-NjT">
+            <objects>
+                <tableViewController id="8wr-C9-7ex" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="115" sectionHeaderHeight="22" sectionFooterHeight="22" id="0nM-tQ-bGY" customClass="Surgery">
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="uvQ-Tt-j47">
+                                <rect key="frame" x="0.0" y="22" width="768" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="114"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Patient Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjD-7a-IDX">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="58" id="Au8-51-ZHh"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rox-4s-gDD">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="HXa-va-NxQ"/>
+                                                <constraint firstAttribute="height" constant="86" id="VIN-5C-8qE"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="rox-4s-gDD" firstAttribute="leading" secondItem="uvQ-Tt-j47" secondAttribute="leading" constant="20" type="default" id="MFe-5h-Iym"/>
+                                    <constraint firstItem="vjD-7a-IDX" firstAttribute="centerY" secondItem="uvQ-Tt-j47" secondAttribute="centerY" type="default" id="MO1-nn-81k"/>
+                                    <constraint firstItem="rox-4s-gDD" firstAttribute="centerY" secondItem="vjD-7a-IDX" secondAttribute="centerY" type="default" id="Mmc-Pl-fLH"/>
+                                    <constraint firstItem="vjD-7a-IDX" firstAttribute="leading" secondItem="rox-4s-gDD" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="fDg-Bs-CPj"/>
+                                </constraints>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" rowHeight="115" id="uq5-JW-XTn">
+                                <rect key="frame" x="0.0" y="137" width="768" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="114"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Surgery Dictation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsA-Yz-0bB">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="58" id="pSQ-jq-vCY"/>
+                                                <constraint firstAttribute="width" constant="768" id="vzt-6Z-rUt"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bY5-hh-eXy">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="86" id="06C-XX-o7D"/>
+                                                <constraint firstAttribute="width" constant="100" id="A9d-fm-jJf"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="lsA-Yz-0bB" firstAttribute="centerY" secondItem="bY5-hh-eXy" secondAttribute="centerY" type="default" id="Lnh-Xw-pZy"/>
+                                    <constraint firstItem="bY5-hh-eXy" firstAttribute="leading" secondItem="uq5-JW-XTn" secondAttribute="leading" constant="20" type="default" id="Y6x-wJ-A2X"/>
+                                    <constraint firstItem="lsA-Yz-0bB" firstAttribute="leading" secondItem="uq5-JW-XTn" secondAttribute="leading" constant="-120" id="b20-wM-VHH"/>
+                                    <constraint firstItem="bY5-hh-eXy" firstAttribute="centerY" secondItem="uq5-JW-XTn" secondAttribute="centerY" type="default" id="exC-3e-LIN"/>
+                                </constraints>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="0FF-b7-kRl">
+                                <rect key="frame" x="0.0" y="252" width="768" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="114"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Capture File" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ae7-qx-3uB">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="768" id="UgM-B3-xvd"/>
+                                                <constraint firstAttribute="height" constant="58" id="tes-rU-nl7"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xY5-cy-ypI">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="7RL-de-XiY"/>
+                                                <constraint firstAttribute="height" constant="86" id="dTb-6D-py7"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="xY5-cy-ypI" firstAttribute="centerY" secondItem="0FF-b7-kRl" secondAttribute="centerY" type="default" id="VLx-je-LNc"/>
+                                    <constraint firstItem="ae7-qx-3uB" firstAttribute="leading" secondItem="0FF-b7-kRl" secondAttribute="leading" constant="-159" id="ZQy-Fj-UmO"/>
+                                    <constraint firstItem="xY5-cy-ypI" firstAttribute="centerY" secondItem="ae7-qx-3uB" secondAttribute="centerY" type="default" id="a0g-eO-P2x"/>
+                                    <constraint firstItem="xY5-cy-ypI" firstAttribute="leading" secondItem="0FF-b7-kRl" secondAttribute="leading" constant="20" type="default" id="vcn-tn-pYN"/>
+                                </constraints>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8wr-C9-7ex" id="Vn0-nX-fCO"/>
+                            <outlet property="delegate" destination="8wr-C9-7ex" id="Z4G-HB-QMj"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Surgery" id="rEl-IW-i0a"/>
+                    <connections>
+                        <segue destination="DSq-sv-LIY" kind="push" id="8AX-O4-apI"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uXQ-q5-lqz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6744" y="-1262"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qkg-zs-jfL">
+            <objects>
+                <viewController id="DSq-sv-LIY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="din-Ob-HWh">
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HRO-lH-yFz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hSx-Zo-4h5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5455" y="-902"/>
+        </scene>
         <!--View Controller - PACU-->
         <scene sceneID="0MZ-nk-gPh">
             <objects>
@@ -315,22 +449,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtX-vz-WK3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-8092" y="-828"/>
-        </scene>
-        <!--Surgery View Controller - Surgery-->
-        <scene sceneID="8lp-Uf-acj">
-            <objects>
-                <viewController id="4Vd-my-Rw3" customClass="SurgeryViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="PTg-za-pEe">
-                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Surgery" id="Ow7-7t-JzP"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oLX-o1-N8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-6770" y="-1198"/>
         </scene>
         <!--Primary Tab Bar Controller-->
         <scene sceneID="CTA-x1-Arn">
@@ -350,8 +468,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <segue destination="j4F-K9-aWQ" kind="relationship" relationship="viewControllers" id="mpy-bU-AMS"/>
                         <segue destination="53W-Wm-eYk" kind="relationship" relationship="viewControllers" id="ZLe-zW-YpJ"/>
                         <segue destination="0eF-Bo-gun" kind="relationship" relationship="viewControllers" id="CmW-z1-TXx"/>
-                        <segue destination="4Vd-my-Rw3" kind="relationship" relationship="viewControllers" id="QUB-Nf-AmR"/>
                         <segue destination="SZO-T2-AxW" kind="relationship" relationship="viewControllers" id="E7M-eX-Nhe"/>
+                        <segue destination="8wr-C9-7ex" kind="relationship" relationship="viewControllers" id="JB8-tk-c6e"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ALq-SH-P8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -515,9 +633,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="SummaryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SummaryViewController.h"/>
-        </class>
-        <class className="SurgeryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SurgeryViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
