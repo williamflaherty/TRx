@@ -304,7 +304,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <scene sceneID="aMB-E6-NjT">
             <objects>
                 <tableViewController id="8wr-C9-7ex" customClass="SurgeryListViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="115" sectionHeaderHeight="22" sectionFooterHeight="22" id="0nM-tQ-bGY" customClass="Surgery">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="115" sectionHeaderHeight="22" sectionFooterHeight="22" id="0nM-tQ-bGY">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -406,33 +406,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="8wr-C9-7ex" id="Vn0-nX-fCO"/>
                             <outlet property="delegate" destination="8wr-C9-7ex" id="Z4G-HB-QMj"/>
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Surgery" id="rEl-IW-i0a"/>
-                    <connections>
-                        <segue destination="DSq-sv-LIY" kind="push" id="8AX-O4-apI"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uXQ-q5-lqz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-6744" y="-1262"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="qkg-zs-jfL">
-            <objects>
-                <viewController id="DSq-sv-LIY" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="din-Ob-HWh">
-                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="HRO-lH-yFz"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hSx-Zo-4h5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-5455" y="-902"/>
         </scene>
         <!--View Controller - PACU-->
         <scene sceneID="0MZ-nk-gPh">
