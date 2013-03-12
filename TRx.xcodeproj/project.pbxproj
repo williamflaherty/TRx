@@ -39,8 +39,6 @@
 		C469AA7316E8FDE500E75E7A /* PatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA7216E8FDE500E75E7A /* PatientListViewController.m */; };
 		C469AA7D16E905D100E75E7A /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = C469AA7916E905D100E75E7A /* Icon-72.png */; };
 		C469AA7E16E905D100E75E7A /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C469AA7A16E905D100E75E7A /* Icon-72@2x.png */; };
-		C469AA7F16E905D100E75E7A /* TRx_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C469AA7B16E905D100E75E7A /* TRx_Icon.png */; };
-		C469AA8016E905D100E75E7A /* TRx_Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C469AA7C16E905D100E75E7A /* TRx_Icon@2x.png */; };
 		C469AA8416E9082D00E75E7A /* PhysicalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA8316E9082D00E75E7A /* PhysicalViewController.m */; };
 		C469AA9316E9087A00E75E7A /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA9216E9087A00E75E7A /* SummaryViewController.m */; };
 		C469AA9A16E90A0100E75E7A /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA9916E90A0100E75E7A /* Patient.m */; };
@@ -55,6 +53,8 @@
 		C499B58816ED156800F40046 /* PrimaryTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C499B58716ED156800F40046 /* PrimaryTabBarController.m */; };
 		C499B58C16ED6A9F00F40046 /* PatientPhotoBlank.png in Resources */ = {isa = PBXBuildFile; fileRef = C499B58A16ED6A9F00F40046 /* PatientPhotoBlank.png */; };
 		C499B58D16ED6A9F00F40046 /* PatientPhotoBlank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C499B58B16ED6A9F00F40046 /* PatientPhotoBlank@2x.png */; };
+		C499B59516EEB2A900F40046 /* CameraButtonNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = C499B59316EEB2A900F40046 /* CameraButtonNormal.png */; };
+		C499B59616EEB2A900F40046 /* CameraButtonNormal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C499B59416EEB2A900F40046 /* CameraButtonNormal@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,8 +109,6 @@
 		C469AA7216E8FDE500E75E7A /* PatientListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListViewController.m; sourceTree = "<group>"; };
 		C469AA7916E905D100E75E7A /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/TRx_png/Icon-72.png"; sourceTree = SOURCE_ROOT; };
 		C469AA7A16E905D100E75E7A /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "Resources/TRx_png/Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
-		C469AA7B16E905D100E75E7A /* TRx_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TRx_Icon.png; path = Resources/TRx_png/TRx_Icon.png; sourceTree = SOURCE_ROOT; };
-		C469AA7C16E905D100E75E7A /* TRx_Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TRx_Icon@2x.png"; path = "Resources/TRx_png/TRx_Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		C469AA8216E9082D00E75E7A /* PhysicalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicalViewController.h; sourceTree = "<group>"; };
 		C469AA8316E9082D00E75E7A /* PhysicalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicalViewController.m; sourceTree = "<group>"; };
 		C469AA9116E9087A00E75E7A /* SummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryViewController.h; sourceTree = "<group>"; };
@@ -136,6 +134,8 @@
 		C499B58716ED156800F40046 /* PrimaryTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimaryTabBarController.m; sourceTree = "<group>"; };
 		C499B58A16ED6A9F00F40046 /* PatientPhotoBlank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PatientPhotoBlank.png; path = Resources/TRx_png/PatientPhotoBlank.png; sourceTree = SOURCE_ROOT; };
 		C499B58B16ED6A9F00F40046 /* PatientPhotoBlank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PatientPhotoBlank@2x.png"; path = "Resources/TRx_png/PatientPhotoBlank@2x.png"; sourceTree = SOURCE_ROOT; };
+		C499B59316EEB2A900F40046 /* CameraButtonNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CameraButtonNormal.png; path = Resources/TRx_png/CameraButtonNormal.png; sourceTree = SOURCE_ROOT; };
+		C499B59416EEB2A900F40046 /* CameraButtonNormal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "CameraButtonNormal@2x.png"; path = "Resources/TRx_png/CameraButtonNormal@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				C469AA7816E905BD00E75E7A /* Defaults */,
+				C499B58E16EEA98100F40046 /* Buttons */,
+				C499B58916ED6A8400F40046 /* HistoryImages */,
 				C469AA8116E9060000E75E7A /* Tab Images */,
 			);
 			name = Images;
@@ -334,8 +336,6 @@
 				C44D6F3E16D19AD60036E40B /* Default-568h@2x.png */,
 				C469AA7916E905D100E75E7A /* Icon-72.png */,
 				C469AA7A16E905D100E75E7A /* Icon-72@2x.png */,
-				C469AA7B16E905D100E75E7A /* TRx_Icon.png */,
-				C469AA7C16E905D100E75E7A /* TRx_Icon@2x.png */,
 			);
 			name = Defaults;
 			sourceTree = "<group>";
@@ -343,7 +343,6 @@
 		C469AA8116E9060000E75E7A /* Tab Images */ = {
 			isa = PBXGroup;
 			children = (
-				C499B58916ED6A8400F40046 /* HistoryImages */,
 			);
 			name = "Tab Images";
 			sourceTree = "<group>";
@@ -405,6 +404,15 @@
 				C499B58B16ED6A9F00F40046 /* PatientPhotoBlank@2x.png */,
 			);
 			name = HistoryImages;
+			sourceTree = "<group>";
+		};
+		C499B58E16EEA98100F40046 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				C499B59316EEB2A900F40046 /* CameraButtonNormal.png */,
+				C499B59416EEB2A900F40046 /* CameraButtonNormal@2x.png */,
+			);
+			name = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -485,11 +493,11 @@
 				C474A24E16E709C1006F2B0B /* MainStoryboard.storyboard in Resources */,
 				C469AA7D16E905D100E75E7A /* Icon-72.png in Resources */,
 				C469AA7E16E905D100E75E7A /* Icon-72@2x.png in Resources */,
-				C469AA7F16E905D100E75E7A /* TRx_Icon.png in Resources */,
-				C469AA8016E905D100E75E7A /* TRx_Icon@2x.png in Resources */,
 				13CF9B2716ECF829006CF20B /* LocalDatabase.sqlite in Resources */,
 				C499B58C16ED6A9F00F40046 /* PatientPhotoBlank.png in Resources */,
 				C499B58D16ED6A9F00F40046 /* PatientPhotoBlank@2x.png in Resources */,
+				C499B59516EEB2A900F40046 /* CameraButtonNormal.png in Resources */,
+				C499B59616EEB2A900F40046 /* CameraButtonNormal@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
