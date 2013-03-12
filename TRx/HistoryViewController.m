@@ -22,7 +22,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
 
-    newPatient = [[Patient alloc] initWithFirstName:@"Jeff" MiddleName:@"The" LastName:@"Man" ChiefComplaint:@"" PhotoID:NULL];
+    newPatient = [[Patient alloc] initWithFirstName:@"fml" MiddleName:@"le" LastName:@"Man" ChiefComplaint:@"" PhotoID:NULL];
     
     _complaintsArray = [AdminInformation getSurgeryNames];
     
@@ -54,16 +54,20 @@
     //Idealy, I think we should call a DBTalk function called "addPatient" from here, passing it the newPatient object...
     //[DBTalk addPatient:newPatient];
     
-    NSString *bday = [NSString stringWithFormat:@"%d", newPatient.birthday];
-    NSString *patientId = [DBTalk addUpdatePatient:newPatient.firstName middleName:newPatient.middleName
-                                          lastName:newPatient.lastName birthday:bday patientId:NULL];
+    //NSString *bday = [NSString stringWithFormat:@"%d", newPatient.birthday];
+    //NSString *patientId = [DBTalk addUpdatePatient:newPatient.firstName middleName:newPatient.middleName
+     //                                     lastName:newPatient.lastName birthday:bday patientId:NULL];
     
     //Alert -- have hard-coded surgeryTypeId and doctorId for now
-    NSString *recordId = [DBTalk addRecord:patientId surgeryTypeId:@"1" doctorId:@"1" isActive:@"1" hasTimeout:@"0"];
+    //NSString *recordId = [DBTalk addRecord:patientId surgeryTypeId:@"1" doctorId:@"1" isActive:@"1" hasTimeout:@"0"];
     //The below method causes the appilication to crash
-    //[DBTalk addPicture:newPatient.photoID pictureId:NULL patientId:patientId customPictureName:NULL isProfile:@"1"];
     
-    NSLog(@"AddPatient button pressed:\npatientId: %@\nrecordId:%@\n", patientId, recordId);
+    NSString *fakeId = @"31n000";
+    newPatient.photoID = [DBTalk getThumbFromServer:(fakeId)];
+    //[DBTalk addPicture:newPatient.photoID pictureId:NULL patientId:@"40" customPictureName:NULL isProfile:@"1"];
+    [DBTalk addProfilePicture:newPatient.photoID patientId:@"50"];
+    
+    //NSLog(@"AddPatient button pressed:\npatientId: %@\nrecordId:%@\n", patientId, recordId);
 }
 
 #pragma mark - Camera Methods

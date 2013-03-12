@@ -24,14 +24,21 @@
 +(UIImage *)getThumbFromServer:(NSString *)fileName;
 +(UIImage *)getProfilePictureFromServer:(NSString *)patientId;
 
-+(NSString *)addPicture:(UIImage *)picture
-              pictureId:(NSString *)pictureId
++(NSString *)addProfilePicture:(UIImage *)picture
+                     patientId:(NSString *)patientId;
+
++(NSString *)addPicture:(UIImage  *)picture
               patientId:(NSString *)patientId
       customPictureName:(NSString *)customPictureName
               isProfile:(NSString *)isProfile;
 
 +(BOOL)sendPictureToServer:(UIImage *)picture
                   fileName:(NSString *)fileName;
+
++(NSString *)addPatient:(NSString *)firstName
+             middleName:(NSString *)middleName
+               lastName:(NSString *)lastName
+               birthday:(NSString *)birthday;
 
 +(NSString *)addUpdatePatient:(NSString *)firstName
                    middleName:(NSString *)middleName

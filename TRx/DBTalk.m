@@ -7,6 +7,7 @@
 //
 
 #import "DBTalk.h"
+#import "AFNetworking.h"
 #import <UIKit/UIKit.h>
 
 
@@ -16,10 +17,17 @@
 static NSString *host = nil;
 static NSString *imageDir = nil;
 
-+(void)initialize
-{
++(void)initialize{
     host = @"http://www.teamecuadortrx.com/TRxTalk/index.php/";
     imageDir = @"http://teamecuadortrx.com/TRxTalk/Data/images/";
+}
+
+
++(NSString *)addPatient:(NSString *)firstName
+             middleName:(NSString *)middleName
+               lastName:(NSString *)lastName
+               birthday:(NSString *)birthday {
+    return [self addUpdatePatient:firstName middleName:middleName lastName:lastName birthday:birthday patientId:@"NULL"];
 }
 
 /*---------------------------------------------------------------------------
@@ -31,11 +39,8 @@ static NSString *imageDir = nil;
              middleName:(NSString *)middleName
                lastName:(NSString *)lastName
                birthday:(NSString *)birthday
-              patientId:(NSString *)patientId
-{
-    if (patientId ==NULL) {
-        patientId = @"NULL";
-    }
+              patientId:(NSString *)patientId {
+
     NSString *encodedString = [NSString stringWithFormat:
                                @"%@add/addPatient/%@/%@/%@/%@/%@", host,
                                patientId, firstName, middleName, lastName, birthday];
@@ -65,8 +70,7 @@ static NSString *imageDir = nil;
          surgeryTypeId:(NSString *)surgeryTypeId
               doctorId:(NSString *)doctorId
               isActive:(NSString *)isActive
-            hasTimeout:(NSString *)hasTimeout
-{
+            hasTimeout:(NSString *)hasTimeout {
     
     NSString *encodedString = [NSString stringWithFormat:@"%@add/record/%@/%@/%@/%@/%@", host,
                                patientId, surgeryTypeId, @"1", isActive, @"0"];
@@ -84,47 +88,49 @@ static NSString *imageDir = nil;
 
 
 /*---------------------------------------------------------------------------
+ * adds profile picture to server and info to database
+ * returns: NULL on failure. pictureId otherwise
+ *---------------------------------------------------------------------------*/
+
++(NSString *)addProfilePicture:(UIImage *)picture
+                     patientId:(NSString *)patientId {
+    
+    return [self addPicture:picture
+                  patientId:patientId
+          customPictureName:@"NULL"
+                  isProfile:@"1"];
+}
+
+/*---------------------------------------------------------------------------
  * description: method adds picture to server and puts path in database
  * pictureId: NULL if adding picture. pictureId as string if updating
  * isProfile: @"0" -- not profile picture. or @"1" -- is profile picture
+ * returns NULL on failure. pictureId otherwise
  *---------------------------------------------------------------------------*/
 +(NSString *)addPicture:(UIImage  *)picture
-              pictureId:(NSString *)pictureId
               patientId:(NSString *)patientId
       customPictureName:(NSString *)customPictureName
-              isProfile:(NSString *)isProfile
-{
-    NSString *fileName = [self getNewPictureName:patientId];
-    BOOL added = [self sendPictureToServer:picture fileName:fileName];
+              isProfile:(NSString *)isProfile {
     
-    if (added) {
-        pictureId = [self addPicturePathToDatabase:pictureId :patientId :fileName :customPictureName :isProfile];
-        
-        NSString *encodedString = [NSString stringWithFormat:@"%@add/addPicture/%@/%@/%@/%@/%@", host,
-                                   pictureId, patientId, fileName, customPictureName, isProfile];
-        
-        NSLog(@"encodedString: %@", encodedString);
-        
-        NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
-        
-        if (data) {
-            NSError *jsonError;
-            NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
-            NSDictionary *dic = jsonArray[0];
-            NSString *retval = [dic objectForKey:@"@returnValue"];
-            NSLog(@"addPicture returned %@", retval);
-            return retval;
-        }
+    NSString *pictureId = nil;
+    NSString *fileName = [self getNewPictureName:patientId];
+    BOOL added = [self uploadPictureToServer:picture fileName:fileName];
+    
+    if (!added) {
+        NSLog(@"Error adding picture");
+        return nil;
     }
-    NSLog(@"Error adding picture");
-    return NULL;
+    
+    pictureId = [self addPictureInfoToDatabase:patientId fileName:fileName isProfile:isProfile];
+    NSLog(@"value of pictureId: %@", pictureId);
+    return pictureId;
 }
+
 
 /*---------------------------------------------------------------------------
  * deletes specified patient and associated records. returns true on success
  *---------------------------------------------------------------------------*/
-+(BOOL)deletePatient: (NSString *)patientId
-{
++(BOOL)deletePatient: (NSString *)patientId {
     NSString *encodedString = [NSString stringWithFormat:@"%@delete/deletePatient/%@", host, patientId];
     NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
@@ -146,8 +152,7 @@ static NSString *imageDir = nil;
  * description: queries database for a list of patients that have records  <-- assumption!
  * returns: An NSArray of dictionaries with keys: Id, MiddleName, FirstName, IsActive
  *---------------------------------------------------------------------------*/
-+(NSArray *)getPatientList
-{
++(NSArray *)getPatientList {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/patientList/", host];
     NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
@@ -171,8 +176,7 @@ static NSString *imageDir = nil;
  * returns UIImage of specified jpeg
  *---------------------------------------------------------------------------*/
 
-+(UIImage *)getPortraitFromServer:(NSString *)fileName
-{
++(UIImage *)getPortraitFromServer:(NSString *)fileName {
     NSString *str = [NSString stringWithFormat:@"%@portraits/%@.jpeg", imageDir, fileName];
     NSURL *url = [NSURL URLWithString:str];
     UIImage *myImage = [UIImage imageWithData:
@@ -187,8 +191,7 @@ static NSString *imageDir = nil;
  * fileName: "patientId" + "n" + "picNumber"
  * returns UIImage of specified jpeg
  *---------------------------------------------------------------------------*/
-+(UIImage *)getThumbFromServer:(NSString *)fileName
-{
++(UIImage *)getThumbFromServer:(NSString *)fileName {
     NSString *str = [NSString stringWithFormat:@"%@thumbs/%@.jpeg", imageDir, fileName];
     NSURL *url = [NSURL URLWithString:str];
     UIImage *myImage = [UIImage imageWithData:
@@ -201,8 +204,7 @@ static NSString *imageDir = nil;
  * description: gets list of surgeries with their Id's
  * returns NSArray of dictionaries with keys: Name and Id
  *---------------------------------------------------------------------------*/
-+(NSArray *)getSurgeryList
-{
++(NSArray *)getSurgeryList {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/surgeryList/", host];
     NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
@@ -221,8 +223,7 @@ static NSString *imageDir = nil;
  * description: gets list of surgeries with their Id's
  * returns NSArray of the LastName of the doctor
  *---------------------------------------------------------------------------*/
-+(NSArray *)getDoctorList
-{
++(NSArray *)getDoctorList {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/doctorList/", host];
     NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
@@ -242,8 +243,7 @@ static NSString *imageDir = nil;
  * Pass in a patient's recordId. Calls DB to get stored info
  * returns NSArray of Keys and values for each field
  *---------------------------------------------------------------------------*/
-+(NSArray *)getRecordData:(NSString *)recordId
-{
++(NSArray *)getRecordData:(NSString *)recordId {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/recordData/", host];
     NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
@@ -265,8 +265,7 @@ static NSString *imageDir = nil;
  * description: queries database for current profile picture
  * returns UIImage of profile picture for specified patient
  *---------------------------------------------------------------------------*/
-+(UIImage *)getProfilePictureFromServer:(NSString *)patientId
-{
++(UIImage *)getProfilePictureFromServer:(NSString *)patientId {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/profileURL/%@", host, patientId];
     NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
@@ -286,56 +285,68 @@ static NSString *imageDir = nil;
 /*---------------------------------------------------------------------------
  *hope to have this working soon
  *---------------------------------------------------------------------------*/
-+(BOOL)sendPictureToServer:(UIImage *)picture
-                  fileName:(NSString *)fileName
-{
++(BOOL)uploadPictureToServer:(UIImage *)picture
+                  fileName:(NSString *)fileName {    
     
-    NSData *imageData = UIImageJPEGRepresentation(picture, 90);
-    // setting up the URL to post to
-    NSString *urlString = [NSString stringWithFormat:@"%@add/addPicture",host];
+    //NSURL *url = [NSURL URLWithString:@"http://www.teamecuadortrx.com/TRxTalk/"];
+    NSURL *url = [NSURL URLWithString:@"http://web.eecs.utk.edu/~jcotham/junk/"];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    NSData *imageData = UIImageJPEGRepresentation(picture, 0.9);
     
-    // setting up the request object now
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:urlString]];
-    [request setHTTPMethod:@"POST"];
+    NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"upload.php" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+        [formData appendPartWithFileData:imageData name:@"file" fileName:@"temp.jpeg" mimeType:@"image/jpeg"];
+    }];
     
-    NSString *boundary = @"----------------98761466499489749";
-	NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
-	[request addValue:contentType forHTTPHeaderField: @"Content-Type"];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+        NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
+    }];
+    //[operation start];
+    [httpClient enqueueHTTPRequestOperation:operation];
     
-    /*
-	 now create the body of the post
-     */
-    NSString *contentDispoStr = [NSString stringWithFormat:@"Content-Disposition: form-data; name=\"userfile\"; filename=\"%@\"rn", fileName];
     
-	NSMutableData *body = [NSMutableData data];
-	[body appendData:[[NSString stringWithFormat:@"rn--%@rn",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-	[body appendData:[contentDispoStr dataUsingEncoding:NSUTF8StringEncoding]]; //broken here
-	[body appendData:[@"Content-Type: application/octet-streamrnrn" dataUsingEncoding:NSUTF8StringEncoding]];
-	[body appendData:[NSData dataWithData:imageData]];
-	[body appendData:[[NSString stringWithFormat:@"rn--%@--rn",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-	// setting the body of the post to the reqeust
-	[request setHTTPBody:body];
-	
-	// now lets make the connection to the web
-	NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-	NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
-	
-	NSLog(@"%@", returnString);
     return true;
 }
 
 /*---------------------------------------------------------------------------
- * You shouldn't need to call this directly; it gets called by addPicture
+ * Updates a picture path in the database. Need to pass in a pictureId
  * 
  *---------------------------------------------------------------------------*/
-+(NSString *)addPicturePathToDatabase:(NSString *)pictureId: (NSString *)patientId:(NSString *)picturePath
-                                     :(NSString *)pictureName: (NSString *)isProfile
-{
+
++(NSString *)updatePictureInfoInDatabase:(NSString *)pictureId
+                               patientId:(NSString *)patientId
+                                 newPath:(NSString *)newPath
+                              customName:(NSString *)customName
+                               isProfile:(NSString *)isProfile {
+    return [self pictureInfoToDatabase:pictureId patientId:patientId fileName:newPath
+                     customName:customName isProfile:isProfile];
+}
+/*---------------------------------------------------------------------------
+* Adds a picture path to the database. Path is just a filename right now
+* 
+*---------------------------------------------------------------------------*/
+
++(NSString *)addPictureInfoToDatabase:(NSString *)patientId
+                             fileName:(NSString *)fileName
+                            isProfile:(NSString *)isProfile {
+    return [self pictureInfoToDatabase:@"NULL" patientId:patientId fileName:fileName
+                     customName:@"NULL" isProfile:isProfile];
+}
+
+
+/*---------------------------------------------------------------------------
+ * base method for addPicturePathToDatabase and updatePathToDatabase
+ * 
+ *---------------------------------------------------------------------------*/
++(NSString *)pictureInfoToDatabase:(NSString *)picId
+                         patientId:(NSString *)patientId
+                          fileName:(NSString *)fileName
+                        customName:(NSString *)customName
+                         isProfile:(NSString *)isProfile {
     
-    NSString *encodedString = [NSString stringWithFormat:@"%@add/addPicture/%@/%@/%@/%@/%@", host,
-                               pictureId, patientId, picturePath, pictureName, isProfile];
-    NSLog(@"encodedString: %@", encodedString);
+    NSString *encodedString = [NSString stringWithFormat:@"%@add/picturePathToDatabase/%@/%@/%@/%@/%@", host,
+                               picId, patientId, fileName, customName, isProfile];
+    NSLog(@"picturePathURL: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
     if (data) {
@@ -350,14 +361,12 @@ static NSString *imageDir = nil;
     return NULL;
     
 }
-
 /*---------------------------------------------------------------------------
  * method concatenates patientId, the letter 'n', and the number of the
  * picture for the patient and returns a name.
  *---------------------------------------------------------------------------*/
 
-+(NSString *) getNewPictureName:(NSString *)patientId
-{
++(NSString *) getNewPictureName:(NSString *)patientId {
     NSString *numPicsURL = [NSString stringWithFormat:@"%@get/numPictures/%@", host, patientId];
     NSLog(@"numPicsURL: %@", numPicsURL);
     NSData *numPicsData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:numPicsURL]];
@@ -380,8 +389,7 @@ static NSString *imageDir = nil;
 /*---------------------------------------------------------------------------
  * method encodes and returns a string formatted to pass in a url
  *---------------------------------------------------------------------------*/
-+(NSString *) urlEncodeData:(NSString *)str
-{
++(NSString *) urlEncodeData:(NSString *)str {
     NSString *encodedString = (__bridge NSString *)
     CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                             (CFStringRef)str,
