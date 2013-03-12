@@ -22,7 +22,7 @@
                             <constraint firstItem="Ltd-Fv-yIX" firstAttribute="leading" secondItem="ggv-hz-8d5" secondAttribute="leading" type="default" id="foV-K2-YqO"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Summary" id="H8t-PY-ncK"/>
+                    <tabBarItem key="tabBarItem" title="Summary" image="0012.png" id="H8t-PY-ncK"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S54-Yy-RKe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -221,7 +221,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <scene sceneID="tYd-3N-H1f">
             <objects>
                 <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="j4F-K9-aWQ" customClass="HistoryNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="History" id="pbf-Gi-gMW"/>
+                    <tabBarItem key="tabBarItem" title="History" image="0099.png" id="pbf-Gi-gMW"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bnM-2J-7NS">
                         <autoresizingMask key="autoresizingMask"/>
@@ -295,7 +295,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="M2R-QH-3UC" firstAttribute="trailing" secondItem="O5Y-Bi-YiW" secondAttribute="trailing" type="default" id="whG-vX-Mrl"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Physical" id="07p-Ju-BsX"/>
+                    <tabBarItem key="tabBarItem" title="Physical" image="0197.png" id="07p-Ju-BsX"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UbG-fi-Lyt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -320,7 +320,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="Nft-as-VgA" firstAttribute="top" secondItem="IXb-Al-1NM" secondAttribute="top" type="default" id="ynf-su-k46"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Orders" id="o5a-hm-elA"/>
+                    <tabBarItem key="tabBarItem" title="Orders" image="0058.png" id="o5a-hm-elA"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JmT-6b-isF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -475,7 +475,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="hsA-a9-Icq" firstAttribute="top" secondItem="F6Y-Gc-rXd" secondAttribute="top" constant="64" id="yfr-4S-j7g"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Surgery" id="MmZ-AA-Dmb"/>
+                    <tabBarItem key="tabBarItem" title="Surgery" image="0143.png" id="MmZ-AA-Dmb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aO7-MA-OWM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -499,7 +499,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="KsC-sp-0Ui" firstAttribute="bottom" secondItem="v0N-NE-vAT" secondAttribute="bottom" type="default" id="x4N-fr-nji"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="PACU" id="eyo-QH-EzR"/>
+                    <tabBarItem key="tabBarItem" title="PACU" image="0238.png" id="eyo-QH-EzR"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtX-vz-WK3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -627,6 +627,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </scene>
     </scenes>
     <resources>
+        <image name="0012.png" width="35" height="35"/>
+        <image name="0058.png" width="35" height="35"/>
+        <image name="0099.png" width="35" height="35"/>
+        <image name="0143.png" width="35" height="35"/>
+        <image name="0197.png" width="35" height="35"/>
+        <image name="0238.png" width="35" height="35"/>
         <image name="CameraButtonNormal.png" width="70" height="50"/>
         <image name="DefaultBackgroundPortrait@2x.png" width="1536" height="2048"/>
         <image name="HistoryBackgroundLandscape.png" width="1024" height="768"/>
