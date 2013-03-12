@@ -12,10 +12,10 @@
 @interface PatientListViewController : UITableViewController {
     NSArray *patientsArray;
     NSMutableArray *patients;
+    UINavigationItem *addPatientsButton;
 }
 
-@property (nonatomic, strong) NSArray *patientsArray;
-@property (nonatomic, strong) NSMutableArray *patients;
+-(IBAction)addPatients:(id)sender; 
 
 
 

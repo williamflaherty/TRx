@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HistoryNavigationController : UINavigationController
+@interface HistoryNavigationController : UINavigationController {
+
+}
+
+
 
 @end

@@ -19,8 +19,11 @@
 
 @synthesize complaintPicker = _complaintPicker;
 
+
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HistoryBackgroundLandscape.png"]];
 
     newPatient = [[Patient alloc] initWithFirstName:@"fml" MiddleName:@"le" LastName:@"Man" ChiefComplaint:@"" PhotoID:NULL];
     
@@ -153,8 +156,18 @@ finishedSavingWithError:(NSError *)error
     newPatient.chiefComplaint = [NSString stringWithFormat:@"%i",row];
     
 }
+#pragma mark - Next button segues to next view controller
+- (void)nextView:(id)sender{
+    [self performSegueWithIdentifier:@"nextViewController" sender:nil];
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"nextViewController"]){
+        //UIViewController *vc = [segue destinationViewController];
+        //this is where the code will go to "push" the data to the database on the
+        //next button click
+    }
+}
 
-#pragma mark 
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];

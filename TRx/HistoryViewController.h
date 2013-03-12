@@ -18,7 +18,7 @@
     NSString *pName;
     NSString *pComplaint;
     UIImage *photoID;
-    
+    IBOutlet UIButton *next;
     IBOutlet UIPickerView *complaintPicker;
     PatientListViewController *p;
 }
@@ -31,6 +31,7 @@
 @property (nonatomic, retain) IBOutlet UITextField *lastNameText;
 @property (nonatomic, retain) IBOutlet UIPickerView *complaintPicker;
 
+- (IBAction)nextView:(id)sender;
 - (IBAction)useCamera:(id)sender;
 - (IBAction)addPatient:(id)sender;
 

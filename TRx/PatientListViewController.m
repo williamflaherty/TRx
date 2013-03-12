@@ -33,6 +33,17 @@
     return self;
 }
 
+#pragma mark - Adding patient segues to 2nd tab 
+-(void)addPatients:(id)sender{
+    [self performSegueWithIdentifier:@"listTabSegue" sender:nil];
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"listTabSegue"]){
+    UITabBarController *vc = [segue destinationViewController];
+    vc.selectedIndex=1;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -101,7 +112,7 @@
     NSString *ln = [[patients objectAtIndex:row] lastName];
     NSString *name = [NSString stringWithFormat: @"%@ %@ %@", fn, mn, ln];
     cell.patientName.text = name;
-    cell.chiefComplaint.text = [[patients objectAtIndex:row] chiefComplaint];
+    cell.chiefComplaint.text = (NSString*)[[patients objectAtIndex:row] chiefComplaint];
     cell.patientPicture.image = [[patients objectAtIndex:row] photoID];
     //cell.patientPicture.image = [UIImage imageNamed:_carImages[row]];
     
