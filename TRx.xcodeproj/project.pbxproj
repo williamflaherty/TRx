@@ -621,6 +621,8 @@
 				C499B57616ED13CE00F40046 /* PrimaryNavigationController.m in Sources */,
 				C499B58216ED149E00F40046 /* HistoryNavigationController.m in Sources */,
 				C499B58816ED156800F40046 /* PrimaryTabBarController.m in Sources */,
+				19A7197A16EF5F9600E671CB /* HistorySubViewViewController.m in Sources */,
+				19C32A2A16EF6F4F00CC1318 /* SurgeryListViewController.m in Sources */,
 				13F3528216EEEF21009321E7 /* AFHTTPClient.m in Sources */,
 				13F3528316EEEF21009321E7 /* AFHTTPRequestOperation.m in Sources */,
 				13F3528416EEEF21009321E7 /* AFImageRequestOperation.m in Sources */,
