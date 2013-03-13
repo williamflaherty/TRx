@@ -31,13 +31,19 @@
     
     _imageView.image = [UIImage imageNamed:@"PatientPhotoBlank.png"];
 
-    NSString *testLabel = [LocalTalk getEnglishLabel:@"preOp_ReasonForVisit"];
-    NSLog(@"testing database get methods: English Label --> %@", testLabel);
+    //NSString *testLabel = [LocalTalk getEnglishLabel:@"preOp_ReasonForVisit"];
+    //NSLog(@"testing database get methods: English Label --> %@", testLabel);
     
-    testLabel = [LocalTalk getSpanishLabel:@"preOp_ReasonForVisit"];
-    NSLog(@"testing database get methods: Spanish Label --> %@", testLabel);
+    //testLabel = [LocalTalk getSpanishLabel:@"preOp_ReasonForVisit"];
+    //NSLog(@"testing database get methods: Spanish Label --> %@", testLabel);
 
+    [LocalTalk localStorePatientId:@"3333"];
+    [LocalTalk localStoreRecordId:@"4444"];
+    NSString *patId = [LocalTalk localGetPatientId];
+    NSString *recId = [LocalTalk localGetRecordId];
     
+    NSLog(@"testing --> patientId: %@", patId);
+    NSLog(@"testing --> recordId: %@", recId);
     //_complaintsArray = [DBTalk getSurgeryList];
 }
 

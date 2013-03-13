@@ -112,6 +112,7 @@
 /* Begin PBXFileReference section */
 		1300E3BB16DA9D1B0033151C /* DBTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTalk.h; sourceTree = "<group>"; };
 		1300E3BC16DA9D1B0033151C /* DBTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTalk.m; sourceTree = "<group>"; };
+		1313DD0A16F03D5400F49943 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utility.m; path = Utilities/Utility.m; sourceTree = "<group>"; };
 		13CF9B1E16EC4BAD006CF20B /* LocalTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTalk.h; sourceTree = "<group>"; };
 		13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTalk.m; sourceTree = "<group>"; };
 		13CF9B2616ECF829006CF20B /* LocalDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = LocalDatabase.sqlite; sourceTree = "<group>"; };
@@ -265,6 +266,7 @@
 			children = (
 				13F3526E16EEEF21009321E7 /* AFNetworking */,
 				13F3524116EE678B009321E7 /* Utility.h */,
+				1313DD0A16F03D5400F49943 /* Utility.m */,
 				13D2AB0916EF9A9300F9ABEB /* NZURLConnection.m */,
 				13D2AB0516EF8E5900F9ABEB /* NZURLConnection.h */,
 				13F3524216EE678B009321E7 /* Utility.m */,

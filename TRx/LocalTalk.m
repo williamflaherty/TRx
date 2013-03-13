@@ -14,6 +14,44 @@
 @implementation LocalTalk
 
 
++(BOOL)localStoreRecordId:(NSString *)recordId {
+    return [self localStoreValue:recordId forQuestionId:@"recordId"];
+}
+
++(BOOL)localStorePatientId:(NSString *)patientId {
+    return [self localStoreValue:patientId forQuestionId:@"patientId"];
+}
++(BOOL)localStoreValue:(NSString *)value forQuestionId:(NSString *)questionId {
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    //NSString *insert = [NSString stringWithFormat:
+                      //  @"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 0)", questionId, value];
+    return [db executeUpdate:@"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 0)", questionId, value];
+}
+
+
++(NSString *)localGetPatientId {
+    return [self localGetValueForQuestionId:@"patientId"];
+}
++(NSString *)localGetRecordId {
+    return [self localGetValueForQuestionId:@"recordId"];
+}
+
++(NSString *)localGetValueForQuestionId:(NSString *)questionId {
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    NSString *query = [NSString stringWithFormat:@"SELECT Value FROM Patient WHERE QuestionId = \"%@\"", questionId];
+    
+    FMResultSet *results = [db executeQuery:query];
+    
+    if (!results) {
+        NSLog(@"%@", [db lastErrorMessage]);;
+        return nil;
+    }
+    [results next];
+    return [results stringForColumnIndex:0];
+}
 
 
 +(NSString *)getEnglishLabel:(NSString *)questionId {
@@ -42,8 +80,7 @@
 }
 
 
-+(BOOL)loadPatientRecord:(NSString *)recordId
-{
++(BOOL)loadPatientRecord:(NSString *)recordId {
     NSArray *recordInfo = [DBTalk getRecordData:recordId];
     
     if (recordInfo == NULL) {
