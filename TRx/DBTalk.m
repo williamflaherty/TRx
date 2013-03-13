@@ -8,6 +8,7 @@
 
 #import "DBTalk.h"
 #import "AFNetworking.h"
+#import "NZURLConnection.h"
 #import <UIKit/UIKit.h>
 
 
@@ -46,6 +47,20 @@ static NSString *imageDir = nil;
                                patientId, firstName, middleName, lastName, birthday];
     
     NSLog(@"encodedString: %@", encodedString);
+    
+    /* replace initWithContentsOfURL when can test */
+    /* need to figure out how to return with blocks */
+    
+    /*[NZURLConnection getAsynchronousResponseFromURL:encodedString withTimeout:5 completionHandler:^(NSData *response, NSError *error, BOOL timedOut) {
+        if (response) {
+            NSLog(@"%@", response);
+            NSError *jsonError;
+            NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&jsonError];
+            NSDictionary *dic = jsonArray[0];
+            NSString *retval = [dic objectForKey:@"@returnValue"];
+            NSLog(@"addPicture returned %@", retval);
+        }
+    }]; */
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
     if (data) {
@@ -98,7 +113,8 @@ static NSString *imageDir = nil;
     return [self addPicture:picture
                   patientId:patientId
           customPictureName:@"NULL"
-                  isProfile:@"1"];
+                  isProfile:@"1"
+                  directory:@"portraits"];
 }
 
 /*---------------------------------------------------------------------------
@@ -110,11 +126,12 @@ static NSString *imageDir = nil;
 +(NSString *)addPicture:(UIImage  *)picture
               patientId:(NSString *)patientId
       customPictureName:(NSString *)customPictureName
-              isProfile:(NSString *)isProfile {
+              isProfile:(NSString *)isProfile
+              directory:(NSString *)directory {
     
     NSString *pictureId = nil;
     NSString *fileName = [self getNewPictureName:patientId];
-    BOOL added = [self uploadPictureToServer:picture fileName:fileName];
+    BOOL added = [self uploadPictureToServer:picture fileName:fileName directory:directory];
     
     if (!added) {
         NSLog(@"Error adding picture");
@@ -166,6 +183,7 @@ static NSString *imageDir = nil;
     }
     NSLog(@"getPatientList didn't work: error in PHP");
     return NULL;
+    
 }
 
 
@@ -286,24 +304,31 @@ static NSString *imageDir = nil;
  *hope to have this working soon
  *---------------------------------------------------------------------------*/
 +(BOOL)uploadPictureToServer:(UIImage *)picture
-                  fileName:(NSString *)fileName {    
+                    fileName:(NSString *)fileName
+                   directory:(NSString *)directory {
     
-    //NSURL *url = [NSURL URLWithString:@"http://www.teamecuadortrx.com/TRxTalk/"];
-    NSURL *url = [NSURL URLWithString:@"http://web.eecs.utk.edu/~jcotham/junk/"];
+    NSString *fNameWithSuffix = [NSString stringWithFormat:@"%@.jpeg", fileName];
+    
+    /*Using AFNetworking. This works, but it seems to still block until picture is uploaded */
+    /*all of a sudden much faster */
+    /* --works quickly when I don't call addPictureInfoToDatabase */
+    /* ----issue was initWithURL ----- need to refactor ----*/
+    
+    NSURL *url = [NSURL URLWithString:@"http://www.teamecuadortrx.com/TRxTalk/"];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     NSData *imageData = UIImageJPEGRepresentation(picture, 0.9);
     
-    NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"upload.php" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
-        [formData appendPartWithFileData:imageData name:@"file" fileName:@"temp.jpeg" mimeType:@"image/jpeg"];
-    }];
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:directory, @"directory", nil];
     
+    NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"upload.php" parameters:dic constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+        [formData appendPartWithFileData:imageData name:@"file" fileName:fNameWithSuffix mimeType:@"image/jpeg"];
+    }];
+
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
         NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
     }];
-    //[operation start];
-    [httpClient enqueueHTTPRequestOperation:operation];
-    
+    [operation start];
     
     return true;
 }
@@ -347,16 +372,23 @@ static NSString *imageDir = nil;
     NSString *encodedString = [NSString stringWithFormat:@"%@add/picturePathToDatabase/%@/%@/%@/%@/%@", host,
                                picId, patientId, fileName, customName, isProfile];
     NSLog(@"picturePathURL: %@", encodedString);
-    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
-    if (data) {
-        NSError *jsonError;
-        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
-        NSDictionary *dic = jsonArray[0];
-        NSString *retval = [dic objectForKey:@"@returnValue"];
-        NSLog(@"addPicture returned %@", retval);
-        return retval;
-    }
+    /* THIS LINE IS THE PROBLEM */
+    //NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
+
+    /* Using Ziebart's code for kicks */
+    [NZURLConnection getAsynchronousResponseFromURL:encodedString withTimeout:5 completionHandler:^(NSData *response, NSError *error, BOOL timedOut) {
+        if (response) {
+            NSLog(@"%@", response);
+            NSError *jsonError;
+            NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&jsonError];
+            NSDictionary *dic = jsonArray[0];
+            NSString *retval = [dic objectForKey:@"@returnValue"];
+            NSLog(@"addPicture returned %@", retval);
+        }
+    }];
+    
+
     NSLog(@"Error adding picturePath to Database");
     return NULL;
     
@@ -375,8 +407,9 @@ static NSString *imageDir = nil;
     NSError *jsonError;
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:numPicsData options:kNilOptions error:&jsonError];
     NSDictionary *dic = jsonArray[0];
-    int numPics = (int)[dic objectForKey:@"numPictures"];
+    int numPics = [[dic objectForKey:@"numPictures"] intValue];
     NSString *name;
+    
     if (numPics < 10)
         name = [NSString stringWithFormat:@"%@n00%d",patientId, numPics];
     else if (numPics < 100)
@@ -398,6 +431,8 @@ static NSString *imageDir = nil;
                                             kCFStringEncodingUTF8);
     return encodedString;
 }
+
+
 
 
 
