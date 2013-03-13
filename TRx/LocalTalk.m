@@ -26,7 +26,7 @@
     [db open];
     //NSString *insert = [NSString stringWithFormat:
                       //  @"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 0)", questionId, value];
-    return [db executeUpdate:@"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 0)", questionId, value];
+    return [db executeUpdate:@"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (\"%@\", \"%@\", 0)", questionId, value];
 }
 
 
@@ -51,6 +51,10 @@
     }
     [results next];
     return [results stringForColumnIndex:0];
+}
+
++(BOOL)localClearPatientData {
+    
 }
 
 

@@ -26,7 +26,7 @@
 //+(NSString *)localGetPatientName;
 //
 //
-//+(BOOL)localClearPatientData;
++(BOOL)localClearPatientData;
 //+(BOOL)isUnsynched;
 //+(BOOL)synchPatientData;
 //

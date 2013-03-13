@@ -72,7 +72,7 @@
     //The below method causes the appilication to crash
     
     NSString *fakeId = @"31n000";
-    newPatient.photoID = [DBTalk getThumbFromServer:(fakeId)];
+    //newPatient.photoID = [DBTalk getThumbFromServer:(fakeId)];
     //[DBTalk addPicture:newPatient.photoID pictureId:NULL patientId:@"40" customPictureName:NULL isProfile:@"1"];
     [DBTalk addProfilePicture:newPatient.photoID patientId:@"50"];
     
