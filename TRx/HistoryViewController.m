@@ -107,6 +107,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [self dismissViewControllerAnimated:YES completion:nil];
     
     UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
  
     //Crop and flip the image
     //CGRect cropRect = CGRectMake(256, 152, 750, 750);
