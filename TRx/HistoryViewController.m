@@ -25,7 +25,7 @@
     
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HistoryBackgroundLandscape.png"]];
 
-    newPatient = [[Patient alloc] initWithFirstName:@"fml" MiddleName:@"le" LastName:@"Man" ChiefComplaint:@"" PhotoID:NULL];
+    newPatient = [[Patient alloc] initWithFirstName:@"Rob" MiddleName:@"D" LastName:@"Man" ChiefComplaint:@"" PhotoID:NULL];
     
     _complaintsArray = [AdminInformation getSurgeryNames];
     
