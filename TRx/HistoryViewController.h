@@ -11,28 +11,34 @@
 #import "Patient.h"
 #import "PatientListViewController.h"
 
-@interface HistoryViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>{
+@interface HistoryViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>{
     
     Patient *newPatient;
 
-    NSString *pName;
+    NSString *firstName, *middleName, *lastName;
     NSString *pComplaint;
     UIImage *photoID;
+    
+    IBOutlet UITextField *firstNameText;
+    IBOutlet UITextField *middleNameText;
+    IBOutlet UITextField *lastNameText;
     IBOutlet UIButton *next;
     IBOutlet UIPickerView *complaintPicker;
+    
     PatientListViewController *p;
 }
 
-@property BOOL newMedia;
 @property (nonatomic, strong) NSMutableArray *complaintsArray;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (nonatomic, retain) IBOutlet UITextField *firstNameText;
-@property (nonatomic, retain) IBOutlet UITextField *middleNameText;
-@property (nonatomic, retain) IBOutlet UITextField *lastNameText;
+//@property (nonatomic, retain) IBOutlet UITextField *firstNameText;
+//@property (nonatomic, retain) IBOutlet UITextField *middleNameText;
+//@property (nonatomic, retain) IBOutlet UITextField *lastNameText;
 @property (nonatomic, retain) IBOutlet UIPickerView *complaintPicker;
 
-- (IBAction)nextView:(id)sender;
-- (IBAction)useCamera:(id)sender;
-- (IBAction)addPatient:(id)sender;
+-(IBAction)nextView:(id)sender;
+-(IBAction)useCamera:(id)sender;
+-(IBAction)addPatient:(id)sender;
+
+-(void) storeNames;
 
 @end
