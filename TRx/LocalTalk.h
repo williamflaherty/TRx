@@ -13,26 +13,35 @@
 /*Will uncomment methods as they are implemented 
  ***Add or let me know if you have something you want implemented ***/
 
-//+(BOOL)loadPatientRecordIntoLocal:(NSString *)recordId;
-//
-+(BOOL)localStorePatientId:(NSString *)patientId;
-+(BOOL)localStoreRecordId:(NSString *)recordId;
+
+
+/* Store @"tempId" locally before actual values loaded from DB
+ * Used so that app will work without server access */
++(BOOL)localStoreTempPatientId;
++(BOOL)localStoreTempRecordId;
+
+
 +(BOOL)localStoreValue:(NSString *)value forQuestionId:(NSString *)questionId;
-//+(BOOL)localStoreImage:(UIImage *)image;
-//
+
++(BOOL)localStorePortrait:(UIImage *)image;
++(UIImage *)localGetPortrait;
+//+(BOOL)loadPortraitImageFromServer:(NSString *)patientId;
+
+
 //+(UIImage *)localGetPatientImage:(NSString *)patientId;
 +(NSString *)localGetPatientId;
 +(NSString *)localGetRecordId;
 //+(NSString *)localGetPatientName;
-//
-//
-+(BOOL)localClearPatientData;
+
++(void)localClearPatientData;
 //+(BOOL)isUnsynched;
 //+(BOOL)synchPatientData;
 //
 //+(BOOL)cachePatientData;
 //+(BOOL)loadDataFromCacheIntoLocal:(NSString *)fname;
-//
+//+(BOOL)loadPatientRecordIntoLocal:(NSString *)recordId;
+
+
 +(NSString *)getEnglishLabel:(NSString *)questionId;
 +(NSString *)getSpanishLabel:(NSString *)questionId;
 

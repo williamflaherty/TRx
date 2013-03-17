@@ -33,20 +33,18 @@
     middleNameText.delegate = self;
     lastNameText.delegate = self;
 
-    //NSString *testLabel = [LocalTalk getEnglishLabel:@"preOp_ReasonForVisit"];
-    //NSLog(@"testing database get methods: English Label --> %@", testLabel);
-    
-    //testLabel = [LocalTalk getSpanishLabel:@"preOp_ReasonForVisit"];
-    //NSLog(@"testing database get methods: Spanish Label --> %@", testLabel);
 
-    [LocalTalk localStorePatientId:@"3333"];
-    [LocalTalk localStoreRecordId:@"4444"];
+    [LocalTalk localClearPatientData];
+    //[LocalTalk localStorePatientId:@"3333"];
+    //[LocalTalk localStoreRecordId:@"4444"];
     NSString *patId = [LocalTalk localGetPatientId];
     NSString *recId = [LocalTalk localGetRecordId];
     
     NSLog(@"testing --> patientId: %@", patId);
     NSLog(@"testing --> recordId: %@", recId);
     //_complaintsArray = [DBTalk getSurgeryList];
+    
+    [LocalTalk localClearPatientData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -83,7 +81,7 @@
     //NSString *fakeId = @"31n000";
     //newPatient.photoID = [DBTalk getThumbFromServer:(fakeId)];
     //[DBTalk addPicture:newPatient.photoID pictureId:NULL patientId:@"40" customPictureName:NULL isProfile:@"1"];
-    [DBTalk addProfilePicture:newPatient.photoID patientId:@"50"];
+    //[DBTalk addProfilePicture:newPatient.photoID patientId:@"50"];
     
     //NSLog(@"AddPatient button pressed:\npatientId: %@\nrecordId:%@\n", patientId, recordId);
 }
