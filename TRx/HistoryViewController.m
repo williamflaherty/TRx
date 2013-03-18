@@ -22,23 +22,29 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
-    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HistoryBackgroundLandscape.png"]];
 
-    newPatient = [[Patient alloc] initWithFirstName:@"fml" MiddleName:@"le" LastName:@"Man" ChiefComplaint:@"" PhotoID:NULL];
+    newPatient = [[Patient alloc] initWithFirstName:@"Rob" MiddleName:@"D" LastName:@"Man" ChiefComplaint:@"" PhotoID:NULL];
     
     _complaintsArray = [AdminInformation getSurgeryNames];
     
     _imageView.image = [UIImage imageNamed:@"PatientPhotoBlank.png"];
-
-    NSString *testLabel = [LocalTalk getEnglishLabel:@"preOp_ReasonForVisit"];
-    NSLog(@"testing database get methods: English Label --> %@", testLabel);
     
-    testLabel = [LocalTalk getSpanishLabel:@"preOp_ReasonForVisit"];
-    NSLog(@"testing database get methods: Spanish Label --> %@", testLabel);
+    firstNameText.delegate = self;
+    middleNameText.delegate = self;
+    lastNameText.delegate = self;
 
+
+    [LocalTalk localClearPatientData];
+    //[LocalTalk localStorePatientId:@"3333"];
+    //[LocalTalk localStoreRecordId:@"4444"];
+    NSString *patId = [LocalTalk localGetPatientId];
+    NSString *recId = [LocalTalk localGetRecordId];
     
+    NSLog(@"testing --> patientId: %@", patId);
+    NSLog(@"testing --> recordId: %@", recId);
     //_complaintsArray = [DBTalk getSurgeryList];
+    
+    [LocalTalk localClearPatientData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -57,18 +63,25 @@
     //Idealy, I think we should call a DBTalk function called "addPatient" from here, passing it the newPatient object...
     //[DBTalk addPatient:newPatient];
     
-    //NSString *bday = [NSString stringWithFormat:@"%d", newPatient.birthday];
-    //NSString *patientId = [DBTalk addUpdatePatient:newPatient.firstName middleName:newPatient.middleName
-     //                                     lastName:newPatient.lastName birthday:bday patientId:NULL];
+    [self storeNames];
+    if([firstName isEqualToString:@""] || [lastName isEqualToString:@""]){
+        return;
+    }
+    
+    /*
+    NSString *bday = [NSString stringWithFormat:@"%d", newPatient.birthday];
+    NSString *patientId = [DBTalk addUpdatePatient:newPatient.firstName middleName:newPatient.middleName
+                                          lastName:newPatient.lastName birthday:bday patientId:NULL];
+    */
     
     //Alert -- have hard-coded surgeryTypeId and doctorId for now
     //NSString *recordId = [DBTalk addRecord:patientId surgeryTypeId:@"1" doctorId:@"1" isActive:@"1" hasTimeout:@"0"];
     //The below method causes the appilication to crash
     
-    NSString *fakeId = @"31n000";
-    newPatient.photoID = [DBTalk getThumbFromServer:(fakeId)];
+    //NSString *fakeId = @"31n000";
+    //newPatient.photoID = [DBTalk getThumbFromServer:(fakeId)];
     //[DBTalk addPicture:newPatient.photoID pictureId:NULL patientId:@"40" customPictureName:NULL isProfile:@"1"];
-    [DBTalk addProfilePicture:newPatient.photoID patientId:@"50"];
+    //[DBTalk addProfilePicture:newPatient.photoID patientId:@"50"];
     
     //NSLog(@"AddPatient button pressed:\npatientId: %@\nrecordId:%@\n", patientId, recordId);
 }
@@ -85,15 +98,11 @@
         imagePicker.sourceType =
         UIImagePickerControllerSourceTypeCamera;
         
-        //imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
         imagePicker.allowsEditing = NO;
         [self presentViewController:imagePicker
                            animated:YES completion:nil];
-        _newMedia = YES;
     }
 }
-
-#pragma mark - UIImagePickerControllerDelegate
 
 -(void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info{
@@ -101,23 +110,21 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [self dismissViewControllerAnimated:YES completion:nil];
     
     UIImage *image = info[UIImagePickerControllerOriginalImage];
- 
-    //Crop and flip the image
-    //CGRect cropRect = CGRectMake(256, 152, 750, 750);
-    //CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], cropRect);
-    //UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
-    //UIImage *finalImage =   [UIImage imageWithCGImage:croppedImage.CGImage scale:1.0 orientation:UIImageOrientationDownMirrored];
     
+/*
+    Crop and flip the image
+    CGRect cropRect = CGRectMake(256, 152, 750, 750);
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], cropRect);
+    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
+    UIImage *finalImage =   [UIImage imageWithCGImage:croppedImage.CGImage scale:1.0 orientation:UIImageOrientationDownMirrored];
+*/
+   
     //Store the image for the patient
     photoID = image;
     newPatient.photoID = image;
     
     //Display the final image
     _imageView.image = image;
-    
-   /* if (_newMedia)
-        UIImageWriteToSavedPhotosAlbum(image,self,@selector(image:finishedSavingWithError:contextInfo:),nil);
-   */
 }
 
 -(void)image:(UIImage *)image
@@ -138,7 +145,7 @@ finishedSavingWithError:(NSError *)error
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - Picker Methods
+#pragma mark - Complaint Picker Methods
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
     return 1;
@@ -158,7 +165,32 @@ finishedSavingWithError:(NSError *)error
     newPatient.chiefComplaint = [NSString stringWithFormat:@"%i",row];
     
 }
+
+#pragma mark - Text Field Methods
+
+//Hide Keyboard on Touch
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	[firstNameText resignFirstResponder];
+    [middleNameText resignFirstResponder];
+    [lastNameText resignFirstResponder];
+}
+
+//Store text in NSStrings
+-(void) storeNames{
+    firstName = [NSString stringWithFormat:@"%@",firstNameText.text];
+    newPatient.firstName = firstName;
+   
+    middleName = [NSString stringWithFormat:@"%@",middleNameText.text];
+    newPatient.middleName = middleName;
+   
+    lastName = [NSString stringWithFormat:@"%@",lastNameText.text];
+    newPatient.lastName = lastName;
+}
+
+
+
 #pragma mark - Next button segues to next view controller
+
 - (void)nextView:(id)sender{
     [self performSegueWithIdentifier:@"nextViewController" sender:nil];
 }

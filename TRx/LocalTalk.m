@@ -14,6 +14,83 @@
 @implementation LocalTalk
 
 
++(BOOL)localStoreTempRecordId {
+    return [self localStoreValue:@"tempId" forQuestionId:@"recordId"];
+}
++(BOOL)localStoreTempPatientId {
+    return [self localStoreValue:@"tempId" forQuestionId:@"patientId"];
+}
+
++(NSString *)localGetPatientId {
+    return [self localGetValueForQuestionId:@"patientId"];
+}
++(NSString *)localGetRecordId {
+    return [self localGetValueForQuestionId:@"recordId"];
+}
+
++(BOOL)localStoreValue:(NSString *)value forQuestionId:(NSString *)questionId {
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    //NSString *insert = [NSString stringWithFormat:
+                      //  @"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 0)", questionId, value];
+    BOOL retval = [db executeUpdate:@"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 0)", questionId, value];
+    [db close];
+    return retval;
+    //return [db executeUpdate:[NSString stringWithFormat:@"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (\"%@\", \"%@\", 0)", questionId, value]];
+}
+
++(BOOL)localStorePortrait:(UIImage *)image {
+    NSData *imageData = UIImageJPEGRepresentation(image, 1);
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    BOOL retval = [db executeUpdate:@"INSERT INTO Images (imageType, imageBlob) VALUES (?, ?)", @"portrait", imageData];
+    [db close];
+    
+    return retval;
+}
++(UIImage *)localGetPortrait {
+    NSString *query = [NSString stringWithFormat:@"Select imageBlob FROM Images WHERE imageType = \"portrait\""];
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    FMResultSet *results = [db executeQuery:query];
+    if (!results) {
+        NSLog(@"Error retrieving image\n");
+        NSLog(@"%@", [db lastErrorMessage]);
+        return nil;
+    }
+    [results next];
+    NSData *data = [results dataForColumnIndex:0];//[results stringForColumnIndex:0];
+    UIImage *image = [[UIImage alloc] initWithData:data];
+    [db close];
+    
+    return image;
+}
+
++(NSString *)localGetValueForQuestionId:(NSString *)questionId {
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    NSString *query = [NSString stringWithFormat:@"SELECT Value FROM Patient WHERE QuestionId = \"%@\"", questionId];
+    
+    FMResultSet *results = [db executeQuery:query];
+    
+    if (!results) {
+        NSLog(@"%@", [db lastErrorMessage]);;
+        return nil;
+    }
+    [results next];
+    NSString *retval = [results stringForColumnIndex:0];
+    [db close];
+    return retval;
+}
++(void)localClearPatientData {
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+
+    [db executeUpdate:@"DELETE FROM Patient"];
+    [db close];
+}
 
 
 +(NSString *)getEnglishLabel:(NSString *)questionId {
@@ -38,12 +115,13 @@
         return nil;
     }
     [results next];
-    return [results stringForColumnIndex:0];
+    NSString *retval = [results stringForColumnIndex:0];
+    [db close];
+    return retval;
 }
 
 
-+(BOOL)loadPatientRecord:(NSString *)recordId
-{
++(BOOL)loadPatientRecord:(NSString *)recordId {
     NSArray *recordInfo = [DBTalk getRecordData:recordId];
     
     if (recordInfo == NULL) {

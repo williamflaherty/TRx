@@ -10,6 +10,7 @@
 		1300E3BD16DA9D1B0033151C /* DBTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 1300E3BC16DA9D1B0033151C /* DBTalk.m */; };
 		13CF9B2016EC4BAD006CF20B /* LocalTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */; };
 		13CF9B2716ECF829006CF20B /* LocalDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 13CF9B2616ECF829006CF20B /* LocalDatabase.sqlite */; };
+		13D2AB0A16EF9A9300F9ABEB /* NZURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2AB0916EF9A9300F9ABEB /* NZURLConnection.m */; };
 		13F3521516ED99B1009321E7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F3521416ED99B1009321E7 /* libsqlite3.dylib */; };
 		13F3523E16EE66C3009321E7 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3523916EE66C3009321E7 /* FMDatabase.m */; };
 		13F3523F16EE66C3009321E7 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3523B16EE66C3009321E7 /* FMDatabasePool.m */; };
@@ -111,9 +112,12 @@
 /* Begin PBXFileReference section */
 		1300E3BB16DA9D1B0033151C /* DBTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTalk.h; sourceTree = "<group>"; };
 		1300E3BC16DA9D1B0033151C /* DBTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTalk.m; sourceTree = "<group>"; };
+		1313DD0A16F03D5400F49943 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utility.m; path = Utilities/Utility.m; sourceTree = "<group>"; };
 		13CF9B1E16EC4BAD006CF20B /* LocalTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTalk.h; sourceTree = "<group>"; };
 		13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTalk.m; sourceTree = "<group>"; };
 		13CF9B2616ECF829006CF20B /* LocalDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = LocalDatabase.sqlite; sourceTree = "<group>"; };
+		13D2AB0516EF8E5900F9ABEB /* NZURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NZURLConnection.h; path = Utilities/NZURLConnection.h; sourceTree = "<group>"; };
+		13D2AB0916EF9A9300F9ABEB /* NZURLConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = NZURLConnection.m; path = Utilities/NZURLConnection.m; sourceTree = "<group>"; };
 		13F3521416ED99B1009321E7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		13F3523816EE66C3009321E7 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = Utilities/FMDatabase.h; sourceTree = "<group>"; };
 		13F3523916EE66C3009321E7 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = Utilities/FMDatabase.m; sourceTree = "<group>"; };
@@ -262,6 +266,9 @@
 			children = (
 				13F3526E16EEEF21009321E7 /* AFNetworking */,
 				13F3524116EE678B009321E7 /* Utility.h */,
+				1313DD0A16F03D5400F49943 /* Utility.m */,
+				13D2AB0916EF9A9300F9ABEB /* NZURLConnection.m */,
+				13D2AB0516EF8E5900F9ABEB /* NZURLConnection.h */,
 				13F3524216EE678B009321E7 /* Utility.m */,
 				13F3523816EE66C3009321E7 /* FMDatabase.h */,
 				13F3523916EE66C3009321E7 /* FMDatabase.m */,
@@ -336,7 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				C474A24D16E709C1006F2B0B /* MainStoryboard.storyboard */,
-				C499B56616EC07E200F40046 /* Data Base */,
+				C499B56616EC07E200F40046 /* Database */,
 				C469AA9716E909D500E75E7A /* Classes */,
 				C474A24B16E7092A006F2B0B /* Patient List */,
 				C469AA6B16E8FD5A00E75E7A /* Tab 1 - Summary */,
@@ -526,7 +533,7 @@
 			name = "Patient List";
 			sourceTree = "<group>";
 		};
-		C499B56616EC07E200F40046 /* Data Base */ = {
+		C499B56616EC07E200F40046 /* Database */ = {
 			isa = PBXGroup;
 			children = (
 				13F3520916ED8B85009321E7 /* Utilities */,
@@ -536,7 +543,7 @@
 				13CF9B1E16EC4BAD006CF20B /* LocalTalk.h */,
 				13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */,
 			);
-			name = "Data Base";
+			name = Database;
 			sourceTree = "<group>";
 		};
 		C499B56716EC07FF00F40046 /* AppDelegate */ = {
@@ -756,6 +763,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13D2AB0A16EF9A9300F9ABEB /* NZURLConnection.m in Sources */,
 				13F3524416EE67A3009321E7 /* Utility.m in Sources */,
 				13F3524516EE67A3009321E7 /* FMDatabase.m in Sources */,
 				13F3524616EE67A3009321E7 /* FMDatabasePool.m in Sources */,
