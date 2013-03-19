@@ -30,9 +30,6 @@
 
 @property (nonatomic, strong) NSMutableArray *complaintsArray;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
-//@property (nonatomic, retain) IBOutlet UITextField *firstNameText;
-//@property (nonatomic, retain) IBOutlet UITextField *middleNameText;
-//@property (nonatomic, retain) IBOutlet UITextField *lastNameText;
 @property (nonatomic, retain) IBOutlet UIPickerView *complaintPicker;
 
 -(IBAction)nextView:(id)sender;
