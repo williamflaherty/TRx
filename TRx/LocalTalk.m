@@ -14,8 +14,16 @@
 @implementation LocalTalk
 
 
+/*---------------------------------------------------------------------------
+ * Checks local database for unsynched files and uploads them
+ * Currently running SYNCHRONOUSLY !!!
+ * 
+ * returns true if no catastrophic error
+ *---------------------------------------------------------------------------*/
+
 +(BOOL)synchPatientData {
     NSString *query = @"SELECT QuestionId, Value FROM Patient WHERE Synched = 0";
+    NSString *patientId, *questionId, *value;
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
     
@@ -23,11 +31,23 @@
     
     if (!toSynch) {
         NSLog(@"%@", [db lastErrorMessage]);
+        [db close];
+        return false;
     }
-    
-    
-    
-    return false;
+    while ([toSynch next]) {
+        questionId = [toSynch stringForColumn:@"QuestionId"];
+        value = [toSynch stringForColumn:@"Value"];
+        
+        //add data to server **CURRENTLY SYNCHRONOUS !! **
+        [DBTalk addRecordData:patientId key:questionId value:value];
+        
+        //update local table so that 'Synched' column = 1;
+        [db executeUpdate:@"INSERT INTO Patient (Synched) VALUES (1) where QuestionId = ?", questionId];
+        
+    }
+        
+    [db close];
+    return true;
 }
 
 +(BOOL)localStoreTempRecordId {
@@ -139,12 +159,16 @@
 }
 
 
-
+/*---------------------------------------------------------------------------
+ * Clears database tables Images and Patient
+ * Loads data from the server into LocalDatabase
+ * 
+ * returns success or failure
+ *---------------------------------------------------------------------------*/
 
 +(BOOL)clearLocalThenLoadPatientRecordIntoLocal:(NSString *)recordId {
     [LocalTalk localClearPatientData];
-    [LocalTalk loadPatientRecordIntoLocal:recordId];
-    return false;
+    return [LocalTalk loadPatientRecordIntoLocal:recordId];
 }
 
 
@@ -165,7 +189,7 @@
             NSString *questionId = [dic objectForKey:@"Key"];
             NSString *value = [dic objectForKey:@"Value"];
             
-            [db executeUpdate:@"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 0)", questionId, value]; 
+            [db executeUpdate:@"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 1)", questionId, value]; 
         }
         [db close];
         return true;
