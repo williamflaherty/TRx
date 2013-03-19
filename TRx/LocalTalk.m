@@ -14,6 +14,22 @@
 @implementation LocalTalk
 
 
++(BOOL)synchPatientData {
+    NSString *query = @"SELECT QuestionId, Value FROM Patient WHERE Synched = 0";
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    
+    FMResultSet *toSynch = [db executeQuery:query];
+    
+    if (!toSynch) {
+        NSLog(@"%@", [db lastErrorMessage]);
+    }
+    
+    
+    
+    return false;
+}
+
 +(BOOL)localStoreTempRecordId {
     return [self localStoreValue:@"tempId" forQuestionId:@"recordId"];
 }
@@ -123,14 +139,21 @@
 }
 
 
-+(BOOL)loadPatientRecord:(NSString *)recordId {
-    NSArray *recordInfo = [DBTalk getRecordData:recordId];
++(BOOL)loadPatientRecordIntoLocal:(NSString *)recordId {
+    //NSString *query = @"SELECT QuestionId, Value FROM "
+    NSArray *dataArr = [DBTalk getRecordData:recordId];
     
-    if (recordInfo == NULL) {
-        NSLog(@"Error retrieving patient record for recordId: %@", recordId);
-        return false;
-    }
-    //iterate through dictionaries of recordInfo and load into sqlite
-    return true;
+    //for (
 }
+
+//+(BOOL)loadPatientRecord:(NSString *)recordId {
+//    NSArray *recordInfo = [DBTalk getRecordData:recordId];
+//    
+//    if (recordInfo == NULL) {
+//        NSLog(@"Error retrieving patient record for recordId: %@", recordId);
+//        return false;
+//    }
+//    //iterate through dictionaries of recordInfo and load into sqlite
+//    return true;
+//}
 @end

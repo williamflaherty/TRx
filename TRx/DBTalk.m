@@ -87,7 +87,7 @@ static NSString *imageDir = nil;
               isActive:(NSString *)isActive
             hasTimeout:(NSString *)hasTimeout {
     
-    NSString *encodedString = [NSString stringWithFormat:@"%@add/record/%@/%@/%@/%@/%@", host,
+    NSString *encodedString = [NSString stringWithFormat:@"%@add/record/NULL/%@/%@/%@/%@", host,
                                patientId, surgeryTypeId, @"1", isActive, @"0"];
     NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
@@ -169,6 +169,7 @@ static NSString *imageDir = nil;
  * description: queries database for a list of patients that have records  <-- assumption!
  * returns: An NSArray of dictionaries with keys: Id, MiddleName, FirstName, IsActive
  *---------------------------------------------------------------------------*/
+
 +(NSArray *)getPatientList {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/patientList/", host];
     NSLog(@"encodedString: %@", encodedString);
