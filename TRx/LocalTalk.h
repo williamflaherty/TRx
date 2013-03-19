@@ -35,17 +35,20 @@
 //+(NSString *)localGetPatientName;
 
 +(void)localClearPatientData;
+
 //+(BOOL)isUnsynched;
 +(BOOL)synchPatientData;
-//
-//+(BOOL)cachePatientData;
-//+(BOOL)loadDataFromCacheIntoLocal:(NSString *)fname;
-+(BOOL)loadPatientRecordIntoLocal:(NSString *)recordId
+
+
+
++(BOOL)clearLocalThenLoadPatientRecordIntoLocal:(NSString *)recordId;
++(BOOL)loadPatientRecordIntoLocal:(NSString *)recordId;
 
 
 +(NSString *)getEnglishLabel:(NSString *)questionId;
 +(NSString *)getSpanishLabel:(NSString *)questionId;
 
-
+//+(BOOL)cachePatientData;
+//+(BOOL)loadDataFromCacheIntoLocal:(NSString *)fname;
 
 @end

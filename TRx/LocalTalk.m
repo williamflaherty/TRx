@@ -105,7 +105,7 @@
 +(void)localClearPatientData {
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
-    
+    [db executeUpdate:@"DELETE FROM Images"];
     [db executeUpdate:@"DELETE FROM Patient"];
     [db close];
 }
@@ -139,21 +139,41 @@
 }
 
 
-+(BOOL)loadPatientRecordIntoLocal:(NSString *)recordId {
-    //NSString *query = @"SELECT QuestionId, Value FROM "
-    NSArray *dataArr = [DBTalk getRecordData:recordId];
-    
-    //for (
+
+
++(BOOL)clearLocalThenLoadPatientRecordIntoLocal:(NSString *)recordId {
+    [LocalTalk localClearPatientData];
+    [LocalTalk loadPatientRecordIntoLocal:recordId];
+    return false;
 }
 
-//+(BOOL)loadPatientRecord:(NSString *)recordId {
-//    NSArray *recordInfo = [DBTalk getRecordData:recordId];
-//    
-//    if (recordInfo == NULL) {
-//        NSLog(@"Error retrieving patient record for recordId: %@", recordId);
-//        return false;
-//    }
-//    //iterate through dictionaries of recordInfo and load into sqlite
-//    return true;
-//}
+
+/*---------------------------------------------------------------------------
+ * Loads data from the server into LocalDatabase
+ * generally, clearLocalThenLoadPatientRecordIntoLocal should be called
+ * returns success or failure
+ *---------------------------------------------------------------------------*/
+
++(BOOL)loadPatientRecordIntoLocal:(NSString *)recordId {
+    
+    NSArray *dataArr = [DBTalk getRecordData:recordId];
+    
+    if (dataArr != NULL) {
+        FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+        [db open];
+        for (NSDictionary *dic in dataArr) {
+            NSString *questionId = [dic objectForKey:@"Key"];
+            NSString *value = [dic objectForKey:@"Value"];
+            
+            [db executeUpdate:@"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 0)", questionId, value]; 
+        }
+        [db close];
+        return true;
+    }
+    else {
+        NSLog(@"Error retrieving doctorNamesList");
+        return false;
+    }
+}
+
 @end
