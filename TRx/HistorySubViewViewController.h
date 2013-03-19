@@ -8,7 +8,7 @@
 
 #import "HistoryViewController.h"
 
-@interface HistorySubViewViewController : HistoryViewController {
+@interface HistorySubViewViewController : HistoryViewController <UITableViewDelegate, UITableViewDataSource>{
     IBOutlet UIButton *previous;
 }
 - (IBAction)previousView:(id)sender;
