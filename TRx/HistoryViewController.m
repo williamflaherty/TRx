@@ -67,7 +67,7 @@
     if([firstName isEqualToString:@""] || [lastName isEqualToString:@""]){
         return;
     }
-    
+    [LocalTalk localStorePortrait:newPatient.photoID]; 
     /*
     NSString *bday = [NSString stringWithFormat:@"%d", newPatient.birthday];
     NSString *patientId = [DBTalk addUpdatePatient:newPatient.firstName middleName:newPatient.middleName

@@ -10,4 +10,5 @@
 
 @interface SummaryViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIImageView *patientPicture;
 @end

@@ -99,6 +99,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *name; 
     static NSString *CellIdentifier = @"patientListCell";
     PatientListViewCell *cell = [tableView
                               dequeueReusableCellWithIdentifier:CellIdentifier
@@ -110,7 +111,10 @@
     NSString *fn = [[patients objectAtIndex:row] firstName];
     NSString *mn = [[patients objectAtIndex:row] middleName];
     NSString *ln = [[patients objectAtIndex:row] lastName];
-    NSString *name = [NSString stringWithFormat: @"%@ %@ %@", fn, mn, ln];
+    if( [mn isEqual: @"<null>"]){
+        name = [NSString stringWithFormat: @"%@ %@ %@", fn, mn, ln];
+    } else { name = [NSString stringWithFormat: @"%@ %@", fn, ln]; } 
+
     cell.patientName.text = name;
     cell.chiefComplaint.text = (NSString*)[[patients objectAtIndex:row] chiefComplaint];
     cell.patientPicture.image = [[patients objectAtIndex:row] photoID];

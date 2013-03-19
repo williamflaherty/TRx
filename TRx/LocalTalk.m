@@ -32,7 +32,7 @@
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
     //NSString *insert = [NSString stringWithFormat:
-                      //  @"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 0)", questionId, value];
+    //  @"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 0)", questionId, value];
     BOOL retval = [db executeUpdate:@"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 0)", questionId, value];
     [db close];
     return retval;
@@ -50,8 +50,10 @@
     return retval;
 }
 +(UIImage *)localGetPortrait {
-    NSString *query = [NSString stringWithFormat:@"Select imageBlob FROM Images WHERE imageType = \"portrait\""];
+    NSString *query = [NSString stringWithFormat:@"SELECT imageBlob FROM Images WHERE imageType = \"portrait\""];
+    
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    NSLog(@"db path is now:%@\n", db.databasePath);
     [db open];
     FMResultSet *results = [db executeQuery:query];
     if (!results) {
@@ -87,7 +89,7 @@
 +(void)localClearPatientData {
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
-
+    
     [db executeUpdate:@"DELETE FROM Patient"];
     [db close];
 }
@@ -107,7 +109,7 @@
     [db open];
     NSString *query = [[NSString alloc] initWithFormat:
                        @"SELECT %@ FROM Questions WHERE QuestionId = \"%@\"", columnName, questionId];
-
+    
     FMResultSet *results = [db executeQuery:query];
     
     if (!results) {
