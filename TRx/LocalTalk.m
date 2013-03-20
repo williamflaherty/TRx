@@ -41,6 +41,7 @@
     //check if patientId is loaded into PatientMetaData
     patientId = [LocalTalk localGetPatientId];
     
+    
     //if not loaded, either no communication with local, or patient not added yet
     if (!patientId) {
         NSLog(@"Failure to retrieve patientId from Local in synchPatientData");
@@ -114,13 +115,18 @@
 
     //check if picture is to be added
     NSLog(@"In synchPatientData, checking if synch picture");
-    toSynch = [db executeQuery:@"SELECT Synched FROM Images"];
+    toSynch = [db executeQuery:@"SELECT \"Synched\" FROM Images"];
     [toSynch next];
-    int picSynched = [toSynch intForColumn:@"Synched"];
+    int picSynched = [toSynch intForColumnIndex:0];
     if (!picSynched) {
-        NSLog(@"Synching picture...");
         UIImage *image = [LocalTalk localGetPortrait];
-        [DBTalk addProfilePicture:image patientId:patientId];
+        if (!image) {
+            NSLog(@"Didn't retrieve an image from LocalDatabase");
+        }
+        else {
+            NSLog(@"Synching picture...");
+            [DBTalk addProfilePicture:image patientId:patientId];
+        }
     }
     NSLog(@"...finished synch picture");
     
@@ -184,10 +190,12 @@
  *---------------------------------------------------------------------------*/
 +(NSString *)localGetPatientMetaData:(NSString *)key {
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    //db.traceExecution = true;
     [db open];
     NSString *query;
     query = [NSString stringWithFormat:@"SELECT Value FROM PatientMetaData WHERE key = \"%@\"", key];
     
+    //NSLog(@"localGetPatientMetaData query: %@", query);
     FMResultSet *results = [db executeQuery:query];
     
     if (!results) {
@@ -197,6 +205,7 @@
     [results next];
     NSString *retval = [results stringForColumnIndex:0];
     [db close];
+    //NSLog(@"localPatientMetaData returning: %@", retval);
     return retval;
 }
 
@@ -213,7 +222,12 @@
                                  value:(NSString *)value {
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
-    BOOL retval = [db executeUpdate:@"INSERT INTO PatientMetaData (Key, Value) VALUES (?, ?)", key, value];
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO PatientMetaData (Key, Value) VALUES (\"%@\", \"%@\")", key, value];
+    BOOL retval = [db executeUpdate:query];//@"INSERT INTO PatientMetaData (Key, Value) VALUES (?, ?)", key, value];
+    if (!retval) {
+        NSLog(@"Error storing into patientMetaData");
+        NSLog(@"%@", [db lastErrorMessage]);
+    }
     [db close];
     return retval;
 }
@@ -245,11 +259,22 @@
  * returns t or f
  *---------------------------------------------------------------------------*/
 +(BOOL)localStorePortrait:(UIImage *)image {
+    if (!image) {
+        NSLog(@"in localStorePortrait -- No image to store");
+        return false;
+    }
+    else {
+        NSLog(@"localStorePortrait is receiving a non-null value -- hopefully an image");
+    }
     NSData *imageData = UIImageJPEGRepresentation(image, 1);
+    if (!imageData) {
+        NSLog(@"Error in localStorePortrait converting UIImage to NSData object");
+    }
     
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
-    BOOL retval = [db executeUpdate:@"INSERT INTO Images (imageType, imageBlob) VALUES (?, ?)", @"portrait", imageData];
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO Images (imageType, imageBlob) VALUES (\"portrait\", \"%@\")",        imageData];
+    BOOL retval = [db executeUpdate:query];
     [db close];
     
     return retval;
@@ -261,10 +286,9 @@
  * returns UIImage or NULL
  *---------------------------------------------------------------------------*/
 +(UIImage *)localGetPortrait {
-    NSString *query = [NSString stringWithFormat:@"SELECT imageBlob FROM Images WHERE imageType = \"portrait\""];
-    
+    //NSString *query = [NSString stringWithFormat:@"SELECT imageBlob FROM Images WHERE imageType = \"portrait\""];
+    NSString *query = [NSString stringWithFormat:@"Select * from Images"];
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
-    NSLog(@"db path is now:%@\n", db.databasePath);
     [db open];
     FMResultSet *results = [db executeQuery:query];
     if (!results) {
@@ -274,8 +298,16 @@
     }
     [results next];
     NSData *data = [results dataForColumnIndex:0];//[results stringForColumnIndex:0];
+    
+    if (!data) {
+        NSLog(@"In localGetPortrait data is NULL");
+    }
     UIImage *image = [[UIImage alloc] initWithData:data];
     [db close];
+    
+    if (!image) {
+        NSLog(@"In localGetPortrait: image is NULL");
+    }
     
     return image;
 }

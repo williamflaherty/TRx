@@ -67,10 +67,14 @@ static NSString *imageDir = nil;
         NSError *jsonError;
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
         NSDictionary *dic = jsonArray[0];
-        NSLog(@"Is getting patient data: %@\n", dic);
-        NSString *retval = (NSString *)[dic objectForKey:@"@returnValue"];
-        NSLog(@"retval: %@\n", retval);
-        NSLog(@"jsonError: %@", jsonError);
+        
+        NSString *retval = [dic objectForKey:@"@returnValue"];
+        if ([retval isEqual: @"0"]) {
+            NSLog(@"In addUpdatePatient: %@\n", dic);
+            NSLog(@"jsonError in addUpdatePatient?: %@", jsonError);
+            return NULL;
+        }
+        
         return retval;
     }
     return NULL;
