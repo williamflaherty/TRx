@@ -14,6 +14,42 @@
 @implementation LocalTalk
 
 
+/*---------------------------------------------------------------------------
+ * Checks local database for unsynched files and uploads them
+ * Currently running SYNCHRONOUSLY !!!
+ * 
+ * returns true if no catastrophic error
+ *---------------------------------------------------------------------------*/
+
++(BOOL)synchPatientData {
+    NSString *query = @"SELECT QuestionId, Value FROM Patient WHERE Synched = 0";
+    NSString *patientId, *questionId, *value;
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    
+    FMResultSet *toSynch = [db executeQuery:query];
+    
+    if (!toSynch) {
+        NSLog(@"%@", [db lastErrorMessage]);
+        [db close];
+        return false;
+    }
+    while ([toSynch next]) {
+        questionId = [toSynch stringForColumn:@"QuestionId"];
+        value = [toSynch stringForColumn:@"Value"];
+        
+        //add data to server **CURRENTLY SYNCHRONOUS !! **
+        [DBTalk addRecordData:patientId key:questionId value:value];
+        
+        //update local table so that 'Synched' column = 1;
+        [db executeUpdate:@"INSERT INTO Patient (Synched) VALUES (1) where QuestionId = ?", questionId];
+        
+    }
+        
+    [db close];
+    return true;
+}
+
 +(BOOL)localStoreTempRecordId {
     return [self localStoreValue:@"tempId" forQuestionId:@"recordId"];
 }
@@ -89,7 +125,7 @@
 +(void)localClearPatientData {
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
-    
+    [db executeUpdate:@"DELETE FROM Images"];
     [db executeUpdate:@"DELETE FROM Patient"];
     [db close];
 }
@@ -123,14 +159,45 @@
 }
 
 
-+(BOOL)loadPatientRecord:(NSString *)recordId {
-    NSArray *recordInfo = [DBTalk getRecordData:recordId];
+/*---------------------------------------------------------------------------
+ * Clears database tables Images and Patient
+ * Loads data from the server into LocalDatabase
+ * 
+ * returns success or failure
+ *---------------------------------------------------------------------------*/
+
++(BOOL)clearLocalThenLoadPatientRecordIntoLocal:(NSString *)recordId {
+    [LocalTalk localClearPatientData];
+    return [LocalTalk loadPatientRecordIntoLocal:recordId];
+}
+
+
+/*---------------------------------------------------------------------------
+ * Loads data from the server into LocalDatabase
+ * generally, clearLocalThenLoadPatientRecordIntoLocal should be called
+ * returns success or failure
+ *---------------------------------------------------------------------------*/
+
++(BOOL)loadPatientRecordIntoLocal:(NSString *)recordId {
     
-    if (recordInfo == NULL) {
-        NSLog(@"Error retrieving patient record for recordId: %@", recordId);
+    NSArray *dataArr = [DBTalk getRecordData:recordId];
+    
+    if (dataArr != NULL) {
+        FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+        [db open];
+        for (NSDictionary *dic in dataArr) {
+            NSString *questionId = [dic objectForKey:@"Key"];
+            NSString *value = [dic objectForKey:@"Value"];
+            
+            [db executeUpdate:@"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 1)", questionId, value]; 
+        }
+        [db close];
+        return true;
+    }
+    else {
+        NSLog(@"Error retrieving doctorNamesList");
         return false;
     }
-    //iterate through dictionaries of recordInfo and load into sqlite
-    return true;
 }
+
 @end

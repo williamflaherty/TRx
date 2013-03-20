@@ -25,6 +25,7 @@
 
 +(BOOL)localStorePortrait:(UIImage *)image;
 +(UIImage *)localGetPortrait;
+
 //+(BOOL)loadPortraitImageFromServer:(NSString *)patientId;
 
 
@@ -34,17 +35,19 @@
 //+(NSString *)localGetPatientName;
 
 +(void)localClearPatientData;
+
 //+(BOOL)isUnsynched;
-//+(BOOL)synchPatientData;
-//
-//+(BOOL)cachePatientData;
-//+(BOOL)loadDataFromCacheIntoLocal:(NSString *)fname;
-//+(BOOL)loadPatientRecordIntoLocal:(NSString *)recordId;
++(BOOL)synchPatientData;
+
+
++(BOOL)clearLocalThenLoadPatientRecordIntoLocal:(NSString *)recordId;
++(BOOL)loadPatientRecordIntoLocal:(NSString *)recordId;
 
 
 +(NSString *)getEnglishLabel:(NSString *)questionId;
 +(NSString *)getSpanishLabel:(NSString *)questionId;
 
-
+//+(BOOL)cachePatientData;
+//+(BOOL)loadDataFromCacheIntoLocal:(NSString *)fname;
 
 @end

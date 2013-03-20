@@ -53,7 +53,7 @@
 {
     [super viewDidLoad];
     //[PatientListViewCell class];
-    NSString *firstName, *lastName, *patientId, *imageId, *complaint, *middleName;
+    NSString *firstName, *lastName, *patientId, *imageId, *complaint, *middleName, *recordId;
     UIImage *picture;
     patientsArray = [DBTalk getPatientList];
     patients = [NSMutableArray array];
@@ -65,6 +65,7 @@
         middleName = [item objectForKey:@"MiddleName"];
         lastName = [item objectForKey:@"LastName"];
         patientId = [item objectForKey:@"Id"];
+        recordId = [item objectForKey:@"recordId"];
         imageId = [NSString stringWithFormat:@"%@n000", patientId];
         picture = [DBTalk getThumbFromServer:(imageId)];
         uint32_t rnd = arc4random_uniform([complaints count]);
