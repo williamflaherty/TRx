@@ -51,6 +51,7 @@
 		C44D6F4F16D19AD60036E40B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2A16D19AD60036E40B /* Foundation.framework */; };
 		C44D6F5716D19AD60036E40B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C44D6F5516D19AD60036E40B /* InfoPlist.strings */; };
 		C44D6F5A16D19AD60036E40B /* TRxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D6F5916D19AD60036E40B /* TRxTests.m */; };
+		C465F3B416F8D436009E7EA3 /* HistoryQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = C465F3B316F8D436009E7EA3 /* HistoryQuestion.m */; };
 		C469AA7316E8FDE500E75E7A /* PatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA7216E8FDE500E75E7A /* PatientListViewController.m */; };
 		C469AA7D16E905D100E75E7A /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = C469AA7916E905D100E75E7A /* Icon-72.png */; };
 		C469AA7E16E905D100E75E7A /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C469AA7A16E905D100E75E7A /* Icon-72@2x.png */; };
@@ -176,6 +177,8 @@
 		C44D6F5616D19AD60036E40B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C44D6F5816D19AD60036E40B /* TRxTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRxTests.h; sourceTree = "<group>"; };
 		C44D6F5916D19AD60036E40B /* TRxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRxTests.m; sourceTree = "<group>"; };
+		C465F3B216F8D436009E7EA3 /* HistoryQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryQuestion.h; sourceTree = "<group>"; };
+		C465F3B316F8D436009E7EA3 /* HistoryQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryQuestion.m; sourceTree = "<group>"; };
 		C469AA7116E8FDE500E75E7A /* PatientListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientListViewController.h; sourceTree = "<group>"; };
 		C469AA7216E8FDE500E75E7A /* PatientListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListViewController.m; sourceTree = "<group>"; };
 		C469AA7916E905D100E75E7A /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/TRx_png/Icon-72.png"; sourceTree = SOURCE_ROOT; };
@@ -518,6 +521,8 @@
 				C469AA9C16E9469F00E75E7A /* AdminInformation.m */,
 				C469AA9816E90A0100E75E7A /* Patient.h */,
 				C469AA9916E90A0100E75E7A /* Patient.m */,
+				C465F3B216F8D436009E7EA3 /* HistoryQuestion.h */,
+				C465F3B316F8D436009E7EA3 /* HistoryQuestion.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -796,6 +801,7 @@
 				13F3528916EEEF21009321E7 /* AFXMLRequestOperation.m in Sources */,
 				13F3528A16EEEF21009321E7 /* UIImageView+AFNetworking.m in Sources */,
 				19C32A3016EFB3B300CC1318 /* SurgeryViewController.m in Sources */,
+				C465F3B416F8D436009E7EA3 /* HistoryQuestion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

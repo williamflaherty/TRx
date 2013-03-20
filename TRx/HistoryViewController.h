@@ -16,7 +16,7 @@
     Patient *newPatient;
 
     NSString *firstName, *middleName, *lastName;
-    NSString *pComplaint;
+    NSString *pComplaint, *pBirthday;
     UIImage *photoID;
     
     IBOutlet UITextField *firstNameText;
@@ -24,6 +24,7 @@
     IBOutlet UITextField *lastNameText;
     IBOutlet UIButton *next;
     IBOutlet UIPickerView *complaintPicker;
+    IBOutlet UIDatePicker *birthdayPicker;
     
     PatientListViewController *p;
 }
@@ -31,6 +32,7 @@
 @property (nonatomic, strong) NSMutableArray *complaintsArray;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic, retain) IBOutlet UIPickerView *complaintPicker;
+@property (nonatomic, retain) IBOutlet UIDatePicker *birthdayPicker;
 
 -(IBAction)nextView:(id)sender;
 -(IBAction)useCamera:(id)sender;

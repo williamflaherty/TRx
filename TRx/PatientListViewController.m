@@ -115,7 +115,7 @@
     
     int row = [indexPath row];
     NSString *fn = [[patients objectAtIndex:row] firstName];
-    NSString *mn = [[patients objectAtIndex:row] middleName];
+    NSString *mn = [[patients objectAtIndex:row] middleName]; 
     NSString *ln = [[patients objectAtIndex:row] lastName];
     if( [mn isEqual: @"<null>"]){
         name = [NSString stringWithFormat: @"%@ %@ %@", fn, mn, ln];
