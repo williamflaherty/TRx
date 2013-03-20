@@ -191,7 +191,31 @@ finishedSavingWithError:(NSError *)error
 
 #pragma mark - Next button segues to next view controller
 
-- (void)nextView:(id)sender{
+- (void)nextView:(id)sender {
+    
+    /*store essential Patient Meta Data into LocalDatabase before calling synchPatientData*/
+    
+    [LocalTalk localStorePatientMetaData:@"birthDay" value:[NSString stringWithFormat:@"%d", newPatient.birthday]];
+    [LocalTalk localStorePatientMetaData:@"firstName" value:newPatient.firstName];
+    [LocalTalk localStorePatientMetaData:@"middleName" value:newPatient.middleName];
+    [LocalTalk localStorePatientMetaData:@"lastName" value:newPatient.lastName];
+    [LocalTalk localStorePatientMetaData:@"surgeryTypeId" value:@"1"];//hardcoded unless Mark verifies working
+    [LocalTalk localStorePatientMetaData:@"doctorId" value:@"1"]; //hardcoded unless Mark verifies working
+    
+    [LocalTalk localStorePortrait:newPatient.photoID];
+    
+    /* 
+     * temporary values. nothing gets synched unless addPatient and addRecord
+     * get called successfully and return the patientId and recordId
+     */
+    [LocalTalk localStoreTempPatientId];
+    [LocalTalk localStoreTempRecordId];
+    
+    
+    /* Worse comes to worst, we comment this out before the presentation */
+    [LocalTalk synchPatientData];
+
+    
     [self performSegueWithIdentifier:@"nextViewController" sender:nil];
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

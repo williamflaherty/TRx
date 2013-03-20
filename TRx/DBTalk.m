@@ -87,7 +87,7 @@ static NSString *imageDir = nil;
               isActive:(NSString *)isActive
             hasTimeout:(NSString *)hasTimeout {
     
-    NSString *encodedString = [NSString stringWithFormat:@"%@add/record/NULL/%@/%@/%@/%@", host,
+    NSString *encodedString = [NSString stringWithFormat:@"%@add/record/NULL/%@/%@/%@/%@/%@", host,
                                patientId, surgeryTypeId, @"1", isActive, @"0"];
     NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];

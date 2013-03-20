@@ -23,20 +23,24 @@
 
 +(BOOL)localStoreValue:(NSString *)value forQuestionId:(NSString *)questionId;
 
++(BOOL)localStorePatientMetaData:(NSString *)key
+                           value:(NSString *)value;
++(NSString *)localGetPatientMetaData:(NSString *)key;
+
+
 +(BOOL)localStorePortrait:(UIImage *)image;
++(BOOL)loadPortraitImageIntoLocal:(NSString *)patientId;
 +(UIImage *)localGetPortrait;
 
-//+(BOOL)loadPortraitImageFromServer:(NSString *)patientId;
 
 
-//+(UIImage *)localGetPatientImage:(NSString *)patientId;
 +(NSString *)localGetPatientId;
 +(NSString *)localGetRecordId;
-//+(NSString *)localGetPatientName;
+
 
 +(void)localClearPatientData;
 
-//+(BOOL)isUnsynched;
+
 +(BOOL)synchPatientData;
 
 
@@ -49,5 +53,9 @@
 
 //+(BOOL)cachePatientData;
 //+(BOOL)loadDataFromCacheIntoLocal:(NSString *)fname;
+//+(BOOL)isUnsynched;
+
+//+(UIImage *)localGetPatientImage:(NSString *)patientId;
+
 
 @end
