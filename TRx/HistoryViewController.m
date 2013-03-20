@@ -27,7 +27,7 @@
     newPatient.birthday = 20010203;
     _complaintsArray = [AdminInformation getSurgeryNames];
     
-    //_imageView.image = [UIImage imageNamed:@"PatientPhotoBlank.png"];
+    _imageView.image = [UIImage imageNamed:@"PatientPhotoBlank.png"];
     
     firstNameText.delegate = self;
     middleNameText.delegate = self;
@@ -199,6 +199,8 @@ finishedSavingWithError:(NSError *)error
 #pragma mark - Next button segues to next view controller
 
 - (void)nextView:(id)sender {
+    
+    [self storeNames];
     
     /*store essential Patient Meta Data into LocalDatabase before calling synchPatientData*/
     [LocalTalk localClearPatientData];
