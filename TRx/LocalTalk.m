@@ -286,7 +286,7 @@
  * returns UIImage or NULL
  *---------------------------------------------------------------------------*/
 +(UIImage *)localGetPortrait {
-    //NSString *query = [NSString stringWithFormat:@"SELECT imageBlob FROM Images WHERE imageType = \"portrait\""];
+   // NSString *query = [NSString stringWithFormat:@"SELECT imageBlob FROM Images WHERE imageType = \"portrait\""];
     NSString *query = [NSString stringWithFormat:@"Select * from Images"];
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
