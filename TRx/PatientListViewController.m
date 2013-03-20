@@ -35,12 +35,17 @@
 
 #pragma mark - Adding patient segues to 2nd tab 
 -(void)addPatients:(id)sender{
-    [self performSegueWithIdentifier:@"listTabSegue" sender:nil];
+    [self performSegueWithIdentifier:@"listTabSegue" sender:addPatientsButton];
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([[segue identifier] isEqualToString:@"listTabSegue"]){
-    UITabBarController *vc = [segue destinationViewController];
+    UITabBarController *vc; 
+    if (([[segue identifier] isEqualToString:@"listTabSegue"]) && ([sender tag] == 1)){
+    vc = [segue destinationViewController];
     vc.selectedIndex=1;
+    } else {
+        
+        vc = [segue destinationViewController];
+        vc.selectedIndex=0;
     }
 }
 
