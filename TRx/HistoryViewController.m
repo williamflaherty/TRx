@@ -69,6 +69,7 @@
     if([firstName isEqualToString:@""] || [lastName isEqualToString:@""]){
         //return;
     }
+    [LocalTalk localStorePortrait:newPatient.photoID]; 
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateStyle = NSDateFormatterShortStyle;
