@@ -17,7 +17,7 @@
 
 @implementation HistoryViewController
 
-@synthesize complaintPicker = _complaintPicker;
+@synthesize complaintPicker = _complaintPicker, birthdayPicker = _birthdayPicker;
 
 
 - (void)viewDidLoad{
@@ -44,6 +44,8 @@
     NSLog(@"testing --> recordId: %@", recId);
     //_complaintsArray = [DBTalk getSurgeryList];
     
+    
+    
     [LocalTalk localClearPatientData];
 }
 
@@ -65,8 +67,14 @@
     
     [self storeNames];
     if([firstName isEqualToString:@""] || [lastName isEqualToString:@""]){
-        return;
+        //return;
     }
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateStyle = NSDateFormatterShortStyle;
+    //NSInteger day = _birthdayPicker;
+    pBirthday = [NSString stringWithFormat:@"%@", [df stringFromDate:_birthdayPicker.date]];
+                 
     
     /*
     NSString *bday = [NSString stringWithFormat:@"%d", newPatient.birthday];
@@ -186,8 +194,6 @@ finishedSavingWithError:(NSError *)error
     lastName = [NSString stringWithFormat:@"%@",lastNameText.text];
     newPatient.lastName = lastName;
 }
-
-
 
 #pragma mark - Next button segues to next view controller
 

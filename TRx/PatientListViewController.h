@@ -17,6 +17,4 @@
 
 -(IBAction)addPatients:(id)sender; 
 
-
-
 @end

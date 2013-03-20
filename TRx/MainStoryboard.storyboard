@@ -206,6 +206,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" id="fYU-RP-Ebd"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="birthdayPicker" destination="MsD-rm-zXI" id="akg-RW-Aql"/>
                         <outlet property="complaintPicker" destination="GT0-Iw-zgH" id="x8D-kM-dE8"/>
                         <outlet property="firstNameText" destination="8Le-TB-Ibr" id="IFF-kS-XrI"/>
                         <outlet property="imageView" destination="KcP-k1-bJ1" id="6vl-wd-Tk8"/>
@@ -349,9 +350,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <constraints>
                             <constraint firstItem="IfJ-RD-foq" firstAttribute="centerX" secondItem="KIW-Ur-cZz" secondAttribute="centerX" type="default" id="05u-Yz-Ybm"/>
                             <constraint firstItem="KIW-Ur-cZz" firstAttribute="leading" secondItem="NXX-bP-CM3" secondAttribute="leading" constant="127" id="0EO-fe-eGQ"/>
-                            <constraint firstItem="KIW-Ur-cZz" firstAttribute="bottom" secondItem="3L5-3C-64V" secondAttribute="bottom" type="default" id="2y6-k4-gJI"/>
                             <constraint firstAttribute="trailing" secondItem="Bps-u4-xrN" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="4XT-Pd-620"/>
-                            <constraint firstItem="Bps-u4-xrN" firstAttribute="centerY" secondItem="4PB-Wh-4jx" secondAttribute="centerY" type="default" id="6dU-qK-tjt"/>
                             <constraint firstItem="4PB-Wh-4jx" firstAttribute="top" secondItem="NXX-bP-CM3" secondAttribute="top" type="default" id="A37-tU-vPT"/>
                             <constraint firstItem="83N-ks-boq" firstAttribute="top" secondItem="sjq-ia-jkJ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="B5X-JL-fy9"/>
                             <constraint firstItem="IfJ-RD-foq" firstAttribute="top" secondItem="KIW-Ur-cZz" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="D4T-vJ-Bmz"/>
@@ -365,10 +364,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="sjq-ia-jkJ" firstAttribute="top" secondItem="NXX-bP-CM3" secondAttribute="top" constant="248" id="X19-iM-h0i"/>
                             <constraint firstItem="WX8-Sf-sqw" firstAttribute="top" secondItem="kAz-od-r5h" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bxs-eN-IPl"/>
                             <constraint firstItem="ZFD-WD-fIk" firstAttribute="top" secondItem="Kvg-Yf-pSP" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dWy-zS-XC2"/>
+                            <constraint firstAttribute="bottom" secondItem="s7I-nJ-bzl" secondAttribute="bottom" constant="73" id="hYt-j6-8T6"/>
                             <constraint firstItem="WX8-Sf-sqw" firstAttribute="leading" secondItem="Kvg-Yf-pSP" secondAttribute="leading" type="default" id="ifL-z5-HkP"/>
                             <constraint firstItem="KIW-Ur-cZz" firstAttribute="trailing" secondItem="s7I-nJ-bzl" secondAttribute="trailing" type="default" id="iuY-CW-5h0"/>
                             <constraint firstItem="3L5-3C-64V" firstAttribute="leading" secondItem="NXX-bP-CM3" secondAttribute="leading" constant="29" id="jRv-4q-Ntp"/>
                             <constraint firstItem="4PB-Wh-4jx" firstAttribute="leading" secondItem="NXX-bP-CM3" secondAttribute="leading" type="default" id="jgI-jY-Hcx"/>
+                            <constraint firstItem="3L5-3C-64V" firstAttribute="top" secondItem="NXX-bP-CM3" secondAttribute="top" constant="327" id="ngm-Ta-cV4"/>
                             <constraint firstItem="WX8-Sf-sqw" firstAttribute="trailing" secondItem="kAz-od-r5h" secondAttribute="trailing" type="default" id="tfd-Ue-DVY"/>
                             <constraint firstItem="kAz-od-r5h" firstAttribute="leading" secondItem="WX8-Sf-sqw" secondAttribute="leading" type="default" id="uBe-bZ-epy"/>
                             <constraint firstItem="kAz-od-r5h" firstAttribute="top" secondItem="NXX-bP-CM3" secondAttribute="top" constant="45" id="uUd-o7-oCc"/>
@@ -831,6 +832,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="action" name="addPatient:"/>
                 <relationship kind="action" name="nextView:"/>
                 <relationship kind="action" name="useCamera:"/>
+                <relationship kind="outlet" name="birthdayPicker" candidateClass="UIDatePicker"/>
                 <relationship kind="outlet" name="complaintPicker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="firstNameText" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
