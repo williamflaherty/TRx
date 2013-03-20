@@ -7,7 +7,7 @@
 //
 
 #import "SummaryViewController.h"
-
+#import "LocalTalk.h"
 @interface SummaryViewController ()
 
 @end
@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [_patientPicture setImage:[LocalTalk localGetPortrait]];
 }
 
 - (void)didReceiveMemoryWarning

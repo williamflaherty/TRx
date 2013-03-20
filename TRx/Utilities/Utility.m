@@ -6,7 +6,8 @@
 +(NSString *) getDatabasePath
 {
     
-     NSString *databasePath = [(AppDelegate *)[[UIApplication sharedApplication] delegate] databasePath];
+    NSString *databasePath;
+    databasePath = [(AppDelegate *)[[UIApplication sharedApplication] delegate] databasePath];
     
     return databasePath; 
 }

@@ -35,12 +35,17 @@
 
 #pragma mark - Adding patient segues to 2nd tab 
 -(void)addPatients:(id)sender{
-    [self performSegueWithIdentifier:@"listTabSegue" sender:nil];
+    [self performSegueWithIdentifier:@"listTabSegue" sender:addPatientsButton];
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([[segue identifier] isEqualToString:@"listTabSegue"]){
-    UITabBarController *vc = [segue destinationViewController];
+    UITabBarController *vc; 
+    if (([[segue identifier] isEqualToString:@"listTabSegue"]) && ([sender tag] == 1)){
+    vc = [segue destinationViewController];
     vc.selectedIndex=1;
+    } else {
+        
+        vc = [segue destinationViewController];
+        vc.selectedIndex=0;
     }
 }
 
@@ -48,7 +53,7 @@
 {
     [super viewDidLoad];
     //[PatientListViewCell class];
-    NSString *firstName, *lastName, *patientId, *imageId, *complaint, *middleName;
+    NSString *firstName, *lastName, *patientId, *imageId, *complaint, *middleName, *recordId;
     UIImage *picture;
     patientsArray = [DBTalk getPatientList];
     patients = [NSMutableArray array];
@@ -60,6 +65,7 @@
         middleName = [item objectForKey:@"MiddleName"];
         lastName = [item objectForKey:@"LastName"];
         patientId = [item objectForKey:@"Id"];
+        recordId = [item objectForKey:@"recordId"];
         imageId = [NSString stringWithFormat:@"%@n000", patientId];
         picture = [DBTalk getThumbFromServer:(imageId)];
         uint32_t rnd = arc4random_uniform([complaints count]);
@@ -99,6 +105,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *name; 
     static NSString *CellIdentifier = @"patientListCell";
     PatientListViewCell *cell = [tableView
                               dequeueReusableCellWithIdentifier:CellIdentifier
@@ -110,7 +117,10 @@
     NSString *fn = [[patients objectAtIndex:row] firstName];
     NSString *mn = [[patients objectAtIndex:row] middleName]; 
     NSString *ln = [[patients objectAtIndex:row] lastName];
-    NSString *name = [NSString stringWithFormat: @"%@ %@ %@", fn, mn, ln];
+    if( [mn isEqual: @"<null>"]){
+        name = [NSString stringWithFormat: @"%@ %@ %@", fn, mn, ln];
+    } else { name = [NSString stringWithFormat: @"%@ %@", fn, ln]; } 
+
     cell.patientName.text = name;
     cell.chiefComplaint.text = (NSString*)[[patients objectAtIndex:row] chiefComplaint];
     cell.patientPicture.image = [[patients objectAtIndex:row] photoID];

@@ -67,10 +67,14 @@ static NSString *imageDir = nil;
         NSError *jsonError;
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
         NSDictionary *dic = jsonArray[0];
-        NSLog(@"Is getting patient data: %@\n", dic);
-        NSString *retval = (NSString *)[dic objectForKey:@"@returnValue"];
-        NSLog(@"retval: %@\n", retval);
-        NSLog(@"jsonError: %@", jsonError);
+        
+        NSString *retval = [dic objectForKey:@"@returnValue"];
+        if ([retval isEqual: @"0"]) {
+            NSLog(@"In addUpdatePatient: %@\n", dic);
+            NSLog(@"jsonError in addUpdatePatient?: %@", jsonError);
+            return NULL;
+        }
+        
         return retval;
     }
     return NULL;
@@ -87,7 +91,7 @@ static NSString *imageDir = nil;
               isActive:(NSString *)isActive
             hasTimeout:(NSString *)hasTimeout {
     
-    NSString *encodedString = [NSString stringWithFormat:@"%@add/record/%@/%@/%@/%@/%@", host,
+    NSString *encodedString = [NSString stringWithFormat:@"%@add/record/NULL/%@/%@/%@/%@/%@", host,
                                patientId, surgeryTypeId, @"1", isActive, @"0"];
     NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
@@ -101,6 +105,22 @@ static NSString *imageDir = nil;
     return NULL;
 }
 
++(NSString *)addRecordData:(NSString *)recordId
+                       key:(NSString *)key
+                     value:(NSString *)value {
+    NSString *encodedString = [NSString stringWithFormat:@"%@add/patientHistoryKeyValue/%@/%@/%@", host,
+                               recordId, key, value];
+    NSLog(@"encodedString: %@", encodedString);
+    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
+    
+    if (data) {
+        NSError *jsonError;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+        NSDictionary *dic = jsonArray[0];
+        return [dic objectForKey:@"@returnValue"];
+    }
+    return NULL;
+}
 
 /*---------------------------------------------------------------------------
  * adds profile picture to server and info to database
@@ -169,6 +189,7 @@ static NSString *imageDir = nil;
  * description: queries database for a list of patients that have records  <-- assumption!
  * returns: An NSArray of dictionaries with keys: Id, MiddleName, FirstName, IsActive
  *---------------------------------------------------------------------------*/
+
 +(NSArray *)getPatientList {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/patientList/", host];
     NSLog(@"encodedString: %@", encodedString);

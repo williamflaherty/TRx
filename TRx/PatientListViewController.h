@@ -12,7 +12,7 @@
 @interface PatientListViewController : UITableViewController {
     NSArray *patientsArray;
     NSMutableArray *patients;
-    UINavigationItem *addPatientsButton;
+    IBOutlet UIBarButtonItem *addPatientsButton;
 }
 
 -(IBAction)addPatients:(id)sender; 

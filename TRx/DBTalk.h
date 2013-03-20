@@ -54,6 +54,11 @@
               isActive:(NSString *)isActive
             hasTimeout:(NSString *)hasTimeout;
 
+
++(NSString *)addRecordData:(NSString *)recordId
+                       key:(NSString *)key
+                     value:(NSString *)value;
+
 +(NSArray *)getRecordData:(NSString *)recordId;
 
 

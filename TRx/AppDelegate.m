@@ -16,8 +16,9 @@
     self.databaseName = @"LocalDatabase.sqlite";
     NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDir = [documentPaths objectAtIndex:0];
+    //_databasePath = [documentDir stringByAppendingPathComponent:_databaseName];
     self.databasePath = [documentDir stringByAppendingPathComponent:self.databaseName];
-    
+     NSLog(@"The database path is: %@", _databasePath);
     [self createAndCheckDatabase];
     
     return YES;
@@ -26,6 +27,7 @@
 -(void) createAndCheckDatabase
 {    
     NSFileManager *fileManager = [NSFileManager defaultManager];
+    //[[NSFileManager defaultManager] removeItemAtPath:self.databasePath error:nil];
     BOOL success = [fileManager fileExistsAtPath:self.databasePath];
     
     if(success) return;
@@ -33,6 +35,7 @@
     NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.databaseName];
     
     [fileManager copyItemAtPath:databasePathFromApp toPath:self.databasePath error:nil];
+   
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
