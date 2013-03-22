@@ -15,7 +15,7 @@
 
 
 /*---------------------------------------------------------------------------
- * Checks local database for unsynched files and uploads them
+ * Checks local database for unsynched data and uploads it
  *
  * First checks if patientId and recordId are temporary
  *  if temporary && there is a server connection
@@ -266,15 +266,15 @@
     else {
         NSLog(@"localStorePortrait is receiving a non-null value -- hopefully an image");
     }
-    NSData *imageData = UIImageJPEGRepresentation(image, 1);
+    NSData *imageData = UIImageJPEGRepresentation(image, .1);
     if (!imageData) {
         NSLog(@"Error in localStorePortrait converting UIImage to NSData object");
     }
     
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
-    NSString *query = [NSString stringWithFormat:@"INSERT INTO Images (imageType, imageBlob) VALUES (\"portrait\", \"%@\")",        imageData];
-    BOOL retval = [db executeUpdate:query];
+    //NSString *query = [NSString stringWithFormat:@"INSERT INTO Images (imageType, imageBlob) VALUES (\"portrait\", \"%@\")", imageData];
+    BOOL retval = [db executeUpdate:@"INSERT OR REPLACE INTO Images (imageType, imageBlob) VALUES (?,?)", @"portrait", imageData];
     [db close];
     
     return retval;
@@ -297,18 +297,15 @@
         return nil;
     }
     [results next];
-    NSData *data = [results dataForColumnIndex:0];//[results stringForColumnIndex:0];
-    
-    if (!data) {
-        NSLog(@"In localGetPortrait data is NULL");
-    }
-    UIImage *image = [[UIImage alloc] initWithData:data];
-    [db close];
-    
+    NSData *data = [results dataForColumnIndex:0];
+
+    UIImage *image = [UIImage imageWithData:data];
     if (!image) {
         NSLog(@"In localGetPortrait: image is NULL");
     }
     
+    [db close];
+
     return image;
 }
 

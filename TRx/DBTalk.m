@@ -376,7 +376,7 @@ static NSString *imageDir = nil;
                              fileName:(NSString *)fileName
                             isProfile:(NSString *)isProfile {
     return [self pictureInfoToDatabase:@"NULL" patientId:patientId fileName:fileName
-                     customName:@"NULL" isProfile:isProfile];
+                     customName:fileName isProfile:isProfile];
 }
 
 
@@ -407,10 +407,13 @@ static NSString *imageDir = nil;
             NSString *retval = [dic objectForKey:@"@returnValue"];
             NSLog(@"addPicture returned %@", retval);
         }
+        else {
+            NSLog(@"AddPicturePathToDatabase not getting proper response");
+        }
     }];
     
 
-    NSLog(@"Error adding picturePath to Database");
+    //NSLog(@"Error adding picturePath to Database");
     return NULL;
     
 }

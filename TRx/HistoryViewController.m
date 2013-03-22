@@ -209,9 +209,7 @@ finishedSavingWithError:(NSError *)error
     [LocalTalk localStorePatientMetaData:@"firstName" value:newPatient.firstName];
     [LocalTalk localStorePatientMetaData:@"middleName" value:newPatient.middleName];
     [LocalTalk localStorePatientMetaData:@"lastName" value:newPatient.lastName];
-//    [LocalTalk localStorePatientMetaData:@"firstName" value:@"Jerome"];
-//    [LocalTalk localStorePatientMetaData:@"middleName" value:@"P"];
-//    [LocalTalk localStorePatientMetaData:@"lastName" value:@"Armstrong"];
+
     [LocalTalk localStorePatientMetaData:@"surgeryTypeId" value:@"1"];//hardcoded unless Mark verifies working
     [LocalTalk localStorePatientMetaData:@"doctorId" value:@"1"]; //hardcoded unless Mark verifies working
     
