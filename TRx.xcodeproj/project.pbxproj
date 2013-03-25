@@ -34,6 +34,7 @@
 		19A7197A16EF5F9600E671CB /* HistorySubViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A7197916EF5F9600E671CB /* HistorySubViewViewController.m */; };
 		19C32A3016EFB3B300CC1318 /* SurgeryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C32A2F16EFB3B300CC1318 /* SurgeryViewController.m */; };
 		19DAF54D16F8CE00008E1BA7 /* LocalDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 13CF9B2616ECF829006CF20B /* LocalDatabase.sqlite */; };
+		C40E767717008A70000113BD /* CataractHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40E767617008A70000113BD /* CataractHistoryViewController.m */; };
 		C446619E16EEE2FF008CE130 /* HistoryBackgroundLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */; };
 		C446619F16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */; };
 		C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
@@ -154,6 +155,8 @@
 		19A7197916EF5F9600E671CB /* HistorySubViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistorySubViewViewController.m; sourceTree = "<group>"; };
 		19C32A2E16EFB3B300CC1318 /* SurgeryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurgeryViewController.h; sourceTree = "<group>"; };
 		19C32A2F16EFB3B300CC1318 /* SurgeryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurgeryViewController.m; sourceTree = "<group>"; };
+		C40E767517008A70000113BD /* CataractHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CataractHistoryViewController.h; path = ../CataractHistoryViewController.h; sourceTree = "<group>"; };
+		C40E767617008A70000113BD /* CataractHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CataractHistoryViewController.m; path = ../CataractHistoryViewController.m; sourceTree = "<group>"; };
 		C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryBackgroundLandscape.png; path = Resources/TRx_png/HistoryBackgroundLandscape.png; sourceTree = SOURCE_ROOT; };
 		C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryBackgroundLandscape22x.png; path = Resources/TRx_png/HistoryBackgroundLandscape22x.png; sourceTree = SOURCE_ROOT; };
 		C44D6F2516D19AD60036E40B /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -399,6 +402,8 @@
 				C499B58116ED149E00F40046 /* HistoryNavigationController.m */,
 				C499B56816EC21E400F40046 /* HistoryViewController.h */,
 				C499B56916EC21E400F40046 /* HistoryViewController.m */,
+				C40E767517008A70000113BD /* CataractHistoryViewController.h */,
+				C40E767617008A70000113BD /* CataractHistoryViewController.m */,
 				19A7197816EF5F9600E671CB /* HistorySubViewViewController.h */,
 				19A7197916EF5F9600E671CB /* HistorySubViewViewController.m */,
 			);
@@ -802,6 +807,7 @@
 				13F3528A16EEEF21009321E7 /* UIImageView+AFNetworking.m in Sources */,
 				19C32A3016EFB3B300CC1318 /* SurgeryViewController.m in Sources */,
 				C465F3B416F8D436009E7EA3 /* HistoryQuestion.m in Sources */,
+				C40E767717008A70000113BD /* CataractHistoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
