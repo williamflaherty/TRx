@@ -15,6 +15,7 @@
     IBOutlet UIBarButtonItem *addPatientsButton;
 }
 
--(IBAction)addPatients:(id)sender; 
+-(IBAction)addPatients:(id)sender;
+-(IBAction)refreshPatients:(id)sender;
 
 @end
