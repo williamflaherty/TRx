@@ -28,6 +28,7 @@
 		13F3528816EEEF21009321E7 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3527D16EEEF21009321E7 /* AFURLConnectionOperation.m */; };
 		13F3528916EEEF21009321E7 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3527F16EEEF21009321E7 /* AFXMLRequestOperation.m */; };
 		13F3528A16EEEF21009321E7 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3528116EEEF21009321E7 /* UIImageView+AFNetworking.m */; };
+		13FF64F41700EC3400F0A4FE /* SynchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF64F31700EC3400F0A4FE /* SynchData.m */; };
 		19087ED016E95363007FE40B /* PatientListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196CCD8A16E90ED600B82048 /* PatientListViewCell.m */; };
 		19087ED116E95364007FE40B /* PatientListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196CCD8A16E90ED600B82048 /* PatientListViewCell.m */; };
 		1975163916EFC6C50008AA1F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1975163816EFC6C50008AA1F /* AVFoundation.framework */; };
@@ -148,6 +149,8 @@
 		13F3527F16EEEF21009321E7 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		13F3528016EEEF21009321E7 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		13F3528116EEEF21009321E7 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		13FF64F21700EC3400F0A4FE /* SynchData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchData.h; sourceTree = "<group>"; };
+		13FF64F31700EC3400F0A4FE /* SynchData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchData.m; sourceTree = "<group>"; };
 		196CCD8916E90ED600B82048 /* PatientListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientListViewCell.h; sourceTree = "<group>"; };
 		196CCD8A16E90ED600B82048 /* PatientListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListViewCell.m; sourceTree = "<group>"; };
 		1975163816EFC6C50008AA1F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -550,6 +553,8 @@
 				13F3521416ED99B1009321E7 /* libsqlite3.dylib */,
 				1300E3BB16DA9D1B0033151C /* DBTalk.h */,
 				1300E3BC16DA9D1B0033151C /* DBTalk.m */,
+				13FF64F21700EC3400F0A4FE /* SynchData.h */,
+				13FF64F31700EC3400F0A4FE /* SynchData.m */,
 				13CF9B1E16EC4BAD006CF20B /* LocalTalk.h */,
 				13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */,
 			);
@@ -808,6 +813,7 @@
 				19C32A3016EFB3B300CC1318 /* SurgeryViewController.m in Sources */,
 				C465F3B416F8D436009E7EA3 /* HistoryQuestion.m in Sources */,
 				C40E767717008A70000113BD /* CataractHistoryViewController.m in Sources */,
+				13FF64F41700EC3400F0A4FE /* SynchData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

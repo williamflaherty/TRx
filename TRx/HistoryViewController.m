@@ -62,14 +62,14 @@
 }
 
 -(void) addPatient:(id)sender{
-    //Idealy, I think we should call a DBTalk function called "addPatient" from here, passing it the newPatient object...
-    //[DBTalk addPatient:newPatient];
+    
     
     [self storeNames];
+    
     if([firstName isEqualToString:@""] || [lastName isEqualToString:@""]){
         //return;
     }
-    [LocalTalk localStorePortrait:newPatient.photoID]; 
+    //[LocalTalk localStorePortrait:newPatient.photoID];
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateStyle = NSDateFormatterShortStyle;
@@ -77,22 +77,34 @@
     pBirthday = [NSString stringWithFormat:@"%@", [df stringFromDate:_birthdayPicker.date]];
                  
     
+    
+    //[self storeNames];
+    
+    /*store essential Patient Meta Data into LocalDatabase before calling synchPatientData*/
+    [LocalTalk localClearPatientData];
+    
+    [LocalTalk localStorePatientMetaData:@"birthDay" value:[NSString stringWithFormat:@"%d", newPatient.birthday]];
+    [LocalTalk localStorePatientMetaData:@"firstName" value:newPatient.firstName];
+    [LocalTalk localStorePatientMetaData:@"middleName" value:newPatient.middleName];
+    [LocalTalk localStorePatientMetaData:@"lastName" value:newPatient.lastName];
+    
+    [LocalTalk localStorePatientMetaData:@"surgeryTypeId" value:@"1"];//hardcoded unless Mark verifies working
+    [LocalTalk localStorePatientMetaData:@"doctorId" value:@"1"]; //hardcoded unless Mark verifies working
+    
+    BOOL storedPic = [LocalTalk localStorePortrait:newPatient.photoID];
+    if (!storedPic) {
+        NSLog(@"Error storing portrait in HistoryViewController nextView");
+    }
+    
     /*
-    NSString *bday = [NSString stringWithFormat:@"%d", newPatient.birthday];
-    NSString *patientId = [DBTalk addUpdatePatient:newPatient.firstName middleName:newPatient.middleName
-                                          lastName:newPatient.lastName birthday:bday patientId:NULL];
-    */
+     * temporary values. nothing gets synched unless addPatient and addRecord
+     * get called successfully and return the patientId and recordId
+     */
+    [LocalTalk localStoreTempPatientId];
+    [LocalTalk localStoreTempRecordId];
     
-    //Alert -- have hard-coded surgeryTypeId and doctorId for now
-    //NSString *recordId = [DBTalk addRecord:patientId surgeryTypeId:@"1" doctorId:@"1" isActive:@"1" hasTimeout:@"0"];
-    //The below method causes the appilication to crash
     
-    //NSString *fakeId = @"31n000";
-    //newPatient.photoID = [DBTalk getThumbFromServer:(fakeId)];
-    //[DBTalk addPicture:newPatient.photoID pictureId:NULL patientId:@"40" customPictureName:NULL isProfile:@"1"];
-    //[DBTalk addProfilePicture:newPatient.photoID patientId:@"50"];
-    
-    //NSLog(@"AddPatient button pressed:\npatientId: %@\nrecordId:%@\n", patientId, recordId);
+    [LocalTalk addNewPatientAndSynchData];
 }
 
 #pragma mark - Camera Methods
@@ -227,7 +239,7 @@ finishedSavingWithError:(NSError *)error
     
     
     /* Worse comes to worst, we comment this out before the presentation */
-    [LocalTalk synchPatientData];
+    [LocalTalk addNewPatientAndSynchData];
 
     
     [self performSegueWithIdentifier:@"nextViewController" sender:nil];

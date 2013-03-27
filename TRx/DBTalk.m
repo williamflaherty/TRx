@@ -337,7 +337,7 @@ static NSString *imageDir = nil;
     
     NSURL *url = [NSURL URLWithString:@"http://www.teamecuadortrx.com/TRxTalk/"];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-    NSData *imageData = UIImageJPEGRepresentation(picture, 0.1);
+    NSData *imageData = UIImageJPEGRepresentation(picture, 0.03);
     
     NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:directory, @"directory", nil];
     

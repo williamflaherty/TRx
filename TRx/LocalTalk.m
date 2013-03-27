@@ -10,6 +10,7 @@
 #import "DBTalk.h"
 #import "FMDatabase.h"
 #import "Utility.h"
+#import "SynchData.h"
 
 @implementation LocalTalk
 
@@ -31,7 +32,7 @@
     NSLog(@"Beginning SynchPatientData");
     NSString *query, *recordId, *patientId, *questionId, *value;
     NSString *fName, *lName, *mName, *bDay, *surgeryTypeId, *doctorId;
-    FMResultSet *toSynch, *result;
+    FMResultSet *toSynch;
     
     
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
@@ -158,6 +159,10 @@
     NSLog(@"Exiting SynchPatientData");   
     [db close];
     return true;
+}
+
++(BOOL)addNewPatientAndSynchData {
+    return [SynchData addNewPatientAndSynchData];
 }
 
 

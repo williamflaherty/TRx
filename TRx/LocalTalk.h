@@ -40,7 +40,7 @@
 
 +(void)localClearPatientData;
 
-
++(BOOL)addNewPatientAndSynchData;
 +(BOOL)synchPatientData;
 
 
