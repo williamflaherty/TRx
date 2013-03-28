@@ -1,18 +1,19 @@
 //
-//  TRxTests.m
-//  TRxTests
+//  UnitTests.m
+//  UnitTests
 //
-//  Created by Mark Bellott on 2/17/13.
+//  Created by John Cotham on 3/28/13.
 //  Copyright (c) 2013 Team Ecuador. All rights reserved.
 //
 
-#import "TRxTests.h"
+#import "UnitTests.h"
 
-@implementation TRxTests
+@implementation UnitTests
 
 - (void)setUp
 {
     [super setUp];
+    
     // Set-up code here.
 }
 
@@ -23,9 +24,6 @@
     [super tearDown];
 }
 
-- (void)testExample
-{
-    STFail(@"Unit tests are not implemented yet in TRxTests");
-}
+
 
 @end

@@ -64,47 +64,57 @@
 -(void) addPatient:(id)sender{
     
     
-    [self storeNames];
+    /* testing for loadpatientrecord */
+    [LocalTalk loadPatientRecordIntoLocal:@"25"];
+    [LocalTalk printLocal];
     
-    if([firstName isEqualToString:@""] || [lastName isEqualToString:@""]){
-        //return;
-    }
-    //[LocalTalk localStorePortrait:newPatient.photoID];
-    
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    df.dateStyle = NSDateFormatterShortStyle;
-    //NSInteger day = _birthdayPicker;
-    pBirthday = [NSString stringWithFormat:@"%@", [df stringFromDate:_birthdayPicker.date]];
-                 
+    /* end testing for loadpatientrecordintolocal */
     
     
-    //[self storeNames];
-    
-    /*store essential Patient Meta Data into LocalDatabase before calling synchPatientData*/
-    [LocalTalk localClearPatientData];
-    
-    [LocalTalk localStorePatientMetaData:@"birthDay" value:[NSString stringWithFormat:@"%d", newPatient.birthday]];
-    [LocalTalk localStorePatientMetaData:@"firstName" value:newPatient.firstName];
-    [LocalTalk localStorePatientMetaData:@"middleName" value:newPatient.middleName];
-    [LocalTalk localStorePatientMetaData:@"lastName" value:newPatient.lastName];
-    
-    [LocalTalk localStorePatientMetaData:@"surgeryTypeId" value:@"1"];//hardcoded unless Mark verifies working
-    [LocalTalk localStorePatientMetaData:@"doctorId" value:@"1"]; //hardcoded unless Mark verifies working
-    
-    BOOL storedPic = [LocalTalk localStorePortrait:newPatient.photoID];
-    if (!storedPic) {
-        NSLog(@"Error storing portrait in HistoryViewController nextView");
-    }
-    
-    /*
-     * temporary values. nothing gets synched unless addPatient and addRecord
-     * get called successfully and return the patientId and recordId
-     */
-    [LocalTalk localStoreTempPatientId];
-    [LocalTalk localStoreTempRecordId];
     
     
-    [LocalTalk addNewPatientAndSynchData];
+    
+//    [self storeNames];
+//    
+//    if([firstName isEqualToString:@""] || [lastName isEqualToString:@""]){
+//        //return;
+//    }
+//    //[LocalTalk localStorePortrait:newPatient.photoID];
+//    
+//    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+//    df.dateStyle = NSDateFormatterShortStyle;
+//    //NSInteger day = _birthdayPicker;
+//    pBirthday = [NSString stringWithFormat:@"%@", [df stringFromDate:_birthdayPicker.date]];
+//                 
+//    
+//    
+//    //[self storeNames];
+//    
+//    /*store essential Patient Meta Data into LocalDatabase before calling synchPatientData*/
+//    [LocalTalk localClearPatientData];
+//    
+//    [LocalTalk localStorePatientMetaData:@"birthDay" value:[NSString stringWithFormat:@"%d", newPatient.birthday]];
+//    [LocalTalk localStorePatientMetaData:@"firstName" value:newPatient.firstName];
+//    [LocalTalk localStorePatientMetaData:@"middleName" value:newPatient.middleName];
+//    [LocalTalk localStorePatientMetaData:@"lastName" value:newPatient.lastName];
+//    
+//    [LocalTalk localStorePatientMetaData:@"surgeryTypeId" value:@"1"];//hardcoded unless Mark verifies working
+//    [LocalTalk localStorePatientMetaData:@"doctorId" value:@"1"]; //hardcoded unless Mark verifies working
+//    
+//    BOOL storedPic = [LocalTalk localStorePortrait:newPatient.photoID];
+//    if (!storedPic) {
+//        NSLog(@"Error storing portrait in HistoryViewController nextView");
+//    }
+//    
+//    /*
+//     * temporary values. nothing gets synched unless addPatient and addRecord
+//     * get called successfully and return the patientId and recordId
+//     */
+//    [LocalTalk localStoreTempPatientId];
+//    [LocalTalk localStoreTempRecordId];
+//    
+//    
+//    [LocalTalk addNewPatientAndSynchData];
 }
 
 #pragma mark - Camera Methods

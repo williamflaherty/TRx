@@ -57,5 +57,9 @@
 
 //+(UIImage *)localGetPatientImage:(NSString *)patientId;
 
+/* for testing */
++(void)printLocal;
+/* end for testing */
+
 
 @end

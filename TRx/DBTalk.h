@@ -27,13 +27,16 @@
 +(NSString *)addProfilePicture:(UIImage *)picture
                      patientId:(NSString *)patientId;
 
+
 +(NSString *)addPicture:(UIImage  *)picture
               patientId:(NSString *)patientId
       customPictureName:(NSString *)customPictureName
-              isProfile:(NSString *)isProfile;
+              isProfile:(NSString *)isProfile
+              directory:(NSString *)directory;
 
-+(BOOL)sendPictureToServer:(UIImage *)picture
-                  fileName:(NSString *)fileName;
++(BOOL)uploadPictureToServer:(UIImage *)picture
+                    fileName:(NSString *)fileName
+                   directory:(NSString *)directory;
 
 +(NSString *)addPatient:(NSString *)firstName
              middleName:(NSString *)middleName

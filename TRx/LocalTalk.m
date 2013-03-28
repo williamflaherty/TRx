@@ -447,6 +447,23 @@
     return retval;
 }
 
+
+/*method for checking data loaded in local*/
++(void)printLocal {
+    NSString *key, *value;
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    
+    FMResultSet *results = [db executeQuery:@"SELECT * FROM Patient"];
+    while ([results next]) {
+        key = [results stringForColumn:@"QuestionId"];
+        value = [results stringForColumn:@"Value"];
+        NSLog(@"Key: %@  Value: %@", key, value);
+    }
+    
+    [db close];
+}
+
 @end
 
 

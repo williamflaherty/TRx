@@ -283,7 +283,7 @@ static NSString *imageDir = nil;
  * returns NSArray of Keys and values for each field
  *---------------------------------------------------------------------------*/
 +(NSArray *)getRecordData:(NSString *)recordId {
-    NSString *encodedString = [NSString stringWithFormat:@"%@get/recordData/", host];
+    NSString *encodedString = [NSString stringWithFormat:@"%@get/recordData/%@", host, recordId];
     NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
@@ -322,7 +322,7 @@ static NSString *imageDir = nil;
 }
 
 /*---------------------------------------------------------------------------
- *hope to have this working soon
+ *
  *---------------------------------------------------------------------------*/
 +(BOOL)uploadPictureToServer:(UIImage *)picture
                     fileName:(NSString *)fileName
