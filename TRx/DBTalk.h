@@ -63,6 +63,7 @@
                      value:(NSString *)value;
 
 +(NSArray *)getRecordData:(NSString *)recordId;
++(NSArray *)getPatientMetaData:(NSString *)patientId;
 
 
 

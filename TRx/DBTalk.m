@@ -42,11 +42,14 @@ static NSString *imageDir = nil;
                birthday:(NSString *)birthday
               patientId:(NSString *)patientId {
 
+    if ([middleName isEqualToString:@""]) {
+        middleName = @"NULL";
+    }
+    
     NSString *encodedString = [NSString stringWithFormat:
                                @"%@add/addPatient/%@/%@/%@/%@/%@", host,
                                patientId, firstName, middleName, lastName, birthday];
     
-    NSLog(@"encodedString: %@", encodedString);
     
     /* replace initWithContentsOfURL when can test */
     /* need to figure out how to return with blocks */
@@ -93,7 +96,7 @@ static NSString *imageDir = nil;
     
     NSString *encodedString = [NSString stringWithFormat:@"%@add/record/NULL/%@/%@/%@/%@/%@", host,
                                patientId, surgeryTypeId, @"1", isActive, @"0"];
-    NSLog(@"encodedString: %@", encodedString);
+    
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
     if (data) {
@@ -169,7 +172,6 @@ static NSString *imageDir = nil;
  *---------------------------------------------------------------------------*/
 +(BOOL)deletePatient: (NSString *)patientId {
     NSString *encodedString = [NSString stringWithFormat:@"%@delete/deletePatient/%@", host, patientId];
-    NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
     if (data) {
@@ -177,7 +179,10 @@ static NSString *imageDir = nil;
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
         NSDictionary *dic = jsonArray[0];
         NSString *retval = [dic objectForKey:@"@returnValue"];
-        NSLog(@"PatientDelete call returned: %@", retval);
+        if ([retval isEqualToString:@"0"]) {
+            NSLog(@"DeletePatient failed");
+            return false;
+        }
         return true;
     }
     NSLog(@"Delete call didn't work: error in PHP");
@@ -198,8 +203,6 @@ static NSString *imageDir = nil;
     if (data) {
         NSError *jsonError;
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
-        
-        //NSLog(@"PatientDelete call returned: %@", retval);
         return jsonArray;
     }
     NSLog(@"getPatientList didn't work: error in PHP");
@@ -298,6 +301,20 @@ static NSString *imageDir = nil;
     
 }
 
+
++(NSArray *)getPatientMetaData:(NSString *)patientId {
+    NSString *encodedString = [NSString stringWithFormat:@"%@get/patientMetaData/%@", host, patientId];
+    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
+    
+    if (data) {
+        NSError *jsonError;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+        
+        return jsonArray;
+    }
+    NSLog(@"getRecordData didn't work: error in PHP");
+    return NULL;
+}
 
 
 /*---------------------------------------------------------------------------
