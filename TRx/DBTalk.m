@@ -73,7 +73,8 @@ static NSString *imageDir = nil;
         
         NSString *retval = [dic objectForKey:@"@returnValue"];
         if ([retval isEqual: @"0"]) {
-            NSLog(@"In addUpdatePatient: %@\n", dic);
+            NSString *err = [dic objectForKey:@"@error"];
+            [self alertWithMessage:err];
             NSLog(@"jsonError in addUpdatePatient?: %@", jsonError);
             return NULL;
         }
@@ -180,7 +181,8 @@ static NSString *imageDir = nil;
         NSDictionary *dic = jsonArray[0];
         NSString *retval = [dic objectForKey:@"@returnValue"];
         if ([retval isEqualToString:@"0"]) {
-            NSLog(@"DeletePatient failed");
+            NSString *err = [dic objectForKey:@"error"];
+            [self alertWithMessage:err];
             return false;
         }
         return true;
@@ -197,7 +199,6 @@ static NSString *imageDir = nil;
 
 +(NSArray *)getPatientList {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/patientList/", host];
-    NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
     if (data) {
@@ -248,7 +249,6 @@ static NSString *imageDir = nil;
  *---------------------------------------------------------------------------*/
 +(NSArray *)getSurgeryList {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/surgeryList/", host];
-    NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
     if (data) {
@@ -267,7 +267,6 @@ static NSString *imageDir = nil;
  *---------------------------------------------------------------------------*/
 +(NSArray *)getDoctorList {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/doctorList/", host];
-    NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
     if (data) {
@@ -287,7 +286,6 @@ static NSString *imageDir = nil;
  *---------------------------------------------------------------------------*/
 +(NSArray *)getRecordData:(NSString *)recordId {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/recordData/%@", host, recordId];
-    NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
     if (data) {
@@ -473,7 +471,14 @@ static NSString *imageDir = nil;
     return encodedString;
 }
 
-
++(void)alertWithMessage:(NSString *)message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
 
 
 
