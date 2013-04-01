@@ -15,7 +15,6 @@
 		1327D4BD1704B0AD005010BC /* UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1327D4BC1704B0AD005010BC /* UnitTests.m */; };
 		1327D4C71704BA1A005010BC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1327D4C61704BA1A005010BC /* SystemConfiguration.framework */; };
 		1327D4C91704BA2C005010BC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1327D4C81704BA2C005010BC /* MobileCoreServices.framework */; };
-		1327D4CD1708F464005010BC /* LocalTalkWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1327D4CC1708F464005010BC /* LocalTalkWrapper.m */; };
 		13CF9B2016EC4BAD006CF20B /* LocalTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */; };
 		13D2AB0A16EF9A9300F9ABEB /* NZURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2AB0916EF9A9300F9ABEB /* NZURLConnection.m */; };
 		13F3521516ED99B1009321E7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F3521416ED99B1009321E7 /* libsqlite3.dylib */; };
@@ -32,11 +31,12 @@
 		13F3528816EEEF21009321E7 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3527D16EEEF21009321E7 /* AFURLConnectionOperation.m */; };
 		13F3528916EEEF21009321E7 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3527F16EEEF21009321E7 /* AFXMLRequestOperation.m */; };
 		13F3528A16EEEF21009321E7 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3528116EEEF21009321E7 /* UIImageView+AFNetworking.m */; };
-		13FF64F41700EC3400F0A4FE /* SynchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF64F31700EC3400F0A4FE /* SynchData.m */; };
 		19087ED016E95363007FE40B /* PatientListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196CCD8A16E90ED600B82048 /* PatientListViewCell.m */; };
 		1975163916EFC6C50008AA1F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1975163816EFC6C50008AA1F /* AVFoundation.framework */; };
 		19C32A3016EFB3B300CC1318 /* SurgeryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C32A2F16EFB3B300CC1318 /* SurgeryViewController.m */; };
 		19DAF54D16F8CE00008E1BA7 /* LocalDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 13CF9B2616ECF829006CF20B /* LocalDatabase.sqlite */; };
+		C402E4FB170A007500737787 /* LocalTalkWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1327D4CC1708F464005010BC /* LocalTalkWrapper.m */; };
+		C402E4FC170A008D00737787 /* SynchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF64F31700EC3400F0A4FE /* SynchData.m */; };
 		C40E767A170339DB000113BD /* CataractHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40E7679170339DB000113BD /* CataractHistoryViewController.m */; };
 		C446619E16EEE2FF008CE130 /* HistoryBackgroundLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */; };
 		C446619F16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */; };
@@ -822,6 +822,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C402E4FC170A008D00737787 /* SynchData.m in Sources */,
+				C402E4FB170A007500737787 /* LocalTalkWrapper.m in Sources */,
 				13D2AB0A16EF9A9300F9ABEB /* NZURLConnection.m in Sources */,
 				13F3524416EE67A3009321E7 /* Utility.m in Sources */,
 				13F3524516EE67A3009321E7 /* FMDatabase.m in Sources */,

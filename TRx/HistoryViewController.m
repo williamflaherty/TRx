@@ -199,7 +199,8 @@ finishedSavingWithError:(NSError *)error
     
     
     /* Worse comes to worst, we comment this out before the presentation */
-    [LocalTalk synchPatientData];
+    //[LocalTalk synchPatientData];
+    
 
     
     //[self performSegueWithIdentifier:@"nextViewController" sender:nil];
