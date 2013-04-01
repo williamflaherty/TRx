@@ -9,6 +9,7 @@
 #import "DBTalk.h"
 #import "AFNetworking.h"
 #import "NZURLConnection.h"
+#import "Utility.h"
 #import <UIKit/UIKit.h>
 
 
@@ -23,6 +24,8 @@ static NSString *imageDir = nil;
     imageDir = @"http://teamecuadortrx.com/TRxTalk/Data/images/";
 }
 
+
+#pragma mark - Add Methods
 
 +(NSString *)addPatient:(NSString *)firstName
              middleName:(NSString *)middleName
@@ -42,11 +45,44 @@ static NSString *imageDir = nil;
                birthday:(NSString *)birthday
               patientId:(NSString *)patientId {
 
-    NSString *encodedString = [NSString stringWithFormat:
-                               @"%@add/addPatient/%@/%@/%@/%@/%@", host,
-                               patientId, firstName, middleName, lastName, birthday];
+    if ([middleName isEqualToString:@""]) {
+        middleName = @"NULL";
+    }
     
-    NSLog(@"encodedString: %@", encodedString);
+    //NSString *urlString = //[NSString stringWithFormat:@"%@add/addPatient", host];
+    /************************-----------Begin New Test Code----------------***********************/
+    //note that this is an asynchronous POST
+    
+//    NSURL *url = [NSURL URLWithString:host];
+//    
+//    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+//    
+//    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+//                            firstName, @"firstName",
+//                            middleName, @"middleName",
+//                            lastName, @"lastName",
+//                            birthday, @"birthday",
+//                            patientId, @"patientId",
+//                            nil];
+//    
+//    [httpClient postPath:@"add/addPatient" parameters:params
+//                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//                     <#code#>
+//                 } failure:<#^(AFHTTPRequestOperation *operation, NSError *error)failure#>]
+    
+    
+    
+    /************************-------------End New Test Code----------------***********************/
+    
+    
+    NSString *encodedURL = [NSString stringWithFormat:
+                               @"%@add/addPatient/%@/%@/%@/%@/%@", host, patientId,
+                                                                   [Utility urlEncodeData:firstName],
+                                                                   [Utility urlEncodeData:middleName],
+                                                                   [Utility urlEncodeData:lastName], birthday];
+    //NSString *encodedURL = [Utility urlEncodeData:unencodedURL];
+    NSLog(@"AddPatient encodedURL: %@", encodedURL);
+    
     
     /* replace initWithContentsOfURL when can test */
     /* need to figure out how to return with blocks */
@@ -61,7 +97,7 @@ static NSString *imageDir = nil;
             NSLog(@"addPicture returned %@", retval);
         }
     }]; */
-    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
+    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedURL]];
     
     if (data) {
         NSError *jsonError;
@@ -70,7 +106,8 @@ static NSString *imageDir = nil;
         
         NSString *retval = [dic objectForKey:@"@returnValue"];
         if ([retval isEqual: @"0"]) {
-            NSLog(@"In addUpdatePatient: %@\n", dic);
+            NSString *err = [dic objectForKey:@"@error"];
+            [Utility alertWithMessage:err];
             NSLog(@"jsonError in addUpdatePatient?: %@", jsonError);
             return NULL;
         }
@@ -93,7 +130,7 @@ static NSString *imageDir = nil;
     
     NSString *encodedString = [NSString stringWithFormat:@"%@add/record/NULL/%@/%@/%@/%@/%@", host,
                                patientId, surgeryTypeId, @"1", isActive, @"0"];
-    NSLog(@"encodedString: %@", encodedString);
+    
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
     if (data) {
@@ -163,13 +200,12 @@ static NSString *imageDir = nil;
     return pictureId;
 }
 
-
+#pragma mark - Delete Patient Methods
 /*---------------------------------------------------------------------------
  * deletes specified patient and associated records. returns true on success
  *---------------------------------------------------------------------------*/
 +(BOOL)deletePatient: (NSString *)patientId {
     NSString *encodedString = [NSString stringWithFormat:@"%@delete/deletePatient/%@", host, patientId];
-    NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
     if (data) {
@@ -177,13 +213,18 @@ static NSString *imageDir = nil;
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
         NSDictionary *dic = jsonArray[0];
         NSString *retval = [dic objectForKey:@"@returnValue"];
-        NSLog(@"PatientDelete call returned: %@", retval);
+        if ([retval isEqualToString:@"0"]) {
+            NSString *err = [dic objectForKey:@"error"];
+            [Utility alertWithMessage:err];
+            return false;
+        }
         return true;
     }
     NSLog(@"Delete call didn't work: error in PHP");
     return false;
 }
 
+#pragma mark - Get Methods
 
 /*---------------------------------------------------------------------------
  * description: queries database for a list of patients that have records  <-- assumption!
@@ -192,14 +233,11 @@ static NSString *imageDir = nil;
 
 +(NSArray *)getPatientList {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/patientList/", host];
-    NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
     if (data) {
         NSError *jsonError;
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
-        
-        //NSLog(@"PatientDelete call returned: %@", retval);
         return jsonArray;
     }
     NSLog(@"getPatientList didn't work: error in PHP");
@@ -245,7 +283,6 @@ static NSString *imageDir = nil;
  *---------------------------------------------------------------------------*/
 +(NSArray *)getSurgeryList {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/surgeryList/", host];
-    NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
     if (data) {
@@ -264,7 +301,6 @@ static NSString *imageDir = nil;
  *---------------------------------------------------------------------------*/
 +(NSArray *)getDoctorList {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/doctorList/", host];
-    NSLog(@"encodedString: %@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
     if (data) {
@@ -283,8 +319,7 @@ static NSString *imageDir = nil;
  * returns NSArray of Keys and values for each field
  *---------------------------------------------------------------------------*/
 +(NSArray *)getRecordData:(NSString *)recordId {
-    NSString *encodedString = [NSString stringWithFormat:@"%@get/recordData/", host];
-    NSLog(@"encodedString: %@", encodedString);
+    NSString *encodedString = [NSString stringWithFormat:@"%@get/recordData/%@", host, recordId];
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
     if (data) {
@@ -298,6 +333,20 @@ static NSString *imageDir = nil;
     
 }
 
+
++(NSArray *)getPatientMetaData:(NSString *)patientId {
+    NSString *encodedString = [NSString stringWithFormat:@"%@get/patientMetaData/%@", host, patientId];
+    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
+    
+    if (data) {
+        NSError *jsonError;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+        
+        return jsonArray;
+    }
+    NSLog(@"getRecordData didn't work: error in PHP");
+    return NULL;
+}
 
 
 /*---------------------------------------------------------------------------
@@ -321,8 +370,10 @@ static NSString *imageDir = nil;
     return NULL;
 }
 
+#pragma mark - Picture Methods
+
 /*---------------------------------------------------------------------------
- *hope to have this working soon
+ *
  *---------------------------------------------------------------------------*/
 +(BOOL)uploadPictureToServer:(UIImage *)picture
                     fileName:(NSString *)fileName
@@ -337,7 +388,7 @@ static NSString *imageDir = nil;
     
     NSURL *url = [NSURL URLWithString:@"http://www.teamecuadortrx.com/TRxTalk/"];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-    NSData *imageData = UIImageJPEGRepresentation(picture, 0.1);
+    NSData *imageData = UIImageJPEGRepresentation(picture, 0.03);
     
     NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:directory, @"directory", nil];
     
@@ -443,18 +494,7 @@ static NSString *imageDir = nil;
     return name;
 }
 
-/*---------------------------------------------------------------------------
- * method encodes and returns a string formatted to pass in a url
- *---------------------------------------------------------------------------*/
-+(NSString *) urlEncodeData:(NSString *)str {
-    NSString *encodedString = (__bridge NSString *)
-    CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                            (CFStringRef)str,
-                                            NULL,
-                                            CFSTR("!*'();:@&=+$,/?%#[]"),
-                                            kCFStringEncodingUTF8);
-    return encodedString;
-}
+
 
 
 

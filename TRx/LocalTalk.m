@@ -10,160 +10,25 @@
 #import "DBTalk.h"
 #import "FMDatabase.h"
 #import "Utility.h"
+#import "SynchData.h"
 
 @implementation LocalTalk
 
 
-/*---------------------------------------------------------------------------
- * Checks local database for unsynched data and uploads it
- *
- * First checks if patientId and recordId are temporary
- *  if temporary && there is a server connection
- *      call addPatient and addPatientRecord
- *      then synchronize Patient data and set Patient.Synched to false
- *
- * Currently running SYNCHRONOUSLY !!!
- * 
- * returns true if no catastrophic error
- *---------------------------------------------------------------------------*/
 
-+(BOOL)synchPatientData {
-    NSLog(@"Beginning SynchPatientData");
-    NSString *query, *recordId, *patientId, *questionId, *value;
-    NSString *fName, *lName, *mName, *bDay, *surgeryTypeId, *doctorId;
-    FMResultSet *toSynch, *result;
-    
-    
-    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
-    [db open];
-    
-    
-    //check if patientId is loaded into PatientMetaData
-    patientId = [LocalTalk localGetPatientId];
-    
-    
-    //if not loaded, either no communication with local, or patient not added yet
-    if (!patientId) {
-        NSLog(@"Failure to retrieve patientId from Local in synchPatientData");
-        [db close];
-        return false;
-    }
-    
-    //check if recordId is loaded into PatientMetaData
-    recordId = [LocalTalk localGetRecordId];
-    if (!recordId) {
-        NSLog(@"Failure to retrieve recordId from Local in synchPatientData");
-        [db close];
-        return false;
-    }
-    
-    
-    
-    //if PATIENT not yet added, get necessary info from LocalDatabase and add
-    if ([patientId isEqual: @"tmpPatientId"]) {
-        fName = [LocalTalk localGetPatientMetaData:@"firstName"];
-        mName = [LocalTalk localGetPatientMetaData:@"middleName"];
-        lName = [LocalTalk localGetPatientMetaData:@"lastName"];
-        bDay = [LocalTalk localGetPatientMetaData:@"birthDay"];
-        
-        patientId = [DBTalk addPatient:fName middleName:mName lastName:lName birthday:bDay];
-        
-        if (!patientId) {
-            //error
-            NSLog(@"In SynchPatient. DBTalk's addPatient failed");
-            NSLog(@"fName: %@, mName: %@, lName: %@, bDay: %@", fName, mName, lName, bDay);
-        }
-        else {
-            //success
-            NSLog(@"SynchPatient's patientId: %@", patientId);
-            BOOL retval = [self localStorePatientMetaData:@"recordId" value:recordId];
-            if (!retval) {
-                NSLog(@"In SynchPatient: Error updating PatientMetaData's recordId: %@", recordId);
-            }
-        }
-    }
-      
-    
-    
-    //if RECORD not yet added, get necessary info from LocalDatabase and add
-    if ([recordId isEqual: @"tmpRecordId"]) {
-        surgeryTypeId = [LocalTalk localGetPatientMetaData:@"surgeryTypeId"];
-        doctorId = [LocalTalk localGetPatientMetaData:@"doctorId"];
-        
-        recordId = [DBTalk addRecord:patientId
-                       surgeryTypeId:surgeryTypeId
-                            doctorId:doctorId
-                            isActive:@"1"
-                          hasTimeout:@"0"];
-        
-        if (!recordId) {
-            //error
-            NSLog(@"In SynchPatient. DBTalk's addRecord failed");
-            NSLog(@"surgeryTypeId: %@, doctorId: %@, patientId: %@", surgeryTypeId, doctorId, patientId);
-        }
-        else {
-            //success
-            NSLog(@"SynchPatient's recordId: %@", recordId);
-            
-            //update PatientMetaData with new recordId
-            BOOL retval = [self localStorePatientMetaData:@"recordId" value:recordId];
-            if (!retval) {
-                NSLog(@"In SynchPatient: Error updating PatientMetaData's recordId: %@", recordId);
-            }
-        }
-    }
 
-    //check if picture is to be added
-    NSLog(@"In synchPatientData, checking if synch picture");
-    toSynch = [db executeQuery:@"SELECT \"Synched\" FROM Images"];
-    [toSynch next];
-    int picSynched = [toSynch intForColumnIndex:0];
-    if (!picSynched) {
-        UIImage *image = [LocalTalk localGetPortrait];
-        if (!image) {
-            NSLog(@"Didn't retrieve an image from LocalDatabase");
-        }
-        else {
-            NSLog(@"Synching picture...");
-            [DBTalk addProfilePicture:image patientId:patientId];
-        }
-    }
-    NSLog(@"...finished synch picture");
-    
-    NSLog(@"Synching questionData...");
-    
-    //Get all values that need to be updated
-    query = @"SELECT QuestionId, Value FROM Patient WHERE Synched = 0";
-    toSynch = [db executeQuery:query];
-    
-    if (!toSynch) {
-        NSLog(@"%@", [db lastErrorMessage]);
-        [db close];
-        return false;
-    }
-    while ([toSynch next]) {
-        
-        questionId = [toSynch stringForColumn:@"QuestionId"];
-        value = [toSynch stringForColumn:@"Value"];
-        
-        NSLog(@"For QuestionId: %@ adding Value: %@", questionId, value);
-        
-        //add data to server **CURRENTLY SYNCHRONOUS !! **
-        [DBTalk addRecordData:recordId key:questionId value:value];
-        
-        //update local table so that 'Synched' column = 1;
-        [db executeUpdate:@"INSERT INTO Patient (Synched) VALUES (1) where QuestionId = ?", questionId];
-    }
-    
-    NSLog(@"Exiting SynchPatientData");   
-    [db close];
-    return true;
-}
 
+
+#pragma mark - Local Store Methods
 
 /*---------------------------------------------------------------------------
- * stores portrait image into LocalDatabase's Images table
- * returns t or f
+ Summary:
+    Stores a temporary RecordId in the local database
+ Details:
+    New Patients are given temporary recordIds and patientIds
+    until they are synched with the server
+ Returns:
+    true on success, false otherwise
  *---------------------------------------------------------------------------*/
 +(BOOL)localStoreTempRecordId {
     return [self localStorePatientMetaData:@"recordId" value:@"tmpRecordId"];
@@ -172,54 +37,17 @@
     return [self localStorePatientMetaData:@"patientId" value:@"tmpPatientId"];
 }
 
-
-/* non-essential methods may delete later. called from synch at the moment. self explanatory */
-+(NSString *)localGetPatientId {
-    return [self localGetPatientMetaData:@"patientId"];
-}
-+(NSString *)localGetRecordId {
-    return [self localGetPatientMetaData:@"recordId"];
-}
-
 /*---------------------------------------------------------------------------
- * Retrieves data stored in LocalDatabase's PatientMetaData table
- * keys: patientId, recordId, firstName, middleName, lastName, birtyday,
-         doctorId, surgeryTypeId
- *
- * returns Strings of data OR NULL
- *---------------------------------------------------------------------------*/
-+(NSString *)localGetPatientMetaData:(NSString *)key {
-    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
-    //db.traceExecution = true;
-    [db open];
-    NSString *query;
-    query = [NSString stringWithFormat:@"SELECT Value FROM PatientMetaData WHERE key = \"%@\"", key];
-    
-    //NSLog(@"localGetPatientMetaData query: %@", query);
-    FMResultSet *results = [db executeQuery:query];
-    
-    if (!results) {
-        NSLog(@"%@", [db lastErrorMessage]);;
-        return nil;
-    }
-    [results next];
-    NSString *retval = [results stringForColumnIndex:0];
-    [db close];
-    //NSLog(@"localPatientMetaData returning: %@", retval);
-    return retval;
-}
-
-
-/*---------------------------------------------------------------------------
- * Stores data in LocalDatabase's PatientMetaData table
- * takes key and value as parameters
- * keys: patientId, recordId, firstName, middleName, lastName, birtyday,
-         doctorId, surgeryTypeId
- *
- * returns success or failure (t or f)
+ Summary:
+    Stores keys and values in PatientMetaData table
+ Details:
+    keys: patientId, recordId, firstName, middleName, lastName, birthday,
+          doctorId, surgeryTypeId
+ Returns:
+    true on success, false otherwise
  *---------------------------------------------------------------------------*/
 +(BOOL)localStorePatientMetaData:(NSString *)key
-                                 value:(NSString *)value {
+                           value:(NSString *)value {
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
     NSString *query = [NSString stringWithFormat:@"INSERT INTO PatientMetaData (Key, Value) VALUES (\"%@\", \"%@\")", key, value];
@@ -234,56 +62,108 @@
 
 
 /*---------------------------------------------------------------------------
- * Stores values in LocalDatabase's Patient table
- * this is where all the answers to preOp (and other form) questions go
- *
- * takes value and QuestionId as parameters
- *
- * current QuestionId's stored in drive
- *
- * returns success or failure (t or f)
+ Summary:
+ Store QuestionIds and values in the Patient database for the current patient
+ Details:
+ 
+ Returns:
+ true on success, false otherwise
  *---------------------------------------------------------------------------*/
 +(BOOL)localStoreValue:(NSString *)value forQuestionId:(NSString *)questionId {
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
-    [db open];
     
+    [db open];
     BOOL retval = [db executeUpdate:@"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 0)", questionId, value];
     [db close];
+    
     return retval;
     
 }
 
-
 /*---------------------------------------------------------------------------
- * stores portrait image into LocalDatabase's Images table
- * returns t or f
+ Summary:
+ Stores a portrait in the Images table of local database
+ Details:
+ Reduces size of image by 1/10 before storing. Not sure if I should do this here
+ Returns:
+ true on success, false otherwise
  *---------------------------------------------------------------------------*/
 +(BOOL)localStorePortrait:(UIImage *)image {
-    if (!image) {
-        NSLog(@"in localStorePortrait -- No image to store");
-        return false;
-    }
-    else {
-        NSLog(@"localStorePortrait is receiving a non-null value -- hopefully an image");
-    }
-    NSData *imageData = UIImageJPEGRepresentation(image, .1);
+    
+    NSData *imageData = UIImageJPEGRepresentation(image, .1);    //should I be reducing size here?
     if (!imageData) {
         NSLog(@"Error in localStorePortrait converting UIImage to NSData object");
+        return false;
     }
     
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
-    //NSString *query = [NSString stringWithFormat:@"INSERT INTO Images (imageType, imageBlob) VALUES (\"portrait\", \"%@\")", imageData];
     BOOL retval = [db executeUpdate:@"INSERT OR REPLACE INTO Images (imageType, imageBlob) VALUES (?,?)", @"portrait", imageData];
     [db close];
     
     return retval;
 }
 
+#pragma mark - Local Get Methods
 
 /*---------------------------------------------------------------------------
- * gets portrait image from LocalDatabase's Images table
- * returns UIImage or NULL
+ Summary:
+    Helper methods for retrieving patientId and recordId from local database 
+ Details:
+    Methods wrap localGetPatientMetaData
+ Returns:
+    nil - failure to communicate with database
+    NSString of Id
+ *---------------------------------------------------------------------------*/
++(NSString *)localGetPatientId {
+    return [self localGetPatientMetaData:@"patientId"];
+}
++(NSString *)localGetRecordId {
+    return [self localGetPatientMetaData:@"recordId"];
+}
+
+
+/*---------------------------------------------------------------------------
+ Summary:
+    Retrieves data stored in LocalDatabase's PatientMetaData table
+ Details:
+    keys: patientId, recordId, firstName, middleName, lastName, birthday,
+          doctorId, surgeryTypeId
+ Returns:
+    nil - failure to communicate with local database
+    NSString with appropriate metadata for current patient
+ *---------------------------------------------------------------------------*/
++(NSString *)localGetPatientMetaData:(NSString *)key {
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    
+    NSString *query;
+    query = [NSString stringWithFormat:@"SELECT Value FROM PatientMetaData WHERE key = \"%@\"", key];
+    FMResultSet *results = [db executeQuery:query];
+    
+    if (!results) {
+        NSLog(@"%@", [db lastErrorMessage]);;
+        return nil;
+    }
+    
+    [results next];
+    NSString *retval = [results stringForColumnIndex:0];
+    [db close];
+    
+    return retval;
+}
+
+
+
+
+/*---------------------------------------------------------------------------
+ Summary:
+    Retrieves a portrait of current patient from the Images table of local database
+ Details:
+    
+ Returns:
+    nil - on failure to retrieve image
+    UIImage of current patient otherwise
  *---------------------------------------------------------------------------*/
 +(UIImage *)localGetPortrait {
     NSString *query = [NSString stringWithFormat:@"SELECT imageBlob FROM Images WHERE imageType = \"portrait\""];
@@ -302,6 +182,7 @@
     UIImage *image = [UIImage imageWithData:data];
     if (!image) {
         NSLog(@"In localGetPortrait: image is NULL");
+        return nil;
     }
     
     [db close];
@@ -310,10 +191,14 @@
 }
 
 
+
 /*---------------------------------------------------------------------------
- * gets value stored in QuestionId
- * returns string or NULL
+ Summary:
+    gets value stored with key QuestionId
+  Returns:
+    nil or NSString with value
  *---------------------------------------------------------------------------*/
+
 +(NSString *)localGetValueForQuestionId:(NSString *)questionId {
     
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
@@ -332,18 +217,7 @@
     return retval;
 }
 
-/*---------------------------------------------------------------------------
- * clears local patient data. Needs to be called before new Patient data inserted
- * no retval
- *---------------------------------------------------------------------------*/
-+(void)localClearPatientData {
-    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
-    [db open];
-    [db executeUpdate:@"DELETE FROM Images"];
-    [db executeUpdate:@"DELETE FROM Patient"];
-    [db executeUpdate:@"DELETE FROM PatientMetaData"];
-    [db close];
-}
+#pragma mark - Get Label Methods
 
 /*---------------------------------------------------------------------------
  * Takes a questionId and returns appropriate English Label or NULL
@@ -382,12 +256,34 @@
     return retval;
 }
 
+#pragma mark - Clear Patient Data
 
 /*---------------------------------------------------------------------------
- * Clears database tables Images and Patient
- * Loads data from the server into LocalDatabase
- * 
- * returns success or failure
+ * clears local patient data. Needs to be called before new Patient data inserted
+ * no retval
+ *---------------------------------------------------------------------------*/
++(void)localClearPatientData {
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    [db executeUpdate:@"DELETE FROM Images"];
+    [db executeUpdate:@"DELETE FROM Patient"];
+    [db executeUpdate:@"DELETE FROM PatientMetaData"];
+    [db close];
+}
+
+
+#pragma mark - Load Data from Server into Local
+
+/*---------------------------------------------------------------------------
+ Summary:
+    clears local database and loads record data
+ Details:
+    clears Images, Patient and PatientMetaData
+ Returns:
+    true on success, false otherwise
+ TODO:
+    Might want to go ahead and add loadPortraitImage and 
+    loadMetaData to this method
  *---------------------------------------------------------------------------*/
 
 +(BOOL)clearLocalThenLoadPatientRecordIntoLocal:(NSString *)recordId {
@@ -397,9 +293,14 @@
 
 
 /*---------------------------------------------------------------------------
- * Loads data from the server into LocalDatabase
- * generally, clearLocalThenLoadPatientRecordIntoLocal should be called
- * returns success or failure
+ Summary:
+    Loads all QuestionIds and values for a patient record and stores in local
+ Details:
+     
+ Returns:
+    true on success, false otherwise
+ TODO:
+    check whether DBTalk's getRecordData actually ever returns null
  *---------------------------------------------------------------------------*/
 
 +(BOOL)loadPatientRecordIntoLocal:(NSString *)recordId {
@@ -419,12 +320,19 @@
         return true;
     }
     else {
-        NSLog(@"Error retrieving doctorNamesList");
+        NSLog(@"Error retrieving patient record data");
         return false;
     }
 }
 
-/*Bad implementation at the moment so I didn't have to break localStorePortrait (insert query)*/
+/*---------------------------------------------------------------------------
+ Summary:
+    Retrieves portrait image from Server and stores in Local
+ Details:
+    Should make sure table is cleared before inserting new image
+ Returns:
+    true on success, false otherwise
+ *---------------------------------------------------------------------------*/
 
 +(BOOL)loadPortraitImageIntoLocal:(NSString *)patientId {
     UIImage *image = [DBTalk getPortraitFromServer:patientId];
@@ -440,6 +348,27 @@
         [db close];
     }
     return retval;
+}
+
+#pragma mark - Helper methods
+
+/*---------------------------------------------------------------------------
+ Summary:
+    Helper method for testing. Prints Patient data from localDatabase
+ *---------------------------------------------------------------------------*/
++(void)printLocal {
+    NSString *key, *value;
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    
+    FMResultSet *results = [db executeQuery:@"SELECT * FROM Patient"];
+    while ([results next]) {
+        key = [results stringForColumn:@"QuestionId"];
+        value = [results stringForColumn:@"Value"];
+        NSLog(@"Key: %@  Value: %@", key, value);
+    }
+    
+    [db close];
 }
 
 @end

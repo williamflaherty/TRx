@@ -25,4 +25,7 @@
 
 -(id)initWithFirstName:(NSString *)fn MiddleName:(NSString*) mn LastName:(NSString*)ln ChiefComplaint:(NSString *)c PhotoID:(UIImage*)p;
 
+-(id)initWithPatientId:(NSString *)patId currentRecordId:(NSString *)currRecordId
+             firstName:(NSString *)fn MiddleName:(NSString*) mn LastName:(NSString*)ln
+              birthday:(NSString *)bDay ChiefComplaint:(NSString *)c PhotoID:(UIImage*)p;
 @end

@@ -34,25 +34,16 @@
 }
 
 #pragma mark - Adding patient segues to 2nd tab 
+
 -(void)addPatients:(id)sender{
     [self performSegueWithIdentifier:@"listTabSegue" sender:addPatientsButton];
 }
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    UITabBarController *vc; 
-    if (([[segue identifier] isEqualToString:@"listTabSegue"]) && ([sender tag] == 1)){
-    vc = [segue destinationViewController];
-    vc.selectedIndex=1;
-    } else {
-        
-        vc = [segue destinationViewController];
-        vc.selectedIndex=0;
-    }
+
+-(void)refreshPatients:(id)sender{
+    [self loadPatientCells];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    //[PatientListViewCell class];
+-(void)loadPatientCells{
     NSString *firstName, *lastName, *patientId, *imageId, *complaint, *middleName, *recordId;
     UIImage *picture;
     patientsArray = [DBTalk getPatientList];
@@ -75,6 +66,27 @@
         NSLog(@"%@", imageId);
         [patients addObject:obj];
     }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    UITabBarController *vc; 
+    if (([[segue identifier] isEqualToString:@"listTabSegue"]) && ([sender tag] == 1)){
+    vc = [segue destinationViewController];
+    vc.selectedIndex=1;
+    } else {
+        
+        vc = [segue destinationViewController];
+        vc.selectedIndex=0;
+    }
+}
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self loadPatientCells];
+    //[PatientListViewCell class];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

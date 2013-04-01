@@ -41,9 +41,6 @@
 +(void)localClearPatientData;
 
 
-+(BOOL)synchPatientData;
-
-
 +(BOOL)clearLocalThenLoadPatientRecordIntoLocal:(NSString *)recordId;
 +(BOOL)loadPatientRecordIntoLocal:(NSString *)recordId;
 
@@ -56,6 +53,10 @@
 //+(BOOL)isUnsynched;
 
 //+(UIImage *)localGetPatientImage:(NSString *)patientId;
+
+/* for testing */
++(void)printLocal;
+/* end for testing */
 
 
 @end

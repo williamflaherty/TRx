@@ -989,7 +989,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Patients" id="msi-Bg-QGb">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="pzW-2e-LNn"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="pzW-2e-LNn">
+                            <connections>
+                                <action selector="refreshPatients:" destination="azQ-T5-HYE" id="pBC-Ai-WKp"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" tag="1" systemItem="add" id="2CS-7z-azS">
                             <connections>
                                 <action selector="addPatients:" destination="azQ-T5-HYE" id="OVp-2W-cka"/>
