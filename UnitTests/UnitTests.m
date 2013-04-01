@@ -44,6 +44,12 @@
     STAssertNotNil(patientId, @"Failed to add new patient no middle name");
     success = [DBTalk deletePatient:patientId];
     STAssertTrue(success, @"Unable to delete patient");
+    
+    //check that I can add names that have spaces and hyphens
+    patientId = [DBTalk addPatient:@"f-Test" middleName:@"spaced mName" lastName:@"spaced lName" birthday:@"20081010"];
+    STAssertNotNil(patientId, @"Failed to add patient with spaces and hyphens in name");
+    success = [DBTalk deletePatient:patientId];
+    STAssertTrue(success, @"Unable to delete patient");
 }
 
 -(void)testAddUpdatePatient {

@@ -9,6 +9,7 @@
 #import "HistoryViewController.h"
 #import "DBTalk.h"
 #import "AdminInformation.h"
+#import "LocalTalkWrapper.h"
 #import "LocalTalk.h"
 
 @interface HistoryViewController ()
@@ -24,7 +25,7 @@
     [super viewDidLoad];
 
     newPatient = [[Patient alloc] initWithFirstName:@"Rob" MiddleName:@"D" LastName:@"woMan" ChiefComplaint:@"1" PhotoID:NULL];
-    newPatient.birthday = 20010203;
+    newPatient.birthday = @"20010203";
     _complaintsArray = [AdminInformation getSurgeryNames];
     
     _imageView.image = [UIImage imageNamed:@"PatientPhotoBlank.png"];
@@ -32,21 +33,7 @@
     firstNameText.delegate = self;
     middleNameText.delegate = self;
     lastNameText.delegate = self;
-
-
-    //[LocalTalk localClearPatientData];
-    //[LocalTalk localStorePatientId:@"3333"];
-    //[LocalTalk localStoreRecordId:@"4444"];
-//    NSString *patId = [LocalTalk localGetPatientId];
-//    NSString *recId = [LocalTalk localGetRecordId];
-//    
-//    NSLog(@"HistViewCont : viewDidLoad --> patientId: %@", patId);
-//    NSLog(@"HistViewCont : viewDidLoad --> recordId: %@", recId);
-    //_complaintsArray = [DBTalk getSurgeryList];
     
-    
-    
-    [LocalTalk localClearPatientData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -79,42 +66,17 @@
     if([firstName isEqualToString:@""] || [lastName isEqualToString:@""]){
         //return;
     }
-    //[LocalTalk localStorePortrait:newPatient.photoID];
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateStyle = NSDateFormatterShortStyle;
     //NSInteger day = _birthdayPicker;
     pBirthday = [NSString stringWithFormat:@"%@", [df stringFromDate:_birthdayPicker.date]];
                  
+
     
-    
-    //[self storeNames];
-    
-    /*store essential Patient Meta Data into LocalDatabase before calling synchPatientData*/
-    [LocalTalk localClearPatientData];
-    
-    [LocalTalk localStorePatientMetaData:@"birthDay" value:[NSString stringWithFormat:@"%d", newPatient.birthday]];
-    [LocalTalk localStorePatientMetaData:@"firstName" value:newPatient.firstName];
-    [LocalTalk localStorePatientMetaData:@"middleName" value:newPatient.middleName];
-    [LocalTalk localStorePatientMetaData:@"lastName" value:newPatient.lastName];
-    
-    [LocalTalk localStorePatientMetaData:@"surgeryTypeId" value:@"1"];//hardcoded unless Mark verifies working
-    [LocalTalk localStorePatientMetaData:@"doctorId" value:@"1"]; //hardcoded unless Mark verifies working
-    
-    BOOL storedPic = [LocalTalk localStorePortrait:newPatient.photoID];
-    if (!storedPic) {
-        NSLog(@"Error storing portrait in HistoryViewController nextView");
-    }
-    
-    /*
-     * temporary values. nothing gets synched unless addPatient and addRecord
-     * get called successfully and return the patientId and recordId
-     */
-    [LocalTalk localStoreTempPatientId];
-    [LocalTalk localStoreTempRecordId];
-    
-    
-    [LocalTalk addNewPatientAndSynchData];
+    /* Take patient Object and add its information to the local database */
+    [LocalTalkWrapper addPatientObjectToLocal:newPatient];
+    [LocalTalkWrapper addNewPatientAndSynchData];
 }
 
 #pragma mark - Camera Methods
@@ -224,34 +186,10 @@ finishedSavingWithError:(NSError *)error
     
     [self storeNames];
     
-    /*store essential Patient Meta Data into LocalDatabase before calling synchPatientData*/
-    [LocalTalk localClearPatientData];
-    
-    [LocalTalk localStorePatientMetaData:@"birthDay" value:[NSString stringWithFormat:@"%d", newPatient.birthday]];
-    [LocalTalk localStorePatientMetaData:@"firstName" value:newPatient.firstName];
-    [LocalTalk localStorePatientMetaData:@"middleName" value:newPatient.middleName];
-    [LocalTalk localStorePatientMetaData:@"lastName" value:newPatient.lastName];
+    /* Take patient Object and add its information to the local database */
+    [LocalTalkWrapper addPatientObjectToLocal:newPatient];
+    [LocalTalkWrapper addNewPatientAndSynchData];
 
-    [LocalTalk localStorePatientMetaData:@"surgeryTypeId" value:@"1"];//hardcoded unless Mark verifies working
-    [LocalTalk localStorePatientMetaData:@"doctorId" value:@"1"]; //hardcoded unless Mark verifies working
-    
-    BOOL storedPic = [LocalTalk localStorePortrait:newPatient.photoID];
-    if (!storedPic) {
-        NSLog(@"Error storing portrait in HistoryViewController nextView");
-    }
-    
-    /* 
-     * temporary values. nothing gets synched unless addPatient and addRecord
-     * get called successfully and return the patientId and recordId
-     */
-    [LocalTalk localStoreTempPatientId];
-    [LocalTalk localStoreTempRecordId];
-    
-    
-    /* Worse comes to worst, we comment this out before the presentation */
-    [LocalTalk addNewPatientAndSynchData];
-
-    
     [self performSegueWithIdentifier:@"nextViewController" sender:nil];
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

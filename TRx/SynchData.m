@@ -46,18 +46,27 @@
     
     [toSynch next];
     int picSynched = [toSynch intForColumnIndex:0];
-    if (!picSynched) {
-        UIImage *image = [LocalTalk localGetPortrait];
-        if (!image) {
-            NSLog(@"Didn't retrieve an image from LocalDatabase");
-        }
-        else {
-            NSLog(@"Synching picture...");
-            [DBTalk addProfilePicture:image patientId:patientId];
-        }
+    if (picSynched) {
+        NSLog(@"Picture already synched");
+        return true;
     }
+    UIImage *image = [LocalTalk localGetPortrait];
+    if (!image) {
+        NSLog(@"Didn't retrieve an image from LocalDatabase");
+        [db close];
+        return false;
+    }
+    
+    [DBTalk addProfilePicture:image patientId:patientId];
     NSLog(@"...finished synch picture");
     
+    //update local table so that 'Synched' column = 1;
+    BOOL result = [db executeUpdate:@"INSERT INTO Images (Synched) VALUES (1)"];
+    if (!result) {
+        NSLog(@"\tValues not set to 'Synched'");
+        [db close];
+        return false;
+    }
     
     NSLog(@"Exiting SynchPatientData");
     [db close];
@@ -105,15 +114,114 @@
     return true;
 }
 
++(BOOL)addOrUpdatePatient:(Patient *)newPatient {
+    NSString *patientId;
+    BOOL IDStored;
+    if ([newPatient.patientId isEqual: @"tmpPatientId"]) {
+        patientId = [DBTalk addPatient:newPatient.firstName
+                            middleName:newPatient.middleName
+                              lastName:newPatient.lastName
+                              birthday:@"20081010"];//newPatient.birthday];
+        if (!patientId) {
+            NSLog(@"Failed to add patient: %@ %@", newPatient.firstName, newPatient.lastName);
+            NSLog(@"middleName: %@  birthday: %@", newPatient.middleName, newPatient.birthday);
+            return false;
+        }
+        
+        //update Patient MetaData in Local
+        IDStored = [LocalTalk localStorePatientMetaData:@"patientId" value:patientId];
+        if (!IDStored) {
+            NSLog(@"Error updating PatientMetaData's patientId: %@", patientId);
+        }
+        newPatient.patientId = patientId;
+    }
+    else {
+        patientId = [DBTalk addUpdatePatient:newPatient.firstName middleName:newPatient.middleName
+                                    lastName:newPatient.lastName birthday:newPatient.birthday patientId:newPatient.patientId];
+        if (!patientId) {
+            NSLog(@"Failed to update patient: %@ %@", newPatient.firstName, newPatient.lastName);
+            return false;
+        }
+    }
+    return true;
+}
 
-+(BOOL)addNewPatientAndSynchData {
++(BOOL)addOrUpdateRecord:(Patient *)newPatient {
+    NSString *recordId;
+    BOOL IDStored;
+    //if RECORD not yet added, get necessary info from LocalDatabase and add
+    if ([newPatient.currentRecordId isEqual: @"tmpRecordId"]) {
+        NSString *doctorId = [LocalTalk localGetPatientMetaData:@"doctorId"];                 //doctorId not necessarily set
+        
+        recordId = [DBTalk addRecord:newPatient.patientId
+                       surgeryTypeId:newPatient.chiefComplaint
+                            doctorId:doctorId
+                            isActive:@"1"
+                          hasTimeout:@"0"];
+        
+        if (!recordId) {
+            NSLog(@"Failed to synch record");
+            return false;
+        }
+        
+        NSLog(@"SynchPatient's recordId: %@", recordId);
+        
+        //update PatientMetaData with new recordId
+        IDStored = [LocalTalk localStorePatientMetaData:@"recordId" value:recordId];
+        if (!IDStored) {
+            NSLog(@"In SynchPatient: Error updating PatientMetaData's recordId: %@", recordId);
+        }
+        newPatient.currentRecordId = recordId;
+    }
+    return true;
+}
+
+
++(BOOL)addPatientToDatabaseAndSynchData {
     NSLog(@"Beginning SynchPatientData");
-    NSString *recordId, *patientId;
-    NSString *fName, *lName, *mName, *bDay, *surgeryTypeId, *doctorId;
-    BOOL retval;
     
-    //Get patientId, recordId from PatientMetaData
+    //load Patient data from Local Database into Patient object
+    Patient *newPatient = [self initPatientFromLocal];
+    
+    BOOL patientSynced = [self addOrUpdatePatient:newPatient];
+    if (!patientSynced) {
+        NSLog(@"Error Syncing Patient");
+        return false;
+    }
+    
+    BOOL recordSynced = [self addOrUpdateRecord:newPatient];
+    if (!recordSynced) {
+        NSLog(@"Error Syncing Patient");
+        return false;
+    }
+    
+    BOOL dataSynced = [self synchDataForRecord:newPatient.currentRecordId];
+    if (!dataSynced) {
+        NSLog(@"Error synching Data");
+        return false;
+    }
+    
+    BOOL imageSynced = [self synchImagesForPatient:newPatient.patientId];
+    if (!imageSynced) {
+        NSLog(@"Error synching Image");
+        return false;
+    }
 
+    return true;
+}
+
+/*---------------------------------------------------------------------------
+ Summary:
+    Loads Patient metadata from Local and initializes Patient object
+ Details:
+ 
+ Returns:
+    Patient Object
+ *---------------------------------------------------------------------------*/
+
++(Patient *)initPatientFromLocal {
+    NSString *patientId, *recordId, *fName, *mName, *lName, *bDay, *chiefComplaint;
+    
     patientId = [LocalTalk localGetPatientId];
     if (!patientId) {
         NSLog(@"Failure to retrieve patientId from Local in synchPatientData");
@@ -125,76 +233,17 @@
         NSLog(@"Failure to retrieve recordId from Local in synchPatientData");
         return false;
     }
-  
     
-    //if PATIENT not yet added, get necessary info from LocalDatabase and add
-    if ([patientId isEqual: @"tmpPatientId"]) {
-        
-        fName = [LocalTalk localGetPatientMetaData:@"firstName"];
-        mName = [LocalTalk localGetPatientMetaData:@"middleName"];
-        lName = [LocalTalk localGetPatientMetaData:@"lastName"];
-        bDay  = [LocalTalk localGetPatientMetaData:@"birthDay"];
-        
-        patientId = [DBTalk addPatient:fName middleName:mName lastName:lName birthday:bDay];
-        
-        if (!patientId) {  //should check if != @"0"
-            NSLog(@"In SynchPatient. DBTalk's addPatient failed");
-            NSLog(@"fName: %@, mName: %@, lName: %@, bDay: %@", fName, mName, lName, bDay);
-            return false;
-        }
-        else {
-            NSLog(@"SynchPatient's patientId: %@", patientId);
-            
-            //update PatientMetaData with new patientId
-            retval = [LocalTalk localStorePatientMetaData:@"recordId" value:recordId];
-            if (!retval) {
-                NSLog(@"In SynchPatient: Error updating PatientMetaData's recordId: %@", recordId);
-            }
-        }
-    }
+    fName = [LocalTalk localGetPatientMetaData:@"firstName"];
+    mName = [LocalTalk localGetPatientMetaData:@"middleName"];
+    lName = [LocalTalk localGetPatientMetaData:@"lastName"];
+    bDay  = [LocalTalk localGetPatientMetaData:@"birthDay"];
+    chiefComplaint = [LocalTalk localGetPatientMetaData:@"surgeryTypeId"];
+    UIImage *image = [LocalTalk localGetPortrait];
     
+    Patient *newPatient = [[Patient alloc] initWithPatientId:patientId currentRecordId:recordId firstName:fName MiddleName:mName LastName:lName birthday:bDay ChiefComplaint:chiefComplaint PhotoID:image];
     
-    //if RECORD not yet added, get necessary info from LocalDatabase and add
-    if ([recordId isEqual: @"tmpRecordId"]) {
-        surgeryTypeId = [LocalTalk localGetPatientMetaData:@"surgeryTypeId"];
-        doctorId = [LocalTalk localGetPatientMetaData:@"doctorId"];                 //doctorId not necessarily set
-        
-        recordId = [DBTalk addRecord:patientId
-                       surgeryTypeId:surgeryTypeId
-                            doctorId:doctorId
-                            isActive:@"1"
-                          hasTimeout:@"0"];
-        
-        if (!recordId) {
-            NSLog(@"In SynchPatient. DBTalk's addRecord failed");
-            NSLog(@"surgeryTypeId: %@, doctorId: %@, patientId: %@", surgeryTypeId, doctorId, patientId);
-            return false;
-        }
-        else {
-            NSLog(@"SynchPatient's recordId: %@", recordId);
-            
-            //update PatientMetaData with new recordId
-            retval = [LocalTalk localStorePatientMetaData:@"recordId" value:recordId];
-            if (!retval) {
-                NSLog(@"In SynchPatient: Error updating PatientMetaData's recordId: %@", recordId);
-            }
-        }
-    }
-    
-    
-    retval = [self synchDataForRecord:recordId];
-    if (!retval) {
-        NSLog(@"Error synching Data");
-        return false;
-    }
-    
-    retval = [self synchImagesForPatient:patientId];
-    if (!retval) {
-        NSLog(@"Error synching Image");
-    }
-
-    return true;
+    return newPatient;
 }
-
 
 @end

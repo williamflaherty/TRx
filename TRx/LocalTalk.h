@@ -40,9 +40,6 @@
 
 +(void)localClearPatientData;
 
-+(BOOL)addNewPatientAndSynchData;
-+(BOOL)synchPatientData;
-
 
 +(BOOL)clearLocalThenLoadPatientRecordIntoLocal:(NSString *)recordId;
 +(BOOL)loadPatientRecordIntoLocal:(NSString *)recordId;

@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Patient.h"
 
 @interface SynchData : NSObject
 
-+(BOOL)addNewPatientAndSynchData;
++(BOOL)addPatientToDatabaseAndSynchData;
 
 @end

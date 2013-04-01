@@ -8,5 +8,6 @@
 }
 
 +(NSString *) getDatabasePath; 
-
++(void)alertWithMessage:(NSString *)message;
++(NSString *) urlEncodeData:(NSString *)str;
 @end

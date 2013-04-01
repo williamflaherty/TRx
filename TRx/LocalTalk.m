@@ -16,27 +16,10 @@
 
 
 
-/*---------------------------------------------------------------------------
- Summary:
-    Attempts to add new patient, new patient's record
-    Then synchs data
- Details:
-    First checks if patientId and recordId are temporary
-    if temporary && there is a server connection
-    call addPatient and addPatientRecord
-    then synchronize Patient data and set Patient.Synched to false
- Notes:
-    AddPatient and AddRecord run Synchronously. Others, asynchronously.
- Returns:
-    true if no catastrophic error. false on failure
- TODO:
- Check if connected to internet. If not, cache.
- Double check that Data is synched asynchronously
- ----------------------------------------------------------------------------*/
-+(BOOL)addNewPatientAndSynchData {
-    return [SynchData addNewPatientAndSynchData];
-}
 
+
+
+#pragma mark - Local Store Methods
 
 /*---------------------------------------------------------------------------
  Summary:
@@ -77,6 +60,51 @@
     return retval;
 }
 
+
+/*---------------------------------------------------------------------------
+ Summary:
+ Store QuestionIds and values in the Patient database for the current patient
+ Details:
+ 
+ Returns:
+ true on success, false otherwise
+ *---------------------------------------------------------------------------*/
++(BOOL)localStoreValue:(NSString *)value forQuestionId:(NSString *)questionId {
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    
+    [db open];
+    BOOL retval = [db executeUpdate:@"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 0)", questionId, value];
+    [db close];
+    
+    return retval;
+    
+}
+
+/*---------------------------------------------------------------------------
+ Summary:
+ Stores a portrait in the Images table of local database
+ Details:
+ Reduces size of image by 1/10 before storing. Not sure if I should do this here
+ Returns:
+ true on success, false otherwise
+ *---------------------------------------------------------------------------*/
++(BOOL)localStorePortrait:(UIImage *)image {
+    
+    NSData *imageData = UIImageJPEGRepresentation(image, .1);    //should I be reducing size here?
+    if (!imageData) {
+        NSLog(@"Error in localStorePortrait converting UIImage to NSData object");
+        return false;
+    }
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    BOOL retval = [db executeUpdate:@"INSERT OR REPLACE INTO Images (imageType, imageBlob) VALUES (?,?)", @"portrait", imageData];
+    [db close];
+    
+    return retval;
+}
+
+#pragma mark - Local Get Methods
 
 /*---------------------------------------------------------------------------
  Summary:
@@ -126,50 +154,6 @@
 }
 
 
-
-/*---------------------------------------------------------------------------
- Summary:
-    Store QuestionIds and values in the Patient database for the current patient
- Details:
-    
- Returns:
-    true on success, false otherwise
- *---------------------------------------------------------------------------*/
-+(BOOL)localStoreValue:(NSString *)value forQuestionId:(NSString *)questionId {
-    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
-    
-    [db open];
-    BOOL retval = [db executeUpdate:@"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 0)", questionId, value];
-    [db close];
-    
-    return retval;
-    
-}
-
-
-/*---------------------------------------------------------------------------
- Summary:
-    Stores a portrait in the Images table of local database
- Details:
-    Reduces size of image by 1/10 before storing. Not sure if I should do this here
- Returns:
-    true on success, false otherwise
- *---------------------------------------------------------------------------*/
-+(BOOL)localStorePortrait:(UIImage *)image {
-
-    NSData *imageData = UIImageJPEGRepresentation(image, .1);    //should I be reducing size here?
-    if (!imageData) {
-        NSLog(@"Error in localStorePortrait converting UIImage to NSData object");
-        return false;
-    }
-    
-    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
-    [db open];
-    BOOL retval = [db executeUpdate:@"INSERT OR REPLACE INTO Images (imageType, imageBlob) VALUES (?,?)", @"portrait", imageData];
-    [db close];
-    
-    return retval;
-}
 
 
 /*---------------------------------------------------------------------------
@@ -233,18 +217,7 @@
     return retval;
 }
 
-/*---------------------------------------------------------------------------
- * clears local patient data. Needs to be called before new Patient data inserted
- * no retval
- *---------------------------------------------------------------------------*/
-+(void)localClearPatientData {
-    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
-    [db open];
-    [db executeUpdate:@"DELETE FROM Images"];
-    [db executeUpdate:@"DELETE FROM Patient"];
-    [db executeUpdate:@"DELETE FROM PatientMetaData"];
-    [db close];
-}
+#pragma mark - Get Label Methods
 
 /*---------------------------------------------------------------------------
  * Takes a questionId and returns appropriate English Label or NULL
@@ -283,6 +256,23 @@
     return retval;
 }
 
+#pragma mark - Clear Patient Data
+
+/*---------------------------------------------------------------------------
+ * clears local patient data. Needs to be called before new Patient data inserted
+ * no retval
+ *---------------------------------------------------------------------------*/
++(void)localClearPatientData {
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    [db executeUpdate:@"DELETE FROM Images"];
+    [db executeUpdate:@"DELETE FROM Patient"];
+    [db executeUpdate:@"DELETE FROM PatientMetaData"];
+    [db close];
+}
+
+
+#pragma mark - Load Data from Server into Local
 
 /*---------------------------------------------------------------------------
  Summary:
@@ -360,6 +350,7 @@
     return retval;
 }
 
+#pragma mark - Helper methods
 
 /*---------------------------------------------------------------------------
  Summary:

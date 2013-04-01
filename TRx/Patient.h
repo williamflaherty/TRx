@@ -13,9 +13,9 @@
    
     NSString *firstName, *middleName, *lastName;
     
-    NSInteger birthday;
+    NSString *birthday;
     
-    NSString *chiefComplaint;
+    NSString *chiefComplaint, *patientId, *currentRecordId;
     
     UIImage *photoID;
 }
@@ -24,12 +24,17 @@
 @property(nonatomic,retain) NSString *middleName;
 @property(nonatomic,retain) NSString *lastName;
 
-@property(nonatomic,readwrite) NSInteger birthday;
+@property(nonatomic,readwrite) NSString *birthday;
 
 @property(nonatomic, readwrite) NSString *chiefComplaint;
+@property(nonatomic, readwrite) NSString *patientId;
+@property(nonatomic, readwrite) NSString *currentRecordId;
 
 @property(nonatomic, retain) UIImage *photoID;
 
 -(id)initWithFirstName:(NSString *)fn MiddleName:(NSString*) mn LastName:(NSString*)ln ChiefComplaint:(NSString *)c PhotoID:(UIImage*)p;
 
+-(id)initWithPatientId:(NSString *)patId currentRecordId:(NSString *)currRecordId
+             firstName:(NSString *)fn MiddleName:(NSString*) mn LastName:(NSString*)ln
+              birthday:(NSString *)bDay ChiefComplaint:(NSString *)c PhotoID:(UIImage*)p;
 @end

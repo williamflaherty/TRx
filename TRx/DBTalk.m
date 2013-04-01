@@ -9,6 +9,7 @@
 #import "DBTalk.h"
 #import "AFNetworking.h"
 #import "NZURLConnection.h"
+#import "Utility.h"
 #import <UIKit/UIKit.h>
 
 
@@ -23,6 +24,8 @@ static NSString *imageDir = nil;
     imageDir = @"http://teamecuadortrx.com/TRxTalk/Data/images/";
 }
 
+
+#pragma mark - Add Methods
 
 +(NSString *)addPatient:(NSString *)firstName
              middleName:(NSString *)middleName
@@ -46,9 +49,39 @@ static NSString *imageDir = nil;
         middleName = @"NULL";
     }
     
-    NSString *encodedString = [NSString stringWithFormat:
-                               @"%@add/addPatient/%@/%@/%@/%@/%@", host,
-                               patientId, firstName, middleName, lastName, birthday];
+    //NSString *urlString = //[NSString stringWithFormat:@"%@add/addPatient", host];
+    /************************-----------Begin New Test Code----------------***********************/
+    //note that this is an asynchronous POST
+    
+//    NSURL *url = [NSURL URLWithString:host];
+//    
+//    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+//    
+//    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+//                            firstName, @"firstName",
+//                            middleName, @"middleName",
+//                            lastName, @"lastName",
+//                            birthday, @"birthday",
+//                            patientId, @"patientId",
+//                            nil];
+//    
+//    [httpClient postPath:@"add/addPatient" parameters:params
+//                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//                     <#code#>
+//                 } failure:<#^(AFHTTPRequestOperation *operation, NSError *error)failure#>]
+    
+    
+    
+    /************************-------------End New Test Code----------------***********************/
+    
+    
+    NSString *encodedURL = [NSString stringWithFormat:
+                               @"%@add/addPatient/%@/%@/%@/%@/%@", host, patientId,
+                                                                   [Utility urlEncodeData:firstName],
+                                                                   [Utility urlEncodeData:middleName],
+                                                                   [Utility urlEncodeData:lastName], birthday];
+    //NSString *encodedURL = [Utility urlEncodeData:unencodedURL];
+    NSLog(@"AddPatient encodedURL: %@", encodedURL);
     
     
     /* replace initWithContentsOfURL when can test */
@@ -64,7 +97,7 @@ static NSString *imageDir = nil;
             NSLog(@"addPicture returned %@", retval);
         }
     }]; */
-    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
+    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedURL]];
     
     if (data) {
         NSError *jsonError;
@@ -74,7 +107,7 @@ static NSString *imageDir = nil;
         NSString *retval = [dic objectForKey:@"@returnValue"];
         if ([retval isEqual: @"0"]) {
             NSString *err = [dic objectForKey:@"@error"];
-            [self alertWithMessage:err];
+            [Utility alertWithMessage:err];
             NSLog(@"jsonError in addUpdatePatient?: %@", jsonError);
             return NULL;
         }
@@ -167,7 +200,7 @@ static NSString *imageDir = nil;
     return pictureId;
 }
 
-
+#pragma mark - Delete Patient Methods
 /*---------------------------------------------------------------------------
  * deletes specified patient and associated records. returns true on success
  *---------------------------------------------------------------------------*/
@@ -182,7 +215,7 @@ static NSString *imageDir = nil;
         NSString *retval = [dic objectForKey:@"@returnValue"];
         if ([retval isEqualToString:@"0"]) {
             NSString *err = [dic objectForKey:@"error"];
-            [self alertWithMessage:err];
+            [Utility alertWithMessage:err];
             return false;
         }
         return true;
@@ -191,6 +224,7 @@ static NSString *imageDir = nil;
     return false;
 }
 
+#pragma mark - Get Methods
 
 /*---------------------------------------------------------------------------
  * description: queries database for a list of patients that have records  <-- assumption!
@@ -336,6 +370,8 @@ static NSString *imageDir = nil;
     return NULL;
 }
 
+#pragma mark - Picture Methods
+
 /*---------------------------------------------------------------------------
  *
  *---------------------------------------------------------------------------*/
@@ -458,27 +494,9 @@ static NSString *imageDir = nil;
     return name;
 }
 
-/*---------------------------------------------------------------------------
- * method encodes and returns a string formatted to pass in a url
- *---------------------------------------------------------------------------*/
-+(NSString *) urlEncodeData:(NSString *)str {
-    NSString *encodedString = (__bridge NSString *)
-    CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                            (CFStringRef)str,
-                                            NULL,
-                                            CFSTR("!*'();:@&=+$,/?%#[]"),
-                                            kCFStringEncodingUTF8);
-    return encodedString;
-}
 
-+(void)alertWithMessage:(NSString *)message {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                    message:message
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-}
+
+
 
 
 
