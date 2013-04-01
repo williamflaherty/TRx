@@ -21,6 +21,9 @@
 @property(nonatomic,retain) NSString *lastName;
 @property(nonatomic,readwrite) NSInteger birthday;
 @property(nonatomic, readwrite) NSString *chiefComplaint;
+@property(nonatomic, readwrite) NSString *patientId;
+@property(nonatomic, readwrite) NSString *currentRecordId;
+
 @property(nonatomic, retain) UIImage *photoID;
 
 -(id)initWithFirstName:(NSString *)fn MiddleName:(NSString*) mn LastName:(NSString*)ln ChiefComplaint:(NSString *)c PhotoID:(UIImage*)p;

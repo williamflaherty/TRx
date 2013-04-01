@@ -182,6 +182,25 @@ finishedSavingWithError:(NSError *)error
     [LocalTalkWrapper addPatientObjectToLocal:newPatient];
     [LocalTalkWrapper addNewPatientAndSynchData];
 
+    [LocalTalk localStorePatientMetaData:@"surgeryTypeId" value:@"1"];//hardcoded unless Mark verifies working
+    [LocalTalk localStorePatientMetaData:@"doctorId" value:@"1"]; //hardcoded unless Mark verifies working
+    
+    BOOL storedPic = [LocalTalk localStorePortrait:newPatient.photoID];
+    if (!storedPic) {
+        NSLog(@"Error storing portrait in HistoryViewController nextView");
+    }
+    
+    /* 
+     * temporary values. nothing gets synched unless addPatient and addRecord
+     * get called successfully and return the patientId and recordId
+     */
+    [LocalTalk localStoreTempPatientId];
+    [LocalTalk localStoreTempRecordId];
+    
+    
+    /* Worse comes to worst, we comment this out before the presentation */
+    [LocalTalk synchPatientData];
+
     
     //[self performSegueWithIdentifier:@"nextViewController" sender:nil];
 }

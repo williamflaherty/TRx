@@ -859,19 +859,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C44D6F4616D19AD60036E40B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C44D6F5A16D19AD60036E40B /* TRxTests.m in Sources */,
-				19087ED116E95364007FE40B /* PatientListViewCell.m in Sources */,
-				13F3523E16EE66C3009321E7 /* FMDatabase.m in Sources */,
-				13F3523F16EE66C3009321E7 /* FMDatabasePool.m in Sources */,
-				13F3524016EE66C3009321E7 /* FMResultSet.m in Sources */,
-				13F3524316EE678B009321E7 /* Utility.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
