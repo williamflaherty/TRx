@@ -8,6 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HistoryQuestion : UITableView
+typedef enum{
+    YESNO,
+    SINGLESELECTION,
+    MULTIPLESELECTION,
+    TEXTFIELD,
+    OTHER,
+} qType;
+
+@interface HistoryQuestion : UIImageView{
+    
+    qType type;
+    float minHeight, maxHeight;
+    UIImage *backgroundImage;
+    
+    NSString *qEnglish, *qSpanish;
+    
+    
+    
+}
 
 @end

@@ -1,13 +1,13 @@
 //
-//  TRxTests.h
-//  TRxTests
+//  UnitTests.h
+//  UnitTests
 //
-//  Created by Mark Bellott on 2/17/13.
+//  Created by John Cotham on 3/28/13.
 //  Copyright (c) 2013 Team Ecuador. All rights reserved.
 //
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface TRxTests : SenTestCase
+@interface UnitTests : SenTestCase
 
 @end

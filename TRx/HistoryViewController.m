@@ -9,6 +9,7 @@
 #import "HistoryViewController.h"
 #import "DBTalk.h"
 #import "AdminInformation.h"
+#import "LocalTalkWrapper.h"
 #import "LocalTalk.h"
 
 @interface HistoryViewController ()
@@ -24,7 +25,7 @@
     [super viewDidLoad];
 
     newPatient = [[Patient alloc] initWithFirstName:@"Rob" MiddleName:@"D" LastName:@"woMan" ChiefComplaint:@"1" PhotoID:NULL];
-    newPatient.birthday = 20010203;
+    newPatient.birthday = @"20010203";
     _complaintsArray = [AdminInformation getSurgeryNames];
     
     _imageView.image = [UIImage imageNamed:@"PatientPhotoBlank.png"];
@@ -32,21 +33,7 @@
     firstNameText.delegate = self;
     middleNameText.delegate = self;
     lastNameText.delegate = self;
-
-
-    //[LocalTalk localClearPatientData];
-    //[LocalTalk localStorePatientId:@"3333"];
-    //[LocalTalk localStoreRecordId:@"4444"];
-//    NSString *patId = [LocalTalk localGetPatientId];
-//    NSString *recId = [LocalTalk localGetRecordId];
-//    
-//    NSLog(@"HistViewCont : viewDidLoad --> patientId: %@", patId);
-//    NSLog(@"HistViewCont : viewDidLoad --> recordId: %@", recId);
-    //_complaintsArray = [DBTalk getSurgeryList];
     
-    
-    
-    [LocalTalk localClearPatientData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -62,37 +49,34 @@
 }
 
 -(void) addPatient:(id)sender{
-    //Idealy, I think we should call a DBTalk function called "addPatient" from here, passing it the newPatient object...
-    //[DBTalk addPatient:newPatient];
+    
+    
+    /* testing for loadpatientrecord */
+    //[LocalTalk loadPatientRecordIntoLocal:@"25"];
+    //[LocalTalk printLocal];
+    
+    /* end testing for loadpatientrecordintolocal */
+    
+    
+    
+    
     
     [self storeNames];
+    
     if([firstName isEqualToString:@""] || [lastName isEqualToString:@""]){
         //return;
     }
-    [LocalTalk localStorePortrait:newPatient.photoID]; 
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateStyle = NSDateFormatterShortStyle;
     //NSInteger day = _birthdayPicker;
     pBirthday = [NSString stringWithFormat:@"%@", [df stringFromDate:_birthdayPicker.date]];
                  
+
     
-    /*
-    NSString *bday = [NSString stringWithFormat:@"%d", newPatient.birthday];
-    NSString *patientId = [DBTalk addUpdatePatient:newPatient.firstName middleName:newPatient.middleName
-                                          lastName:newPatient.lastName birthday:bday patientId:NULL];
-    */
-    
-    //Alert -- have hard-coded surgeryTypeId and doctorId for now
-    //NSString *recordId = [DBTalk addRecord:patientId surgeryTypeId:@"1" doctorId:@"1" isActive:@"1" hasTimeout:@"0"];
-    //The below method causes the appilication to crash
-    
-    //NSString *fakeId = @"31n000";
-    //newPatient.photoID = [DBTalk getThumbFromServer:(fakeId)];
-    //[DBTalk addPicture:newPatient.photoID pictureId:NULL patientId:@"40" customPictureName:NULL isProfile:@"1"];
-    //[DBTalk addProfilePicture:newPatient.photoID patientId:@"50"];
-    
-    //NSLog(@"AddPatient button pressed:\npatientId: %@\nrecordId:%@\n", patientId, recordId);
+    /* Take patient Object and add its information to the local database */
+    [LocalTalkWrapper addPatientObjectToLocal:newPatient];
+    [LocalTalkWrapper addNewPatientAndSynchData];
 }
 
 #pragma mark - Camera Methods
@@ -119,15 +103,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [self dismissViewControllerAnimated:YES completion:nil];
     
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    
-/*
-    Crop and flip the image
-    CGRect cropRect = CGRectMake(256, 152, 750, 750);
-    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], cropRect);
-    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
-    UIImage *finalImage =   [UIImage imageWithCGImage:croppedImage.CGImage scale:1.0 orientation:UIImageOrientationDownMirrored];
-*/
-   
+     
     //Store the image for the patient
     photoID = image;
     newPatient.photoID = image;
@@ -202,13 +178,9 @@ finishedSavingWithError:(NSError *)error
     
     [self storeNames];
     
-    /*store essential Patient Meta Data into LocalDatabase before calling synchPatientData*/
-    [LocalTalk localClearPatientData];
-    
-    [LocalTalk localStorePatientMetaData:@"birthDay" value:[NSString stringWithFormat:@"%d", newPatient.birthday]];
-    [LocalTalk localStorePatientMetaData:@"firstName" value:newPatient.firstName];
-    [LocalTalk localStorePatientMetaData:@"middleName" value:newPatient.middleName];
-    [LocalTalk localStorePatientMetaData:@"lastName" value:newPatient.lastName];
+    /* Take patient Object and add its information to the local database */
+    [LocalTalkWrapper addPatientObjectToLocal:newPatient];
+    [LocalTalkWrapper addNewPatientAndSynchData];
 
     [LocalTalk localStorePatientMetaData:@"surgeryTypeId" value:@"1"];//hardcoded unless Mark verifies working
     [LocalTalk localStorePatientMetaData:@"doctorId" value:@"1"]; //hardcoded unless Mark verifies working
@@ -227,10 +199,11 @@ finishedSavingWithError:(NSError *)error
     
     
     /* Worse comes to worst, we comment this out before the presentation */
-    [LocalTalk synchPatientData];
+    //[LocalTalk synchPatientData];
+    
 
     
-    [self performSegueWithIdentifier:@"nextViewController" sender:nil];
+    //[self performSegueWithIdentifier:@"nextViewController" sender:nil];
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"nextViewController"]){
