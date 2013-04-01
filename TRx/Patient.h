@@ -8,26 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface Patient : NSObject{
    
     NSString *firstName, *middleName, *lastName;
-    
     NSInteger birthday;
-    
     NSString *chiefComplaint;
-    
     UIImage *photoID;
 }
 
 @property(nonatomic,retain) NSString *firstName;
 @property(nonatomic,retain) NSString *middleName;
 @property(nonatomic,retain) NSString *lastName;
-
 @property(nonatomic,readwrite) NSInteger birthday;
-
 @property(nonatomic, readwrite) NSString *chiefComplaint;
-
 @property(nonatomic, retain) UIImage *photoID;
 
 -(id)initWithFirstName:(NSString *)fn MiddleName:(NSString*) mn LastName:(NSString*)ln ChiefComplaint:(NSString *)c PhotoID:(UIImage*)p;

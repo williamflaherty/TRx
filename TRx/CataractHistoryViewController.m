@@ -35,4 +35,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - back button clicked
+- (void)previousView:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end

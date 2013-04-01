@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CataractHistoryViewController : UIViewController
+@interface CataractHistoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>{
+    IBOutlet UIButton *previous;
+}
 
+- (IBAction)previousView:(id)sender;
 @end

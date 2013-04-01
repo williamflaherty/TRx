@@ -119,15 +119,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [self dismissViewControllerAnimated:YES completion:nil];
     
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    
-/*
-    Crop and flip the image
-    CGRect cropRect = CGRectMake(256, 152, 750, 750);
-    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], cropRect);
-    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
-    UIImage *finalImage =   [UIImage imageWithCGImage:croppedImage.CGImage scale:1.0 orientation:UIImageOrientationDownMirrored];
-*/
-   
+     
     //Store the image for the patient
     photoID = image;
     newPatient.photoID = image;
@@ -230,7 +222,7 @@ finishedSavingWithError:(NSError *)error
     [LocalTalk synchPatientData];
 
     
-    [self performSegueWithIdentifier:@"nextViewController" sender:nil];
+    //[self performSegueWithIdentifier:@"nextViewController" sender:nil];
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"nextViewController"]){
