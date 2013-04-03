@@ -1,18 +1,18 @@
 //
-//  CataractHistoryViewController.m
+//  DynamicHistoryViewController.m
 //  TRx
 //
-//  Created by Mark Bellott on 3/27/13.
+//  Created by Mark Bellott on 4/2/13.
 //  Copyright (c) 2013 Team Ecuador. All rights reserved.
 //
 
-#import "CataractHistoryViewController.h"
+#import "DynamicHistoryViewController.h"
 
-@interface CataractHistoryViewController ()
+@interface DynamicHistoryViewController ()
 
 @end
 
-@implementation CataractHistoryViewController
+@implementation DynamicHistoryViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,11 +33,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - back button clicked
-- (void)previousView:(id)sender{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
