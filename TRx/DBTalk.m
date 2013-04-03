@@ -8,6 +8,7 @@
 
 #import "DBTalk.h"
 #import "AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
 #import "NZURLConnection.h"
 #import "Utility.h"
 #import <UIKit/UIKit.h>
@@ -232,9 +233,14 @@ static NSString *imageDir = nil;
 +(UIImage *)getThumbFromServer:(NSString *)fileName {
     NSString *str = [NSString stringWithFormat:@"%@thumbs/%@.jpeg", imageDir, fileName];
     NSURL *url = [NSURL URLWithString:str];
-    UIImage *myImage = [UIImage imageWithData:
-                        [NSData dataWithContentsOfURL:url]];
-    return myImage;
+    //UIImage *myImage = [UIImage imageWithData:
+     //                   [NSData dataWithContentsOfURL:url]];
+    
+    UIImageView *imageView = [[UIImageView alloc] init];
+    [imageView setImageWithURL:url];
+    //return myImage;
+    //[imageView ]
+    return imageView.image;
 }
 
 

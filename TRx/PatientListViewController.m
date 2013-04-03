@@ -8,6 +8,7 @@
 
 #import "PatientListViewController.h"
 #import "PatientListViewCell.h"
+#import "UIImageView+AFNetworking.h"
 #import "DBTalk.h" 
 #import "LocalTalk.h"
 #import "Patient.h"
@@ -56,7 +57,8 @@
     patientsArray = [DBTalk getPatientList];
     patients = [NSMutableArray array];
     NSArray *complaints = [NSArray arrayWithObjects:@"Cleft Lip",@"Hernia",@"Cataracts", nil];
-    
+   
+   
     for(NSDictionary *item in patientsArray){
         NSLog(@"%@", item);
         firstName = [item objectForKey:@"FirstName"];
@@ -65,10 +67,12 @@
         patientId = [item objectForKey:@"Id"];
         recordId = [item objectForKey:@"recordId"];
         imageId = [NSString stringWithFormat:@"%@n000", patientId];
-        picture = [DBTalk getThumbFromServer:(imageId)];
+        
+        //picture = [DBTalk getThumbFromServer:(imageId)];
         uint32_t rnd = arc4random_uniform([complaints count]);
         complaint = [complaints objectAtIndex:rnd];
         Patient *obj = [[Patient alloc] initWithFirstName:(firstName) MiddleName:(middleName) LastName:(lastName) ChiefComplaint:(complaint) PhotoID:(picture)];
+        obj.patientId = patientId;
         NSLog(@"%@", picture);
         NSLog(@"%@", imageId);
         [patients addObject:obj];
@@ -122,11 +126,24 @@
     return (unsigned long) patientsArray.count;
 }
 
+/*---------------------------------------------------------------------------
+ Summary:
+    Loads cells for tableview.
+    thumbnails now load asynchronously
+ Details:
+    redeclared cells to be __unsafe_unretained
+ TODO:
+    can I encapsulate this code in DBTalk's getThumb?
+    can these images be stored in an array so they don't always have to be loaded from server?
+    clean up
+ *---------------------------------------------------------------------------*/
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *name; 
+    NSString *name;
+    
     static NSString *CellIdentifier = @"patientListCell";
-    PatientListViewCell *cell = [tableView
+    __unsafe_unretained PatientListViewCell *cell = [tableView
                               dequeueReusableCellWithIdentifier:CellIdentifier
                               forIndexPath:indexPath];
     
@@ -144,6 +161,20 @@
     cell.chiefComplaint.text = (NSString*)[[patients objectAtIndex:row] chiefComplaint];
     cell.patientPicture.image = [[patients objectAtIndex:row] photoID];
     //cell.patientPicture.image = [UIImage imageNamed:_carImages[row]];
+    
+    
+    NSString *imageId = [NSString stringWithFormat:@"%@n000", [[patients objectAtIndex:row] patientId]];
+    NSString *imageDir = @"http://teamecuadortrx.com/TRxTalk/Data/images/";
+    NSString *str = [NSString stringWithFormat:@"%@thumbs/%@.jpeg", imageDir, imageId];
+
+    NSURL *url = [NSURL URLWithString:str];
+    
+    [cell.patientPicture setImageWithURLRequest:[NSURLRequest requestWithURL:url] placeholderImage:NULL success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        NSLog(@"success");
+        cell.patientPicture.image = image;
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        NSLog(@"fail");
+    }];
     
     return cell;
 }
