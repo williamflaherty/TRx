@@ -38,7 +38,8 @@
 		19DAF54D16F8CE00008E1BA7 /* LocalDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 13CF9B2616ECF829006CF20B /* LocalDatabase.sqlite */; };
 		C402E4FB170A007500737787 /* LocalTalkWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1327D4CC1708F464005010BC /* LocalTalkWrapper.m */; };
 		C402E4FC170A008D00737787 /* SynchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF64F31700EC3400F0A4FE /* SynchData.m */; };
-		C40E767A170339DB000113BD /* CataractHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40E7679170339DB000113BD /* CataractHistoryViewController.m */; };
+		C402E4FF170BC29A00737787 /* DynamicHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E4FE170BC29900737787 /* DynamicHistoryViewController.m */; };
+		C402E502170BCD6F00737787 /* HistoryQuestionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E501170BCD6F00737787 /* HistoryQuestionLabel.m */; };
 		C446619E16EEE2FF008CE130 /* HistoryBackgroundLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */; };
 		C446619F16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */; };
 		C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
@@ -51,7 +52,6 @@
 		C44D6F3D16D19AD60036E40B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C44D6F3C16D19AD60036E40B /* Default@2x.png */; };
 		C44D6F3F16D19AD60036E40B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C44D6F3E16D19AD60036E40B /* Default-568h@2x.png */; };
 		C44D6F4516D19AD60036E40B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D6F4416D19AD60036E40B /* ViewController.m */; };
-		C465F3B416F8D436009E7EA3 /* HistoryQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = C465F3B316F8D436009E7EA3 /* HistoryQuestion.m */; };
 		C469AA7316E8FDE500E75E7A /* PatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AA7216E8FDE500E75E7A /* PatientListViewController.m */; };
 		C469AA7D16E905D100E75E7A /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = C469AA7916E905D100E75E7A /* Icon-72.png */; };
 		C469AA7E16E905D100E75E7A /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C469AA7A16E905D100E75E7A /* Icon-72@2x.png */; };
@@ -172,8 +172,10 @@
 		1975163816EFC6C50008AA1F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		19C32A2E16EFB3B300CC1318 /* SurgeryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurgeryViewController.h; sourceTree = "<group>"; };
 		19C32A2F16EFB3B300CC1318 /* SurgeryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurgeryViewController.m; sourceTree = "<group>"; };
-		C40E7678170339DB000113BD /* CataractHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CataractHistoryViewController.h; sourceTree = "<group>"; };
-		C40E7679170339DB000113BD /* CataractHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CataractHistoryViewController.m; sourceTree = "<group>"; };
+		C402E4FD170BC29900737787 /* DynamicHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamicHistoryViewController.h; path = ../DynamicHistoryViewController.h; sourceTree = "<group>"; };
+		C402E4FE170BC29900737787 /* DynamicHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DynamicHistoryViewController.m; path = ../DynamicHistoryViewController.m; sourceTree = "<group>"; };
+		C402E500170BCD6F00737787 /* HistoryQuestionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryQuestionLabel.h; sourceTree = "<group>"; };
+		C402E501170BCD6F00737787 /* HistoryQuestionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryQuestionLabel.m; sourceTree = "<group>"; };
 		C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryBackgroundLandscape.png; path = Resources/TRx_png/HistoryBackgroundLandscape.png; sourceTree = SOURCE_ROOT; };
 		C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryBackgroundLandscape22x.png; path = Resources/TRx_png/HistoryBackgroundLandscape22x.png; sourceTree = SOURCE_ROOT; };
 		C44D6F2516D19AD60036E40B /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,8 +194,6 @@
 		C44D6F4316D19AD60036E40B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		C44D6F4416D19AD60036E40B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C44D6F4C16D19AD60036E40B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		C465F3B216F8D436009E7EA3 /* HistoryQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryQuestion.h; sourceTree = "<group>"; };
-		C465F3B316F8D436009E7EA3 /* HistoryQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryQuestion.m; sourceTree = "<group>"; };
 		C469AA7116E8FDE500E75E7A /* PatientListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientListViewController.h; sourceTree = "<group>"; };
 		C469AA7216E8FDE500E75E7A /* PatientListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListViewController.m; sourceTree = "<group>"; };
 		C469AA7916E905D100E75E7A /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/TRx_png/Icon-72.png"; sourceTree = SOURCE_ROOT; };
@@ -452,8 +452,8 @@
 				C499B58116ED149E00F40046 /* HistoryNavigationController.m */,
 				C499B56816EC21E400F40046 /* HistoryViewController.h */,
 				C499B56916EC21E400F40046 /* HistoryViewController.m */,
-				C40E7678170339DB000113BD /* CataractHistoryViewController.h */,
-				C40E7679170339DB000113BD /* CataractHistoryViewController.m */,
+				C402E4FD170BC29900737787 /* DynamicHistoryViewController.h */,
+				C402E4FE170BC29900737787 /* DynamicHistoryViewController.m */,
 			);
 			name = "Tab 2 - History";
 			sourceTree = "<group>";
@@ -574,8 +574,8 @@
 				C469AA9C16E9469F00E75E7A /* AdminInformation.m */,
 				C469AA9816E90A0100E75E7A /* Patient.h */,
 				C469AA9916E90A0100E75E7A /* Patient.m */,
-				C465F3B216F8D436009E7EA3 /* HistoryQuestion.h */,
-				C465F3B316F8D436009E7EA3 /* HistoryQuestion.m */,
+				C402E500170BCD6F00737787 /* HistoryQuestionLabel.h */,
+				C402E501170BCD6F00737787 /* HistoryQuestionLabel.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -862,8 +862,8 @@
 				13F3528916EEEF21009321E7 /* AFXMLRequestOperation.m in Sources */,
 				13F3528A16EEEF21009321E7 /* UIImageView+AFNetworking.m in Sources */,
 				19C32A3016EFB3B300CC1318 /* SurgeryViewController.m in Sources */,
-				C465F3B416F8D436009E7EA3 /* HistoryQuestion.m in Sources */,
-				C40E767A170339DB000113BD /* CataractHistoryViewController.m in Sources */,
+				C402E4FF170BC29A00737787 /* DynamicHistoryViewController.m in Sources */,
+				C402E502170BCD6F00737787 /* HistoryQuestionLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

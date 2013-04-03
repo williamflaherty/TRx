@@ -164,11 +164,12 @@ finishedSavingWithError:(NSError *)error
 
 #pragma mark - Next button segues to next view controller
 
+//NOTE: Temporarily disconnected from the next button....
 - (void)nextView:(id)sender {
-    
+ 
     [self storeNames];
     
-    /* Take patient Object and add its information to the local database */
+    //Take patient Object and add its information to the local database
     [LocalTalkWrapper addPatientObjectToLocal:newPatient];
     [LocalTalkWrapper addNewPatientAndSynchData];
 
@@ -180,19 +181,17 @@ finishedSavingWithError:(NSError *)error
         NSLog(@"Error storing portrait in HistoryViewController nextView");
     }
     
-    /* 
-     * temporary values. nothing gets synched unless addPatient and addRecord
-     * get called successfully and return the patientId and recordId
-     */
+    //temporary values. nothing gets synched unless addPatient and addRecord
+    //get called successfully and return the patientId and recordId
     [LocalTalk localStoreTempPatientId];
     [LocalTalk localStoreTempRecordId];
     
     
-    /* Worse comes to worst, we comment this out before the presentation */
+    //Worse comes to worst, we comment this out before the presentation 
     [LocalTalkWrapper addNewPatientAndSynchData];
     
 
-    
+
     //[self performSegueWithIdentifier:@"nextViewController" sender:nil];
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

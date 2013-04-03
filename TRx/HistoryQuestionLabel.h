@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HistoryQuestionLabel : UILabel
+@interface HistoryQuestionLabel : UILabel{
+    
+    float minHeight;
+    
+}
+
+@property (nonatomic) float minHeight;
+
+-(void) calculateSize;
 
 @end
