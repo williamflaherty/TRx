@@ -14,30 +14,17 @@
 
 @implementation SynchData
 
-+(BOOL)synchProfilePicture {
-    /*needs to happen asynchronously*/
-    return false;
-}
 
-+(BOOL)synchAddNewPatient {
-    /*needs to happen synchronously*/
-    
-    
-    /*if fails, sends error message to user why*/
-    /*(no connection, patient already in system., other*/
-    /*if no connection failure, pass back "tmp_id" as patientId */
-    return false;
-}
 
-+(BOOL)synchImagesForPatient:(NSString *)patientId {
+
++(BOOL)syncProfilePicture:(NSString *)patientId {
     
     FMResultSet *toSynch;
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
     
-    NSLog(@"In synchImages, checking if synch picture");
-    toSynch = [db executeQuery:@"SELECT \"Synched\" FROM Images"];
-    
+    //check local database to see if image is synced
+    toSynch = [db executeQuery:@"SELECT Synched FROM Images WHERE imageType = ?", @"portrait"]; //select portrait
     if (!toSynch) {
         NSLog(@"%@", [db lastErrorMessage]);
         [db close];
@@ -47,9 +34,11 @@
     [toSynch next];
     int picSynched = [toSynch intForColumnIndex:0];
     if (picSynched) {
-        NSLog(@"Picture already synched");
+        NSLog(@"Picture already synced");
         return true;
     }
+    
+    //if not synced, retrieve image from local and add to server
     UIImage *image = [LocalTalk localGetPortrait];
     if (!image) {
         NSLog(@"Didn't retrieve an image from LocalDatabase");
@@ -58,12 +47,10 @@
     }
     
     [DBTalk addProfilePicture:image patientId:patientId];
-    NSLog(@"...finished synch picture");
     
     //update local table so that 'Synched' column = 1;
-    BOOL result = [db executeUpdate:@"INSERT INTO Images (Synched) VALUES (1)"];
+    BOOL result = [db executeUpdate:@"UPDATE Images SET Synched = 1 WHERE imageType = ?", @"portrait"];
     if (!result) {
-        NSLog(@"\tValues not set to 'Synched'");
         [db close];
         return false;
     }
@@ -73,7 +60,7 @@
     return true;
 }
 
-+(BOOL)synchDataForRecord:(NSString *)recordId {
++(BOOL)syncDataForRecord:(NSString *)recordId {
     NSString *questionId, *value;
         
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
@@ -114,9 +101,29 @@
     return true;
 }
 
+
+
+/*---------------------------------------------------------------------------
+ Summary:
+    Checks if patient needs to be added or updated and calls add or update method
+ Details:
+
+ Notes:
+    
+ Returns:
+    false if failure. true if patient synced
+ TODO:
+    See if there is a way to use AddUpdatePatient rather than if/else and two
+    different methods.
+    Change out hard-coded birthdays
+ ----------------------------------------------------------------------------*/
+
+
+
 +(BOOL)addOrUpdatePatient:(Patient *)newPatient {
     NSString *patientId;
     BOOL IDStored;
+    
     if ([newPatient.patientId isEqual: @"tmpPatientId"]) {
         patientId = [DBTalk addPatient:newPatient.firstName
                             middleName:newPatient.middleName
@@ -136,8 +143,9 @@
         newPatient.patientId = patientId;
     }
     else {
+        NSLog(@"addOrUpdatePatient. In the else with: %@", newPatient.firstName);
         patientId = [DBTalk addUpdatePatient:newPatient.firstName middleName:newPatient.middleName
-                                    lastName:newPatient.lastName birthday:newPatient.birthday patientId:newPatient.patientId];
+                                    lastName:newPatient.lastName birthday:@"20081010" patientId:newPatient.patientId];
         if (!patientId) {
             NSLog(@"Failed to update patient: %@ %@", newPatient.firstName, newPatient.lastName);
             return false;
@@ -176,8 +184,25 @@
     return true;
 }
 
-
-+(BOOL)addPatientToDatabaseAndSynchData {
+/*---------------------------------------------------------------------------
+ Summary:
+    Attempts to add new patient, new patient's record
+    Then synchs data
+ Details:
+    First checks if patientId and recordId are temporary
+    if temporary && there is a server connection
+    call addPatient and addPatientRecord
+    then synchronize Patient data and set Patient.Synched to true
+ Notes:
+    AddPatient and AddRecord run Synchronously. Others, asynchronously.
+    Current version assumes connection to server
+ Returns:
+    true if all sync with no error
+ TODO:
+    Check if connected to internet. If not, cache.
+    Double check that Data is synched asynchronously
+ ----------------------------------------------------------------------------*/
++(BOOL)addPatientToDatabaseAndSyncData {
     NSLog(@"Beginning SynchPatientData");
     
     //load Patient data from Local Database into Patient object
@@ -191,17 +216,22 @@
     
     BOOL recordSynced = [self addOrUpdateRecord:newPatient];
     if (!recordSynced) {
-        NSLog(@"Error Syncing Patient");
+        NSLog(@"Error Syncing Patient Record");
         return false;
     }
     
-    BOOL dataSynced = [self synchDataForRecord:newPatient.currentRecordId];
+    BOOL dataSynced = [self syncDataForRecord:newPatient.currentRecordId];
     if (!dataSynced) {
         NSLog(@"Error synching Data");
         return false;
     }
     
-    BOOL imageSynced = [self synchImagesForPatient:newPatient.patientId];
+    /* added until testing with images is possible */
+    if (newPatient.photoID == NULL) {
+        return true;
+    }
+    
+    BOOL imageSynced = [self syncProfilePicture:newPatient.patientId];
     if (!imageSynced) {
         NSLog(@"Error synching Image");
         return false;

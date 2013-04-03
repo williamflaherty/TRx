@@ -9,6 +9,7 @@
 #import "PatientListViewController.h"
 #import "PatientListViewCell.h"
 #import "DBTalk.h" 
+#import "LocalTalk.h"
 #import "Patient.h"
 
 /*
@@ -36,6 +37,12 @@
 #pragma mark - Adding patient segues to 2nd tab 
 
 -(void)addPatients:(id)sender{
+    /* clear local database for new patient */
+    [LocalTalk localClearPatientData];
+    
+    /* initialize local database with temp values for patientId and recordId */
+    [LocalTalk localStoreTempPatientId];
+    [LocalTalk localStoreTempRecordId];
     [self performSegueWithIdentifier:@"listTabSegue" sender:addPatientsButton];
 }
 

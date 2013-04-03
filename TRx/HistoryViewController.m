@@ -50,21 +50,11 @@
 
 -(void) addPatient:(id)sender{
     
-    
-    /* testing for loadpatientrecord */
-    //[LocalTalk loadPatientRecordIntoLocal:@"25"];
-    //[LocalTalk printLocal];
-    
-    /* end testing for loadpatientrecordintolocal */
-    
-    
-    
-    
-    
     [self storeNames];
     
     if([firstName isEqualToString:@""] || [lastName isEqualToString:@""]){
-        //return;
+        [Utility alertWithMessage:@"First and Last name must be filled out"];
+        return;
     }
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];

@@ -47,12 +47,14 @@
 
 +(NSString *)getEnglishLabel:(NSString *)questionId;
 +(NSString *)getSpanishLabel:(NSString *)questionId;
++(NSString *)getQuestionType:(NSString *)questionId;
 
 //+(BOOL)cachePatientData;
 //+(BOOL)loadDataFromCacheIntoLocal:(NSString *)fname;
 //+(BOOL)isUnsynched;
 
 //+(UIImage *)localGetPatientImage:(NSString *)patientId;
+
 
 /* for testing */
 +(void)printLocal;

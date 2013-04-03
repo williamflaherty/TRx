@@ -10,11 +10,24 @@
 
 @implementation LocalTalkWrapper
 
+/*---------------------------------------------------------------------------
+ Summary:
+    Takes a patient object and adds its data to the local database's
+    PatientMetaData table. Also gives a temporary patientId and recordId
+ Details:
+    Method should only be called once for a new patient
+ Notes:
+    AddPatient and AddRecord run Synchronously. Others, asynchronously.
+ Returns:
+    void (currently)
+ TODO:
+    Maybe add error testing and return true or false
+    Make sure this only ever gets called once
+        --method clears patient table and puts in tmpIds, overwriting previous data
+ ----------------------------------------------------------------------------*/
 +(void)addPatientObjectToLocal:(Patient *)newPatient {
     /*store essential Patient Meta Data into LocalDatabase before calling synchPatientData*/
-    [LocalTalk localClearPatientData];
-    
-    [LocalTalk localStorePatientMetaData:@"birthDay" value:[NSString stringWithFormat:@"%d", newPatient.birthday]];
+    [LocalTalk localStorePatientMetaData:@"birthDay" value:newPatient.birthday];
     [LocalTalk localStorePatientMetaData:@"firstName" value:newPatient.firstName];
     [LocalTalk localStorePatientMetaData:@"middleName" value:newPatient.middleName];
     [LocalTalk localStorePatientMetaData:@"lastName" value:newPatient.lastName];
@@ -31,8 +44,15 @@
      * temporary values. nothing gets synched unless addPatient and addRecord
      * get called successfully and return the patientId and recordId
      */
-    [LocalTalk localStoreTempPatientId];
-    [LocalTalk localStoreTempRecordId];
+    
+    /* only call if no values stored yet */
+//    if (![LocalTalk entryInPatientMetaData:@"patientId"]) {
+//        [LocalTalk localStoreTempPatientId];
+//    }
+//    if (![LocalTalk entryInPatientMetaData:@"recordId"]) {
+//        [LocalTalk localStoreTempRecordId];
+//    }
+    
 }
 
 /*---------------------------------------------------------------------------
@@ -43,7 +63,7 @@
     First checks if patientId and recordId are temporary
     if temporary && there is a server connection
     call addPatient and addPatientRecord
-    then synchronize Patient data and set Patient.Synched to false
+    then synchronize Patient data and set Patient.Synched to true
  Notes:
     AddPatient and AddRecord run Synchronously. Others, asynchronously.
  Returns:
@@ -53,7 +73,7 @@
     Double check that Data is synched asynchronously
  ----------------------------------------------------------------------------*/
 +(BOOL)addNewPatientAndSynchData {
-    return [SynchData addPatientToDatabaseAndSynchData];
+    return [SynchData addPatientToDatabaseAndSyncData];
 }
 
 @end

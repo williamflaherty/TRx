@@ -50,8 +50,9 @@
                            value:(NSString *)value {
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
-    NSString *query = [NSString stringWithFormat:@"INSERT INTO PatientMetaData (Key, Value) VALUES (\"%@\", \"%@\")", key, value];
-    BOOL retval = [db executeUpdate:query];//@"INSERT INTO PatientMetaData (Key, Value) VALUES (?, ?)", key, value];
+    //NSLog(@"In localStorePatientMetaData key: %@ value: %@", key, value);
+    NSString *query = [NSString stringWithFormat:@"REPLACE INTO PatientMetaData (Key, Value) VALUES (\"%@\", \"%@\")", key, value];
+    BOOL retval = [db executeUpdate:query];//@"INSERT INTO
     if (!retval) {
         NSLog(@"Error storing into patientMetaData");
         NSLog(@"%@", [db lastErrorMessage]);
@@ -233,6 +234,10 @@
     return [self getLabel:questionId columnName:@"Spanish"];
 }
 
++(NSString *)getQuestionType:(NSString *)questionId {
+    return [self getLabel:questionId columnName:@"QuestionType"];
+}
+
 /*---------------------------------------------------------------------------
  * Base method for getEnglishLabel and getSpanishLabel
  *---------------------------------------------------------------------------*/
@@ -351,6 +356,7 @@
 }
 
 #pragma mark - Helper methods
+
 
 /*---------------------------------------------------------------------------
  Summary:

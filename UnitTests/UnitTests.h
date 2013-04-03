@@ -7,6 +7,8 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "DBTalk.h"
+#import "LocalTalk.h"
 
 @interface UnitTests : SenTestCase
 

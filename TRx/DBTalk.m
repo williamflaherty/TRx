@@ -49,54 +49,15 @@ static NSString *imageDir = nil;
         middleName = @"NULL";
     }
     
-    //NSString *urlString = //[NSString stringWithFormat:@"%@add/addPatient", host];
-    /************************-----------Begin New Test Code----------------***********************/
-    //note that this is an asynchronous POST
-    
-//    NSURL *url = [NSURL URLWithString:host];
-//    
-//    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-//    
-//    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-//                            firstName, @"firstName",
-//                            middleName, @"middleName",
-//                            lastName, @"lastName",
-//                            birthday, @"birthday",
-//                            patientId, @"patientId",
-//                            nil];
-//    
-//    [httpClient postPath:@"add/addPatient" parameters:params
-//                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//                     <#code#>
-//                 } failure:<#^(AFHTTPRequestOperation *operation, NSError *error)failure#>]
-    
-    
-    
-    /************************-------------End New Test Code----------------***********************/
-    
     
     NSString *encodedURL = [NSString stringWithFormat:
                                @"%@add/addPatient/%@/%@/%@/%@/%@", host, patientId,
                                                                    [Utility urlEncodeData:firstName],
                                                                    [Utility urlEncodeData:middleName],
                                                                    [Utility urlEncodeData:lastName], birthday];
-    //NSString *encodedURL = [Utility urlEncodeData:unencodedURL];
-    NSLog(@"AddPatient encodedURL: %@", encodedURL);
     
-    
-    /* replace initWithContentsOfURL when can test */
-    /* need to figure out how to return with blocks */
-    
-    /*[NZURLConnection getAsynchronousResponseFromURL:encodedString withTimeout:5 completionHandler:^(NSData *response, NSError *error, BOOL timedOut) {
-        if (response) {
-            NSLog(@"%@", response);
-            NSError *jsonError;
-            NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&jsonError];
-            NSDictionary *dic = jsonArray[0];
-            NSString *retval = [dic objectForKey:@"@returnValue"];
-            NSLog(@"addPicture returned %@", retval);
-        }
-    }]; */
+    //NSLog(@"AddPatient encodedURL: %@", encodedURL);
+
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedURL]];
     
     if (data) {
@@ -108,7 +69,7 @@ static NSString *imageDir = nil;
         if ([retval isEqual: @"0"]) {
             NSString *err = [dic objectForKey:@"@error"];
             [Utility alertWithMessage:err];
-            NSLog(@"jsonError in addUpdatePatient?: %@", jsonError);
+            //NSLog(@"jsonError in addUpdatePatient?: %@", jsonError);
             return NULL;
         }
         

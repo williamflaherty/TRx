@@ -15,6 +15,7 @@
 		1327D4BD1704B0AD005010BC /* UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1327D4BC1704B0AD005010BC /* UnitTests.m */; };
 		1327D4C71704BA1A005010BC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1327D4C61704BA1A005010BC /* SystemConfiguration.framework */; };
 		1327D4C91704BA2C005010BC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1327D4C81704BA2C005010BC /* MobileCoreServices.framework */; };
+		13C069FB170B384D00044896 /* TestLocalTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C069FA170B384D00044896 /* TestLocalTalk.m */; };
 		13CF9B2016EC4BAD006CF20B /* LocalTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */; };
 		13D2AB0A16EF9A9300F9ABEB /* NZURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D2AB0916EF9A9300F9ABEB /* NZURLConnection.m */; };
 		13F3521516ED99B1009321E7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F3521416ED99B1009321E7 /* libsqlite3.dylib */; };
@@ -129,6 +130,8 @@
 		1327D4C81704BA2C005010BC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1327D4CB1708F464005010BC /* LocalTalkWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTalkWrapper.h; sourceTree = "<group>"; };
 		1327D4CC1708F464005010BC /* LocalTalkWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTalkWrapper.m; sourceTree = "<group>"; };
+		13C069F9170B384D00044896 /* TestLocalTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLocalTalk.h; sourceTree = "<group>"; };
+		13C069FA170B384D00044896 /* TestLocalTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLocalTalk.m; sourceTree = "<group>"; };
 		13CF9B1E16EC4BAD006CF20B /* LocalTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTalk.h; sourceTree = "<group>"; };
 		13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTalk.m; sourceTree = "<group>"; };
 		13CF9B2616ECF829006CF20B /* LocalDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = LocalDatabase.sqlite; sourceTree = "<group>"; };
@@ -283,6 +286,8 @@
 			children = (
 				1327D4BB1704B0AD005010BC /* UnitTests.h */,
 				1327D4BC1704B0AD005010BC /* UnitTests.m */,
+				13C069F9170B384D00044896 /* TestLocalTalk.h */,
+				13C069FA170B384D00044896 /* TestLocalTalk.m */,
 				1327D4B61704B0AD005010BC /* Supporting Files */,
 			);
 			path = UnitTests;
@@ -815,6 +820,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1327D4BD1704B0AD005010BC /* UnitTests.m in Sources */,
+				13C069FB170B384D00044896 /* TestLocalTalk.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
