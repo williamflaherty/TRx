@@ -1,5 +1,5 @@
 //
-//  HistoryQuestionSelector.h
+//  HQSelector.h
 //  TRx
 //
 //  Created by Mark Bellott on 4/5/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HistoryQuestionSelector : UISegmentedControl
+@interface HQSelector : UISegmentedControl
 
 @end

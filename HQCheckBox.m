@@ -1,14 +1,14 @@
 //
-//  HistoryQuestionSelector.m
+//  HQCheckBox.m
 //  TRx
 //
 //  Created by Mark Bellott on 4/5/13.
 //  Copyright (c) 2013 Team Ecuador. All rights reserved.
 //
 
-#import "HistoryQuestionSelector.h"
+#import "HQCheckBox.h"
 
-@implementation HistoryQuestionSelector
+@implementation HQCheckBox
 
 - (id)initWithFrame:(CGRect)frame
 {

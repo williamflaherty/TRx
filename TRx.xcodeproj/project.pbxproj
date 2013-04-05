@@ -41,8 +41,10 @@
 		C402E4FC170A008D00737787 /* SynchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF64F31700EC3400F0A4FE /* SynchData.m */; };
 		C402E4FF170BC29A00737787 /* DynamicHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E4FE170BC29900737787 /* DynamicHistoryViewController.m */; };
 		C402E502170BCD6F00737787 /* HistoryQuestionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E501170BCD6F00737787 /* HistoryQuestionLabel.m */; };
-		C402E508170F122B00737787 /* HistoryQuestionCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E507170F122B00737787 /* HistoryQuestionCheckBox.m */; };
-		C402E50B170F15A300737787 /* HistoryQuestionSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E50A170F15A300737787 /* HistoryQuestionSelector.m */; };
+		C402E50E170F169200737787 /* HQHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E50D170F169200737787 /* HQHelper.m */; };
+		C402E511170F16AD00737787 /* HQCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E510170F16AD00737787 /* HQCheckBox.m */; };
+		C402E514170F16CF00737787 /* HQSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E513170F16CF00737787 /* HQSelector.m */; };
+		C402E517170F16E100737787 /* HQLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E516170F16E100737787 /* HQLabel.m */; };
 		C446619E16EEE2FF008CE130 /* HistoryBackgroundLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */; };
 		C446619F16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */; };
 		C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
@@ -181,10 +183,14 @@
 		C402E4FE170BC29900737787 /* DynamicHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DynamicHistoryViewController.m; path = ../DynamicHistoryViewController.m; sourceTree = "<group>"; };
 		C402E500170BCD6F00737787 /* HistoryQuestionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryQuestionLabel.h; sourceTree = "<group>"; };
 		C402E501170BCD6F00737787 /* HistoryQuestionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryQuestionLabel.m; sourceTree = "<group>"; };
-		C402E506170F122B00737787 /* HistoryQuestionCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryQuestionCheckBox.h; path = ../HistoryQuestionCheckBox.h; sourceTree = "<group>"; };
-		C402E507170F122B00737787 /* HistoryQuestionCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryQuestionCheckBox.m; path = ../HistoryQuestionCheckBox.m; sourceTree = "<group>"; };
-		C402E509170F15A300737787 /* HistoryQuestionSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryQuestionSelector.h; path = ../HistoryQuestionSelector.h; sourceTree = "<group>"; };
-		C402E50A170F15A300737787 /* HistoryQuestionSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryQuestionSelector.m; path = ../HistoryQuestionSelector.m; sourceTree = "<group>"; };
+		C402E50C170F169200737787 /* HQHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HQHelper.h; path = ../HQHelper.h; sourceTree = "<group>"; };
+		C402E50D170F169200737787 /* HQHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HQHelper.m; path = ../HQHelper.m; sourceTree = "<group>"; };
+		C402E50F170F16AD00737787 /* HQCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HQCheckBox.h; path = ../HQCheckBox.h; sourceTree = "<group>"; };
+		C402E510170F16AD00737787 /* HQCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HQCheckBox.m; path = ../HQCheckBox.m; sourceTree = "<group>"; };
+		C402E512170F16CF00737787 /* HQSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HQSelector.h; path = ../HQSelector.h; sourceTree = "<group>"; };
+		C402E513170F16CF00737787 /* HQSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HQSelector.m; path = ../HQSelector.m; sourceTree = "<group>"; };
+		C402E515170F16E100737787 /* HQLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HQLabel.h; path = ../HQLabel.h; sourceTree = "<group>"; };
+		C402E516170F16E100737787 /* HQLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HQLabel.m; path = ../HQLabel.m; sourceTree = "<group>"; };
 		C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryBackgroundLandscape.png; path = Resources/TRx_png/HistoryBackgroundLandscape.png; sourceTree = SOURCE_ROOT; };
 		C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryBackgroundLandscape22x.png; path = Resources/TRx_png/HistoryBackgroundLandscape22x.png; sourceTree = SOURCE_ROOT; };
 		C44D6F2516D19AD60036E40B /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -585,12 +591,16 @@
 				C469AA9C16E9469F00E75E7A /* AdminInformation.m */,
 				C469AA9816E90A0100E75E7A /* Patient.h */,
 				C469AA9916E90A0100E75E7A /* Patient.m */,
-				C402E506170F122B00737787 /* HistoryQuestionCheckBox.h */,
-				C402E507170F122B00737787 /* HistoryQuestionCheckBox.m */,
+				C402E50C170F169200737787 /* HQHelper.h */,
+				C402E50D170F169200737787 /* HQHelper.m */,
+				C402E50F170F16AD00737787 /* HQCheckBox.h */,
+				C402E510170F16AD00737787 /* HQCheckBox.m */,
 				C402E500170BCD6F00737787 /* HistoryQuestionLabel.h */,
 				C402E501170BCD6F00737787 /* HistoryQuestionLabel.m */,
-				C402E509170F15A300737787 /* HistoryQuestionSelector.h */,
-				C402E50A170F15A300737787 /* HistoryQuestionSelector.m */,
+				C402E515170F16E100737787 /* HQLabel.h */,
+				C402E516170F16E100737787 /* HQLabel.m */,
+				C402E512170F16CF00737787 /* HQSelector.h */,
+				C402E513170F16CF00737787 /* HQSelector.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -880,8 +890,10 @@
 				19C32A3016EFB3B300CC1318 /* SurgeryViewController.m in Sources */,
 				C402E4FF170BC29A00737787 /* DynamicHistoryViewController.m in Sources */,
 				C402E502170BCD6F00737787 /* HistoryQuestionLabel.m in Sources */,
-				C402E508170F122B00737787 /* HistoryQuestionCheckBox.m in Sources */,
-				C402E50B170F15A300737787 /* HistoryQuestionSelector.m in Sources */,
+				C402E50E170F169200737787 /* HQHelper.m in Sources */,
+				C402E511170F16AD00737787 /* HQCheckBox.m in Sources */,
+				C402E514170F16CF00737787 /* HQSelector.m in Sources */,
+				C402E517170F16E100737787 /* HQLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

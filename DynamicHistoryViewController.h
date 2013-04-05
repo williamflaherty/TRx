@@ -7,14 +7,14 @@
 // 
 
 #import <UIKit/UIKit.h>
-#import "HistoryQuestionLabel.h"
+#import "HQLabel.h"
 
 @interface DynamicHistoryViewController : UIViewController{
     
     float availableSpace;
     NSInteger pageCount;
     NSString *questionText;
-    HistoryQuestionLabel *mainQuestion;
+    HQLabel *mainQuestion;
     //UILabel *mainQuestion;
     
     IBOutlet UIButton *backButton, *nextButton;
@@ -33,6 +33,6 @@
 -(void) loadNextQuestion;
 -(void) loadPreviousQuestion;
 -(void) dismissCurrentQuestion;
--(void) setPositionForQuestion:(HistoryQuestionLabel*)question;
+-(void) setPositionForQuestion:(HQLabel*)question;
 
 @end

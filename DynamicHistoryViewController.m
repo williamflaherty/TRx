@@ -56,7 +56,7 @@
     
     pageCount = 1;
     availableSpace = MAX_Y - MIN_Y;
-    mainQuestion = [[HistoryQuestionLabel alloc]init];
+    mainQuestion = [[HQLabel alloc]init];
     [mainQuestion setFont:[UIFont systemFontOfSize:20]];
     [mainQuestion setTextColor:[UIColor blackColor]];
     
@@ -97,7 +97,7 @@
     [mainQuestion removeFromSuperview];
 }
 
--(void) setPositionForQuestion:(HistoryQuestionLabel *)question{
+-(void) setPositionForQuestion:(HQLabel *)question{
 
 }
 
