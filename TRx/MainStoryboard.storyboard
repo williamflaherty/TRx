@@ -551,7 +551,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <!--Dynamic History View Controller-->
         <scene sceneID="zRY-O2-je5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X8x-a3-IPK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="dkj-NK-8M7" customClass="DynamicHistoryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ri1-FW-i6u">
                         <rect key="frame" x="0.0" y="20" width="1024" height="699"/>
@@ -588,7 +587,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Bps-u4-xrN" firstAttribute="top" secondItem="3L5-3C-64V" secondAttribute="top" type="default" id="Cmf-LA-kpJ"/>
                             <constraint firstItem="3L5-3C-64V" firstAttribute="centerY" secondItem="ri1-FW-i6u" secondAttribute="centerY" type="default" id="Tyt-SE-ix5"/>
                             <constraint firstItem="3L5-3C-64V" firstAttribute="leading" secondItem="ri1-FW-i6u" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Uzk-t4-gjT"/>
                             <constraint firstItem="o73-w2-Beb" firstAttribute="leading" secondItem="ri1-FW-i6u" secondAttribute="leading" type="default" id="a6X-F8-hQD"/>
@@ -606,6 +604,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="nextButton" destination="Bps-u4-xrN" id="xFW-8F-iRw"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X8x-a3-IPK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4356" y="-4475"/>
         </scene>
