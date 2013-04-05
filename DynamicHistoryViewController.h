@@ -15,7 +15,10 @@
     NSInteger pageCount;
     NSString *questionText;
     HQLabel *mainQuestion;
-    //UILabel *mainQuestion;
+    
+    //Arrays of Questions for storage
+    NSMutableArray *currentPage;
+    NSMutableArray *previousPages;
     
     IBOutlet UIButton *backButton, *nextButton;
     

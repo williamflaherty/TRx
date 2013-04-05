@@ -56,9 +56,13 @@
     
     pageCount = 1;
     availableSpace = MAX_Y - MIN_Y;
+    
     mainQuestion = [[HQLabel alloc]init];
     [mainQuestion setFont:[UIFont systemFontOfSize:20]];
     [mainQuestion setTextColor:[UIColor blackColor]];
+    
+    currentPage = [[NSMutableArray alloc] init];
+    previousPages = [[NSMutableArray alloc] init];
     
     [self initializeQueue];
     [self loadNextQuestion];

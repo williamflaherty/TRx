@@ -19,6 +19,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.minHeight = MIN_HEIGHT;
+        self.frame = CGRectMake(200, 200, 300, 100);
     }
     return self;
 }
