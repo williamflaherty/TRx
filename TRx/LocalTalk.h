@@ -19,35 +19,41 @@
  * Used so that app will work without server access */
 +(BOOL)localStoreTempPatientId;
 +(BOOL)localStoreTempRecordId;
-
-
 +(BOOL)localStoreValue:(NSString *)value forQuestionId:(NSString *)questionId;
-
 +(BOOL)localStorePatientMetaData:(NSString *)key
                            value:(NSString *)value;
-+(NSString *)localGetPatientMetaData:(NSString *)key;
-
-
++(BOOL)localStoreAudio:(id)audioData
+              fileName:(NSString *)fileName;
 +(BOOL)localStorePortrait:(UIImage *)image;
-+(BOOL)loadPortraitImageIntoLocal:(NSString *)patientId;
+
+
+
+
++(NSString *)localGetPatientMetaData:(NSString *)key;
 +(UIImage *)localGetPortrait;
-
-
++(id)localGetAudio:(NSString *)fileName;
 
 +(NSString *)localGetPatientId;
 +(NSString *)localGetRecordId;
+
++(NSString *)getEnglishLabel:(NSString *)questionId;
++(NSString *)getSpanishLabel:(NSString *)questionId;
++(NSString *)getQuestionType:(NSString *)questionId;
++(NSString *)getValueForQuestionId:(NSString *)questionId;
+
+
++(BOOL)loadPortraitImageIntoLocal:(NSString *)patientId;
++(BOOL)loadPatientRecordIntoLocal:(NSString *)recordId;
 
 
 +(void)localClearPatientData;
 
 
 +(BOOL)clearLocalThenLoadPatientRecordIntoLocal:(NSString *)recordId;
-+(BOOL)loadPatientRecordIntoLocal:(NSString *)recordId;
 
 
-+(NSString *)getEnglishLabel:(NSString *)questionId;
-+(NSString *)getSpanishLabel:(NSString *)questionId;
-+(NSString *)getQuestionType:(NSString *)questionId;
+
+
 
 //+(BOOL)cachePatientData;
 //+(BOOL)loadDataFromCacheIntoLocal:(NSString *)fname;

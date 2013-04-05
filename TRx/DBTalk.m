@@ -19,10 +19,12 @@
 
 static NSString *host = nil;
 static NSString *imageDir = nil;
+static NSString *dbPath = nil;
 
 +(void)initialize{
     host = @"http://www.teamecuadortrx.com/TRxTalk/index.php/";
     imageDir = @"http://teamecuadortrx.com/TRxTalk/Data/images/";
+    dbPath = [Utility getDatabasePath];
 }
 
 
@@ -107,17 +109,40 @@ static NSString *imageDir = nil;
 +(NSString *)addRecordData:(NSString *)recordId
                        key:(NSString *)key
                      value:(NSString *)value {
-    NSString *encodedString = [NSString stringWithFormat:@"%@add/patientHistoryKeyValue/%@/%@/%@", host,
-                               recordId, key, value];
-    NSLog(@"encodedString: %@", encodedString);
-    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
-    if (data) {
-        NSError *jsonError;
-        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
-        NSDictionary *dic = jsonArray[0];
-        return [dic objectForKey:@"@returnValue"];
-    }
+    
+//    NSString *encodedString = [NSString stringWithFormat:@"%@add/patientHistoryKeyValue/%@/%@/%@", host,
+//                               recordId, key, value];
+//    NSLog(@"encodedString: %@", encodedString);
+//    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
+//    
+//    if (data) {
+//        NSError *jsonError;
+//        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+//        NSDictionary *dic = jsonArray[0];
+//        return [dic objectForKey:@"@returnValue"];
+//    }
+//    return NULL;
+    
+    //NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/add/patientHistoryKeyValue", host]];
+    NSLog(@"**********Adding record data ************");
+    NSURL *url = [NSURL URLWithString:host];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            recordId, @"recordId",
+                            key, @"key",
+                            value, @"value", nil];
+    
+    [httpClient postPath:@"add/patientHistoryKeyValue" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Request successful");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Request failed");
+    }];
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:2]];
+    //AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:httpClient];
+    
+    
     return NULL;
 }
 
@@ -268,6 +293,7 @@ static NSString *imageDir = nil;
  *---------------------------------------------------------------------------*/
 +(NSArray *)getDoctorList {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/doctorList/", host];
+    NSLog(@"%@", encodedString);
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
     
     if (data) {
@@ -288,11 +314,11 @@ static NSString *imageDir = nil;
 +(NSArray *)getRecordData:(NSString *)recordId {
     NSString *encodedString = [NSString stringWithFormat:@"%@get/recordData/%@", host, recordId];
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
-    
+    NSLog(@"%@", encodedString);
     if (data) {
         NSError *jsonError;
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
-        
+
         return jsonArray;
     }
     NSLog(@"getRecordData didn't work: error in PHP");

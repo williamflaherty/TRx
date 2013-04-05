@@ -88,9 +88,10 @@
         [DBTalk addRecordData:recordId key:questionId value:value];
         
         //update local table so that 'Synched' column = 1;
-        BOOL result = [db executeUpdate:@"INSERT INTO Patient (Synched) VALUES (1) where QuestionId = ?", questionId];
+        BOOL result = [db executeUpdate:@"UPDATE Patient SET Synched = 1 WHERE QuestionId = ?", questionId];//@"REPLACE INTO Patient (Synched) VALUES (1) WHERE QuestionId = ?", questionId];
         if (!result) {
             NSLog(@"\tValues not set to 'Synched'");
+            NSLog(@"%@", [db lastErrorMessage]);
             [db close];
             return false;
         }

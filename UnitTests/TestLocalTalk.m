@@ -10,17 +10,6 @@
 
 @implementation TestLocalTalk
 
--(void)testEntryInPatientMetaData {
-    /* tests that entryInPatientMetaData returns whether
-       there exists an entry in 
-    [LocalTalk localClearPatientData];
-    [LocalTalk entryInPatientMetaData:@"patientId"];
-    [LocalTalk localStoreTempPatientId];
-    [LocalTalk localStoreTempRecordId];
-    [LocalTalk entryInPatientMetaData:@"patientId"];
-    [LocalTalk entryInPatientMetaData:@"recordId"];
-    [LocalTalk localClearPatientData]; */
-}
 
 /*---------------------------------------------------------------------------
  Summary:
@@ -77,6 +66,36 @@
     
     
 }
+
+-(void)testLocalStoreAudio {
+    [LocalTalk localClearPatientData];
+    
+    NSString *data = @"This is test data. In place of an audio file, I'm storing this string";
+    NSString *fname = @"@audiofilename";
+    
+    BOOL success = [LocalTalk localStoreAudio:data fileName:fname];
+    STAssertTrue(success, @"unable to add audio");
+    
+    id returnData = [LocalTalk localGetAudio:fname];
+    
+    //returns an id, but the id is in NSData format.
+    NSData *dataData = (NSData *) returnData;
+    NSString *stringData = [[NSString alloc] initWithData:dataData encoding:NSUTF8StringEncoding];
+    STAssertEqualObjects(data, stringData, @"returned object not equal to stored object");
+
+    [LocalTalk localClearPatientData];
+}
+
+-(void)testGetLabels {
+    NSString *eng = [LocalTalk getEnglishLabel:@"preOp_Name"];
+    NSString *spa = [LocalTalk getSpanishLabel:@"preOp_Name"];
+    NSString *typ = [LocalTalk getQuestionType:@"preOp_Name"];
+    
+    STAssertEqualObjects(@"0", typ, @"Question should be type 0");
+    STAssertEqualObjects(eng, @"Name:", @"English Label not matching");
+    STAssertEqualObjects(spa, @"name", @"Spanish Label not matching");
+}
+
 +(Patient *)initPatient {
     NSBundle *myBundle = [NSBundle mainBundle];
     NSString *imagePath = [myBundle pathForResource:@"Icon-72@2x" ofType:@"png"];
@@ -84,7 +103,8 @@
     Patient *patient = [[Patient alloc] initWithFirstName:@"bad fname" MiddleName:@"middle" LastName:@"bad lname" ChiefComplaint:@"1" PhotoID:image];
     return patient;
 }
-     
+
+
 
 
 @end

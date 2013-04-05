@@ -39,20 +39,6 @@
     if (!storedPic) {
         NSLog(@"Error storing portrait in HistoryViewController nextView");
     }
-    
-    /*
-     * temporary values. nothing gets synched unless addPatient and addRecord
-     * get called successfully and return the patientId and recordId
-     */
-    
-    /* only call if no values stored yet */
-//    if (![LocalTalk entryInPatientMetaData:@"patientId"]) {
-//        [LocalTalk localStoreTempPatientId];
-//    }
-//    if (![LocalTalk entryInPatientMetaData:@"recordId"]) {
-//        [LocalTalk localStoreTempRecordId];
-//    }
-    
 }
 
 /*---------------------------------------------------------------------------
@@ -74,6 +60,10 @@
  ----------------------------------------------------------------------------*/
 +(BOOL)addNewPatientAndSynchData {
     return [SynchData addPatientToDatabaseAndSyncData];
+}
+
++(Patient *)initPatientFromLocal {
+    return [SynchData initPatientFromLocal];
 }
 
 @end

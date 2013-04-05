@@ -13,4 +13,5 @@
 
 +(BOOL)addPatientToDatabaseAndSyncData;
 +(Patient *)initPatientFromLocal;
++(BOOL)syncDataForRecord:(NSString *)recordId;
 @end
