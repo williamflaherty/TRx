@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1300E3BD16DA9D1B0033151C /* DBTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 1300E3BC16DA9D1B0033151C /* DBTalk.m */; };
+		130EF64817113696003C1C90 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 130EF64717113696003C1C90 /* Question.m */; };
 		1327D4B21704B0AD005010BC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F4C16D19AD60036E40B /* SenTestingKit.framework */; };
 		1327D4B31704B0AD005010BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
 		1327D4B41704B0AD005010BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2A16D19AD60036E40B /* Foundation.framework */; };
@@ -125,6 +126,8 @@
 /* Begin PBXFileReference section */
 		1300E3BB16DA9D1B0033151C /* DBTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTalk.h; sourceTree = "<group>"; };
 		1300E3BC16DA9D1B0033151C /* DBTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTalk.m; sourceTree = "<group>"; };
+		130EF64617113696003C1C90 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		130EF64717113696003C1C90 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		1327D4B11704B0AD005010BC /* UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1327D4B71704B0AD005010BC /* UnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
 		1327D4B91704B0AD005010BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -339,6 +342,8 @@
 			children = (
 				1327D4CB1708F464005010BC /* LocalTalkWrapper.h */,
 				1327D4CC1708F464005010BC /* LocalTalkWrapper.m */,
+				130EF64617113696003C1C90 /* Question.h */,
+				130EF64717113696003C1C90 /* Question.m */,
 				13CF9B1E16EC4BAD006CF20B /* LocalTalk.h */,
 				13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */,
 			);
@@ -894,6 +899,7 @@
 				C402E511170F16AD00737787 /* HQCheckBox.m in Sources */,
 				C402E514170F16CF00737787 /* HQSelector.m in Sources */,
 				C402E517170F16E100737787 /* HQLabel.m in Sources */,
+				130EF64817113696003C1C90 /* Question.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

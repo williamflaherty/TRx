@@ -271,6 +271,10 @@
 /*---------------------------------------------------------------------------
  * Takes a questionId and returns appropriate Spanish Label or NULL
  *---------------------------------------------------------------------------*/
++(NSString *)getTranslatedLabel:(NSString *)questionId {
+    return [self getLabel:questionId columnName:@"Spanish"];
+}
+
 +(NSString *)getSpanishLabel:(NSString *)questionId {
     return [self getLabel:questionId columnName:@"Spanish"];
 }
