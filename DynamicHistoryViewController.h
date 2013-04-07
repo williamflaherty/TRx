@@ -7,6 +7,7 @@
 // 
 
 #import <UIKit/UIKit.h>
+#import "Question.h"
 #import "HQView.h"
 
 @interface DynamicHistoryViewController : UIViewController{
@@ -14,7 +15,6 @@
     float availableSpace;
     NSInteger pageCount;
     NSString *questionText;
-    //HQLabel *mainQuestion;
     HQView *mainQuestion;
     
     

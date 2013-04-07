@@ -24,8 +24,9 @@ typedef enum{
     
     float totalHeight;
     
-    qType type;
+    NSString *responseString;
     
+    qType type;
     HQLabel *questionLabel;
     HQSelector *yesNoSelector;
     
@@ -33,8 +34,10 @@ typedef enum{
     NSMutableArray *questionUnion;
 }
 
+@property(nonatomic, readwrite) qType type;
 @property(nonatomic, readwrite) HQLabel* questionLabel;
 
 -(void)setQuestionLabelText:(NSString *)text;
+-(void)setResponse;
 
 @end

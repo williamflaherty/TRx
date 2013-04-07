@@ -7,7 +7,7 @@
 //
 
 #define MIN_HEIGHT 10.0f
-#define CONST_WIDTH 375.0
+#define CONST_WIDTH 425.0f
 
 #import "HQLabel.h"
 

@@ -8,7 +8,7 @@
 
 #define MAX_Y 50.0f
 #define MIN_Y 500.0f
-#define ENG_X 100.0f
+#define ENG_X 50.0f
 #define TRANS_X 550.0f
 
 #import "DynamicHistoryViewController.h"
@@ -81,7 +81,10 @@
         [self dismissCurrentQuestion];
     }
     
-    [mainQuestion setQuestionLabelText: @"Does it ?"];
+    mainQuestion.type = YES_NO;
+    //[mainQuestion setQuestionLabelText: @"Does it keep you from working? aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"];
+    [mainQuestion setQuestionLabelText:[Question getEnglishLabel:@"preOp_PreventWorking"]];
+    [mainQuestion setResponse];
     [self setPositionForQuestion:mainQuestion];
     
     [self.view addSubview:mainQuestion];
@@ -102,7 +105,7 @@
 }
 
 -(void) setPositionForQuestion:(HQView *)q{
-    q.frame = CGRectMake(ENG_X, MAX_Y, q.questionLabel.frame.size.width, q.questionLabel.frame.size.height);
+    q.frame = CGRectMake(TRANS_X, MAX_Y, q.frame.size.width, q.frame.size.height);
 }
 
 @end
