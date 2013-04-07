@@ -10,6 +10,7 @@
 #import "LocalTalk.h"
 #import "LocalTalkWrapper.h"
 #import "Patient.h"
+//#import "Question.h"
 #import "DBTalk.h"
 
 @interface TestLocalTalk : SenTestCase

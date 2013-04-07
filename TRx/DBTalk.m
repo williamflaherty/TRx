@@ -128,6 +128,11 @@ static NSString *dbPath = nil;
     return NULL;
 }
 
++(void)addRecoveryData:(NSString *)recoveryId
+                        
+{
+    
+}
 /*---------------------------------------------------------------------------
  * adds profile picture to server and info to database
  * returns: NULL on failure. pictureId otherwise

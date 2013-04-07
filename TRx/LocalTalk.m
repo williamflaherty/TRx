@@ -15,10 +15,6 @@
 @implementation LocalTalk
 
 
-
-
-
-
 #pragma mark - Local Store Methods
 
 /*---------------------------------------------------------------------------
@@ -116,7 +112,7 @@
  TODO:
     does not sync with database yet.
  *---------------------------------------------------------------------------*/
-+(BOOL)localStoreAudio:(id)audioData fileName:(NSString *)fileName {
++(BOOL)localStoreAudio:(NSData *)audioData fileName:(NSString *)fileName {
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
     BOOL retval = [db executeUpdate:@"INSERT INTO Audio (Name, Data) VALUES (?, ?)", fileName, audioData];
@@ -165,7 +161,7 @@
     FMResultSet *results = [db executeQuery:query];
     
     if (!results) {
-        NSLog(@"%@", [db lastErrorMessage]);;
+        NSLog(@"%@", [db lastErrorMessage]);
         return nil;
     }
     
@@ -234,77 +230,7 @@
 
 
 
-/*---------------------------------------------------------------------------
- Summary:
-    gets value stored with key QuestionId
-  Returns:
-    nil or NSString with value
- *---------------------------------------------------------------------------*/
 
-+(NSString *)getValueForQuestionId:(NSString *)questionId {
-    
-    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
-    [db open];
-    NSString *query = [NSString stringWithFormat:@"SELECT Value FROM Patient WHERE QuestionId = \"%@\"", questionId];
-    
-    FMResultSet *results = [db executeQuery:query];
-    
-    if (!results) {
-        NSLog(@"%@", [db lastErrorMessage]);;
-        return nil;
-    }
-    [results next];
-    NSString *retval = [results stringForColumnIndex:0];
-    [db close];
-    return retval;
-}
-
-#pragma mark - Get Label Methods
-
-/*---------------------------------------------------------------------------
- * Takes a questionId and returns appropriate English Label or NULL
- *---------------------------------------------------------------------------*/
-+(NSString *)getEnglishLabel:(NSString *)questionId {
-    return [self getLabel:questionId columnName:@"English"];
-}
-
-/*---------------------------------------------------------------------------
- * Takes a questionId and returns appropriate Spanish Label or NULL
- *---------------------------------------------------------------------------*/
-+(NSString *)getTranslatedLabel:(NSString *)questionId {
-    return [self getLabel:questionId columnName:@"Spanish"];
-}
-
-+(NSString *)getSpanishLabel:(NSString *)questionId {
-    return [self getLabel:questionId columnName:@"Spanish"];
-}
-
-+(NSString *)getQuestionType:(NSString *)questionId {
-    return [self getLabel:questionId columnName:@"QuestionType"];
-}
-
-/*---------------------------------------------------------------------------
- * Base method for getEnglishLabel and getSpanishLabel
- *---------------------------------------------------------------------------*/
-+(NSString *)getLabel:(NSString *)questionId
-           columnName:(NSString *)columnName {
-    
-    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
-    [db open];
-    NSString *query = [[NSString alloc] initWithFormat:
-                       @"SELECT %@ FROM Questions WHERE QuestionId = \"%@\"", columnName, questionId];
-    
-    FMResultSet *results = [db executeQuery:query];
-    
-    if (!results) {
-        NSLog(@"%@", [db lastErrorMessage]);;
-        return nil;
-    }
-    [results next];
-    NSString *retval = [results stringForColumnIndex:0];
-    [db close];
-    return retval;
-}
 
 #pragma mark - Clear Patient Data
 
@@ -420,7 +346,7 @@
     
     FMResultSet *results = [db executeQuery:@"SELECT * FROM Patient"];
     while ([results next]) {
-        key = [results stringForColumn:@"QuestionId"];
+        key   = [results stringForColumn:@"QuestionId"];
         value = [results stringForColumn:@"Value"];
         NSLog(@"Key: %@  Value: %@", key, value);
     }

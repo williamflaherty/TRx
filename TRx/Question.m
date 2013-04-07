@@ -57,9 +57,9 @@
 
 /*---------------------------------------------------------------------------
  Summary:
-    gets value stored with key QuestionId
+ gets value stored with key QuestionId
  Returns:
-    nil or NSString with value
+ nil or NSString with value
  *---------------------------------------------------------------------------*/
 
 +(NSString *)getValueForQuestionId:(NSString *)questionId {
@@ -79,5 +79,6 @@
     [db close];
     return retval;
 }
+
 
 @end
