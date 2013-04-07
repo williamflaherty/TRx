@@ -906,7 +906,7 @@
 				C402E511170F16AD00737787 /* HQCheckBox.m in Sources */,
 				C402E514170F16CF00737787 /* HQSelector.m in Sources */,
 				C402E517170F16E100737787 /* HQLabel.m in Sources */,
-				C402E51A170F41E400737787 /* HQTextField.m in Sources */,
+				130EF64817113696003C1C90 /* Question.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
