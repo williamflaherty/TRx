@@ -111,21 +111,6 @@ static NSString *dbPath = nil;
                      value:(NSString *)value {
     
     
-//    NSString *encodedString = [NSString stringWithFormat:@"%@add/patientHistoryKeyValue/%@/%@/%@", host,
-//                               recordId, key, value];
-//    NSLog(@"encodedString: %@", encodedString);
-//    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
-//    
-//    if (data) {
-//        NSError *jsonError;
-//        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
-//        NSDictionary *dic = jsonArray[0];
-//        return [dic objectForKey:@"@returnValue"];
-//    }
-//    return NULL;
-    
-    //NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/add/patientHistoryKeyValue", host]];
-    NSLog(@"**********Adding record data ************");
     NSURL *url = [NSURL URLWithString:host];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     
@@ -139,9 +124,6 @@ static NSString *dbPath = nil;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Request failed");
     }];
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:2]];
-    //AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:httpClient];
-    
     
     return NULL;
 }
