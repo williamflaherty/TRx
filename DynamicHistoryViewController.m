@@ -81,7 +81,7 @@
         [self dismissCurrentQuestion];
     }
     
-    mainQuestion.text = @"TEST QUESTION!";
+    mainQuestion.text = @"TEST QUESTION!sjhdfbwuefgajfauyfvalfgaluefbvalfbkufbvlqueyflfgcqluwvclauycvlqwhfasfvaqsfvluyasgcluyqgflqwyfglquwyfglquyfqwlueyfgwleuyfgqlusfgqlusydfgqluwyfgqlukyfgqlusydgqlsydgqluydgqluwydgluy";
     [self setPositionForQuestion:mainQuestion];
     
     [self.view addSubview:mainQuestion];

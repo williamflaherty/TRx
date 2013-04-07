@@ -40,11 +40,11 @@
 		C402E4FB170A007500737787 /* LocalTalkWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1327D4CC1708F464005010BC /* LocalTalkWrapper.m */; };
 		C402E4FC170A008D00737787 /* SynchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF64F31700EC3400F0A4FE /* SynchData.m */; };
 		C402E4FF170BC29A00737787 /* DynamicHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E4FE170BC29900737787 /* DynamicHistoryViewController.m */; };
-		C402E502170BCD6F00737787 /* HistoryQuestionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E501170BCD6F00737787 /* HistoryQuestionLabel.m */; };
 		C402E50E170F169200737787 /* HQHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E50D170F169200737787 /* HQHelper.m */; };
 		C402E511170F16AD00737787 /* HQCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E510170F16AD00737787 /* HQCheckBox.m */; };
 		C402E514170F16CF00737787 /* HQSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E513170F16CF00737787 /* HQSelector.m */; };
 		C402E517170F16E100737787 /* HQLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E516170F16E100737787 /* HQLabel.m */; };
+		C402E51A170F41E400737787 /* HQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E519170F41E400737787 /* HQTextField.m */; };
 		C446619E16EEE2FF008CE130 /* HistoryBackgroundLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */; };
 		C446619F16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */; };
 		C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
@@ -181,8 +181,6 @@
 		19C32A2F16EFB3B300CC1318 /* SurgeryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurgeryViewController.m; sourceTree = "<group>"; };
 		C402E4FD170BC29900737787 /* DynamicHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamicHistoryViewController.h; path = ../DynamicHistoryViewController.h; sourceTree = "<group>"; };
 		C402E4FE170BC29900737787 /* DynamicHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DynamicHistoryViewController.m; path = ../DynamicHistoryViewController.m; sourceTree = "<group>"; };
-		C402E500170BCD6F00737787 /* HistoryQuestionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryQuestionLabel.h; sourceTree = "<group>"; };
-		C402E501170BCD6F00737787 /* HistoryQuestionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryQuestionLabel.m; sourceTree = "<group>"; };
 		C402E50C170F169200737787 /* HQHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HQHelper.h; path = ../HQHelper.h; sourceTree = "<group>"; };
 		C402E50D170F169200737787 /* HQHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HQHelper.m; path = ../HQHelper.m; sourceTree = "<group>"; };
 		C402E50F170F16AD00737787 /* HQCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HQCheckBox.h; path = ../HQCheckBox.h; sourceTree = "<group>"; };
@@ -191,6 +189,8 @@
 		C402E513170F16CF00737787 /* HQSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HQSelector.m; path = ../HQSelector.m; sourceTree = "<group>"; };
 		C402E515170F16E100737787 /* HQLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HQLabel.h; path = ../HQLabel.h; sourceTree = "<group>"; };
 		C402E516170F16E100737787 /* HQLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HQLabel.m; path = ../HQLabel.m; sourceTree = "<group>"; };
+		C402E518170F41E400737787 /* HQTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HQTextField.h; path = ../HQTextField.h; sourceTree = "<group>"; };
+		C402E519170F41E400737787 /* HQTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HQTextField.m; path = ../HQTextField.m; sourceTree = "<group>"; };
 		C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryBackgroundLandscape.png; path = Resources/TRx_png/HistoryBackgroundLandscape.png; sourceTree = SOURCE_ROOT; };
 		C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryBackgroundLandscape22x.png; path = Resources/TRx_png/HistoryBackgroundLandscape22x.png; sourceTree = SOURCE_ROOT; };
 		C44D6F2516D19AD60036E40B /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -396,6 +396,23 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		C402E51B170F41ED00737787 /* HistoryQuestionClasses */ = {
+			isa = PBXGroup;
+			children = (
+				C402E50C170F169200737787 /* HQHelper.h */,
+				C402E50D170F169200737787 /* HQHelper.m */,
+				C402E50F170F16AD00737787 /* HQCheckBox.h */,
+				C402E510170F16AD00737787 /* HQCheckBox.m */,
+				C402E515170F16E100737787 /* HQLabel.h */,
+				C402E516170F16E100737787 /* HQLabel.m */,
+				C402E512170F16CF00737787 /* HQSelector.h */,
+				C402E513170F16CF00737787 /* HQSelector.m */,
+				C402E518170F41E400737787 /* HQTextField.h */,
+				C402E519170F41E400737787 /* HQTextField.m */,
+			);
+			name = HistoryQuestionClasses;
+			sourceTree = "<group>";
+		};
 		C44D6F1C16D19AD60036E40B = {
 			isa = PBXGroup;
 			children = (
@@ -465,6 +482,7 @@
 		C469AA6A16E8FD3E00E75E7A /* Tab 2 - History */ = {
 			isa = PBXGroup;
 			children = (
+				C402E51B170F41ED00737787 /* HistoryQuestionClasses */,
 				C499B58016ED149E00F40046 /* HistoryNavigationController.h */,
 				C499B58116ED149E00F40046 /* HistoryNavigationController.m */,
 				C499B56816EC21E400F40046 /* HistoryViewController.h */,
@@ -591,16 +609,6 @@
 				C469AA9C16E9469F00E75E7A /* AdminInformation.m */,
 				C469AA9816E90A0100E75E7A /* Patient.h */,
 				C469AA9916E90A0100E75E7A /* Patient.m */,
-				C402E50C170F169200737787 /* HQHelper.h */,
-				C402E50D170F169200737787 /* HQHelper.m */,
-				C402E50F170F16AD00737787 /* HQCheckBox.h */,
-				C402E510170F16AD00737787 /* HQCheckBox.m */,
-				C402E500170BCD6F00737787 /* HistoryQuestionLabel.h */,
-				C402E501170BCD6F00737787 /* HistoryQuestionLabel.m */,
-				C402E515170F16E100737787 /* HQLabel.h */,
-				C402E516170F16E100737787 /* HQLabel.m */,
-				C402E512170F16CF00737787 /* HQSelector.h */,
-				C402E513170F16CF00737787 /* HQSelector.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -889,11 +897,11 @@
 				13F3528A16EEEF21009321E7 /* UIImageView+AFNetworking.m in Sources */,
 				19C32A3016EFB3B300CC1318 /* SurgeryViewController.m in Sources */,
 				C402E4FF170BC29A00737787 /* DynamicHistoryViewController.m in Sources */,
-				C402E502170BCD6F00737787 /* HistoryQuestionLabel.m in Sources */,
 				C402E50E170F169200737787 /* HQHelper.m in Sources */,
 				C402E511170F16AD00737787 /* HQCheckBox.m in Sources */,
 				C402E514170F16CF00737787 /* HQSelector.m in Sources */,
 				C402E517170F16E100737787 /* HQLabel.m in Sources */,
+				C402E51A170F41E400737787 /* HQTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
