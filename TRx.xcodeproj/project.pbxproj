@@ -45,7 +45,7 @@
 		C402E511170F16AD00737787 /* HQCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E510170F16AD00737787 /* HQCheckBox.m */; };
 		C402E514170F16CF00737787 /* HQSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E513170F16CF00737787 /* HQSelector.m */; };
 		C402E517170F16E100737787 /* HQLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E516170F16E100737787 /* HQLabel.m */; };
-		C402E51A170F41E400737787 /* HQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E519170F41E400737787 /* HQTextField.m */; };
+		C402E5211712131500737787 /* HQView.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E5201712131500737787 /* HQView.m */; };
 		C446619E16EEE2FF008CE130 /* HistoryBackgroundLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */; };
 		C446619F16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */; };
 		C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
@@ -194,6 +194,8 @@
 		C402E516170F16E100737787 /* HQLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HQLabel.m; path = ../HQLabel.m; sourceTree = "<group>"; };
 		C402E518170F41E400737787 /* HQTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HQTextField.h; path = ../HQTextField.h; sourceTree = "<group>"; };
 		C402E519170F41E400737787 /* HQTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HQTextField.m; path = ../HQTextField.m; sourceTree = "<group>"; };
+		C402E51F1712131500737787 /* HQView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HQView.h; path = ../HQView.h; sourceTree = "<group>"; };
+		C402E5201712131500737787 /* HQView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HQView.m; path = ../HQView.m; sourceTree = "<group>"; };
 		C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryBackgroundLandscape.png; path = Resources/TRx_png/HistoryBackgroundLandscape.png; sourceTree = SOURCE_ROOT; };
 		C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryBackgroundLandscape22x.png; path = Resources/TRx_png/HistoryBackgroundLandscape22x.png; sourceTree = SOURCE_ROOT; };
 		C44D6F2516D19AD60036E40B /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -414,6 +416,8 @@
 				C402E513170F16CF00737787 /* HQSelector.m */,
 				C402E518170F41E400737787 /* HQTextField.h */,
 				C402E519170F41E400737787 /* HQTextField.m */,
+				C402E51F1712131500737787 /* HQView.h */,
+				C402E5201712131500737787 /* HQView.m */,
 			);
 			name = HistoryQuestionClasses;
 			sourceTree = "<group>";
@@ -907,6 +911,7 @@
 				C402E514170F16CF00737787 /* HQSelector.m in Sources */,
 				C402E517170F16E100737787 /* HQLabel.m in Sources */,
 				130EF64817113696003C1C90 /* Question.m in Sources */,
+				C402E5211712131500737787 /* HQView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
