@@ -7,7 +7,7 @@
 //
 
 #import "UnitTests.h"
-#import "DBTalk.h"
+
 
 @implementation UnitTests
 
@@ -95,6 +95,26 @@
     STAssertTrue(success, @"Unable to delete patient");
 }
 
+-(void)testAddValueForQuestionId {
+    //add patient to Database
+//    NSString *patientId = [DBTalk addPatient:@"Ftest" middleName:@"mTest" lastName:@"lTest" birthday:@"19850819"];
+//    STAssertNotNil(patientId, @"Failed to create new patient");
+//    
+//    //add patient record to Database
+//    NSString *recordId = [DBTalk addRecord:patientId surgeryTypeId:@"1" doctorId:@"1" isActive:@"1" hasTimeout:@"0"];
+//    STAssertNotNil(recordId, @"Failed to add new record");
+//    
+//    //Sync patient
+//    
+//    
+//    //add value to local
+//    BOOL added = [LocalTalk localStoreValue:@"OneWord" forQuestionId:@"preOp_HowLong"];
+//    STAssertTrue(added, @"Failed to add value to local");
+//    
+//    //sync data
+    
+    
+}
 
 - (void)tearDown
 {

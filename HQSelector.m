@@ -1,14 +1,14 @@
 //
-//  HistoryQuestion.m
+//  HQSelector.m
 //  TRx
 //
-//  Created by Mark Bellott on 3/19/13.
+//  Created by Mark Bellott on 4/5/13.
 //  Copyright (c) 2013 Team Ecuador. All rights reserved.
 //
 
-#import "HistoryQuestion.h"
+#import "HQSelector.h"
 
-@implementation HistoryQuestion
+@implementation HQSelector
 
 - (id)initWithFrame:(CGRect)frame
 {

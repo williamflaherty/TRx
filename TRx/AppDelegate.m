@@ -27,7 +27,7 @@
 -(void) createAndCheckDatabase
 {    
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    //[[NSFileManager defaultManager] removeItemAtPath:self.databasePath error:nil];
+    [[NSFileManager defaultManager] removeItemAtPath:self.databasePath error:nil];
     BOOL success = [fileManager fileExistsAtPath:self.databasePath];
     
     if(success) return;

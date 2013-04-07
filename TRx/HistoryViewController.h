@@ -10,6 +10,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "Patient.h"
 #import "PatientListViewController.h"
+#import "Utility.h"
 
 @interface HistoryViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>{
     

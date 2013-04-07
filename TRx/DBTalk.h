@@ -13,6 +13,7 @@
 {
     NSString *host;
     NSString *portraitDir;
+    NSString *dbPath;
 }
 
 

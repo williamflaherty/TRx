@@ -11,6 +11,7 @@
 
 @interface SynchData : NSObject
 
-+(BOOL)addPatientToDatabaseAndSynchData;
-
++(BOOL)addPatientToDatabaseAndSyncData;
++(Patient *)initPatientFromLocal;
++(BOOL)syncDataForRecord:(NSString *)recordId;
 @end

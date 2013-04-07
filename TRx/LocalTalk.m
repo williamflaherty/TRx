@@ -50,8 +50,9 @@
                            value:(NSString *)value {
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
-    NSString *query = [NSString stringWithFormat:@"INSERT INTO PatientMetaData (Key, Value) VALUES (\"%@\", \"%@\")", key, value];
-    BOOL retval = [db executeUpdate:query];//@"INSERT INTO PatientMetaData (Key, Value) VALUES (?, ?)", key, value];
+    //NSLog(@"In localStorePatientMetaData key: %@ value: %@", key, value);
+    NSString *query = [NSString stringWithFormat:@"REPLACE INTO PatientMetaData (Key, Value) VALUES (\"%@\", \"%@\")", key, value];
+    BOOL retval = [db executeUpdate:query];//@"INSERT INTO
     if (!retval) {
         NSLog(@"Error storing into patientMetaData");
         NSLog(@"%@", [db lastErrorMessage]);
@@ -63,11 +64,11 @@
 
 /*---------------------------------------------------------------------------
  Summary:
- Store QuestionIds and values in the Patient database for the current patient
+    Store QuestionIds and values in the Patient database for the current patient
  Details:
  
  Returns:
- true on success, false otherwise
+    true on success, false otherwise
  *---------------------------------------------------------------------------*/
 +(BOOL)localStoreValue:(NSString *)value forQuestionId:(NSString *)questionId {
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
@@ -82,11 +83,11 @@
 
 /*---------------------------------------------------------------------------
  Summary:
- Stores a portrait in the Images table of local database
+    Stores a portrait in the Images table of local database
  Details:
- Reduces size of image by 1/10 before storing. Not sure if I should do this here
+    Reduces size of image by 1/10 before storing. Not sure if I should do this here
  Returns:
- true on success, false otherwise
+    true on success, false otherwise
  *---------------------------------------------------------------------------*/
 +(BOOL)localStorePortrait:(UIImage *)image {
     
@@ -102,6 +103,28 @@
     [db close];
     
     return retval;
+}
+
+/*---------------------------------------------------------------------------
+ Summary:
+    Stores image data and filename to the Audio table of local database
+ Details:
+    File Names can be any unique string -- custom user names or just 
+    (strings of) numbers to identify
+ Returns:
+    true on success, false otherwise
+ TODO:
+    does not sync with database yet.
+ *---------------------------------------------------------------------------*/
++(BOOL)localStoreAudio:(id)audioData fileName:(NSString *)fileName {
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    BOOL retval = [db executeUpdate:@"INSERT INTO Audio (Name, Data) VALUES (?, ?)", fileName, audioData];
+    if (!retval) {
+        NSLog(@"%@", [db lastErrorMessage]);
+    }
+    [db close];
+    return retval;                                        
 }
 
 #pragma mark - Local Get Methods
@@ -190,6 +213,25 @@
     return image;
 }
 
++(id)localGetAudio:(NSString *)fileName {
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    FMResultSet *results = [db executeQuery:@"SELECT Data FROM Audio WHERE Name = ?", fileName];
+    
+    if (!results) {
+        NSLog(@"Error retrieving image\n");
+        NSLog(@"%@", [db lastErrorMessage]);
+        return nil;
+    }
+    [results next];
+    id data = [results dataForColumnIndex:0];
+    
+    [db close];
+    
+    return data;
+}
+
 
 
 /*---------------------------------------------------------------------------
@@ -199,7 +241,7 @@
     nil or NSString with value
  *---------------------------------------------------------------------------*/
 
-+(NSString *)localGetValueForQuestionId:(NSString *)questionId {
++(NSString *)getValueForQuestionId:(NSString *)questionId {
     
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
@@ -229,8 +271,16 @@
 /*---------------------------------------------------------------------------
  * Takes a questionId and returns appropriate Spanish Label or NULL
  *---------------------------------------------------------------------------*/
++(NSString *)getTranslatedLabel:(NSString *)questionId {
+    return [self getLabel:questionId columnName:@"Spanish"];
+}
+
 +(NSString *)getSpanishLabel:(NSString *)questionId {
     return [self getLabel:questionId columnName:@"Spanish"];
+}
+
++(NSString *)getQuestionType:(NSString *)questionId {
+    return [self getLabel:questionId columnName:@"QuestionType"];
 }
 
 /*---------------------------------------------------------------------------
@@ -268,6 +318,7 @@
     [db executeUpdate:@"DELETE FROM Images"];
     [db executeUpdate:@"DELETE FROM Patient"];
     [db executeUpdate:@"DELETE FROM PatientMetaData"];
+    [db executeUpdate:@"DELETE FROM Audio"];
     [db close];
 }
 
@@ -304,17 +355,22 @@
  *---------------------------------------------------------------------------*/
 
 +(BOOL)loadPatientRecordIntoLocal:(NSString *)recordId {
-    
+    BOOL success;
     NSArray *dataArr = [DBTalk getRecordData:recordId];
     
     if (dataArr != NULL) {
         FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
         [db open];
+        NSLog(@"%@", dataArr);
         for (NSDictionary *dic in dataArr) {
             NSString *questionId = [dic objectForKey:@"Key"];
             NSString *value = [dic objectForKey:@"Value"];
             
-            [db executeUpdate:@"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 1)", questionId, value]; 
+            success = [db executeUpdate:@"INSERT INTO Patient (QuestionId, Value, Synched) VALUES (?, ?, 1)", questionId, value];
+            if (!success) {
+                NSLog(@"Unable to add: %@", [db lastErrorMessage]);
+                
+            }
         }
         [db close];
         return true;
@@ -351,6 +407,7 @@
 }
 
 #pragma mark - Helper methods
+
 
 /*---------------------------------------------------------------------------
  Summary:
