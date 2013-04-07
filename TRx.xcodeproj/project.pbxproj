@@ -912,7 +912,8 @@
 				C402E511170F16AD00737787 /* HQCheckBox.m in Sources */,
 				C402E514170F16CF00737787 /* HQSelector.m in Sources */,
 				C402E517170F16E100737787 /* HQLabel.m in Sources */,
-				130EF65117120DC9003C1C90 /* Question.m in Sources */,
+				130EF64817113696003C1C90 /* Question.m in Sources */,
+				C402E5211712131500737787 /* HQView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
