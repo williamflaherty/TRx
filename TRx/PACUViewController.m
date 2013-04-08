@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
 	patientThumbnail = [LocalTalk localGetPortrait];
-    [LocalTalk localGe]
+    //[LocalTalk localGe]
 }
 
 - (void)didReceiveMemoryWarning
