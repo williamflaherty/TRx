@@ -10,9 +10,10 @@
 
 
 @interface PatientListViewController : UITableViewController {
-    NSArray *patientsArray;
+
     NSMutableArray *patients;
     IBOutlet UIBarButtonItem *addPatientsButton;
+    IBOutlet UIBarButtonItem *refreshButton;
 }
 
 -(IBAction)addPatients:(id)sender;

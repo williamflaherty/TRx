@@ -37,6 +37,9 @@
 		19087ED016E95363007FE40B /* PatientListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196CCD8A16E90ED600B82048 /* PatientListViewCell.m */; };
 		1975163916EFC6C50008AA1F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1975163816EFC6C50008AA1F /* AVFoundation.framework */; };
 		19C32A3016EFB3B300CC1318 /* SurgeryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C32A2F16EFB3B300CC1318 /* SurgeryViewController.m */; };
+		19C3C1D817122B9800BA943E /* HQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E519170F41E400737787 /* HQTextField.m */; };
+		19C3C1D917122BB000BA943E /* LocalTalkWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1327D4CC1708F464005010BC /* LocalTalkWrapper.m */; };
+		19C3C1DA17122BB700BA943E /* SynchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF64F31700EC3400F0A4FE /* SynchData.m */; };
 		19DAF54D16F8CE00008E1BA7 /* LocalDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 13CF9B2616ECF829006CF20B /* LocalDatabase.sqlite */; };
 		C402E4FB170A007500737787 /* LocalTalkWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1327D4CC1708F464005010BC /* LocalTalkWrapper.m */; };
 		C402E4FC170A008D00737787 /* SynchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF64F31700EC3400F0A4FE /* SynchData.m */; };
@@ -45,7 +48,6 @@
 		C402E511170F16AD00737787 /* HQCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E510170F16AD00737787 /* HQCheckBox.m */; };
 		C402E514170F16CF00737787 /* HQSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E513170F16CF00737787 /* HQSelector.m */; };
 		C402E517170F16E100737787 /* HQLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E516170F16E100737787 /* HQLabel.m */; };
-		C402E51A170F41E400737787 /* HQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E519170F41E400737787 /* HQTextField.m */; };
 		C446619E16EEE2FF008CE130 /* HistoryBackgroundLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */; };
 		C446619F16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */; };
 		C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
@@ -857,6 +859,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19C3C1DA17122BB700BA943E /* SynchData.m in Sources */,
+				19C3C1D917122BB000BA943E /* LocalTalkWrapper.m in Sources */,
 				1327D4BD1704B0AD005010BC /* UnitTests.m in Sources */,
 				13C069FB170B384D00044896 /* TestLocalTalk.m in Sources */,
 				13C06A04170E5AF400044896 /* TestAddPatientThenLoad.m in Sources */,
@@ -867,6 +871,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19C3C1D817122B9800BA943E /* HQTextField.m in Sources */,
 				C402E4FC170A008D00737787 /* SynchData.m in Sources */,
 				C402E4FB170A007500737787 /* LocalTalkWrapper.m in Sources */,
 				13D2AB0A16EF9A9300F9ABEB /* NZURLConnection.m in Sources */,
@@ -1038,6 +1043,10 @@
 		C44D6F5E16D19AD60036E40B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TRx/TRx-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -1052,6 +1061,10 @@
 		C44D6F5F16D19AD60036E40B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TRx/TRx-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;

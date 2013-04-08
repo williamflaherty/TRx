@@ -7,6 +7,7 @@
 //
 
 #import "SurgeryViewController.h"
+#import "localtalk.h"
 
 
 @interface SurgeryViewController ()
@@ -23,13 +24,9 @@
     }
     return self;
 }
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+- (void)newRecording {
+    
     _playButton.enabled = NO;
-    _stopButton.enabled = NO;
     
     NSArray *dirPaths;
     NSString *docsDir;
@@ -37,12 +34,12 @@
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = dirPaths[0];
     
-    NSDate *now = [NSDate dateWithTimeIntervalSinceNow:0];
+    now = [NSDate dateWithTimeIntervalSinceNow:0];
     NSString *calendarDate = [now description];
     
     NSString *audioFilePath = [NSString stringWithFormat:@"%@/%@.caf", docsDir, calendarDate];
     
-    NSURL *soundFileURL = [NSURL fileURLWithPath:audioFilePath];
+    soundFileURL = [NSURL fileURLWithPath:audioFilePath];
     
     NSDictionary *recordSettings = [NSDictionary
                                     dictionaryWithObjectsAndKeys:
@@ -70,22 +67,46 @@
         [_audioRecorder prepareToRecord];
     }
     
+
+}
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+//  fileNameText.text = now;
 }
 
 #pragma mark - audio recording button methods 
 - (IBAction)recordAudio:(id)sender {
+    
+    /*if not recording */ 
     if (!_audioRecorder.recording)
     {
-        _playButton.enabled = NO;
-        _stopButton.enabled = YES;
-        [_audioRecorder record];
+        if(isPaused){ //start recording again
+            _playButton.enabled = NO;
+            isPaused = NO; 
+            /*IMPLEMENT: call method to change button to pause button*/ 
+            [_audioRecorder record];
+        } else {
+            //initialize a new file and start recording
+            [self newRecording];
+            /*IMPLEMENT: call method to change button to pause button*/ 
+            [_audioRecorder record]; 
+        }
+        /*if it is recording just pause it*/ 
+    } else if(_audioRecorder.recording) {
+        /*IMPLEMENT: call method to change the button to record*/
+        isPaused = YES; 
+        [_audioRecorder pause]; 
     }
 }
 
 - (IBAction)playAudio:(id)sender {
     if (!_audioRecorder.recording)
     {
-        _stopButton.enabled = YES;
         _recordButton.enabled = NO;
         
         NSError *error;
@@ -104,28 +125,29 @@
     }
 }
 
-- (IBAction)pauseRecording:(id)sender {
-    _stopButton.enabled = NO;
-    _playButton.enabled = YES;
-    _recordButton.enabled = YES;
-    
-    if (_audioRecorder.recording)
-    {
-        [_audioRecorder pause];
-    } else if (_audioPlayer.playing) {
-        [_audioPlayer stop];
-    }
-}
-
 - (IBAction)saveRecord:(id)sender{
     [_audioRecorder stop];
+    NSError *error;
+    NSData *audioData = [NSData dataWithContentsOfFile:[soundFileURL path] options: 0 error:&error];
+    if (error)
+    {
+        NSLog(@"error: %@", [error localizedDescription]);
+    } else {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd 'at' HH:mm:ss"];
+        NSString *stringFromDate = [formatter stringFromDate:now];
+        BOOL check = [LocalTalk localStoreAudio:audioData fileName: stringFromDate];        
+        if(!check){
+            //the file didn't store so do something here broke do something :( 
+        }
+    }
     _playButton.enabled = YES; 
 }
 
 #pragma mark - audio recording delegate methods
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
     _recordButton.enabled = YES;
-    _stopButton.enabled = NO;
+  //  _stopButton.enabled = NO;
 }
 
 -(void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error{
@@ -148,12 +170,10 @@
         UIImagePickerController *imagePicker =
         [[UIImagePickerController alloc] init];
         imagePicker.delegate = self;
-        imagePicker.sourceType =
-        UIImagePickerControllerSourceTypeCamera;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
         //imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
         imagePicker.allowsEditing = NO;
-        [self presentViewController:imagePicker
-                           animated:YES completion:nil];
+        [self presentViewController:imagePicker animated:YES completion:nil];
         _newMedia = YES;
     }
 }
@@ -165,22 +185,16 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    //Crop and flip the image
-    CGRect cropRect = CGRectMake(256, 152, 750, 750);
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
-    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], cropRect);
-    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
-    UIImage *finalImage =   [UIImage imageWithCGImage:croppedImage.CGImage scale:1.0 orientation:UIImageOrientationDownMirrored];
-    
     //Store the image for the patient
-    photoID = finalImage;
-    newPatient.photoID = finalImage;
+    
+   // photoID = finalImage;
+   // newPatient.photoID = finalImage;
     
     //Display the final image
-    _imageView.image = finalImage;
+    //_imageView.image = finalImage;
     
-}
-*/
+}*/
+
 
 #pragma mark - table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -192,7 +206,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-   // return (unsigned long) patientsArray.count;
+    //return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

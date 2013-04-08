@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PatientListViewCell : UITableViewCell
+@interface PatientListViewCell : UITableViewCell {
+    
+}
 @property (strong, nonatomic) IBOutlet UILabel *patientName;
 @property (strong, nonatomic) IBOutlet UIImageView *patientPicture;
 @property (strong, nonatomic) IBOutlet UILabel *chiefComplaint;
-
+@property (weak, nonatomic) NSString *patientRecordId;
 @end

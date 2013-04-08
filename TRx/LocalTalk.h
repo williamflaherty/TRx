@@ -28,7 +28,7 @@
 
 
 
-
++(NSMutableArray *)localGetPatientList;
 +(NSString *)localGetPatientMetaData:(NSString *)key;
 +(UIImage *)localGetPortrait;
 +(id)localGetAudio:(NSString *)fileName;

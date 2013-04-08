@@ -248,6 +248,7 @@
  
  Returns:
     Patient Object
+ TODO: ADD URL TO PHOTO TO PATIENT META DATA OBJECT? 
  *---------------------------------------------------------------------------*/
 
 +(Patient *)initPatientFromLocal {
@@ -271,8 +272,9 @@
     bDay  = [LocalTalk localGetPatientMetaData:@"birthDay"];
     chiefComplaint = [LocalTalk localGetPatientMetaData:@"surgeryTypeId"];
     UIImage *image = [LocalTalk localGetPortrait];
+    NSURL *url;
     
-    Patient *newPatient = [[Patient alloc] initWithPatientId:patientId currentRecordId:recordId firstName:fName MiddleName:mName LastName:lName birthday:bDay ChiefComplaint:chiefComplaint PhotoID:image];
+    Patient *newPatient = [[Patient alloc] initWithPatientId:patientId currentRecordId:recordId firstName:fName MiddleName:mName LastName:lName birthday:bDay ChiefComplaint:chiefComplaint PhotoID:image PhotoURL:url];
     
     return newPatient;
 }

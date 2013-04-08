@@ -22,7 +22,7 @@
 +(NSArray *)getDoctorList;
 
 +(UIImage *)getPortraitFromServer:(NSString *)fileName;
-+(UIImage *)getThumbFromServer:(NSString *)fileName;
++(NSURL *)getThumbFromServer:(NSString *)fileName;
 +(UIImage *)getProfilePictureFromServer:(NSString *)patientId;
 
 +(NSString *)addProfilePicture:(UIImage *)picture

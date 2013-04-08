@@ -19,5 +19,9 @@
 
 +(NSMutableArray *)getDoctorNames;
 +(NSMutableArray *)getSurgeryNames;
++(NSString *) getSurgeryNameById:(NSString *)complaintId;
++(NSString *) getSurgeryIdByName:(NSString *)complaintName;
+
+
 
 @end

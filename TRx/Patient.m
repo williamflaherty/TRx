@@ -24,12 +24,13 @@
 
 -(id)initWithPatientId:(NSString *)patId currentRecordId:(NSString *)currRecordId
              firstName:(NSString *)fn MiddleName:(NSString*) mn LastName:(NSString*)ln
-              birthday:(NSString *)bDay ChiefComplaint:(NSString *)c PhotoID:(UIImage*)p {
+              birthday:(NSString *)bDay ChiefComplaint:(NSString *)c PhotoID:(UIImage*)p PhotoURL:(NSURL *)photoURL {
     
     self = [self initWithFirstName:fn MiddleName:mn LastName:ln ChiefComplaint:c PhotoID:p];
     self.birthday = bDay;
     self.patientId = patId;
     self.currentRecordId = currRecordId;
+    self.photoURL = photoURL;
     
     return  self;
 }

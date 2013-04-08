@@ -11,6 +11,7 @@
 #import "FMDatabase.h"
 #import "Utility.h"
 #import "SynchData.h"
+#import "AdminInformation.h"
 
 @implementation LocalTalk
 
@@ -129,6 +130,60 @@
 
 #pragma mark - Local Get Methods
 
+ /*---------------------------------------------------------------------------
+ Summary:
+ gets patient list from dbtalk 
+ Details:
+  takes the patient list from DB talk and processes it into an array of 
+  patient objects. 
+ Returns:
+ nil - failure to communicate with database
+ NSArray of patients 
+  
+  TODO: Put the patient objects in the local database 
+ *---------------------------------------------------------------------------*/
++(NSMutableArray *)localGetPatientList {
+    
+    NSArray *patientsArrayFromDB;
+    NSMutableArray *patients;
+    NSString *firstName, *lastName, *patientId, *imageId, *middleName, *recordId, *birthday, *complaint;
+    NSURL *pictureURL;
+    UIImage *picture; 
+        
+    patientsArrayFromDB = [DBTalk getPatientList];
+    if(patientsArrayFromDB == NULL){
+        NSLog(@"DBTalk Couldn't return patients List");
+        return NULL;
+    }
+    
+    patients = [NSMutableArray array];
+    
+    for(NSDictionary *item in patientsArrayFromDB){
+       //NSLog(@"%@", item);
+        firstName = [item objectForKey:@"FirstName"];
+        middleName = [item objectForKey:@"MiddleName"];
+        lastName = [item objectForKey:@"LastName"];
+        patientId = [item objectForKey:@"Id"];
+        recordId = [item objectForKey:@"recordId"];
+        birthday = [item objectForKey:@"birthday"];  //does this exist?
+        complaint = [item objectForKey:@"SurgeryTypeId"];
+        complaint = [AdminInformation getSurgeryNameById:complaint];
+        imageId = [NSString stringWithFormat:@"%@n000", patientId];
+        
+        pictureURL = [DBTalk getThumbFromServer:imageId];
+        
+        Patient *obj = [[Patient alloc] initWithPatientId:patientId currentRecordId:recordId firstName:firstName MiddleName:middleName LastName:lastName birthday:birthday ChiefComplaint:complaint PhotoID:picture PhotoURL:pictureURL];
+        
+        obj.patientId = patientId;
+        NSLog(@"%@", picture);
+        NSLog(@"%@", imageId);
+        [patients addObject:obj];
+    }
+
+    
+    return patients; 
+}
+
 /*---------------------------------------------------------------------------
  Summary:
     Helper methods for retrieving patientId and recordId from local database 
@@ -213,7 +268,7 @@
     return image;
 }
 
-+(id)localGetAudio:(NSString *)fileName {
++(NSData*)localGetAudio:(NSString *)fileName {
     
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
@@ -225,7 +280,7 @@
         return nil;
     }
     [results next];
-    id data = [results dataForColumnIndex:0];
+    NSData *data = [results dataForColumnIndex:0];
     
     [db close];
     

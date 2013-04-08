@@ -47,47 +47,22 @@
     [self performSegueWithIdentifier:@"listTabSegue" sender:addPatientsButton];
 }
 
+/*Function to refresh patients list, we need to make this async and to disable the refreshButton button until it's done*/ 
 -(void)refreshPatients:(id)sender{
-    [self loadPatientCells];
+    patients = [LocalTalk localGetPatientList];    
 }
 
--(void)loadPatientCells{
-    NSString *firstName, *lastName, *patientId, *imageId, *complaint, *middleName, *recordId;
-    UIImage *picture;
-    patientsArray = [DBTalk getPatientList];
-    patients = [NSMutableArray array];
-    NSArray *complaints = [NSArray arrayWithObjects:@"Cleft Lip",@"Hernia",@"Cataracts", nil];
-   
-   
-    for(NSDictionary *item in patientsArray){
-        NSLog(@"%@", item);
-        firstName = [item objectForKey:@"FirstName"];
-        middleName = [item objectForKey:@"MiddleName"];
-        lastName = [item objectForKey:@"LastName"];
-        patientId = [item objectForKey:@"Id"];
-        recordId = [item objectForKey:@"recordId"];
-        imageId = [NSString stringWithFormat:@"%@n000", patientId];
-        
-        //picture = [DBTalk getThumbFromServer:(imageId)];
-        uint32_t rnd = arc4random_uniform([complaints count]);
-        complaint = [complaints objectAtIndex:rnd];
-        Patient *obj = [[Patient alloc] initWithFirstName:(firstName) MiddleName:(middleName) LastName:(lastName) ChiefComplaint:(complaint) PhotoID:(picture)];
-        obj.patientId = patientId;
-        NSLog(@"%@", picture);
-        NSLog(@"%@", imageId);
-        [patients addObject:obj];
-    }
-}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    UITabBarController *vc; 
+    UITabBarController *vc;
     if (([[segue identifier] isEqualToString:@"listTabSegue"]) && ([sender tag] == 1)){
-    vc = [segue destinationViewController];
-    vc.selectedIndex=1;
-    } else {
-        
         vc = [segue destinationViewController];
+        vc.selectedIndex=1;
+    } else {
+        vc = [segue destinationViewController];
+        //PatientListViewCell *mycell = (PatientListViewCell*)sender;
         vc.selectedIndex=0;
+        
     }
 }
 
@@ -96,7 +71,8 @@
 {
     [super viewDidLoad];
     
-    [self loadPatientCells];
+    patients = [LocalTalk localGetPatientList];
+  
     //[PatientListViewCell class];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -123,7 +99,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return (unsigned long) patientsArray.count;
+    return (unsigned long) patients.count;
 }
 
 /*---------------------------------------------------------------------------
@@ -153,28 +129,22 @@
     NSString *fn = [[patients objectAtIndex:row] firstName];
     NSString *mn = [[patients objectAtIndex:row] middleName]; 
     NSString *ln = [[patients objectAtIndex:row] lastName];
-    if( [mn isEqual: @"<null>"]){
-        name = [NSString stringWithFormat: @"%@ %@ %@", fn, mn, ln];
-    } else { name = [NSString stringWithFormat: @"%@ %@", fn, ln]; } 
+    NSURL *url = [[patients objectAtIndex:row] photoURL];
+   // if(){
+      //  name = [NSString stringWithFormat: @"%@ %@", fn, ln];
+    //} else {
+    name = [NSString stringWithFormat: @"%@ %@ %@", fn, mn, ln]; 
 
     cell.patientName.text = name;
     cell.chiefComplaint.text = (NSString*)[[patients objectAtIndex:row] chiefComplaint];
-    cell.patientPicture.image = [[patients objectAtIndex:row] photoID];
-    //cell.patientPicture.image = [UIImage imageNamed:_carImages[row]];
-    
-    
-    NSString *imageId = [NSString stringWithFormat:@"%@n000", [[patients objectAtIndex:row] patientId]];
-    NSString *imageDir = @"http://teamecuadortrx.com/TRxTalk/Data/images/";
-    NSString *str = [NSString stringWithFormat:@"%@thumbs/%@.jpeg", imageDir, imageId];
-
-    NSURL *url = [NSURL URLWithString:str];
-    
+  
+ 
     [cell.patientPicture setImageWithURLRequest:[NSURLRequest requestWithURL:url] placeholderImage:NULL success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
         NSLog(@"success");
-        cell.patientPicture.image = image;
+      cell.patientPicture.image = image;
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         NSLog(@"fail");
-    }];
+  }];
     
     return cell;
 }

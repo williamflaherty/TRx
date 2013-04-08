@@ -232,22 +232,16 @@ static NSString *dbPath = nil;
 
 
 /*---------------------------------------------------------------------------
- * description: gets picture from thumb folder on host
+ * description: gets picture url from thumb folder on host
  * current host: teamecuadortrx.com/TRxTalk
  * fileName: "patientId" + "n" + "picNumber"
- * returns UIImage of specified jpeg
+ * returns NSURL of specified jpeg
  *---------------------------------------------------------------------------*/
-+(UIImage *)getThumbFromServer:(NSString *)fileName {
++(NSURL *)getThumbFromServer:(NSString *)fileName {
     NSString *str = [NSString stringWithFormat:@"%@thumbs/%@.jpeg", imageDir, fileName];
     NSURL *url = [NSURL URLWithString:str];
-    //UIImage *myImage = [UIImage imageWithData:
-     //                   [NSData dataWithContentsOfURL:url]];
     
-    UIImageView *imageView = [[UIImageView alloc] init];
-    [imageView setImageWithURL:url];
-    //return myImage;
-    //[imageView ]
-    return imageView.image;
+    return url;
 }
 
 

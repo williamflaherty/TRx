@@ -10,4 +10,5 @@
 
 @interface PrimaryTabBarController : UITabBarController
 
+@property (strong, nonatomic) NSString *patientRecordId; 
 @end
