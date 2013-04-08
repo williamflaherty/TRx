@@ -35,6 +35,7 @@
 		13F3528916EEEF21009321E7 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3527F16EEEF21009321E7 /* AFXMLRequestOperation.m */; };
 		13F3528A16EEEF21009321E7 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3528116EEEF21009321E7 /* UIImageView+AFNetworking.m */; };
 		19087ED016E95363007FE40B /* PatientListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196CCD8A16E90ED600B82048 /* PatientListViewCell.m */; };
+		1916CC211713481D002E11AF /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 130EF65017120DC9003C1C90 /* Question.m */; };
 		1975163916EFC6C50008AA1F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1975163816EFC6C50008AA1F /* AVFoundation.framework */; };
 		19C32A3016EFB3B300CC1318 /* SurgeryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C32A2F16EFB3B300CC1318 /* SurgeryViewController.m */; };
 		19C3C1D817122B9800BA943E /* HQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E519170F41E400737787 /* HQTextField.m */; };
@@ -49,7 +50,6 @@
 		C402E514170F16CF00737787 /* HQSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E513170F16CF00737787 /* HQSelector.m */; };
 		C402E517170F16E100737787 /* HQLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E516170F16E100737787 /* HQLabel.m */; };
 		C402E5211712131500737787 /* HQView.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E5201712131500737787 /* HQView.m */; };
-		C402E52217121B8900737787 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 130EF65017120DC9003C1C90 /* Question.m */; };
 		C446619E16EEE2FF008CE130 /* HistoryBackgroundLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */; };
 		C446619F16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */; };
 		C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
@@ -878,6 +878,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1916CC211713481D002E11AF /* Question.m in Sources */,
 				19C3C1D817122B9800BA943E /* HQTextField.m in Sources */,
 				C402E4FC170A008D00737787 /* SynchData.m in Sources */,
 				C402E4FB170A007500737787 /* LocalTalkWrapper.m in Sources */,
