@@ -75,6 +75,6 @@
 +(NSArray *)getRecordData:(NSString *)recordId;
 +(NSArray *)getPatientMetaData:(NSString *)patientId;
 
-
++(NSDictionary *)getOperationRecordNames:(NSString *)recordId;
 
 @end

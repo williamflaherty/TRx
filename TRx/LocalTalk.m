@@ -387,6 +387,13 @@
     return retval;
 }
 
++(BOOL)loadOperationRecordIntoLocal:(NSString *)recordId {
+    [DBTalk getOperationRecordNames:recordId];
+    [LocalTalk ]
+    /* Load into local talk */
+    
+}
+
 #pragma mark - Helper methods
 
 

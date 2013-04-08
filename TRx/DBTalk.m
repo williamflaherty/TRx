@@ -491,6 +491,31 @@ static NSString *dbPath = nil;
     return name;
 }
 
++(NSDictionary *)getOperationRecordNames:(NSString *)recordId {
+    NSString *encodedString = [NSString stringWithFormat:@"%@get/operationRecord/%@", host, recordId];
+    NSLog(@"encodedString: %@", encodedString);
+    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
+
+    if (data) {
+        NSError *jsonError;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+        NSDictionary *dic = jsonArray[0];
+        
+        return dic;
+    }
+    NSLog(@"Error retrieving operation record names");
+    return NULL;
+}
+
+(BOOL)addOperationRecordFile:(NSString *)patientRecordId name:(NSString *)name  path:(NSString *)path recordTypeId:(NSString *) {
+    /*update Mischa's table */
+    /* asynchronously load file to server filesystem */
+    /* create a method in synchData to synch things */
+    
+    /*localTalk needs a synch column that gets updated on load */
+    return false;
+}
+
 
 
 
