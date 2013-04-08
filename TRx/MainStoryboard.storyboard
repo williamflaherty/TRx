@@ -899,22 +899,46 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="DefaultBackgroundPortrait@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="KsC-sp-0Ui"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TmG-aP-1Jc" userLabel="PatientThumbnail">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="6Cc-ev-bDw"/>
+                                    <constraint firstAttribute="height" constant="150" id="p4t-bc-9Mh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyP-wJ-Hff" userLabel="NameLabel">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Surgery" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGm-GJ-9K2" userLabel="SurgeryLabel">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KsC-sp-0Ui" firstAttribute="trailing" secondItem="v0N-NE-vAT" secondAttribute="trailing" type="default" id="DdL-H5-xPq"/>
-                            <constraint firstItem="KsC-sp-0Ui" firstAttribute="leading" secondItem="v0N-NE-vAT" secondAttribute="leading" type="default" id="IgA-Fn-cnt"/>
-                            <constraint firstItem="KsC-sp-0Ui" firstAttribute="top" secondItem="v0N-NE-vAT" secondAttribute="top" type="default" id="jSQ-ip-vv4"/>
-                            <constraint firstItem="KsC-sp-0Ui" firstAttribute="bottom" secondItem="v0N-NE-vAT" secondAttribute="bottom" type="default" id="x4N-fr-nji"/>
+                            <constraint firstItem="jGm-GJ-9K2" firstAttribute="leading" secondItem="v0N-NE-vAT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="0Gr-Da-EyX"/>
+                            <constraint firstItem="hyP-wJ-Hff" firstAttribute="top" secondItem="TmG-aP-1Jc" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="20k-LX-d1a"/>
+                            <constraint firstItem="hyP-wJ-Hff" firstAttribute="trailing" secondItem="jGm-GJ-9K2" secondAttribute="trailing" type="default" id="LHd-s7-J4g"/>
+                            <constraint firstItem="hyP-wJ-Hff" firstAttribute="trailing" secondItem="TmG-aP-1Jc" secondAttribute="trailing" type="default" id="eH2-yh-lEK"/>
+                            <constraint firstItem="TmG-aP-1Jc" firstAttribute="leading" secondItem="v0N-NE-vAT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fCV-Cv-LUV"/>
+                            <constraint firstItem="TmG-aP-1Jc" firstAttribute="top" secondItem="v0N-NE-vAT" secondAttribute="top" constant="20" symbolic="YES" type="default" id="hGp-mO-5jt"/>
+                            <constraint firstItem="hyP-wJ-Hff" firstAttribute="leading" secondItem="v0N-NE-vAT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kwB-pX-jVY"/>
+                            <constraint firstItem="jGm-GJ-9K2" firstAttribute="top" secondItem="hyP-wJ-Hff" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="wdh-Li-slq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="PACU" image="0238.png" id="eyo-QH-EzR"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="patientName" destination="hyP-wJ-Hff" id="QFz-Pt-BXw"/>
+                        <outlet property="patientSurgery" destination="jGm-GJ-9K2" id="nPw-1C-he5"/>
+                        <outlet property="patientThumbnail" destination="TmG-aP-1Jc" id="VDC-UA-uzH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtX-vz-WK3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8190" y="-1030"/>
+            <point key="canvasLocation" x="-8212" y="-1098"/>
         </scene>
         <!--Primary Tab Bar Controller-->
         <scene sceneID="CTA-x1-Arn">
@@ -1086,6 +1110,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="PACUViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PACUViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="patientName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="patientSurgery" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="patientThumbnail" candidateClass="UIImageView"/>
+            </relationships>
         </class>
         <class className="PatientListViewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PatientListViewCell.h"/>

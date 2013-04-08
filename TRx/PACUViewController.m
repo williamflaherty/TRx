@@ -7,6 +7,7 @@
 //
 
 #import "PACUViewController.h"
+#import "LocalTalk.h"
 
 @interface PACUViewController ()
 
@@ -26,7 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	patientThumbnail = [LocalTalk localGetPortrait];
+    [LocalTalk localGe]
 }
 
 - (void)didReceiveMemoryWarning
