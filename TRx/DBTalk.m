@@ -128,11 +128,34 @@ static NSString *dbPath = nil;
     return NULL;
 }
 
-+(void)addRecoveryData:(NSString *)recoveryId
-                        
-{
++(void)addRecoveryDataForRecord:(NSString *)recordId
+                     recoveryId:(NSString *)recoveryId
+                  bloodPressure:(NSString *)bloodPressure
+                      heartRate:(NSString *)heartRate
+                    respiratory:(NSString *)respiratory
+                           sao2:(NSString *)sao2
+                          o2via:(NSString *)o2via
+                             ps:(NSString *)ps   {
+    NSURL *url = [NSURL URLWithString:host];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            recordId,       @"recordId",
+                            recoveryId,     @"recoveryId",
+                            bloodPressure,  @"bloodPressure",
+                            heartRate,      @"heartRate",
+                            respiratory,    @"respiratory",
+                            sao2,           @"sa02",
+                            o2via,          @"o2via",
+                            ps,             @"ps", nil];
+    
+    [httpClient postPath:@"add/recoveryData" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Request successful");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Request failed");
+    }];
 }
+
 /*---------------------------------------------------------------------------
  * adds profile picture to server and info to database
  * returns: NULL on failure. pictureId otherwise

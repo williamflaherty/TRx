@@ -60,6 +60,7 @@
 
 /* for testing */
 +(void)printLocal;
++(void)printAudio;
 /* end for testing */
 
 

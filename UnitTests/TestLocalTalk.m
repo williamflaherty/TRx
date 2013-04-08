@@ -72,7 +72,7 @@
     [LocalTalk localClearPatientData];
     
     NSString *data = @"This is test data. In place of an audio file, I'm storing this string";
-    NSString *fname = @"@audiofilename";
+    NSString *fname = @"audiofilename";
     
     BOOL success = [LocalTalk localStoreAudio:data fileName:fname];
     STAssertTrue(success, @"unable to add audio");

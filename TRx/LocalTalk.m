@@ -209,7 +209,8 @@
     return image;
 }
 
-+(id)localGetAudio:(NSString *)fileName {
+
++(NSData *)localGetAudio:(NSString *)fileName {
     
     FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
     [db open];
@@ -351,6 +352,21 @@
         NSLog(@"Key: %@  Value: %@", key, value);
     }
     
+    [db close];
+}
+
++(void)printAudio {
+    NSString *name, *synced, *data;
+    FMDatabase *db = [FMDatabase databaseWithPath:[Utility getDatabasePath]];
+    [db open];
+    
+    FMResultSet *results = [db executeQuery:@"SELECT * FROM Audio"];
+    while ([results next]) {
+        name   = [results stringForColumn:@"Name"];
+        synced = [results stringForColumn:@"Synched"];
+        data   = [results stringForColumn:@"Data"];
+        NSLog(@"Name: %@  Synced: %@ Data: %@", name, synced, data);
+    }
     [db close];
 }
 
