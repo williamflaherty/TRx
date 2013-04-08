@@ -7,6 +7,7 @@
 //
 
 #define MIN_HEIGHT 10.0f
+#define CONST_WIDTH 425.0f
 
 #import "HQLabel.h"
 
@@ -18,20 +19,27 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
         self.minHeight = MIN_HEIGHT;
-        self.frame = CGRectMake(200, 200, 300, 100);
+        self.frame = CGRectMake(0, 0, CONST_WIDTH, 100);
+        
+        [self setFont:[UIFont fontWithName:@"HelveticaNeue" size:20]];
+        [self setTextColor:[UIColor blackColor]];
+        
+        self.backgroundColor = [UIColor colorWithRed:200 green:200 blue:150 alpha:0];
+        
     }
     return self;
 }
 
 -(void)calculateSize{
-    CGSize constraint = CGSizeMake(self.frame.size.width/2, 20000.0f);
+    CGSize constraint = CGSizeMake(CONST_WIDTH, 20000.0f);
     CGSize size = [self.text sizeWithFont:self.font constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
     
     [self setLineBreakMode:NSLineBreakByWordWrapping];
     [self setAdjustsFontSizeToFitWidth:NO];
     [self setNumberOfLines:0];
-    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, MAX(size.height, MIN_HEIGHT))];
+    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, size.height)];
 }
 
 - (void)setText:(NSString *)text {
@@ -46,6 +54,22 @@
     [self calculateSize];
 }
 
+//Blurred shadow behind text
+- (void)drawTextInRect:(CGRect)rect {
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(context);
+    
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    float colorValues[] = {0, 0, 0, .4};
+    CGColorRef shadowColor = CGColorCreate(colorSpace, colorValues);
+    CGSize shadowOffset = CGSizeMake(0, 0);
+    CGContextSetShadowWithColor (context, shadowOffset, 4 /* blur */, shadowColor);
+    [super drawTextInRect:rect];
+    
+    CGColorRelease(shadowColor);
+    CGColorSpaceRelease(colorSpace);
+    CGContextRestoreGState(context);
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

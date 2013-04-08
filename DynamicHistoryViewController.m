@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 Team Ecuador. All rights reserved.
 //
 
-#define MAX_Y 900.0f
-#define MIN_Y 200.0f
+#define MAX_Y 50.0f
+#define MIN_Y 500.0f
+#define ENG_X 50.0f
+#define TRANS_X 550.0f
 
 #import "DynamicHistoryViewController.h"
 
@@ -57,9 +59,7 @@
     pageCount = 1;
     availableSpace = MAX_Y - MIN_Y;
     
-    mainQuestion = [[HQLabel alloc]init];
-    [mainQuestion setFont:[UIFont systemFontOfSize:20]];
-    [mainQuestion setTextColor:[UIColor blackColor]];
+    mainQuestion = [[HQView alloc]init];
     
     currentPage = [[NSMutableArray alloc] init];
     previousPages = [[NSMutableArray alloc] init];
@@ -81,7 +81,10 @@
         [self dismissCurrentQuestion];
     }
     
-    mainQuestion.text = @"TEST QUESTION!sjhdfbwuefgajfauyfvalfgaluefbvalfbkufbvlqueyflfgcqluwvclauycvlqwhfasfvaqsfvluyasgcluyqgflqwyfglquwyfglquyfqwlueyfgwleuyfgqlusfgqlusydfgqluwyfgqlukyfgqlusydgqlsydgqluydgqluwydgluy";
+    mainQuestion.type = YES_NO;
+    //[mainQuestion setQuestionLabelText: @"Does it keep you from working? aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"];
+    [mainQuestion setQuestionLabelText:[Question getEnglishLabel:@"preOp_PreventWorking"]];
+    [mainQuestion setResponse];
     [self setPositionForQuestion:mainQuestion];
     
     [self.view addSubview:mainQuestion];
@@ -101,8 +104,8 @@
     [mainQuestion removeFromSuperview];
 }
 
--(void) setPositionForQuestion:(HQLabel *)question{
-
+-(void) setPositionForQuestion:(HQView *)q{
+    q.frame = CGRectMake(TRANS_X, MAX_Y, q.frame.size.width, q.frame.size.height);
 }
 
 @end

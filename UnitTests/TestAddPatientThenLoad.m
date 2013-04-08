@@ -7,6 +7,7 @@
 //
 
 #import "TestAddPatientThenLoad.h"
+#import "Question.h"
 
 @implementation TestAddPatientThenLoad
 
@@ -67,10 +68,10 @@
     success = [LocalTalk loadPatientRecordIntoLocal:recordId];
     STAssertTrue(success, @"patient record data not loaded");
     
-    NSString *returnValue = [LocalTalk getValueForQuestionId:@"QuestionId1"];
+    NSString *returnValue = [Question getValueForQuestionId:@"QuestionId1"];
     STAssertEqualObjects(val1, returnValue, @"stored and retrieved value with no spaces");
     
-    returnValue = [LocalTalk getValueForQuestionId:@"QuestionId2"];
+    returnValue = [Question getValueForQuestionId:@"QuestionId2"];
     STAssertEqualObjects(val2, returnValue, @"stored and retrieved value with spaces");
     
     [LocalTalk printLocal];

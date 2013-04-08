@@ -7,6 +7,7 @@
 //
 
 #import "TestLocalTalk.h"
+#import "Question.h"
 
 @implementation TestLocalTalk
 
@@ -71,7 +72,7 @@
     [LocalTalk localClearPatientData];
     
     NSString *data = @"This is test data. In place of an audio file, I'm storing this string";
-    NSString *fname = @"@audiofilename";
+    NSString *fname = @"audiofilename";
     
     BOOL success = [LocalTalk localStoreAudio:data fileName:fname];
     STAssertTrue(success, @"unable to add audio");
@@ -87,9 +88,9 @@
 }
 
 -(void)testGetLabels {
-    NSString *eng = [LocalTalk getEnglishLabel:@"preOp_Name"];
-    NSString *spa = [LocalTalk getSpanishLabel:@"preOp_Name"];
-    NSString *typ = [LocalTalk getQuestionType:@"preOp_Name"];
+    NSString *eng = [Question getEnglishLabel:@"preOp_Name"];
+    NSString *spa = [Question getSpanishLabel:@"preOp_Name"];
+    NSString *typ = [Question getQuestionType:@"preOp_Name"];
     
     STAssertEqualObjects(@"0", typ, @"Question should be type 0");
     STAssertEqualObjects(eng, @"Name:", @"English Label not matching");

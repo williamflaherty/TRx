@@ -12,12 +12,10 @@
 
 @interface Question : LocalTalk
 
-
 +(NSString *)getEnglishLabel:(NSString *)questionId;
 +(NSString *)getTranslatedLabel:(NSString *)questionId;
 +(NSString *)getSpanishLabel:(NSString *)questionId;
 +(NSString *)getQuestionType:(NSString *)questionId;
 +(NSString *)getValueForQuestionId:(NSString *)questionId;
-
 
 @end

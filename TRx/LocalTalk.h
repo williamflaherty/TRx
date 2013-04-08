@@ -36,11 +36,6 @@
 +(NSString *)localGetPatientId;
 +(NSString *)localGetRecordId;
 
-+(NSString *)getEnglishLabel:(NSString *)questionId;
-+(NSString *)getTranslatedLabel:(NSString *)questionId;
-+(NSString *)getSpanishLabel:(NSString *)questionId;
-+(NSString *)getQuestionType:(NSString *)questionId;
-+(NSString *)getValueForQuestionId:(NSString *)questionId;
 
 
 +(BOOL)loadPortraitImageIntoLocal:(NSString *)patientId;
@@ -65,6 +60,7 @@
 
 /* for testing */
 +(void)printLocal;
++(void)printAudio;
 /* end for testing */
 
 
