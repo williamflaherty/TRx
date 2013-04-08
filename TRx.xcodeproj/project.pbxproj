@@ -48,6 +48,8 @@
 		C402E511170F16AD00737787 /* HQCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E510170F16AD00737787 /* HQCheckBox.m */; };
 		C402E514170F16CF00737787 /* HQSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E513170F16CF00737787 /* HQSelector.m */; };
 		C402E517170F16E100737787 /* HQLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E516170F16E100737787 /* HQLabel.m */; };
+		C402E5211712131500737787 /* HQView.m in Sources */ = {isa = PBXBuildFile; fileRef = C402E5201712131500737787 /* HQView.m */; };
+		C402E52217121B8900737787 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 130EF65017120DC9003C1C90 /* Question.m */; };
 		C446619E16EEE2FF008CE130 /* HistoryBackgroundLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619C16EEE2FF008CE130 /* HistoryBackgroundLandscape.png */; };
 		C446619F16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png in Resources */ = {isa = PBXBuildFile; fileRef = C446619D16EEE2FF008CE130 /* HistoryBackgroundLandscape22x.png */; };
 		C44D6F2916D19AD60036E40B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D6F2816D19AD60036E40B /* UIKit.framework */; };
