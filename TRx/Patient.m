@@ -10,6 +10,8 @@
 
 @implementation Patient
 
+//pretend change...
+
 @synthesize firstName, middleName, lastName, chiefComplaint, photoID, patientId, currentRecordId, birthday;
 
 -(id)initWithFirstName:(NSString *)fn MiddleName:(NSString*) mn LastName:(NSString*)ln ChiefComplaint:(NSString *)c PhotoID:(UIImage*)p{
