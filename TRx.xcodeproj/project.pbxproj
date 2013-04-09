@@ -111,7 +111,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A8FEB2F61714CAF5003F53D3 /* PBXContainerItemProxy */ = {
+		A82CDFF91714CC8900657096 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C44D6F1D16D19AD60036E40B /* Project object */;
 			proxyType = 1;
@@ -742,7 +742,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				A8FEB2F71714CAF5003F53D3 /* PBXTargetDependency */,
+				A82CDFFA1714CC8900657096 /* PBXTargetDependency */,
 			);
 			name = TRx;
 			productName = TRx;
@@ -918,10 +918,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A8FEB2F71714CAF5003F53D3 /* PBXTargetDependency */ = {
+		A82CDFFA1714CC8900657096 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1327D4B01704B0AD005010BC /* UnitTests */;
-			targetProxy = A8FEB2F61714CAF5003F53D3 /* PBXContainerItemProxy */;
+			targetProxy = A82CDFF91714CC8900657096 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
