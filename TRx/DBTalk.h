@@ -50,6 +50,12 @@
                      birthday:(NSString *)birthday
                     patientId:(NSString *)patientId;   /* pass NULL if adding. pass Id if updating */
 
++(void)addUpdatePatientAsync:(NSString *)firstName
+                  middleName:(NSString *)middleName
+                    lastName:(NSString *)lastName
+                    birthday:(NSString *)birthday
+                   patientId:(NSString *)patientId;
+
 +(BOOL)deletePatient: (NSString *)patientId;
 
 +(NSString *)addRecord:(NSString *)patientId

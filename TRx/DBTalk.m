@@ -34,7 +34,7 @@ static NSString *dbPath = nil;
              middleName:(NSString *)middleName
                lastName:(NSString *)lastName
                birthday:(NSString *)birthday {
-    return [self addUpdatePatient:firstName middleName:middleName lastName:lastName birthday:birthday patientId:@"NULL"];
+    return NULL;//[self addUpdatePatient:firstName middleName:middleName lastName:lastName birthday:birthday patientId:@"NULL"];
 }
 
 /*---------------------------------------------------------------------------
@@ -42,32 +42,70 @@ static NSString *dbPath = nil;
  * note: to add a patient, pass NULL as patientId. 
  *       to update patient data, pass patientId string as parameter
  *---------------------------------------------------------------------------*/
-+(NSString *)addUpdatePatient:(NSString *)firstName
++(void)addUpdatePatientAsync:(NSString *)firstName
              middleName:(NSString *)middleName
                lastName:(NSString *)lastName
                birthday:(NSString *)birthday
               patientId:(NSString *)patientId {
 
+
+    NSLog(@"Begin addPatient");
+    
+    NSURL *url = [NSURL URLWithString:host];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            firstName, @"firstName",
+                            lastName, @"lastName",
+                            middleName, @"middleName",
+                            birthday, @"birthday",
+                            patientId, @"patientId", nil];
+    
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"add/patient" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSString *patientId = [JSON objectForKey:@"returnValue"];
+        if (![patientId isEqualToString:@"0"]) {
+            //add to Local
+            //call addRecordAfterPatient
+            NSLog(@"patient successfully added: %@", patientId);
+        }
+        else {
+            NSLog(@"Error adding patient: %@", [JSON objectForKey:@"@error"]);
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"Failed to add patient");
+    }];
+    [operation start];
+
+    NSLog(@"End addPatient");
+}
++(NSString *)addUpdatePatient:(NSString *)firstName
+                  middleName:(NSString *)middleName
+                    lastName:(NSString *)lastName
+                    birthday:(NSString *)birthday
+                   patientId:(NSString *)patientId {
+    
     if ([middleName isEqualToString:@""]) {
         middleName = @"NULL";
     }
-    
-    
+
+
     NSString *encodedURL = [NSString stringWithFormat:
-                               @"%@add/addPatient/%@/%@/%@/%@/%@", host, patientId,
+                               @"%@add/patient/%@/%@/%@/%@/%@", host, patientId,
                                                                    [Utility urlEncodeData:firstName],
                                                                    [Utility urlEncodeData:middleName],
                                                                    [Utility urlEncodeData:lastName], birthday];
-    
+
     //NSLog(@"AddPatient encodedURL: %@", encodedURL);
 
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedURL]];
-    
+
     if (data) {
         NSError *jsonError;
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
         NSDictionary *dic = jsonArray[0];
-        
+
         NSString *retval = [dic objectForKey:@"@returnValue"];
         if ([retval isEqual: @"0"]) {
             NSString *err = [dic objectForKey:@"@error"];
@@ -75,7 +113,7 @@ static NSString *dbPath = nil;
             //NSLog(@"jsonError in addUpdatePatient?: %@", jsonError);
             return NULL;
         }
-        
+
         return retval;
     }
     return NULL;
@@ -507,14 +545,14 @@ static NSString *dbPath = nil;
     return NULL;
 }
 
-(BOOL)addOperationRecordFile:(NSString *)patientRecordId name:(NSString *)name  path:(NSString *)path recordTypeId:(NSString *) {
-    /*update Mischa's table */
-    /* asynchronously load file to server filesystem */
-    /* create a method in synchData to synch things */
-    
-    /*localTalk needs a synch column that gets updated on load */
-    return false;
-}
+//(BOOL)addOperationRecordFile:(NSString *)patientRecordId name:(NSString *)name  path:(NSString *)path recordTypeId:(NSString *) {
+//    /*update Mischa's table */
+//    /* asynchronously load file to server filesystem */
+//    /* create a method in synchData to synch things */
+//    
+//    /*localTalk needs a synch column that gets updated on load */
+//    return false;
+//}
 
 
 

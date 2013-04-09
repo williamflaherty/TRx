@@ -122,36 +122,36 @@
 
 
 +(BOOL)addOrUpdatePatient:(Patient *)newPatient {
-    NSString *patientId;
-    BOOL IDStored;
-    
-    if ([newPatient.patientId isEqual: @"tmpPatientId"]) {
-        patientId = [DBTalk addPatient:newPatient.firstName
-                            middleName:newPatient.middleName
-                              lastName:newPatient.lastName
-                              birthday:@"20081010"];//newPatient.birthday];
-        if (!patientId) {
-            NSLog(@"Failed to add patient: %@ %@", newPatient.firstName, newPatient.lastName);
-            NSLog(@"middleName: %@  birthday: %@", newPatient.middleName, newPatient.birthday);
-            return false;
-        }
-        
-        //update Patient MetaData in Local
-        IDStored = [LocalTalk localStorePatientMetaData:@"patientId" value:patientId];
-        if (!IDStored) {
-            NSLog(@"Error updating PatientMetaData's patientId: %@", patientId);
-        }
-        newPatient.patientId = patientId;
-    }
-    else {
-        NSLog(@"addOrUpdatePatient. In the else with: %@", newPatient.firstName);
-        patientId = [DBTalk addUpdatePatient:newPatient.firstName middleName:newPatient.middleName
-                                    lastName:newPatient.lastName birthday:@"20081010" patientId:newPatient.patientId];
-        if (!patientId) {
-            NSLog(@"Failed to update patient: %@ %@", newPatient.firstName, newPatient.lastName);
-            return false;
-        }
-    }
+//    NSString *patientId;
+//    BOOL IDStored;
+//    
+//    if ([newPatient.patientId isEqual: @"tmpPatientId"]) {
+//        patientId = [DBTalk addPatient:newPatient.firstName
+//                            middleName:newPatient.middleName
+//                              lastName:newPatient.lastName
+//                              birthday:@"20081010"];//newPatient.birthday];
+//        if (!patientId) {
+//            NSLog(@"Failed to add patient: %@ %@", newPatient.firstName, newPatient.lastName);
+//            NSLog(@"middleName: %@  birthday: %@", newPatient.middleName, newPatient.birthday);
+//            return false;
+//        }
+//        
+//        //update Patient MetaData in Local
+//        IDStored = [LocalTalk localStorePatientMetaData:@"patientId" value:patientId];
+//        if (!IDStored) {
+//            NSLog(@"Error updating PatientMetaData's patientId: %@", patientId);
+//        }
+//        newPatient.patientId = patientId;
+//    }
+//    else {
+//        NSLog(@"addOrUpdatePatient. In the else with: %@", newPatient.firstName);
+//        patientId = [DBTalk addUpdatePatient:newPatient.firstName middleName:newPatient.middleName
+//                                    lastName:newPatient.lastName birthday:@"20081010" patientId:newPatient.patientId];
+//        if (!patientId) {
+//            NSLog(@"Failed to update patient: %@ %@", newPatient.firstName, newPatient.lastName);
+//            return false;
+//        }
+//    }
     return true;
 }
 
