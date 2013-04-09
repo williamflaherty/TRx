@@ -111,14 +111,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1327D4C21704B2C4005010BC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C44D6F1D16D19AD60036E40B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C44D6F2416D19AD60036E40B;
-			remoteInfo = TRx;
-		};
-		1327D4C41704B7B7005010BC /* PBXContainerItemProxy */ = {
+		A8FEB2F61714CAF5003F53D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C44D6F1D16D19AD60036E40B /* Project object */;
 			proxyType = 1;
@@ -732,7 +725,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				1327D4C31704B2C4005010BC /* PBXTargetDependency */,
 			);
 			name = UnitTests;
 			productName = UnitTests;
@@ -750,7 +742,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				1327D4C51704B7B7005010BC /* PBXTargetDependency */,
+				A8FEB2F71714CAF5003F53D3 /* PBXTargetDependency */,
 			);
 			name = TRx;
 			productName = TRx;
@@ -926,15 +918,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1327D4C31704B2C4005010BC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C44D6F2416D19AD60036E40B /* TRx */;
-			targetProxy = 1327D4C21704B2C4005010BC /* PBXContainerItemProxy */;
-		};
-		1327D4C51704B7B7005010BC /* PBXTargetDependency */ = {
+		A8FEB2F71714CAF5003F53D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1327D4B01704B0AD005010BC /* UnitTests */;
-			targetProxy = 1327D4C41704B7B7005010BC /* PBXContainerItemProxy */;
+			targetProxy = A8FEB2F61714CAF5003F53D3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

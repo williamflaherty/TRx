@@ -507,14 +507,14 @@ static NSString *dbPath = nil;
     return NULL;
 }
 
-(BOOL)addOperationRecordFile:(NSString *)patientRecordId name:(NSString *)name  path:(NSString *)path recordTypeId:(NSString *) {
-    /*update Mischa's table */
-    /* asynchronously load file to server filesystem */
-    /* create a method in synchData to synch things */
-    
-    /*localTalk needs a synch column that gets updated on load */
-    return false;
-}
+//(BOOL)addOperationRecordFile:(NSString *)patientRecordId name:(NSString *)name  path:(NSString *)path recordTypeId:(NSString *) {
+//    /*update Mischa's table */
+//    /* asynchronously load file to server filesystem */
+//    /* create a method in synchData to synch things */
+//    
+//    /*localTalk needs a synch column that gets updated on load */
+//    return false;
+//}
 
 
 

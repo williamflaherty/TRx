@@ -71,7 +71,7 @@
 {
     [super viewDidLoad];
     
-    patients = [LocalTalk localGetPatientList];
+    //patients = [LocalTalk localGetPatientList];
   
     //[PatientListViewCell class];
     

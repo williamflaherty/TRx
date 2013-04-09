@@ -389,7 +389,7 @@
 
 +(BOOL)loadOperationRecordIntoLocal:(NSString *)recordId {
     [DBTalk getOperationRecordNames:recordId];
-    [LocalTalk ]
+    //[LocalTalk ]
     /* Load into local talk */
     
 }
