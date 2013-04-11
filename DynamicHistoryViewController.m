@@ -32,8 +32,8 @@
 }
 
 -(IBAction)nextPressed:(id)sender{
-    [self loadNextQuestion];
     pageCount++;
+    [self loadNextQuestion];
 }
 
 #pragma mark - Init Methods
@@ -66,26 +66,48 @@
     
     [self initializeQueue];
     [self loadNextQuestion];
+    //pageCount++;
 }
 
 #pragma mark - Question Loading Methods
 
 -(void) initializeQueue{
-    //Initialize the Question Queue
+    
 }
 
 -(void) loadNextQuestion{
     //Load Question from the Queue, Hard coded for now...
     
+    if(pageCount != 0){
+        [previousPages addObject:mainQuestion];
+    }
+    
+    HQView *newQuestion = [[HQView alloc] init];
+    
     if(pageCount != 1){
         [self dismissCurrentQuestion];
     }
     
-    mainQuestion.type = YES_NO;
-    //[mainQuestion setQuestionLabelText: @"Does it keep you from working? aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"];
-    [mainQuestion setQuestionLabelText:[Question getEnglishLabel:@"preOp_PreventWorking"]];
-    [mainQuestion setResponse];
-    [self setPositionForQuestion:mainQuestion];
+    if(pageCount == 1){
+        newQuestion.type = TEXT_ENTRY;
+        [newQuestion setQuestionLabelText:[Question getEnglishLabel:@"preOp_HowLong"]];
+    }
+    else if(pageCount == 2){
+        newQuestion.type = YES_NO;
+        [newQuestion setQuestionLabelText:[Question getEnglishLabel:@"preOp_PreventWorking"]];
+    }
+    else if(pageCount == 3){
+        newQuestion.type = MULTIPLE_SELECTION;
+        [newQuestion setQuestionLabelText:[Question getEnglishLabel:@"preOp_HaveMedicalProblems"]];
+    }
+    else{
+        return;
+    }
+    
+    [newQuestion buildQuestionOfType:newQuestion.type];
+    [self setPositionForQuestion:newQuestion];
+    
+    mainQuestion = newQuestion;
     
     [self.view addSubview:mainQuestion];
     
@@ -98,6 +120,10 @@
     
     [self dismissCurrentQuestion];
     
+    mainQuestion = [previousPages lastObject];
+    [previousPages removeLastObject];
+    [self.view addSubview:mainQuestion];
+    
 }
 
 -(void) dismissCurrentQuestion{
@@ -105,7 +131,7 @@
 }
 
 -(void) setPositionForQuestion:(HQView *)q{
-    q.frame = CGRectMake(TRANS_X, MAX_Y, q.frame.size.width, q.frame.size.height);
+    q.frame = CGRectMake(ENG_X, MAX_Y, q.frame.size.width, q.frame.size.height);
 }
 
 @end

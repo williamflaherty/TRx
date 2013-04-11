@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HQTextField : UITextField
+@interface HQTextField : UITextField <UITextFieldDelegate>
 
 @end

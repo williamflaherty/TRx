@@ -10,13 +10,32 @@
 
 @implementation HQCheckBox
 
+@synthesize toggleCount;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        toggleCount = 0;
+        
+        self.frame = CGRectMake(0, 0, 20, 20);
+        self = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [self addTarget:self action:@selector(checkPressed)forControlEvents:UIControlEventTouchUpInside];  
     }
     return self;
+}
+
+
+
+-(void) checkPressed{
+    if(toggleCount == 0){
+        self.backgroundColor = [UIColor blueColor];
+        toggleCount++;
+    }
+    else{
+        self.backgroundColor = [UIColor whiteColor];
+        toggleCount--;
+    }
 }
 
 /*

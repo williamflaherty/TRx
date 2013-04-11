@@ -10,7 +10,7 @@
 #import "Question.h"
 #import "HQView.h"
 
-@interface DynamicHistoryViewController : UIViewController{
+@interface DynamicHistoryViewController : UIViewController<UITextFieldDelegate>{
     
     float availableSpace;
     NSInteger pageCount;

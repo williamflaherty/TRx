@@ -11,10 +11,12 @@
 @interface HQLabel : UILabel{
 
     float minHeight;
+    float constrainedWidth;
 
 }
 
-@property (nonatomic) float minHeight;
+@property(nonatomic) float minHeight;
+@property(nonatomic, readwrite) float constrainedWidth;
 
 -(void) calculateSize;
 
