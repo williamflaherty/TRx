@@ -22,7 +22,7 @@
 +(NSArray *)getDoctorList;
 
 +(UIImage *)getPortraitFromServer:(NSString *)fileName;
-+(UIImage *)getThumbFromServer:(NSString *)fileName;
++(NSURL *)getThumbFromServer:(NSString *)fileName;
 +(UIImage *)getProfilePictureFromServer:(NSString *)patientId;
 
 +(NSString *)addProfilePicture:(UIImage *)picture
@@ -58,6 +58,15 @@
               isActive:(NSString *)isActive
             hasTimeout:(NSString *)hasTimeout;
 
++(void)addRecoveryDataForRecord:(NSString *)recordId
+                     recoveryId:(NSString *)recoveryId
+                  bloodPressure:(NSString *)bloodPressure
+                      heartRate:(NSString *)heartRate
+                    respiratory:(NSString *)respiratory
+                           sao2:(NSString *)sao2
+                          o2via:(NSString *)o2via
+                             ps:(NSString *)ps;
+
 
 +(NSString *)addRecordData:(NSString *)recordId
                        key:(NSString *)key
@@ -66,6 +75,6 @@
 +(NSArray *)getRecordData:(NSString *)recordId;
 +(NSArray *)getPatientMetaData:(NSString *)patientId;
 
-
++(NSDictionary *)getOperationRecordNames:(NSString *)recordId;
 
 @end

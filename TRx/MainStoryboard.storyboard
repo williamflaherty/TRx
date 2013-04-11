@@ -15,19 +15,19 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="DefaultBackgroundPortrait@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ltd-Fv-yIX"/>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8l9-jr-IwV">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="QYx-bo-PzQ"/>
-                                    <constraint firstAttribute="width" constant="240" id="eXQ-yO-Gls"/>
+                                    <constraint firstAttribute="width" constant="300" id="aT1-Vk-MWC"/>
+                                    <constraint firstAttribute="height" constant="300" id="jJY-OE-ySJ"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ltd-Fv-yIX" firstAttribute="trailing" secondItem="ggv-hz-8d5" secondAttribute="trailing" type="default" id="9o9-kC-BxJ"/>
-                            <constraint firstItem="8l9-jr-IwV" firstAttribute="top" secondItem="ggv-hz-8d5" secondAttribute="top" constant="54" id="GnH-gh-P0n"/>
                             <constraint firstItem="Ltd-Fv-yIX" firstAttribute="top" secondItem="ggv-hz-8d5" secondAttribute="top" type="default" id="KuW-ED-e7m"/>
                             <constraint firstItem="Ltd-Fv-yIX" firstAttribute="bottom" secondItem="ggv-hz-8d5" secondAttribute="bottom" type="default" id="M1b-RL-v4k"/>
+                            <constraint firstItem="8l9-jr-IwV" firstAttribute="top" secondItem="ggv-hz-8d5" secondAttribute="top" constant="20" symbolic="YES" type="default" id="MU0-M5-c0T"/>
                             <constraint firstItem="Ltd-Fv-yIX" firstAttribute="leading" secondItem="ggv-hz-8d5" secondAttribute="leading" type="default" id="foV-K2-YqO"/>
-                            <constraint firstItem="8l9-jr-IwV" firstAttribute="leading" secondItem="ggv-hz-8d5" secondAttribute="leading" constant="43" id="vOq-Kc-wNo"/>
+                            <constraint firstItem="8l9-jr-IwV" firstAttribute="leading" secondItem="ggv-hz-8d5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="zxz-hI-2RP"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Summary" image="0012.png" id="H8t-PY-ncK"/>
@@ -779,19 +779,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="recordAudio:" destination="tBt-y5-Yuc" eventType="touchUpInside" id="e7K-nt-NSy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEf-Wg-aNf">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Pause Recording">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pauseRecording:" destination="tBt-y5-Yuc" eventType="touchUpInside" id="mUv-1k-6oZ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yF-KK-JjT">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="147" id="esT-RI-BOO"/>
@@ -833,11 +820,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="qqP-ZF-naN" firstAttribute="leading" secondItem="Ai4-z4-qeu" secondAttribute="leading" type="default" id="3SP-YC-m5c"/>
                             <constraint firstItem="4yF-KK-JjT" firstAttribute="top" secondItem="0a9-TC-lCU" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4k2-a1-aUI"/>
                             <constraint firstItem="Ai4-z4-qeu" firstAttribute="top" secondItem="6Fo-5v-rD2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4rB-3R-JHg"/>
-                            <constraint firstItem="4yF-KK-JjT" firstAttribute="top" secondItem="TEf-Wg-aNf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4t2-dr-sZh"/>
                             <constraint firstItem="TTx-8M-Fke" firstAttribute="trailing" secondItem="SWa-SB-GkA" secondAttribute="trailing" type="default" id="6xB-eS-0pH"/>
                             <constraint firstItem="4yF-KK-JjT" firstAttribute="leading" secondItem="Pz6-9k-7le" secondAttribute="leading" type="default" id="7xI-bF-pMT"/>
                             <constraint firstItem="6Fo-5v-rD2" firstAttribute="centerX" secondItem="Ai4-z4-qeu" secondAttribute="centerX" type="default" id="Ags-Fk-qsJ"/>
-                            <constraint firstItem="TEf-Wg-aNf" firstAttribute="leading" secondItem="0a9-TC-lCU" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Fy7-oJ-kJm"/>
                             <constraint firstItem="TTx-8M-Fke" firstAttribute="leading" secondItem="9ye-F1-S6k" secondAttribute="leading" type="default" id="Idd-2E-iQC"/>
                             <constraint firstItem="qqP-ZF-naN" firstAttribute="top" secondItem="F6Y-Gc-rXd" secondAttribute="top" constant="92" id="KTv-dn-vOX"/>
                             <constraint firstItem="SWa-SB-GkA" firstAttribute="leading" secondItem="XtG-Jn-tQM" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="MHv-en-FHb"/>
@@ -846,7 +831,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="Ai4-z4-qeu" firstAttribute="leading" secondItem="hsA-a9-Icq" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="RJw-CE-9Yx"/>
                             <constraint firstItem="XtG-Jn-tQM" firstAttribute="leading" secondItem="F6Y-Gc-rXd" secondAttribute="leading" constant="356" id="RXc-Dv-S4Y"/>
                             <constraint firstItem="0a9-TC-lCU" firstAttribute="trailing" secondItem="Pz6-9k-7le" secondAttribute="trailing" type="default" id="RfO-Ok-GXg"/>
-                            <constraint firstItem="TEf-Wg-aNf" firstAttribute="top" secondItem="qqP-ZF-naN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="SgY-M1-hdF"/>
                             <constraint firstItem="9ye-F1-S6k" firstAttribute="top" secondItem="qqP-ZF-naN" secondAttribute="top" type="default" id="XZ9-hK-ZlQ"/>
                             <constraint firstItem="TTx-8M-Fke" firstAttribute="top" secondItem="9ye-F1-S6k" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="blH-bx-dUg"/>
                             <constraint firstItem="0a9-TC-lCU" firstAttribute="top" secondItem="qqP-ZF-naN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dR4-Lv-Rlx"/>
@@ -869,11 +853,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <tabBarItem key="tabBarItem" title="Surgery" image="0143.png" id="MmZ-AA-Dmb"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
+                        <outlet property="fileNameText" destination="Ai4-z4-qeu" id="Hmt-wR-BwF"/>
                         <outlet property="filesTable" destination="Xnd-Sj-1lN" id="PpH-TD-FQv"/>
                         <outlet property="playButton" destination="Pz6-9k-7le" id="jdq-ct-eB6"/>
                         <outlet property="recordButton" destination="0a9-TC-lCU" id="Unn-ys-wQO"/>
                         <outlet property="saveRecording" destination="4yF-KK-JjT" id="a1f-3t-tDY"/>
-                        <outlet property="stopButton" destination="TEf-Wg-aNf" id="Y4h-Np-cEZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aO7-MA-OWM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -888,22 +872,46 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="DefaultBackgroundPortrait@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="KsC-sp-0Ui"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TmG-aP-1Jc" userLabel="PatientThumbnail">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="6Cc-ev-bDw"/>
+                                    <constraint firstAttribute="height" constant="150" id="p4t-bc-9Mh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyP-wJ-Hff" userLabel="NameLabel">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Surgery" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGm-GJ-9K2" userLabel="SurgeryLabel">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KsC-sp-0Ui" firstAttribute="trailing" secondItem="v0N-NE-vAT" secondAttribute="trailing" type="default" id="DdL-H5-xPq"/>
-                            <constraint firstItem="KsC-sp-0Ui" firstAttribute="leading" secondItem="v0N-NE-vAT" secondAttribute="leading" type="default" id="IgA-Fn-cnt"/>
-                            <constraint firstItem="KsC-sp-0Ui" firstAttribute="top" secondItem="v0N-NE-vAT" secondAttribute="top" type="default" id="jSQ-ip-vv4"/>
-                            <constraint firstItem="KsC-sp-0Ui" firstAttribute="bottom" secondItem="v0N-NE-vAT" secondAttribute="bottom" type="default" id="x4N-fr-nji"/>
+                            <constraint firstItem="jGm-GJ-9K2" firstAttribute="leading" secondItem="v0N-NE-vAT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="0Gr-Da-EyX"/>
+                            <constraint firstItem="hyP-wJ-Hff" firstAttribute="top" secondItem="TmG-aP-1Jc" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="20k-LX-d1a"/>
+                            <constraint firstItem="hyP-wJ-Hff" firstAttribute="trailing" secondItem="jGm-GJ-9K2" secondAttribute="trailing" type="default" id="LHd-s7-J4g"/>
+                            <constraint firstItem="hyP-wJ-Hff" firstAttribute="trailing" secondItem="TmG-aP-1Jc" secondAttribute="trailing" type="default" id="eH2-yh-lEK"/>
+                            <constraint firstItem="TmG-aP-1Jc" firstAttribute="leading" secondItem="v0N-NE-vAT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fCV-Cv-LUV"/>
+                            <constraint firstItem="TmG-aP-1Jc" firstAttribute="top" secondItem="v0N-NE-vAT" secondAttribute="top" constant="20" symbolic="YES" type="default" id="hGp-mO-5jt"/>
+                            <constraint firstItem="hyP-wJ-Hff" firstAttribute="leading" secondItem="v0N-NE-vAT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kwB-pX-jVY"/>
+                            <constraint firstItem="jGm-GJ-9K2" firstAttribute="top" secondItem="hyP-wJ-Hff" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="wdh-Li-slq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="PACU" image="0238.png" id="eyo-QH-EzR"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="patientName" destination="hyP-wJ-Hff" id="QFz-Pt-BXw"/>
+                        <outlet property="patientSurgery" destination="jGm-GJ-9K2" id="nPw-1C-he5"/>
+                        <outlet property="patientThumbnail" destination="TmG-aP-1Jc" id="VDC-UA-uzH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtX-vz-WK3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8190" y="-1030"/>
+            <point key="canvasLocation" x="-8212" y="-1098"/>
         </scene>
         <!--Primary Tab Bar Controller-->
         <scene sceneID="CTA-x1-Arn">
@@ -992,7 +1000,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Patients" id="msi-Bg-QGb">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="pzW-2e-LNn"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="pzW-2e-LNn">
+                            <connections>
+                                <action selector="refreshPatients:" destination="azQ-T5-HYE" id="7bj-9v-9Uh"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" tag="1" systemItem="add" id="2CS-7z-azS">
                             <connections>
                                 <action selector="addPatients:" destination="azQ-T5-HYE" id="OVp-2W-cka"/>
@@ -1002,6 +1014,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="addPatientsButton" destination="2CS-7z-azS" id="5kR-Y3-yhD"/>
+                        <outlet property="refreshButton" destination="pzW-2e-LNn" id="O93-Uu-a5M"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zj6-Z0-Gmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1039,90 +1052,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="DefaultBackgroundPortrait@2x.png" width="1536" height="2048"/>
         <image name="HistoryBackgroundLandscape.png" width="1024" height="768"/>
     </resources>
-    <classes>
-        <class className="DynamicHistoryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DynamicHistoryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backPressed:"/>
-                <relationship kind="action" name="nextPressed:"/>
-                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="HistoryNavigationController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryNavigationController.h"/>
-        </class>
-        <class className="HistoryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addPatient:"/>
-                <relationship kind="action" name="nextView:"/>
-                <relationship kind="action" name="useCamera:"/>
-                <relationship kind="outlet" name="birthdayPicker" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="complaintPicker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="firstNameText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="lastNameText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="middleNameText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="next" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="OrdersViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OrdersViewController.h"/>
-        </class>
-        <class className="PACUViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PACUViewController.h"/>
-        </class>
-        <class className="PatientListViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PatientListViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="chiefComplaint" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="patientName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="patientPicture" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="PatientListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PatientListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addPatients:"/>
-                <relationship kind="action" name="refreshPatients:"/>
-                <relationship kind="outlet" name="addPatientsButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="PhysicalViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhysicalViewController.h"/>
-        </class>
-        <class className="PrimaryNavigationController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PrimaryNavigationController.h"/>
-        </class>
-        <class className="PrimaryTabBarController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PrimaryTabBarController.h"/>
-        </class>
-        <class className="SummaryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SummaryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="patientPicture" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="SurgeryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SurgeryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="pauseRecording:"/>
-                <relationship kind="action" name="playAudio:"/>
-                <relationship kind="action" name="recordAudio:"/>
-                <relationship kind="action" name="saveRecord:"/>
-                <relationship kind="action" name="useCamera:"/>
-                <relationship kind="outlet" name="filesTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="recordButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="saveRecording" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="stopButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

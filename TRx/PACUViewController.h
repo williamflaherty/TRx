@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PACUViewController : UIViewController
+@interface PACUViewController : UIViewController{
+    
+    __weak IBOutlet UILabel *patientName;
+    __weak IBOutlet UILabel *patientSurgery;
+    __weak IBOutlet UIImageView *patientThumbnail;
+}
 
 @end

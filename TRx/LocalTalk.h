@@ -28,7 +28,7 @@
 
 
 
-
++(NSMutableArray *)localGetPatientList;
 +(NSString *)localGetPatientMetaData:(NSString *)key;
 +(UIImage *)localGetPortrait;
 +(id)localGetAudio:(NSString *)fileName;
@@ -60,6 +60,7 @@
 
 /* for testing */
 +(void)printLocal;
++(void)printAudio;
 /* end for testing */
 
 

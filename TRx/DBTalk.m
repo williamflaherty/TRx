@@ -128,11 +128,34 @@ static NSString *dbPath = nil;
     return NULL;
 }
 
-+(void)addRecoveryData:(NSString *)recoveryId
-                        
-{
++(void)addRecoveryDataForRecord:(NSString *)recordId
+                     recoveryId:(NSString *)recoveryId
+                  bloodPressure:(NSString *)bloodPressure
+                      heartRate:(NSString *)heartRate
+                    respiratory:(NSString *)respiratory
+                           sao2:(NSString *)sao2
+                          o2via:(NSString *)o2via
+                             ps:(NSString *)ps   {
+    NSURL *url = [NSURL URLWithString:host];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            recordId,       @"recordId",
+                            recoveryId,     @"recoveryId",
+                            bloodPressure,  @"bloodPressure",
+                            heartRate,      @"heartRate",
+                            respiratory,    @"respiratory",
+                            sao2,           @"sa02",
+                            o2via,          @"o2via",
+                            ps,             @"ps", nil];
+    
+    [httpClient postPath:@"add/recoveryData" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Request successful");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Request failed");
+    }];
 }
+
 /*---------------------------------------------------------------------------
  * adds profile picture to server and info to database
  * returns: NULL on failure. pictureId otherwise
@@ -237,22 +260,16 @@ static NSString *dbPath = nil;
 
 
 /*---------------------------------------------------------------------------
- * description: gets picture from thumb folder on host
+ * description: gets picture url from thumb folder on host
  * current host: teamecuadortrx.com/TRxTalk
  * fileName: "patientId" + "n" + "picNumber"
- * returns UIImage of specified jpeg
+ * returns NSURL of specified jpeg
  *---------------------------------------------------------------------------*/
-+(UIImage *)getThumbFromServer:(NSString *)fileName {
++(NSURL *)getThumbFromServer:(NSString *)fileName {
     NSString *str = [NSString stringWithFormat:@"%@thumbs/%@.jpeg", imageDir, fileName];
     NSURL *url = [NSURL URLWithString:str];
-    //UIImage *myImage = [UIImage imageWithData:
-     //                   [NSData dataWithContentsOfURL:url]];
     
-    UIImageView *imageView = [[UIImageView alloc] init];
-    [imageView setImageWithURL:url];
-    //return myImage;
-    //[imageView ]
-    return imageView.image;
+    return url;
 }
 
 
@@ -473,6 +490,31 @@ static NSString *dbPath = nil;
         name = [NSString stringWithFormat:@"%@n%d",patientId, numPics];
     return name;
 }
+
++(NSDictionary *)getOperationRecordNames:(NSString *)recordId {
+    NSString *encodedString = [NSString stringWithFormat:@"%@get/operationRecord/%@", host, recordId];
+    NSLog(@"encodedString: %@", encodedString);
+    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:encodedString]];
+
+    if (data) {
+        NSError *jsonError;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+        NSDictionary *dic = jsonArray[0];
+        
+        return dic;
+    }
+    NSLog(@"Error retrieving operation record names");
+    return NULL;
+}
+
+//(BOOL)addOperationRecordFile:(NSString *)patientRecordId name:(NSString *)name  path:(NSString *)path recordTypeId:(NSString *) {
+//    /*update Mischa's table */
+//    /* asynchronously load file to server filesystem */
+//    /* create a method in synchData to synch things */
+//    
+//    /*localTalk needs a synch column that gets updated on load */
+//    return false;
+//}
 
 
 

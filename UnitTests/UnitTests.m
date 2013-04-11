@@ -95,6 +95,13 @@
     STAssertTrue(success, @"Unable to delete patient");
 }
 
+
+-(void)testAddRecoveryDataForRecord {
+   /*
+    [DBTalk addRecoveryDataForRecord:<#(NSString *)#> recoveryId:<#(NSString *)#> bloodPressure:<#(NSString *)#> heartRate:<#(NSString *)#> respiratory:<#(NSString *)#> sao2:<#(NSString *)#> o2via:<#(NSString *)#> ps:<#(NSString *)#>];*/
+    
+}
+
 -(void)testAddValueForQuestionId {
     //add patient to Database
 //    NSString *patientId = [DBTalk addPatient:@"Ftest" middleName:@"mTest" lastName:@"lTest" birthday:@"19850819"];

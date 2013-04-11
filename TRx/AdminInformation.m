@@ -9,7 +9,8 @@
 #import "AdminInformation.h"
 #import "DBTalk.h"
 
-@implementation AdminInformation
+@implementation AdminInformation 
+
 
 +(NSMutableArray *)getDoctorNames
 {
@@ -45,6 +46,41 @@
         NSLog(@"Error retrieving surgeryNamesList");
         return NULL;
     }
+}
+
++(NSString *)getSurgeryNameById:(NSString *)complaintId {
+    NSArray *surgeryList = [DBTalk getSurgeryList];
+    if (surgeryList != NULL) {
+        for (NSDictionary *dic in surgeryList) {
+            NSString *tmp = [dic objectForKey:@"Id"];
+            if([complaintId isEqualToString:tmp]){
+                return [dic objectForKey:@"Name"];
+            }
+        }
+    }
+    else {
+        NSLog(@"Error retrieving surgeryNamesList");
+        return NULL;
+    }
+    return NULL; 
+}
+
++(NSString *)getSurgeryIdByName:(NSString *)complaintName{
+    NSArray *surgeryList = [DBTalk getSurgeryList];
+    if (surgeryList != NULL) {
+        for (NSDictionary *dic in surgeryList) {
+            NSString *tmp = [dic objectForKey:@"Name"]; 
+            if([complaintName isEqualToString:tmp]){
+                return [dic objectForKey:@"Id"];
+            }
+        }
+    }
+    else {
+        NSLog(@"Error retrieving surgeryNamesList");
+        return NULL;
+    }
+    return NULL;
+
 }
 
 @end
