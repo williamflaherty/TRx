@@ -16,6 +16,7 @@
 		1327D4BD1704B0AD005010BC /* UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1327D4BC1704B0AD005010BC /* UnitTests.m */; };
 		1327D4C71704BA1A005010BC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1327D4C61704BA1A005010BC /* SystemConfiguration.framework */; };
 		1327D4C91704BA2C005010BC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1327D4C81704BA2C005010BC /* MobileCoreServices.framework */; };
+		132E70081714D49C00E70988 /* LocalLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 132E70071714D49C00E70988 /* LocalLoad.m */; };
 		13C069FB170B384D00044896 /* TestLocalTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C069FA170B384D00044896 /* TestLocalTalk.m */; };
 		13C06A04170E5AF400044896 /* TestAddPatientThenLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C06A03170E5AF400044896 /* TestAddPatientThenLoad.m */; };
 		13CF9B2016EC4BAD006CF20B /* LocalTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */; };
@@ -137,6 +138,8 @@
 		1327D4C81704BA2C005010BC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1327D4CB1708F464005010BC /* LocalTalkWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTalkWrapper.h; sourceTree = "<group>"; };
 		1327D4CC1708F464005010BC /* LocalTalkWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTalkWrapper.m; sourceTree = "<group>"; };
+		132E70061714D49C00E70988 /* LocalLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalLoad.h; sourceTree = "<group>"; };
+		132E70071714D49C00E70988 /* LocalLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalLoad.m; sourceTree = "<group>"; };
 		13C069F9170B384D00044896 /* TestLocalTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLocalTalk.h; sourceTree = "<group>"; };
 		13C069FA170B384D00044896 /* TestLocalTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLocalTalk.m; sourceTree = "<group>"; };
 		13C06A02170E5AF300044896 /* TestAddPatientThenLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAddPatientThenLoad.h; sourceTree = "<group>"; };
@@ -347,6 +350,8 @@
 				1327D4CC1708F464005010BC /* LocalTalkWrapper.m */,
 				13CF9B1E16EC4BAD006CF20B /* LocalTalk.h */,
 				13CF9B1F16EC4BAD006CF20B /* LocalTalk.m */,
+				132E70061714D49C00E70988 /* LocalLoad.h */,
+				132E70071714D49C00E70988 /* LocalLoad.m */,
 			);
 			name = LocalTalk;
 			sourceTree = "<group>";
@@ -914,6 +919,7 @@
 				C402E514170F16CF00737787 /* HQSelector.m in Sources */,
 				C402E517170F16E100737787 /* HQLabel.m in Sources */,
 				C402E5211712131500737787 /* HQView.m in Sources */,
+				132E70081714D49C00E70988 /* LocalLoad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
