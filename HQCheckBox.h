@@ -10,9 +10,13 @@
 
 @interface HQCheckBox : UIButton{
     NSInteger toggleCount;
+    NSString *optionLabel;
+    NSInteger arrayIndex;
 }
 
-@property(nonatomic,readonly) NSInteger toggleCount;
+@property(nonatomic, readonly) NSInteger toggleCount;
+@property(nonatomic, retain) NSString *optionLabel;
+@property(nonatomic, readwrite) NSInteger arrayIndex;
 
 -(void) checkPressed;
 

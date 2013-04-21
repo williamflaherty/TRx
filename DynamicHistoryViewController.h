@@ -8,19 +8,29 @@
 
 #import <UIKit/UIKit.h>
 #import "Question.h"
+#import "HQHelper.h"
 #import "HQView.h"
 
 @interface DynamicHistoryViewController : UIViewController<UITextFieldDelegate>{
     
     float availableSpace;
     NSInteger pageCount;
-    NSString *questionText;
+    NSString *mainQuestionText;
+    NSString *transQuestionText;
+    
+    HQHelper *qHelper;
+    
     HQView *mainQuestion;
+    HQView *transQuestion;
     
     
-    //Arrays of Questions for storage
+    //Arrays of Questions for main storage
     NSMutableArray *currentPage;
     NSMutableArray *previousPages;
+    NSMutableArray *nextPages;
+    NSMutableArray *answers;
+    
+    Boolean hasNextPages;
     
     IBOutlet UIButton *backButton, *nextButton;
     
@@ -38,6 +48,7 @@
 -(void) loadNextQuestion;
 -(void) loadPreviousQuestion;
 -(void) dismissCurrentQuestion;
--(void) setPositionForQuestion:(HQView*)question;
+-(void) setPositionForMainQuestion:(HQView*)question;
+-(void) setPositionForTransQuestion:(HQView*)question;
 
 @end

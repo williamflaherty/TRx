@@ -1,25 +1,30 @@
 //
-//  HQTextField.m
+//  HQYesNo.m
 //  TRx
 //
-//  Created by Mark Bellott on 4/5/13.
+//  Created by Mark Bellott on 4/15/13.
 //  Copyright (c) 2013 Team Ecuador. All rights reserved.
 //
 
-#import "HQTextField.h"
+#import "HQYesNo.h"
 
-@implementation HQTextField
+@implementation HQYesNo
+
+@synthesize hasChanged;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        
+        [self setBackgroundColor:[UIColor whiteColor]];
+        [self.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:20]];
+        [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        
+        hasChanged = NO;
     }
     return self;
 }
-
-
 
 /*
 // Only override drawRect: if you perform custom drawing.

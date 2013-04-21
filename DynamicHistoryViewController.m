@@ -7,6 +7,7 @@
 //
 
 #define MAX_Y 50.0f
+#define MID_Y 275.0f
 #define MIN_Y 500.0f
 #define ENG_X 50.0f
 #define TRANS_X 550.0f
@@ -56,61 +57,100 @@
 
 -(void) initialSetup{
     
+    hasNextPages = NO;
+    
     pageCount = 1;
-    availableSpace = MAX_Y - MIN_Y;
+    availableSpace = MAX_Y - MIN_Y; 
     
     mainQuestion = [[HQView alloc]init];
+    transQuestion = [[HQView alloc]init];
     
-    currentPage = [[NSMutableArray alloc] init];
     previousPages = [[NSMutableArray alloc] init];
+    nextPages = [[NSMutableArray alloc]init];
+    answers = [[NSMutableArray alloc] init];
     
     [self initializeQueue];
     [self loadNextQuestion];
-    //pageCount++;
 }
 
 #pragma mark - Question Loading Methods
 
 -(void) initializeQueue{
-    
+    qHelper = [[HQHelper alloc] init];
 }
 
 -(void) loadNextQuestion{
     //Load Question from the Queue, Hard coded for now...
     
-    if(pageCount != 0){
+   
+    if(pageCount != 1){
+        [mainQuestion checkHasAnswer];
+        
+        if(!mainQuestion.hasAnswer){
+            UIAlertView *provideAnswer = [[UIAlertView alloc] initWithTitle:@"Wait!" message:@"Please provide an answer before continuing." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [provideAnswer show];
+            return;
+        }
+        
         [previousPages addObject:mainQuestion];
+        [previousPages addObject:transQuestion];
+        [self findAnswers];
+        [qHelper updateCurrentIndexWithResponse:answers];
+        //[qHelper updateCurrentIndex];
     }
     
-    HQView *newQuestion = [[HQView alloc] init];
+    if(hasNextPages){
+        [self dismissCurrentQuestion];
+        
+        transQuestion = [nextPages lastObject];
+        [nextPages removeLastObject];
+        [self .view addSubview:transQuestion];
+        
+        mainQuestion = [nextPages lastObject];
+        [nextPages removeLastObject];
+        [self.view addSubview:mainQuestion];
+        
+        if([nextPages lastObject] == NULL)  hasNextPages = NO;
+        
+        return;
+    }
+    
+    HQView *newMainQuestion = [[HQView alloc] init];
+    HQView *newTransQuestion = [[HQView alloc] init];
     
     if(pageCount != 1){
         [self dismissCurrentQuestion];
     }
     
-    if(pageCount == 1){
-        newQuestion.type = TEXT_ENTRY;
-        [newQuestion setQuestionLabelText:[Question getEnglishLabel:@"preOp_HowLong"]];
-    }
-    else if(pageCount == 2){
-        newQuestion.type = YES_NO;
-        [newQuestion setQuestionLabelText:[Question getEnglishLabel:@"preOp_PreventWorking"]];
-    }
-    else if(pageCount == 3){
-        newQuestion.type = MULTIPLE_SELECTION;
-        [newQuestion setQuestionLabelText:[Question getEnglishLabel:@"preOp_HaveMedicalProblems"]];
-    }
-    else{
-        return;
+    newMainQuestion.type = [qHelper getNextType];
+    [newMainQuestion setQuestionLabelText:[qHelper getNextEnglishLabel]];
+    
+    newTransQuestion.type = [qHelper getNextType];
+    [newTransQuestion setQuestionLabelText:[qHelper getNextTranslatedLabel]];
+    
+    //[qHelper updateCurrentIndex];
+
+    [newMainQuestion buildQuestionOfType:newMainQuestion.type withHelper:qHelper];
+    [self setPositionForMainQuestion:newMainQuestion];
+    
+    [newTransQuestion buildQuestionOfType:newTransQuestion.type withHelper:qHelper];
+    [self setPositionForTransQuestion:newTransQuestion];
+    
+    if(newMainQuestion.type == TEXT_ENTRY){
+        newMainQuestion.textEntryField.delegate = self;
+        newTransQuestion.textEntryField.delegate = self;
     }
     
-    [newQuestion buildQuestionOfType:newQuestion.type];
-    [self setPositionForQuestion:newQuestion];
+    newMainQuestion.connectedView = newTransQuestion;
+    newTransQuestion.connectedView = newMainQuestion;
     
-    mainQuestion = newQuestion;
+    mainQuestion = newMainQuestion;
+    transQuestion = newTransQuestion;
     
     [self.view addSubview:mainQuestion];
+    [self.view addSubview:transQuestion];
     
+    [answers removeAllObjects];
 }
 
 -(void) loadPreviousQuestion{
@@ -118,7 +158,15 @@
         return;
     }
     
+    hasNextPages = YES;
+    [nextPages addObject:mainQuestion];
+    [nextPages addObject:transQuestion];
+    
     [self dismissCurrentQuestion];
+    
+    transQuestion = [previousPages lastObject];
+    [previousPages removeLastObject];
+    [self.view addSubview:transQuestion];
     
     mainQuestion = [previousPages lastObject];
     [previousPages removeLastObject];
@@ -128,10 +176,72 @@
 
 -(void) dismissCurrentQuestion{
     [mainQuestion removeFromSuperview];
+    [transQuestion removeFromSuperview];
 }
 
--(void) setPositionForQuestion:(HQView *)q{
-    q.frame = CGRectMake(ENG_X, MAX_Y, q.frame.size.width, q.frame.size.height);
+-(void) setPositionForMainQuestion:(HQView *)q{
+    float yPos = MID_Y - (q.frame.size.height/2);
+    q.frame = CGRectMake(ENG_X, yPos, q.frame.size.width, q.frame.size.height);
+}
+
+-(void) setPositionForTransQuestion:(HQView *)q{
+    float yPos = MID_Y - (q.frame.size.height/2);
+    q.frame = CGRectMake(TRANS_X, yPos, q.frame.size.width, q.frame.size.height);
+}
+
+-(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    if(mainQuestion.type == TEXT_ENTRY){
+        [mainQuestion.textEntryField resignFirstResponder];
+        [transQuestion.textEntryField resignFirstResponder];
+    }
+    else if(mainQuestion.type == MULTIPLE_SELECTION){
+        for(HQTextField *tf in mainQuestion.selectionTextFields){
+            [tf resignFirstResponder];
+        }
+        for(HQTextField *tf in transQuestion.selectionTextFields){
+            [tf resignFirstResponder];
+        }
+    }
+}
+
+-(void) textFieldDidEndEditing:(UITextField *)textField{
+    if(textField == mainQuestion.textEntryField){
+        transQuestion.textEntryField.text = mainQuestion.textEntryField.text;
+    }
+    if(textField == transQuestion.textEntryField){
+        mainQuestion.textEntryField.text = transQuestion.textEntryField.text;
+    }
+}
+
+-(void) findAnswers{
+    [answers removeAllObjects];
+    
+    if(mainQuestion.type == TEXT_ENTRY){
+        [answers addObject:@"YES"];
+        [answers addObject:mainQuestion.textEntryField.text];
+    }
+    
+    else if (mainQuestion.type == YES_NO){
+        if(mainQuestion.yesButton.selected){
+            [answers addObject:@"YES"];
+        }
+        else{
+            [answers addObject:@"NO"];
+        }
+    }
+    
+    else if (mainQuestion.type == MULTIPLE_SELECTION){
+        [answers addObject:@"YES"];
+        for(HQCheckBox *cb in mainQuestion.checkBoxes){
+            if(cb.selected){
+                [answers addObject:cb.optionLabel];
+            }
+        }
+    }
+    
+//    NSString *answerString = [answers componentsJoinedByString:@", "]; 
+//    NSArray *previousAnswers = [answerString componentsSeparatedByString:@", "];
+    
 }
 
 @end
